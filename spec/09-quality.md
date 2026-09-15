@@ -81,9 +81,17 @@ dynamic imports for charts, editors and the canvas panel; CSS for all ambient vi
 
 **Visual**
 
-1. Purple-to-blue gradient used on every surface and button.
-2. Glass panels over a flat background (no aurora), producing gray mud.
-3. More than two accent colors in a viewport; accent used for decoration instead of action.
+0. Color inflation of any kind. Run the grayscale test of `1.2.1` before shipping: if the hierarchy
+   survives without color, the palette is doing its job; if it does not, the page is decorated, not
+   designed.
+
+1. Purple-to-blue gradient on every surface and button; purple as the default accent at all.
+2. Neon, cyan-on-purple, rainbow or multi-hue gradients; saturated background fills.
+3. Glass panels over a flat background (no aurora), producing gray mud.
+4. More than two accent colors in a viewport; accent used for decoration instead of action;
+   an accent covering more than ten percent of the surface.
+5. Glow on more than one element, gradient text outside the hero H1, and "candy" buttons where the
+   primary action looks like a different product than the rest of the page.
 4. Emoji as icons; mixed icon sets; inconsistent stroke widths.
 5. Generic stock photography with fake laptops and glowing servers.
 6. Excessive shadows, glows, and borders on the same element.

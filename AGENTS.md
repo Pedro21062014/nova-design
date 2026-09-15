@@ -18,6 +18,7 @@ There is no application code to run. The deliverables are documents.
 | Specification source | `spec/*.md` | Modular parts, assembled in the order defined by `scripts/build_spec.py` |
 | Line index and task map | `nova-design.md` sections 0.5 and 0.7 | Regenerated automatically |
 | Examples | `examples/01-*.md` to `examples/09-*.md` | 100 examples, `EX-01` to `EX-100` |
+| Showcase site | `examples-sites/*.html` | Generated before/after demo: 5 pages with the system, 5 with anti-patterns |
 | Example index | `examples/00-index.md` | Maps every example to its file, base component and theme |
 | Prompts | `prompts/*.md` | Master prompt plus twelve task-specific prompts |
 
@@ -39,6 +40,9 @@ There is no application code to run. The deliverables are documents.
 ## Design rules an agent must never break
 
 1. Tokens only; no hex, shadow literal, radius, blur or duration inside a component.
+1b. Color discipline (spec 1.2.1): neutral-first, one accent per viewport, purple and neon banned by
+    default, single-hue primary gradient, grayscale test must pass. Generated pages must not
+    reintroduce `--accent-3` (#c084fc) or any multi-hue gradient.
 2. Glass requires a background behind it (aurora, gradient or image).
 3. shadcn/ui primitives are the base; skin them, never reimplement them.
 4. Every interactive element ships with hover, focus-visible, active, disabled and loading states.
@@ -54,6 +58,7 @@ There is no application code to run. The deliverables are documents.
 ```bash
 python3 scripts/build_spec.py           # rebuild nova-design.md and refresh the line index
 python3 scripts/build_spec.py --check   # verify the generated file is current
+python3 scripts/build_showcase.py       # rebuild examples-sites/ (11 self-contained HTML pages)
 wc -l nova-design.md examples/*.md prompts/*.md   # quick size overview
 ```
 

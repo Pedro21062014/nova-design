@@ -102,7 +102,7 @@ increment only after the previous one runs.
 | Failure | Fix in the prompt |
 |---|---|
 | Reads the whole spec, ignores the task map | "Do not read the entire file. Read only the listed line ranges." |
-| Produces purple gradients everywhere | "Accent usage per section 1.2: maximum two accents per viewport." |
+| Produces purple gradients and neon everywhere | "Section 1.2.1 is mandatory: neutral-first, one accent per viewport, purple and neon banned by default, grayscale test must pass." |
 | Glass without a background | "Section 1.3 rule 1: glass requires an aurora or an image behind it." |
 | Animation on every element | "Reveal once, distance 16px, stagger capped at 400ms (section 6.2)." |
 | Long, slow, repeated animations | "Durations per 6.1. Nothing above 900ms. Never re-trigger." |

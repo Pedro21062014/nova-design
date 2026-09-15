@@ -193,8 +193,9 @@ to zero, all caught up, first-run onboarding, connection lost, and error.
 - Grid: horizontal lines only, `--hair-soft`, 1px, no vertical grid, no chart border, no dashboards
   filled with boxes.
 - Axis: labels `--fs-2xs`, `--fg-subtle`, 4 ticks maximum on X, 4 on Y, tick line hidden.
-- Series palette, in order: `--accent`, `--accent-2`, `--accent-3`, `--warn`, `--danger`.
-  Maximum 5 series; beyond that use small multiples.
+- Series palette, in order: `--accent`, `--accent-2`, `--warn`, `--danger`, `--fg-muted`.
+  Five series maximum; beyond that use small multiples. Purple is deliberately absent from the
+  default series order; only introduce `--accent-3` when a sixth distinct hue is unavoidable.
 - Area and bar fills use a vertical gradient from 22 percent to 0 percent opacity.
 - Line stroke width 2, dot hidden until hover, active dot 8px with a white ring.
 - Tooltip: glass card, 8px padding, series name with a color dot and value with tabular numbers,

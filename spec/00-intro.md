@@ -87,6 +87,8 @@ Alternative loaders:
    `Next.js 15 App Router + TypeScript + Tailwind CSS v4 + motion (Framer Motion) + lucide-react +
    shadcn/ui`. Accepted alternatives: Vite + React, Astro, plain HTML with CSS custom properties.
 4. **Tokens always.** Use the CSS variables and utility classes from Section 2. No raw hex in JSX.
+   **Color discipline:** neutral ground first, one accent per viewport, and no purple, violet or neon
+   unless the brand demands it. Read `1.2.1` before choosing any color.
 5. **All states.** Every interactive component ships with `default`, `hover`, `focus-visible`,
    `active`, `disabled`, plus `loading`, `empty` and `error` where applicable.
 6. **Accessibility built in.** Visible focus ring, correct `aria-*`, AA contrast,
@@ -108,6 +110,7 @@ Alternative loaders:
 |---|---|---|---|
 | Understand the system, vocabulary and delivery rules | `@@S:0.2@@` | How to use this file | - |
 | Build the visual foundation: color, glass, type, spacing | `@@S:1@@` | Design foundations | EX-01, EX-07, EX-08 |
+| Choose colors, avoid purple and neon, apply the accent budget | `@@S:1.2@@` | Color discipline | - |
 | Copy and paste tokens: CSS, Tailwind, motion | `@@S:2@@` | Design tokens | - |
 | Buttons and form controls | `@@S:3.1@@` | Buttons | EX-11, EX-12 |
 | Glass cards, bento grids, spotlight surfaces | `@@S:3.2@@` | Surfaces | EX-01 to EX-06 |
@@ -194,6 +197,11 @@ snippet, the motion behavior and the spec sections it implements.
 | EX-91 to EX-100 | Docs, blog, changelog, dashboard, portfolio, pricing, legal, settings | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/09-pages-assembly.md |
 | Index of all 100 | IDs, base components, themes | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/00-index.md |
 
+A runnable **before and after showcase** ships in `examples-sites/`: five pages built with this
+system and five pages built with the anti-patterns of `9.5` on purpose, on the same content, so the
+difference is measurable. Open `examples-sites/index.html`. It is a teaching artifact and a
+regression reference, not a source of production code: for code, always use the examples above.
+
 ### 0.8 Prompt library (raw links)
 
 | Purpose | Raw link |
@@ -235,9 +243,10 @@ snippet, the motion behavior and the spec sections it implements.
   --hair: rgba(255, 255, 255, 0.10);
   --hair-strong: rgba(255, 255, 255, 0.18);
   --accent: #7c8cff;
-  --accent-2: #62e9d6;
-  --accent-3: #c084fc;
+  --accent-2: #62e9d6;   /* live, success, progress */
+  --accent-3: #c084fc;   /* reserved, off by default */
   --danger: #ff6b81;
+  /* neutral first: one accent per viewport, no purple or neon unless the brand demands it (1.2.1) */
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 24px;

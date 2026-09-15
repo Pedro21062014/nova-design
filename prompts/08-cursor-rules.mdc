@@ -60,6 +60,23 @@ Example library (100 examples): `examples/` folder, index at `examples/00-index.
     attribution. UI text in the project language; code and identifiers in English.
 15. **No emojis** in production UI, code comments or commit messages.
 
+## Color discipline (mandatory)
+
+- Neutral-first: at least 90 percent of the pixels are ground, glass white or text grays. Color is
+  reserved for small elements: icons, dots, hairlines, chips, data marks and the primary action.
+- One accent per viewport (two at most). Large accent areas are allowed once per page and only for
+  the primary action.
+- Banned by default: purple, violet, magenta, neon, cyan-on-purple, rainbow or multi-hue gradients,
+  saturated background fills, glow on more than one element, gradient text outside the hero H1.
+- Primary buttons use `bg-[image:var(--grad-primary)]`, a single-hue indigo gradient. Never build an
+  interactive surface from two hues.
+- `--accent-3` (#c084fc) is reserved and off by default; do not introduce it unless the brand is
+  purple and the user asked for it.
+- Saturation ceiling roughly 85 percent; keep accents between 55 and 70 percent lightness.
+- Grayscale test before finishing: convert the page to grayscale. If hierarchy, rhythm and the
+  primary action stop being obvious, remove color until they are.
+- If existing code uses purple or neon, migrate it to this discipline rather than extending it.
+
 ## Conventions
 
 - Files `kebab-case.tsx`, named exports, one component per file, props typed and exported.
@@ -82,10 +99,11 @@ export const t = {
 
 ## Anti-patterns that must be rejected
 
-Purple gradients on every surface; glass over flat backgrounds; emoji icons; three pulsing badges in
-one viewport; reveal animations that replay on scroll up; cards scaling to 1.05 on hover; "Feature
-one" copy; "John Doe, CEO" testimonials; toasts for copying; spinners instead of streaming in chat;
-auto-approving agent actions that write or spend; disabling focus outlines.
+Purple gradients on every surface; purple, violet or neon as the default accent; glass over flat
+backgrounds; emoji icons; three pulsing badges in one viewport; reveal animations that replay on
+scroll up; cards scaling to 1.05 on hover; "Feature one" copy; "John Doe, CEO" testimonials; toasts
+for copying; spinners instead of streaming in chat; auto-approving agent actions that write or
+spend; disabling focus outlines.
 
 ## Before finishing any change
 

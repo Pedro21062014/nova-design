@@ -65,7 +65,7 @@ const base =
 const variants: Record<Variant, string> = {
   primary:
     "text-[var(--accent-fg)] shadow-[var(--shadow-2)] " +
-    "bg-[linear-gradient(135deg,var(--accent),var(--accent-3))] " +
+    "bg-[image:var(--grad-primary)] " +
     "hover:shadow-[0_0_0_1px_rgba(124,140,255,.35),0_12px_40px_-12px_rgba(124,140,255,.45)]",
   secondary:
     "text-[var(--fg)] bg-[var(--glass)] border border-[var(--hair)] backdrop-blur-[var(--blur-sm)] " +

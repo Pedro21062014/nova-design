@@ -9,9 +9,20 @@ on shadcn/ui, Radix primitives and Motion.
 - **Master prompt:** [`prompts/00-master-prompt.md`](./prompts/00-master-prompt.md) - names every raw
   URL and tells the agent which file to read for each task
 - **Examples:** [`examples/00-index.md`](./examples/00-index.md) - 100 examples, `EX-01` to `EX-100`
+- **Showcase:** [`examples-sites/index.html`](./examples-sites/index.html) - 5 pages with the design
+  system and 5 pages with the anti-patterns, side by side
 - **License:** MIT
 
 ---
+
+## Color discipline (the short version)
+
+The system is **neutral-first**. At least 90 percent of the pixels on a screen are ground, glass
+white or text grays; color lives in icons, dots, hairlines, chips, data marks and the single primary
+action. **One accent per viewport.** Purple, violet, magenta, neon, cyan-on-purple and multi-hue
+gradients are banned by default, primary buttons use a single-hue indigo gradient, and every page
+must pass the grayscale test: convert it to gray and the hierarchy and the primary action must still
+be obvious. Full rules, including what to do when a brand demands purple, are in section **1.2.1**.
 
 ## Why this exists
 
@@ -71,6 +82,7 @@ instruction and attach `nova-design.md` as knowledge.
 | 9 | Quality gates: accessibility, glass contrast audit, performance budget, visual QA, 30 anti-patterns, code review checklist, critique rubric, definition of done |
 | 10 | Working with AI agents: loading patterns, prompt templates, task decomposition, token economy, self-review loop, failure modes, prompt library, session definition of done |
 | 11 | Appendix: glossary, utilities, project structure, section primitive, copy guidelines, changelog, license |
+| 1.2.1 | Color discipline: neutral budget, accent budget, banned palettes, gradients, saturation ceiling, grayscale test |
 
 ## The example library (100 examples)
 
@@ -97,6 +109,7 @@ spec/                       the modular source of the specification
 scripts/build_spec.py       regenerates nova-design.md and its line index
 prompts/                    master prompt plus twelve task-specific prompts
 examples/                   100 named examples across nine themed files
+examples-sites/             before/after showcase: 5 pages with the system, 5 with anti-patterns
 README.md  AGENTS.md  LICENSE
 ```
 
@@ -108,6 +121,8 @@ Edit the files in `spec/`, then rebuild so the line index stays accurate:
 python3 scripts/build_spec.py           # regenerates nova-design.md
 python3 scripts/build_spec.py --check   # fails if the output is stale (used in CI)
 ```
+
+Build the showcase with `python3 scripts/build_showcase.py` (it regenerates `examples-sites/`).
 
 Rules for contributors: keep the token block in `0.8` synchronized with `2.1`; add a component to
 section 3 and to the component index in `3.32`; bump the version in `11.6`; keep the document free of

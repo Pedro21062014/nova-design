@@ -100,7 +100,7 @@ export function ChatHero() {
         </div>
         <div className="mt-5 flex items-center gap-3 rounded-[var(--radius)] border border-[var(--hair)] bg-[var(--glass-dim)] px-4 py-3">
           <span className="text-[var(--fs-sm)] text-[var(--fg-subtle)]">Ask anything</span>
-          <span className="ml-auto grid size-7 place-items-center rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-3))]">
+          <span className="ml-auto grid size-7 place-items-center rounded-full bg-[image:var(--grad-primary)]">
             <ArrowUp className="size-3.5 text-[var(--accent-fg)]" aria-hidden />
           </span>
         </div>

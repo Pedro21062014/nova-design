@@ -66,16 +66,44 @@ Pick the example that matches the component you are building and read that file 
 --fg:#f5f7ff; --fg-muted:#a8b0c8; --fg-subtle:#6b7490;
 --glass:rgba(255,255,255,.055); --glass-strong:rgba(255,255,255,.09); --glass-dim:rgba(255,255,255,.03);
 --hair:rgba(255,255,255,.10); --hair-strong:rgba(255,255,255,.18);
---accent:#7c8cff; --accent-2:#62e9d6; --accent-3:#c084fc; --warn:#f5b544; --danger:#ff6b81;
+--accent:#7c8cff; --accent-2:#62e9d6; --warn:#f5b544; --danger:#ff6b81;
+/* --accent-3:#c084fc exists but is reserved and off by default. Do not use it unless the brand
+   demands purple. See color discipline below. */
 --aurora-1:rgba(124,140,255,.28); --aurora-2:rgba(98,233,214,.20); --aurora-3:rgba(192,132,252,.22);
 --radius-sm:10px; --radius:16px; --radius-lg:24px; --radius-xl:32px;
 --blur-sm:8px; --blur:18px; --blur-lg:32px;
 --ease-out:cubic-bezier(.16,1,.3,1); --dur:240ms; --dur-reveal:760ms;
 ```
 
+## Color discipline (read before choosing any color)
+
+The default look is **neutral-first**. Color is a signal, not decoration.
+
+1. At least 90 percent of the pixels on any screen are neutral: ground, glass white, text grays.
+   Color lives in small elements: icons, dots, hairlines, chips, data marks, one primary action.
+2. **One accent per viewport** (two only when a comparison truly needs it). An accent may cover a
+   large area once per page, and only when it marks the primary action.
+3. **Banned by default:** purple, violet, magenta, neon, cyan-on-purple, rainbow and multi-hue
+   gradients, saturated background fills, glow on more than one element, gradient text outside the
+   hero H1, and the classic purple-to-blue gradient on every card and button.
+4. Allowed: the restrained indigo `--accent`, mint `--accent-2` for live and success states,
+   `--warn` and `--danger` for semantics. Primary buttons use `--grad-primary`, which is a
+   **single-hue** indigo gradient on purpose; never build an interactive surface from two hues.
+5. If the user explicitly asks for purple or a vivid brand color: keep the ground neutral, use it
+   as the single accent, desaturate it (roughly 55 to 70 percent lightness), and never let it cover
+   more than a few percent of the surface.
+6. Saturation ceiling: about 85 percent saturation. Vibrant reads as cheap on a dark ground;
+   restraint reads as expensive.
+7. **Grayscale test:** convert the page to grayscale. Hierarchy, rhythm and the primary action must
+   still be obvious. If the page collapses without color, remove color until it passes.
+
+If a previous draft of the page already uses purple or neon, convert it to this discipline and say
+so in one line; do not keep leftover vivid colors because they are already there.
+
 ## Non-negotiable rules (the ten that matter most)
 
-1. **Tokens only.** No hex, no shadow literal, no arbitrary duration inside a component.
+1. **Tokens only.** No hex, no shadow literal, no arbitrary duration inside a component. Neutral
+   first, one accent per viewport, purple and neon banned by default (color discipline above).
 2. **Glass needs a background.** `backdrop-filter` over a flat background is forbidden; there must
    be an aurora, gradient or image behind it.
 3. **Use shadcn/ui as the base** and skin it with Nova Vitral (technique in spec 7.9). Do not

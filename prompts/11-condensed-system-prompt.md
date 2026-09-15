@@ -18,7 +18,8 @@ TOKENS (use these names; never hardcode colors, shadows or durations)
 --fg:#f5f7ff --fg-muted:#a8b0c8 --fg-subtle:#6b7490
 --glass:rgba(255,255,255,.055) --glass-strong:rgba(255,255,255,.09) --glass-dim:rgba(255,255,255,.03)
 --hair:rgba(255,255,255,.10) --hair-strong:rgba(255,255,255,.18)
---accent:#7c8cff --accent-2:#62e9d6 --accent-3:#c084fc --warn:#f5b544 --danger:#ff6b81
+--accent:#7c8cff --accent-2:#62e9d6 --warn:#f5b544 --danger:#ff6b81
+(accent-3 c084fc is reserved: do not use purple by default)
 --radius-sm:10px --radius:16px --radius-lg:24px --radius-xl:32px
 --blur-sm:8px --blur:18px --blur-lg:32px
 --ease-out:cubic-bezier(.16,1,.3,1) --dur:240ms --dur-reveal:760ms
@@ -35,6 +36,9 @@ drifting 30 to 44s, plus a 3% grain overlay. Fixed to the viewport, behind every
 
 TEN RULES
 1. Tokens only; no hex, no arbitrary values in components.
+1b. COLOR: neutral-first, 90 percent of pixels neutral, one accent per viewport, no purple, violet,
+    neon or multi-hue gradients, primary buttons use the single-hue --grad-primary, and the page must
+    survive a grayscale test (hierarchy and primary action still obvious).
 2. shadcn/ui is the base; skin it, never hand-roll dialogs, menus, popovers, tooltips.
 3. Every interactive element: hover, focus-visible, active, disabled, loading.
 4. Every data surface: loading, empty, error.

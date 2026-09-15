@@ -289,7 +289,7 @@ export function ReasoningDrawer({ text, ms, live }: { text: string; ms?: number;
       {live && <span aria-hidden className="absolute inset-y-0 left-0 w-px animate-[pulse-rule_1.6s_ease-in-out_infinite] bg-[var(--accent)]" />}
       <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open}
         className="flex h-8 w-full items-center gap-2 px-3 text-left text-[var(--fs-xs)] text-[var(--fg-muted)] transition-colors hover:bg-[var(--glass)] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)]">
-        <Sparkles className="size-3.5 text-[var(--accent-3)]" aria-hidden />
+        <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden />
         <span>{ms ? `Thought for ${Math.round(ms / 1000)}s` : "Thinking"}</span>
         <ChevronDown className={cn("ml-auto size-3.5 transition-transform duration-200", open && "rotate-180")} aria-hidden />
       </button>
@@ -481,7 +481,7 @@ export function Composer({ onSend, onStop, streaming, disabled }: ComposerProps)
               ) : (
                 <button onClick={() => { if (value.trim()) { onSend(value.trim()); setValue(""); grow(); } }}
                   disabled={!value.trim() || disabled} aria-label="Send message"
-                  className="grid size-8 place-items-center rounded-full bg-[linear-gradient(135deg,var(--accent),var(--accent-3))] text-[var(--accent-fg)] transition-transform duration-150 hover:-translate-y-px active:scale-95 disabled:opacity-40 disabled:shadow-none">
+                  className="grid size-8 place-items-center rounded-full bg-[image:var(--grad-primary)] text-[var(--accent-fg)] transition-transform duration-150 hover:-translate-y-px active:scale-95 disabled:opacity-40 disabled:shadow-none">
                   <ArrowUp className="size-3.5" aria-hidden />
                 </button>
               )}

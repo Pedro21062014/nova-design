@@ -37,16 +37,21 @@ If a value is missing, extend the token set, never inline the value.
     --accent-fg: #ffffff;
     --accent-soft: rgba(124, 140, 255, 0.14);
     --accent-2: #62e9d6;
-    --accent-3: #c084fc;
+    --accent-3: #c084fc;   /* reserved, off by default (1.2.1) */
     --warn: #f5b544;
     --danger: #ff6b81;
     --success: #4ade80;
 
-    /* Aurora */
-    --aurora-1: rgba(124, 140, 255, 0.28);
-    --aurora-2: rgba(98, 233, 214, 0.20);
-    --aurora-3: rgba(192, 132, 252, 0.22);
-    --aurora-4: rgba(255, 138, 101, 0.14);
+    /* Aurora (keep the field calm: total alpha under 0.45, no purple cast) */
+    --aurora-1: rgba(124, 140, 255, 0.26);
+    --aurora-2: rgba(98, 233, 214, 0.18);
+    --aurora-3: rgba(122, 162, 255, 0.18);
+    --aurora-4: rgba(255, 138, 101, 0.10);
+
+    /* Gradients (defined and justified in section 1.2.1 - single hue for actions) */
+    --grad-primary: linear-gradient(135deg, #8a97ff 0%, #6a78f0 100%);
+    --grad-live: linear-gradient(90deg, #62e9d6 0%, #7c8cff 100%);
+    --grad-hairline: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04));
 
     /* Radius */
     --radius-xs: 6px;
@@ -335,7 +340,7 @@ full-width grid):
   --hair: rgba(10, 12, 20, 0.10);
   --hair-strong: rgba(10, 12, 20, 0.18);
   --highlight: rgba(255, 255, 255, 0.75);
-  --accent: #5a6bf0;      /* desaturated for contrast on light ground */
+  --accent: #5a6bf0;      /* desaturated for contrast on light ground (1.2.1) */
   --aurora-1: rgba(124, 140, 255, 0.20);
   --aurora-2: rgba(98, 220, 205, 0.18);
   --aurora-3: rgba(178, 122, 244, 0.16);
@@ -351,9 +356,12 @@ since there is less contrast to exploit. Never simply invert the dark palette.
 
 1. Never write a hex, `rgba()` or a shadow literal inside a component. Use `var(--token)` or the
    mapped Tailwind class.
-2. Never invent a new accent. If a second accent is needed, use `--accent-2` or `--accent-3`.
+2. Never invent a new accent. If a second accent is needed, use `--accent-2`. `--accent-3` is
+   reserved and off by default (section 1.2.1).
 3. Never use arbitrary Tailwind values (`w-[437px]`, `bg-[#123456]`) except for one-off
    measurement in a chart or a masked gradient stop.
+   The same applies to color: never invent a hue. The accent budget of `1.2.1` is part of the
+   contract, and purple or neon by default is a defect, not a preference.
 4. Never change a token value inside a component. Theme overrides belong to the theme layer.
 5. Every new token must be added to: this section, the Tailwind mapping (2.2 or 2.3) and the
    TypeScript type file if it is consumed by code.

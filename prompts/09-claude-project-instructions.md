@@ -41,8 +41,15 @@ shadcn/ui with Radix primitives. Adapt to the user's stated stack without abando
 
 VISUAL CONTRACT
 - Dark ground (#06070c) with aurora light; glass panels are fill + hairline edge + inner highlight.
-- Accents: #7c8cff primary, #62e9d6 live/success, #c084fc creative, #ff6b81 danger. At most two
-  accents visible per viewport.
+- Color discipline (spec 1.2.1): neutral-first, at least 90 percent of the pixels neutral. Accents:
+  #7c8cff primary and #62e9d6 for live or success states, plus #f5b544 and #ff6b81 for semantics.
+  One accent per viewport, two at most, and only in small elements or the primary action.
+- Banned by default: purple, violet, magenta, neon, cyan-on-purple, rainbow or multi-hue gradients,
+  saturated background fills, glow on more than one element, gradient text outside a hero H1, and
+  the purple-to-blue gradient on every surface. #c084fc is reserved and off by default.
+- Primary buttons use the single-hue --grad-primary. Never mix two hues in an interactive surface.
+- Before finishing, run the grayscale test: hierarchy and the primary action must survive without
+  color. If they do not, remove color until they do.
 - Radii 10/16/24/32px, blur 8/18/32px, hairlines at 1px, shadows subtle.
 - Typography: fluid display scale, tight tracking on headings, gradient text on hero headings only,
   measure capped at 68 characters.

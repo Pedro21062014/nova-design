@@ -42,31 +42,67 @@ Nova Vitral is a dark-first system with an optional light mode. Color is ratione
 |---|---|---|---|
 | `--accent` | `#7c8cff` | Primary action, focus | Primary button, links, focus ring, active tab |
 | `--accent-2` | `#62e9d6` | Success, live, streaming | Status dots, progress, positive deltas |
-| `--accent-3` | `#c084fc` | Creative, generative | Gradient partner, AI features, glow |
+| `--accent-3` | `#c084fc` | Reserved, off by default | Only when a brand or a campaign demands it: one element per page, never decorative |
 | `--warn` | `#f5b544` | Caution | Rate limits, destructive warnings |
 | `--danger` | `#ff6b81` | Error, destructive | Errors, delete, negative deltas |
 
 Accent rule: at most **two accents visible per viewport**. `--accent` plus one of the others.
 Never place three accents in the same component.
 
+#### 1.2.1 Color discipline (mandatory)
+
+The fastest way to make an interface look machine-generated is color inflation: purple-to-blue
+gradients on every surface, neon accents, saturated fills and glow everywhere. Nova Vitral is a
+**neutral-first** language. Color is a signal, not a decoration.
+
+1. **Neutral budget.** At least 90 percent of the pixels on any screen must be neutral: ground,
+   glass white, text grays. Color occupies the remaining 10 percent at most, and almost always in
+   thin, small elements (icons, hairlines, dots, chips, data marks).
+2. **Accent budget.** One accent per viewport by default; two when a comparison genuinely needs it.
+   An accent may cover a large area only once per page, and only when it marks the primary action.
+3. **Banned by default.** Do not use purple, violet, magenta or neon as the default accent. Do not
+   use the purple-to-blue gradient, cyan-on-purple, rainbow or multi-hue gradients, saturated
+   background fills, glow outside a single focus or hover state, or gradient text anywhere except a
+   hero H1.
+4. **Allowed accents.** The default is the restrained indigo `--accent`, with `--accent-2` (mint)
+   for live, success and progress states, and `--warn` / `--danger` for semantics. If the user asks
+   for purple or a vivid brand color, keep the ground neutral, use it as the single accent,
+   desaturate it toward 60 to 78 percent lightness, and never fill more than a few percent of the
+   surface with it.
+5. **Gradients.** Only three are allowed: the single-hue primary gradient for the primary action
+   (`--grad-primary`), the vertical hairline gradient for edges, and the veil gradient for masks.
+   A gradient must never carry meaning, and never appears on a surface behind body copy.
+6. **Saturation ceiling.** No color above roughly 85 percent saturation at 55 to 70 percent
+   lightness. Vibrant colors read as cheap on a dark ground; restraint reads as expensive.
+7. **Grayscale test (the acceptance check).** Convert the page to grayscale. Hierarchy, rhythm and
+   the primary action must all remain obvious. If the page collapses without color, color is doing
+   the layout's job: remove color until it passes.
+8. **Dark-ground check.** On `--bg`, accents must reach 3:1 against the ground for large areas and
+   4.5:1 for text. Neon colors often fail this while looking "bright" — measure, do not trust the eye.
+
 **Aurora hues** (background light only, always blurred)
 
 ```css
---aurora-1: rgba(124, 140, 255, 0.28); /* indigo  */
---aurora-2: rgba(98, 233, 214, 0.20);  /* teal    */
---aurora-3: rgba(192, 132, 252, 0.22); /* violet  */
---aurora-4: rgba(255, 138, 101, 0.14); /* ember   */
+--aurora-1: rgba(124, 140, 255, 0.26); /* indigo */
+--aurora-2: rgba(98, 233, 214, 0.18);  /* mint   */
+--aurora-3: rgba(122, 162, 255, 0.18); /* soft blue, keeps the field calm */
+--aurora-4: rgba(255, 138, 101, 0.10); /* ember, sparingly, optional */
+/* If the aurora reads as purple in a screenshot, it is too strong: lower the alpha or drop blob 3. */
 ```
 
 **Gradient recipes**
 
 ```css
---grad-primary: linear-gradient(135deg, #7c8cff 0%, #c084fc 100%);
---grad-live: linear-gradient(90deg, #62e9d6 0%, #7c8cff 100%);
+/* Single hue by design: the primary action must not look like a candy button. */
+--grad-primary: linear-gradient(135deg, #8a97ff 0%, #6a78f0 100%);
+--grad-live: linear-gradient(90deg, #62e9d6 0%, #7c8cff 100%);   /* live states only, small areas */
 --grad-hairline: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04));
 --grad-text: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.62));
 --grad-veil: linear-gradient(180deg, rgba(6,7,12,0) 0%, rgba(6,7,12,.9) 100%);
 ```
+
+Never build a gradient from two different hues for an interactive surface. `--grad-primary` stays
+inside one hue family on purpose; hue contrast is reserved for data and for the live indicator.
 
 **Light mode** is derived, not inverted by hand. Keep the same structure, invert the ground and
 reduce accent saturation by 8 percent. Details in Section 2.9.

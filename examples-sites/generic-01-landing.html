@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landing page (anti-patterns) - anti-pattern demo</title>
+<meta name="description" content="Marketing page: hero, features, metrics, testimonials, FAQ, CTA.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:400 17px/1.5 Verdana,Geneva,sans-serif;color:#fff;text-align:center;
+  background:linear-gradient(135deg,#7b2ff7 0%,#4f46e5 45%,#06b6d4 100%);background-attachment:fixed}
+h1,h2,h3,ul,ol,p{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:#ffe600;text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+.badbar{background:#ff0055;color:#fff;padding:10px 14px;font-size:13px;text-align:center;
+  position:sticky;top:0;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.badbar b{text-transform:uppercase}
+.hero{padding:56px 12px 40px}
+.hero h1{font-size:56px;line-height:1.05;text-shadow:0 4px 24px rgba(0,0,0,.6);
+  background:linear-gradient(90deg,#ffe600,#ff00e0,#00fff0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:18px;font-size:18px;color:#ffd9ff}
+.btn{display:inline-block;margin:22px 6px 0;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;
+  font-size:17px;font-weight:700;color:#fff;background:linear-gradient(90deg,#ff0055,#ff9d00);
+  box-shadow:0 0 26px rgba(255,0,85,.9),0 10px 30px rgba(0,0,0,.5);transition:all .35s ease}
+.btn:hover{transform:scale(1.08) rotate(-1.2deg)}
+.btn.secondary{background:linear-gradient(90deg,#00fff0,#7b2ff7);box-shadow:0 0 26px rgba(0,255,240,.8)}
+.btn[disabled]{filter:grayscale(.6);opacity:.75}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
+.card{padding:26px 18px;border-radius:26px;background:rgba(255,255,255,.20);border:3px solid rgba(255,255,255,.55);
+  box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 40px rgba(255,255,255,.25);animation:pop 1.2s ease both}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{font-size:15px;color:#f3e8ff}
+.emoji{font-size:44px;animation:spinbadge 2s linear infinite}
+@keyframes spinbadge{50%{transform:scale(1.25) rotate(12deg)}}
+@keyframes pop{from{opacity:0;transform:translateX(-80px) scale(.9)}to{opacity:1;transform:none}}
+.pulse{display:inline-block;width:12px;height:12px;border-radius:50%;background:#39ff14;
+  animation:pulse .9s infinite alternate;box-shadow:0 0 14px #39ff14}
+@keyframes pulse{to{transform:scale(1.8);opacity:.4}}
+.marquee{overflow:hidden;white-space:nowrap;margin-top:22px;font-size:15px;color:#ffe600;animation:slide 6s linear infinite}
+@keyframes slide{from{transform:translateX(20%)}to{transform:translateX(-60%)}}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:28px}
+table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:24px;font-size:15px}
+th{background:#7b2ff7;padding:14px;color:#ffe600;font-size:13px;text-transform:uppercase}
+td{background:rgba(255,255,255,.16);padding:14px;border-top:2px solid rgba(255,255,255,.4)}
+td.yes{color:#39ff14;font-weight:700}td.no{color:#ff2d55;font-weight:700}
+.price{font-size:44px;color:#ffe600;text-shadow:0 3px 12px rgba(0,0,0,.6)}
+.strike{text-decoration:line-through;color:#ffb3d9;font-size:18px}
+.section{padding:44px 12px}
+.section h2{font-size:34px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.55);margin-bottom:8px}
+.small{font-size:13px;color:#ffe0ff}
+.tiny{font-size:11px;color:#ffd9ff}
+.stars{font-size:22px;color:#ffe600;letter-spacing:2px}
+.quote{background:rgba(255,255,255,.18);border-radius:22px;padding:20px;margin-top:20px;font-style:italic}
+footer{padding:34px 12px 60px;font-size:13px;color:#ffe0ff}
+.badge-float{position:fixed;bottom:14px;left:14px;z-index:98;background:#ff0055;color:#fff;border-radius:999px;
+  padding:12px 18px;font-size:13px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.55);animation:pulse 1.1s infinite alternate}
+.spinner{display:inline-block;width:16px;height:16px;border:3px solid rgba(255,255,255,.35);
+  border-top-color:#ffe600;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+input[type=text],input[type=email],select{padding:12px;border-radius:12px;border:3px solid #ff9d00;
+  background:rgba(255,255,255,.9);color:#3b0764;width:70%;margin:6px 0;font-size:15px}
+.chartbox{height:190px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.1));
+  border:3px dashed rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:#ffe600;margin-top:18px}
+.pie{width:170px;height:170px;border-radius:50%;margin:14px auto;
+  background:conic-gradient(#ff0055 0 22%,#ff9d00 0 41%,#ffe600 0 58%,#00fff0 0 74%,#7b2ff7 0 89%,#39ff14 0 100%);
+  box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.bubble{border-radius:22px;padding:14px 16px;margin:10px auto;max-width:640px;text-align:left;font-size:15px}
+.bubble.user{background:linear-gradient(90deg,#00fff0,#7b2ff7);color:#fff;transform:skewX(-3deg)}
+.bubble.ai{background:rgba(255,255,255,.22);border:3px solid rgba(255,255,255,.5)}
+.tree a{display:block;padding:8px;color:#ffe600}
+.side-col{text-align:left}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="badbar"><b>Anti-pattern demo</b> - generated on purpose with spec 9.5 violations
+  &middot; <a href="nova-01-landing.html">See the Nova Vitral version of this page</a>
+  &middot; <a href="index.html">All 10 pages</a></div>
+<div class="badge-float">LIMITED TIME!!</div>
+
+<div class="hero">
+  <p class="pulse"></p>
+  <p class="tiny">&#9889; NEW FEATURE JUST DROPPED &#9889; <span class="pulse"></span> <span class="pulse"></span></p>
+  <h1>REVOLUTIONIZE YOUR REVENUE WITH AI!!!</h1>
+  <p>&#128640; The #1 AMAZING platform for data-driven subscription GROWTH &#128200;</p>
+  <p style="margin-top:10px">&#127775;&#127775;&#127775;&#127775;&#127775; Rated 5 stars by everyone!!!</p>
+  <button class="btn">CLICK HERE NOW &#128073;</button>
+  <button class="btn secondary">Start Free Trial!!!</button>
+  <p class="small" style="margin-top:12px">No credit card required!!! (just kidding, we need one)</p>
+  <div class="marquee">&#128293; LIMITED OFFER &#128293; 90% OFF &#128293; HURRY UP &#128293; ONLY 3 SPOTS LEFT &#128293;</div>
+</div>
+
+<div class="wrap">
+  <div class="cards">
+    <div class="card"><p class="emoji">&#128640;</p><h3>Feature One</h3><p>Lorem ipsum dolor sit amet,
+      consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p></div>
+    <div class="card" style="animation-delay:.3s"><p class="emoji">&#128176;</p><h3>Feature Two</h3>
+      <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip.</p></div>
+    <div class="card" style="animation-delay:.6s"><p class="emoji">&#9889;</p><h3>Feature Three</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p></div>
+  </div>
+
+  <div class="section">
+    <h2>Why Choose Us???</h2>
+    <div class="cards">
+      <div class="card" style="animation-delay:.2s"><p class="emoji">&#128200;</p><h3>10x FASTER</h3>
+        <p>Blazingly fast, magical experience powered by AI.</p></div>
+      <div class="card" style="animation-delay:.5s"><p class="emoji">&#129302;</p><h3>AI POWERED</h3>
+        <p>Machine learning blockchain synergy in the cloud.</p></div>
+      <div class="card" style="animation-delay:.8s"><p class="emoji">&#128274;</p><h3>SUPER SECURE</h3>
+        <p>Military grade bank level encryption, 100% safe.</p></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Trusted By Thousands!!!</h2>
+    <p class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+    <div class="chartbox" style="height:120px">[STOCK PHOTO OF HAPPY TEAM HERE]</div>
+    <div class="quote">"This platform changed our lives completely. Best decision ever made!!!"
+      <br>&#8212; John Doe, CEO at Company</div>
+    <div class="quote" style="animation-delay:.4s">"I literally cannot work without it. 1000% recommend!!!"
+      <br>&#8212; Jane Smith, Founder at Startup</div>
+  </div>
+
+  <div class="section">
+    <h2>Get Started TODAY</h2>
+    <p>Join 1,000,000+ users already growing!!!</p>
+    <input type="email" placeholder="Enter your email here"><br>
+    <button class="btn">SUBMIT &#128640;</button>
+    <p class="tiny" style="margin-top:12px">We will send you 47 emails per day. Unsubscribe never works.</p>
+  </div>
+</div>
+<footer>&#169; 2026 COMPANY. All rights reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></footer>
+
+</body>
+</html>

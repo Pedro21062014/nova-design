@@ -15,7 +15,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        vitral: "h-10 px-5 text-[var(--fs-sm)] text-[var(--accent-fg)] shadow-[var(--shadow-2)] bg-[linear-gradient(135deg,var(--accent),var(--accent-3))] hover:-translate-y-px hover:shadow-[0_0_0_1px_rgba(124,140,255,.35),0_12px_40px_-12px_rgba(124,140,255,.45)]",
+        vitral: "h-10 px-5 text-[var(--fs-sm)] text-[var(--accent-fg)] shadow-[var(--shadow-2)] bg-[image:var(--grad-primary)] hover:-translate-y-px hover:shadow-[0_0_0_1px_rgba(124,140,255,.35),0_12px_40px_-12px_rgba(124,140,255,.45)]",
         glass: "h-10 px-5 text-[var(--fs-sm)] text-[var(--fg)] border border-[var(--hair)] bg-[var(--glass)] backdrop-blur-[var(--blur-sm)] hover:bg-[var(--glass-hover)] hover:border-[var(--hair-strong)]",
       },
       size: { sm: "h-8 px-3.5 text-[var(--fs-xs)]", lg: "h-12 px-7 text-[var(--fs-body)]", icon: "size-10 p-0" },

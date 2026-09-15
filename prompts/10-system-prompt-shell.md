@@ -32,6 +32,8 @@ sections 0.4, 2, 6.12 and 9.5 which are always required.
 
 HARD RULES
 1. Tokens only; no hardcoded color, shadow, radius, blur or duration in components.
+1b. Color discipline: neutral-first (90 percent neutral pixels), one accent per viewport, purple and
+    neon banned by default, single-hue primary gradient, grayscale test must pass before delivery.
 2. Glass requires a background behind it (aurora, gradient or image).
 3. Use shadcn/ui primitives; skin them, never reimplement dialogs, menus, popovers or tooltips.
 4. Every interactive element has hover, focus-visible, active, disabled and loading states.

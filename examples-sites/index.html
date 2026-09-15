@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nova Vitral showcase - 5 pages with the design system, 5 without</title>
+<meta name="description" content="A before and after comparison: the same five page briefs built with the Nova Vitral design system and with the anti-patterns the specification forbids.">
+<style>
+:root{
+  --bg:#06070c; --bg-soft:#0a0c14; --bg-elev:#0e1120;
+  --fg:#f5f7ff; --fg-muted:#a8b0c8; --fg-subtle:#6b7490;
+  --glass:rgba(255,255,255,.055); --glass-strong:rgba(255,255,255,.09); --glass-dim:rgba(255,255,255,.03);
+  --hair:rgba(255,255,255,.10); --hair-strong:rgba(255,255,255,.18); --hair-soft:rgba(255,255,255,.06);
+  --accent:#7c8cff; --accent-2:#62e9d6; --warn:#f5b544; --danger:#ff6b81;
+  --aurora-1:rgba(124,140,255,.26); --aurora-2:rgba(98,233,214,.18); --aurora-3:rgba(122,162,255,.18);
+  --grad-primary:linear-gradient(135deg,#8a97ff 0%,#6a78f0 100%);
+  --r-sm:10px; --r:16px; --r-lg:24px; --r-xl:32px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow-2:0 12px 32px -12px rgba(0,0,0,.55);
+  --shadow-3:0 32px 80px -24px rgba(0,0,0,.7);
+  --nav-h:64px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font:400 16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:-0.005em; text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:6px}
+
+.aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;display:block;border-radius:50%;filter:blur(120px)}
+.aurora i:nth-child(1){top:-22%;left:-12%;width:70vmax;height:70vmax;background:radial-gradient(circle at 30% 30%,var(--aurora-1),transparent 62%)}
+.aurora i:nth-child(2){top:6%;right:-16%;width:56vmax;height:56vmax;background:radial-gradient(circle at 60% 40%,var(--aurora-3),transparent 60%)}
+.aurora i:nth-child(3){bottom:-26%;left:20%;width:60vmax;height:60vmax;background:radial-gradient(circle at 50% 50%,var(--aurora-2),transparent 58%)}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
+
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.wide{max-width:1400px}
+.vitral{position:relative;background:var(--glass);border-radius:var(--r-lg);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);
+  box-shadow:var(--shadow-2),inset 0 1px 0 rgba(255,255,255,.10);isolation:isolate}
+.vitral::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.04));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.vitral-strong{position:relative;background:var(--glass-strong);border-radius:var(--r-lg);
+  -webkit-backdrop-filter:blur(32px) saturate(150%);backdrop-filter:blur(32px) saturate(150%);
+  box-shadow:var(--shadow-3),inset 0 1px 0 rgba(255,255,255,.10);isolation:isolate}
+.vitral-strong::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.04));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.inset{border:1px solid var(--hair-soft);background:var(--glass-dim);border-radius:var(--r)}
+.grad-text{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,255,255,.6));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+.pill{display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;
+  border:1px solid var(--hair);background:var(--glass);font-size:12px;color:var(--fg-muted)}
+.pill .dot{width:6px;height:6px;border-radius:50%;background:var(--accent-2)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 9px;border-radius:999px;
+  border:1px solid var(--hair);background:var(--glass);font-size:11px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--fg-muted)}
+.chip.live{border-color:rgba(98,233,214,.3);background:rgba(98,233,214,.12);color:var(--accent-2)}
+.chip.warn{border-color:rgba(245,181,68,.3);background:rgba(245,181,68,.12);color:var(--warn)}
+.chip.danger{border-color:rgba(255,107,129,.3);background:rgba(255,107,129,.12);color:var(--danger)}
+
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:40px;padding:0 20px;border:0;border-radius:var(--r);font-size:14px;font-weight:500;cursor:pointer;
+  transition:transform .14s var(--ease),background-color .14s var(--ease),box-shadow .14s var(--ease),border-color .14s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn-primary{background-image:var(--grad-primary);color:#fff;box-shadow:var(--shadow-2)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 40px -12px rgba(124,140,255,.45)}
+.btn-glass{background:var(--glass);border:1px solid var(--hair);color:var(--fg);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn-glass:hover{background:var(--glass-strong);border-color:var(--hair-strong)}
+.btn-ghost{background:transparent;color:var(--fg-muted)}
+.btn-ghost:hover{background:var(--glass);color:var(--fg)}
+.btn-sm{height:32px;padding:0 14px;font-size:13px;border-radius:var(--r-sm)}
+.btn-lg{height:48px;padding:0 26px;font-size:15px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+.overline{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle)}
+.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:var(--fg-muted)}
+.muted{color:var(--fg-muted)}
+.subtle{color:var(--fg-subtle)}
+.small{font-size:13px}
+.tiny{font-size:11px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+nav.top{position:sticky;top:0;z-index:50;height:var(--nav-h);
+  border-bottom:1px solid var(--hair);background:color-mix(in srgb,var(--bg) 74%,transparent);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+nav.top .wrap{display:flex;height:100%;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600}
+.brand .mark{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;
+  border:1px solid var(--hair);background:var(--glass)}
+.navlinks{display:none;gap:2px}
+@media(min-width:840px){.navlinks{display:flex}}
+.navlinks a{padding:8px 12px;border-radius:var(--r-sm);font-size:14px;color:var(--fg-muted);transition:color .14s var(--ease)}
+.navlinks a:hover{color:var(--fg)}
+.navlinks a[aria-current=page]{color:var(--fg)}
+
+section{padding:96px 0}
+section.tight{padding:56px 0}
+@media(max-width:768px){section{padding:64px 0}}
+.sec-head{max-width:62ch}
+.sec-head h2{margin-top:12px;font-size:clamp(28px,3.5vw,40px);font-weight:600;letter-spacing:-.025em;line-height:1.12}
+.sec-head p{margin-top:14px;font-size:17px;color:var(--fg-muted)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.between{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card{padding:24px}
+.card h3{font-size:18px;font-weight:600;letter-spacing:-.015em}
+.card p{margin-top:8px;font-size:14px;color:var(--fg-muted)}
+.stat .label{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle)}
+.stat .value{margin-top:12px;font-size:clamp(28px,3vw,36px);font-weight:600;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.stat .delta{margin-top:8px;font-size:13px;color:var(--accent-2);font-variant-numeric:tabular-nums}
+.divider{height:1px;background:var(--hair-soft);border:0;margin:0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{position:sticky;top:var(--nav-h);z-index:5;background:color-mix(in srgb,var(--bg-soft) 88%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);text-align:left;padding:12px 16px;
+  font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-subtle)}
+tbody td{padding:14px 16px;border-top:1px solid var(--hair-soft);color:var(--fg-muted)}
+tbody tr:hover td{background:var(--glass-dim)}
+td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--fg)}
+.seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px}
+.seg button{height:30px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--fg-subtle);font-size:13px;font-weight:500;cursor:pointer;transition:background-color .14s var(--ease),color .14s var(--ease)}
+.seg button:hover{color:var(--fg-muted)}
+.seg button[aria-selected=true]{background:var(--glass-strong);color:var(--fg)}
+.split{display:grid;gap:16px;grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.docs-grid{display:grid;gap:32px;grid-template-columns:260px minmax(0,1fr) 220px;padding-top:40px}
+@media(max-width:1140px){.docs-grid{grid-template-columns:240px minmax(0,1fr)}.docs-grid aside:last-child{display:none}}
+@media(max-width:880px){.split{grid-template-columns:1fr}.docs-grid{grid-template-columns:1fr}.docs-grid aside:first-child{display:none}}
+.bar{height:4px;border-radius:999px;background:var(--glass-dim);overflow:hidden}
+.bar > i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+details{border-bottom:1px solid var(--hair-soft)}
+details summary{display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;
+  padding:20px 4px;font-size:16px;font-weight:500;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";color:var(--fg-subtle)}
+details[open] summary::after{content:"\2212"}
+details .body{padding:0 4px 20px;font-size:14px;color:var(--fg-muted);max-width:68ch}
+footer{border-top:1px solid var(--hair);padding:56px 0 40px;margin-top:24px}
+.side{display:grid;gap:4px}
+.side a{display:flex;align-items:center;gap:10px;height:36px;padding:0 12px;border-radius:var(--r-sm);
+  font-size:14px;color:var(--fg-muted)}
+.side a:hover{background:var(--glass);color:var(--fg)}
+.side a[aria-current=page]{background:var(--glass-strong);color:var(--fg);position:relative}
+.side a[aria-current=page]::before{content:"";position:absolute;left:0;width:2px;height:16px;border-radius:2px;background:var(--accent)}
+.app{display:grid;grid-template-columns:264px minmax(0,1fr);min-height:100vh}
+@media(max-width:900px){.app{grid-template-columns:1fr}.app aside{display:none}}
+.app aside{border-right:1px solid var(--hair);padding:16px 12px;
+  background:color-mix(in srgb,var(--bg-soft) 70%,transparent)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;
+  padding:0 24px;border-bottom:1px solid var(--hair);position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb,var(--bg) 78%,transparent);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.content{padding:28px 24px 80px}
+.avatar{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;font-size:12px;font-weight:500;
+  color:#fff;background:linear-gradient(135deg,hsl(222 42% 54%),hsl(222 46% 40%))}
+.msg-user{margin-left:auto;max-width:68%;padding:14px 16px;border-radius:var(--r-lg) var(--r-lg) var(--r-sm) var(--r-lg);
+  border:1px solid var(--hair);background:var(--glass-strong);font-size:15px}
+.msg-ai{max-width:72ch;font-size:15.5px;line-height:1.7}
+.msg-ai p + p{margin-top:14px}
+.msg-ai ul{margin-top:14px;display:grid;gap:8px}
+.msg-ai li{display:flex;gap:10px;color:var(--fg-muted)}
+.msg-ai li::before{content:"";margin-top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+.composer{position:sticky;bottom:16px;padding:12px;border-radius:var(--r-lg)}
+.composer textarea{width:100%;min-height:52px;resize:none;border:0;background:transparent;outline:none;
+  font-size:15.5px;line-height:1.6}
+.composer .toolbar{display:flex;align-items:center;gap:8px;margin-top:6px}
+.send{display:grid;place-items:center;width:32px;height:32px;border:0;border-radius:50%;cursor:pointer;
+  background-image:var(--grad-primary);color:#fff}
+.code{border:1px solid var(--hair);border-radius:var(--r);background:color-mix(in srgb,var(--bg-elev) 80%,transparent);overflow:hidden}
+.code header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;
+  border-bottom:1px solid var(--hair-soft);font-size:12px;color:var(--fg-subtle)}
+.code pre{margin:0;padding:16px 18px;overflow:auto;font-family:ui-monospace,Menlo,monospace;font-size:13px;line-height:1.7;color:var(--fg-muted)}
+.callout{display:flex;gap:14px;padding:16px;border-radius:var(--r);border:1px solid var(--hair-soft);
+  background:var(--glass-dim);border-left:2px solid var(--accent)}
+.callout p{font-size:14px;color:var(--fg-muted)}
+.toc a{display:block;padding:6px 0 6px 14px;font-size:13px;color:var(--fg-subtle);border-left:1px solid var(--hair)}
+.toc a.active{color:var(--fg);border-left-color:var(--accent);border-left-width:2px}
+.banner{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 16px;font-size:12px;
+  color:var(--fg-muted);background:var(--bg-soft);border-bottom:1px solid var(--hair-soft)}
+.banner a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:80;display:flex;align-items:center;
+  gap:10px;padding:10px 14px;border-radius:999px;font-size:13px;background:var(--glass-strong);
+  border:1px solid var(--hair);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+
+[data-reveal]{opacity:0;transform:translateY(16px);
+  transition:opacity .76s var(--ease),transform .76s var(--ease);transition-delay:var(--d,0ms)}
+[data-reveal].in{opacity:1;transform:none}
+@media(max-width:600px){.banner{flex-direction:column;text-align:center}}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  [data-reveal]{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="banner">Showcase for the Nova Vitral specification.
+  <a href="../../nova-design.md">Read the spec</a> &middot; <a href="../00-index.md">100 examples</a></div>
+
+<main>
+  <section class="tight" style="padding-top:72px">
+    <div class="wrap" style="text-align:center;max-width:760px">
+      <p class="overline" data-reveal>Showcase</p>
+      <h1 class="grad-text" data-reveal style="--d:60ms;margin-top:16px;font-size:clamp(34px,5.5vw,56px);
+        font-weight:600;letter-spacing:-.04em;line-height:1.02">Five pages with the design system. Five without.</h1>
+      <p class="lead" data-reveal style="--d:140ms;margin:20px auto 0;max-width:52ch">Same product, same
+        content, same five briefs. The left column is built to the specification; the right column
+        breaks it on purpose, item by item, so the difference is measurable instead of a matter of taste.</p>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:0">
+    <div class="wrap grid g2" style="max-width:1080px">
+      <div class="vitral card" data-reveal>
+        <div class="between">
+          <h3>Landing page</h3>
+          <span class="row" style="gap:6px">
+            <a class="btn btn-primary btn-sm" href="nova-01-landing.html">Nova</a>
+            <a class="btn btn-glass btn-sm" href="generic-01-landing.html">Anti-pattern</a>
+          </span>
+        </div>
+        <p>Marketing page: hero, features, metrics, testimonials, FAQ, CTA.</p>
+        <p class="tiny subtle" style="margin-top:14px">Same brief, same content structure, two systems.
+          Open both side by side.</p>
+      </div>
+      <div class="vitral card" data-reveal>
+        <div class="between">
+          <h3>Pricing page</h3>
+          <span class="row" style="gap:6px">
+            <a class="btn btn-primary btn-sm" href="nova-02-pricing.html">Nova</a>
+            <a class="btn btn-glass btn-sm" href="generic-02-pricing.html">Anti-pattern</a>
+          </span>
+        </div>
+        <p>Three plans, billing toggle, comparison table, billing FAQ.</p>
+        <p class="tiny subtle" style="margin-top:14px">Same brief, same content structure, two systems.
+          Open both side by side.</p>
+      </div>
+      <div class="vitral card" data-reveal>
+        <div class="between">
+          <h3>Dashboard</h3>
+          <span class="row" style="gap:6px">
+            <a class="btn btn-primary btn-sm" href="nova-03-dashboard.html">Nova</a>
+            <a class="btn btn-glass btn-sm" href="generic-03-dashboard.html">Anti-pattern</a>
+          </span>
+        </div>
+        <p>App shell, KPI tiles, revenue chart, risk table, activity and empty state.</p>
+        <p class="tiny subtle" style="margin-top:14px">Same brief, same content structure, two systems.
+          Open both side by side.</p>
+      </div>
+      <div class="vitral card" data-reveal>
+        <div class="between">
+          <h3>AI chat scene</h3>
+          <span class="row" style="gap:6px">
+            <a class="btn btn-primary btn-sm" href="nova-04-chat.html">Nova</a>
+            <a class="btn btn-glass btn-sm" href="generic-04-chat.html">Anti-pattern</a>
+          </span>
+        </div>
+        <p>Conversation rail, thread, reasoning, tool call, answer and composer.</p>
+        <p class="tiny subtle" style="margin-top:14px">Same brief, same content structure, two systems.
+          Open both side by side.</p>
+      </div>
+      <div class="vitral card" data-reveal>
+        <div class="between">
+          <h3>Documentation</h3>
+          <span class="row" style="gap:6px">
+            <a class="btn btn-primary btn-sm" href="nova-05-docs.html">Nova</a>
+            <a class="btn btn-glass btn-sm" href="generic-05-docs.html">Anti-pattern</a>
+          </span>
+        </div>
+        <p>Docs layout: page tree, article, code blocks, callouts, on-this-page rail.</p>
+        <p class="tiny subtle" style="margin-top:14px">Same brief, same content structure, two systems.
+          Open both side by side.</p>
+      </div></div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap grid g2" style="max-width:1080px;align-items:start">
+      <div class="vitral card" data-reveal>
+        <p class="overline">What the Nova column does</p>
+        <h3 style="margin-top:12px">Rules that produce the calm</h3>
+        <ul class="grid" style="margin-top:16px;gap:8px"><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>One accent per viewport, and it marks the primary action</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Neutral ground carries at least 90 percent of the pixels</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Glass sits over an aurora, so the blur is visible</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Accordions use grid-template-rows, not animated height</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Charts use four accent-series, horizontal grid only, no legend clutter</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Empty, loading and error states exist for every data surface</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Every table has a sticky header and tabular numbers</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Every interactive element has hover, focus-visible and active states</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>Copy is specific and honest, with no invented attribution</li><li style="display:flex;gap:10px;font-size:14px;color:var(--fg-muted)"><span style="color:var(--accent)">-</span>The grayscale test passes: hierarchy survives without color</li></ul>
+      </div>
+      <div class="vitral card" data-reveal>
+        <p class="overline">What the anti-pattern column does</p>
+        <h3 style="margin-top:12px">Debt that makes it look machine-generated</h3>
+        <ul class="grid" style="margin-top:16px;gap:8px;font-size:14px;color:var(--fg-muted)">
+          <li>- Purple-to-blue gradient on every surface and button</li>
+          <li>- Neon accents, glow, and gradient text on everything</li>
+          <li>- Emoji used as icons, three pulsing badges at once</li>
+          <li>- Every element flies in from the left over 1.2s</li>
+          <li>- Glass-looking cards over a flat background, so they read as gray mud</li>
+          <li>- Cards scaling to 1.06 on hover, breaking the layout feel</li>
+          <li>- Lorem ipsum, "Feature One", "John Doe, CEO"</li>
+          <li>- Spinners instead of streaming, no stop control</li>
+          <li>- Pie chart with six unlabeled slices, no empty states</li>
+          <li>- No focus states, no reduced-motion path, no states at all</li>
+        </ul>
+        <p class="tiny subtle" style="margin-top:16px">Each page lists the exact spec 9.5 items it
+          violates, so the comparison doubles as a checklist.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap" style="max-width:1080px">
+      <div class="vitral card" data-reveal>
+        <h3>How to use this in a prompt</h3>
+        <p class="small muted" style="margin-top:12px">Point your agent at the specification, not at these
+          pages, and ask for the discipline explicitly:</p>
+        <div class="code" style="margin-top:16px">
+          <header><span class="mono">prompt</span><span>copy</span></header>
+          <pre><code>Read https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+sections 0.4, 1.2.1, 2, 6.2, 6.12, 9.5.
+
+Build a pricing page for &lt;product&gt;. Follow blueprint 5.4.
+
+Color discipline is mandatory: neutral ground first, one accent per viewport,
+no purple, violet, neon or multi-hue gradients, primary buttons use the
+single-hue --grad-primary, and the grayscale test must pass before you answer.</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap between" style="text-align:left">
+    <div>
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true">M</span> Meridian</a>
+      <p class="small subtle" style="margin-top:10px;max-width:34ch">Revenue analytics for subscription
+        teams. Every page in this showcase is self-contained and offline.</p>
+      <p class="pill" style="margin-top:14px"><span class="dot"></span> All systems operational</p>
+    </div>
+    <div class="grid g3" style="gap:32px">
+      <div><p class="overline">Product</p>
+        <div class="side" style="margin-top:10px"><a href="nova-01-landing.html">Overview</a>
+        <a href="nova-03-dashboard.html">Dashboard</a><a href="nova-04-chat.html">Assistant</a>
+        <a href="nova-05-docs.html">Documentation</a></div></div>
+      <div><p class="overline">Company</p>
+        <div class="side" style="margin-top:10px"><a href="#">About</a><a href="#">Careers</a>
+        <a href="#">Changelog</a><a href="#">Status</a></div></div>
+      <div><p class="overline">Legal</p>
+        <div class="side" style="margin-top:10px"><a href="#">Privacy</a><a href="#">Terms</a>
+        <a href="#">Security</a><a href="#">DPA</a></div></div>
+    </div>
+  </div>
+  <div class="wrap between" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--hair-soft)">
+    <p class="tiny subtle">2026 Meridian Labs. Demonstration content for the Nova Vitral showcase.</p>
+    <p class="tiny subtle">Theme: dark</p>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-reveal]');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.25});
+  els.forEach(function(e,i){ if(!e.style.getPropertyValue('--d')) e.style.setProperty('--d',Math.min(i*60,360)+'ms'); io.observe(e); });
+
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target=parseFloat(el.getAttribute('data-count')),suffix=el.getAttribute('data-suffix')||'',dec=parseInt(el.getAttribute('data-dec')||'0',10);
+    var io2=new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(!e.isIntersecting) return; io2.unobserve(e.target);
+        if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=target.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suffix;return;}
+        var t0=performance.now();
+        (function tick(t){var p=Math.min((t-t0)/1200,1);var v=target*(1-Math.pow(1-p,3));
+          el.textContent=v.toLocaleString(undefined,{minimumFractionDigits:dec,maximumFractionDigits:dec})+suffix;
+          if(p<1) requestAnimationFrame(tick);})(t0);
+      });
+    },{threshold:.5});
+    io2.observe(el);
+  });
+
+  document.querySelectorAll('[data-toast]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.createElement('div');t.className='toast';t.setAttribute('role','status');
+      t.textContent='Link copied';document.body.appendChild(t);
+      setTimeout(function(){t.remove();},1600);
+    });
+  });
+
+  var toggle=document.querySelector('[data-toggle="billing"]');
+  if(toggle){ toggle.addEventListener('click',function(e){
+      var btn=e.target.closest('button'); if(!btn) return;
+      var annual=btn.dataset.mode==='annual';
+      toggle.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-selected',String(b===btn))});
+      document.querySelectorAll('[data-monthly]').forEach(function(el){
+        el.textContent = annual ? el.dataset.annual : el.dataset.monthly;
+      });
+      document.querySelectorAll('[data-period]').forEach(function(el){
+        el.textContent = annual ? 'per month, billed yearly' : 'billed monthly';
+      });
+  });}
+})();
+</script>
+
+</body>
+</html>

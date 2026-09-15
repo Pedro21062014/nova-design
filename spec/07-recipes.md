@@ -366,7 +366,7 @@ const buttonVariants = cva(base, {
     variant: {
       // shadcn originals ...
       glass: "bg-[var(--glass)] border border-[var(--hair)] backdrop-blur-[var(--blur-sm)] text-[var(--fg)] hover:bg-[var(--glass-hover)]",
-      vitral: "bg-[linear-gradient(135deg,var(--accent),var(--accent-3))] text-[var(--accent-fg)] shadow-[var(--shadow-2)] hover:-translate-y-px",
+      vitral: "bg-[image:var(--grad-primary)] text-[var(--accent-fg)] shadow-[var(--shadow-2)] hover:-translate-y-px",
     },
   },
 });

@@ -152,7 +152,7 @@ export function ReasoningDrawer({ text, ms }: { text: string; ms?: number }) {
         aria-expanded={open}
         className="flex h-8 w-full items-center gap-2 px-3 text-left text-[var(--fs-xs)] text-[var(--fg-muted)] hover:bg-[var(--glass)]"
       >
-        <Sparkles className="size-3.5 text-[var(--accent-3)]" aria-hidden />
+        <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden />
         <span className="relative">
           {ms ? `Thought for ${Math.round(ms / 1000)}s` : "Thinking"}
           <span className="absolute -inset-x-1 inset-y-0 animate-[shimmer_1.6s_linear_infinite] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent)]" />

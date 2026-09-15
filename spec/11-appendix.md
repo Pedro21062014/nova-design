@@ -47,9 +47,14 @@ export function hashHue(id: string) {
   return h;
 }
 
+/**
+ * Constrained, low-saturation avatar palette. Avatars must never outshine the interface
+ * (section 1.2.1): six calm hues, single-hue gradients, saturation capped at 46 percent.
+ */
 export function avatarGradient(id: string) {
-  const h = hashHue(id);
-  return `linear-gradient(135deg, hsl(${h} 72% 58%), hsl(${(h + 48) % 360} 68% 52%))`;
+  const hues = [222, 210, 198, 172, 152, 24];
+  const h = hues[hashHue(id) % hues.length];
+  return `linear-gradient(135deg, hsl(${h} 42% 54%), hsl(${h} 46% 40%))`;
 }
 
 export function initials(name: string) {
@@ -173,6 +178,7 @@ export function Section({
 | Version | Date | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-15 | First release: foundations, tokens, 32 components, chat scene, blueprints, motion, recipes, 100 examples, prompt library |
+| 1.1.0 | 2026-09-15 | Color discipline (1.2.1): neutral-first, single-hue primary gradient, purple and neon banned by default, grayscale test; aurora softened; before/after showcase site added |
 
 Maintenance: run `python3 scripts/build_spec.py` after every edit to refresh the line index and the
 task map anchors. Keep the token block in `0.10` synchronized with `2.1`. Bump the minor version when

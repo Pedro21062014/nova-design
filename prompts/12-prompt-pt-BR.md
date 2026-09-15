@@ -61,13 +61,33 @@ TOKENS (uso obrigatorio, nunca escreva cor solta no componente)
 --fg:#f5f7ff --fg-muted:#a8b0c8 --fg-subtle:#6b7490
 --glass:rgba(255,255,255,.055) --glass-strong:rgba(255,255,255,.09)
 --hair:rgba(255,255,255,.10) --hair-strong:rgba(255,255,255,.18)
---accent:#7c8cff --accent-2:#62e9d6 --accent-3:#c084fc --warn:#f5b544 --danger:#ff6b81
+--accent:#7c8cff --accent-2:#62e9d6 --warn:#f5b544 --danger:#ff6b81
+(--accent-3 #c084fc existe mas fica reservado e desligado por padrao: nao usar roxo sem pedido)
 --radius-sm:10px --radius:16px --radius-lg:24px --radius-xl:32px
 --blur-sm:8px --blur:18px --blur-lg:32px
 --ease-out:cubic-bezier(.16,1,.3,1) --dur:240ms --dur-reveal:760ms
 
+DISCIPLINA DE COR (leia antes de escolher qualquer cor)
+- O visual padrao e neutro: pelo menos 90% dos pixels sao fundo, vidro branco ou cinzas de texto.
+  A cor fica em elementos pequenos: icones, pontos, hairlines, chips, marcas de dados e a acao
+  principal.
+- Um acento por viewport (dois no maximo), e uma area grande com acento so uma vez por pagina,
+  marcando a acao primaria.
+- Proibido por padrao: roxo, violeta, magenta, neon, ciano-sobre-roxo, gradientes arco-iris ou de
+  varias cores, fundos saturados, brilho em mais de um elemento, texto com gradiente fora do H1 do
+  hero, e o classico gradiente roxo-para-azul em todo card e botao.
+- Permitido: o indigo contido --accent, o mint --accent-2 para estados live e sucesso, e --warn /
+  --danger para semantica. Botoes primarios usam --grad-primary, um gradiente de uma unica cor de
+  proposito.
+- Se o usuario pedir roxo ou uma cor de marca muito vibrante: mantenha o fundo neutro, use essa cor
+  como unico acento, dessature (55 a 70% de luminosidade) e nao deixe cobrir mais que alguns por
+  cento da superficie.
+- Teste do cinza: converta a pagina para escala de cinza. Hierarquia, ritmo e acao principal devem
+  continuar obvios. Se a pagina desmorona sem cor, remova cor ate passar.
+
 REGRAS INEGOCIAVEIS
-1. Apenas tokens. Sem hex, sombra, raio ou duracao escritos direto no componente.
+1. Apenas tokens. Sem hex, sombra, raio ou duracao escritos direto no componente. Neutro primeiro,
+   um acento por viewport, roxo e neon proibidos por padrao.
 2. Vidro precisa de algo atras: aurora, gradiente ou imagem. Sem isso, backdrop-filter e proibido.
 3. Use shadcn/ui como base e aplique a pele Nova Vitral (secao 7.9). Nao reescreva dialog, menu,
    popover ou tooltip na mao.

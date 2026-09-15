@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation (anti-patterns) - anti-pattern demo</title>
+<meta name="description" content="Docs layout: page tree, article, code blocks, callouts, on-this-page rail.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:400 17px/1.5 Verdana,Geneva,sans-serif;color:#fff;text-align:center;
+  background:linear-gradient(135deg,#7b2ff7 0%,#4f46e5 45%,#06b6d4 100%);background-attachment:fixed}
+h1,h2,h3,ul,ol,p{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:#ffe600;text-decoration:underline}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+.badbar{background:#ff0055;color:#fff;padding:10px 14px;font-size:13px;text-align:center;
+  position:sticky;top:0;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.badbar b{text-transform:uppercase}
+.hero{padding:56px 12px 40px}
+.hero h1{font-size:56px;line-height:1.05;text-shadow:0 4px 24px rgba(0,0,0,.6);
+  background:linear-gradient(90deg,#ffe600,#ff00e0,#00fff0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:18px;font-size:18px;color:#ffd9ff}
+.btn{display:inline-block;margin:22px 6px 0;padding:16px 30px;border:0;border-radius:999px;cursor:pointer;
+  font-size:17px;font-weight:700;color:#fff;background:linear-gradient(90deg,#ff0055,#ff9d00);
+  box-shadow:0 0 26px rgba(255,0,85,.9),0 10px 30px rgba(0,0,0,.5);transition:all .35s ease}
+.btn:hover{transform:scale(1.08) rotate(-1.2deg)}
+.btn.secondary{background:linear-gradient(90deg,#00fff0,#7b2ff7);box-shadow:0 0 26px rgba(0,255,240,.8)}
+.btn[disabled]{filter:grayscale(.6);opacity:.75}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
+.card{padding:26px 18px;border-radius:26px;background:rgba(255,255,255,.20);border:3px solid rgba(255,255,255,.55);
+  box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 40px rgba(255,255,255,.25);animation:pop 1.2s ease both}
+.card h3{font-size:22px;margin-bottom:10px}
+.card p{font-size:15px;color:#f3e8ff}
+.emoji{font-size:44px;animation:spinbadge 2s linear infinite}
+@keyframes spinbadge{50%{transform:scale(1.25) rotate(12deg)}}
+@keyframes pop{from{opacity:0;transform:translateX(-80px) scale(.9)}to{opacity:1;transform:none}}
+.pulse{display:inline-block;width:12px;height:12px;border-radius:50%;background:#39ff14;
+  animation:pulse .9s infinite alternate;box-shadow:0 0 14px #39ff14}
+@keyframes pulse{to{transform:scale(1.8);opacity:.4}}
+.marquee{overflow:hidden;white-space:nowrap;margin-top:22px;font-size:15px;color:#ffe600;animation:slide 6s linear infinite}
+@keyframes slide{from{transform:translateX(20%)}to{transform:translateX(-60%)}}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:28px}
+table{width:100%;border-collapse:separate;border-spacing:0 8px;margin-top:24px;font-size:15px}
+th{background:#7b2ff7;padding:14px;color:#ffe600;font-size:13px;text-transform:uppercase}
+td{background:rgba(255,255,255,.16);padding:14px;border-top:2px solid rgba(255,255,255,.4)}
+td.yes{color:#39ff14;font-weight:700}td.no{color:#ff2d55;font-weight:700}
+.price{font-size:44px;color:#ffe600;text-shadow:0 3px 12px rgba(0,0,0,.6)}
+.strike{text-decoration:line-through;color:#ffb3d9;font-size:18px}
+.section{padding:44px 12px}
+.section h2{font-size:34px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.55);margin-bottom:8px}
+.small{font-size:13px;color:#ffe0ff}
+.tiny{font-size:11px;color:#ffd9ff}
+.stars{font-size:22px;color:#ffe600;letter-spacing:2px}
+.quote{background:rgba(255,255,255,.18);border-radius:22px;padding:20px;margin-top:20px;font-style:italic}
+footer{padding:34px 12px 60px;font-size:13px;color:#ffe0ff}
+.badge-float{position:fixed;bottom:14px;left:14px;z-index:98;background:#ff0055;color:#fff;border-radius:999px;
+  padding:12px 18px;font-size:13px;font-weight:700;box-shadow:0 10px 30px rgba(0,0,0,.55);animation:pulse 1.1s infinite alternate}
+.spinner{display:inline-block;width:16px;height:16px;border:3px solid rgba(255,255,255,.35);
+  border-top-color:#ffe600;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+input[type=text],input[type=email],select{padding:12px;border-radius:12px;border:3px solid #ff9d00;
+  background:rgba(255,255,255,.9);color:#3b0764;width:70%;margin:6px 0;font-size:15px}
+.chartbox{height:190px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.1));
+  border:3px dashed rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:#ffe600;margin-top:18px}
+.pie{width:170px;height:170px;border-radius:50%;margin:14px auto;
+  background:conic-gradient(#ff0055 0 22%,#ff9d00 0 41%,#ffe600 0 58%,#00fff0 0 74%,#7b2ff7 0 89%,#39ff14 0 100%);
+  box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.bubble{border-radius:22px;padding:14px 16px;margin:10px auto;max-width:640px;text-align:left;font-size:15px}
+.bubble.user{background:linear-gradient(90deg,#00fff0,#7b2ff7);color:#fff;transform:skewX(-3deg)}
+.bubble.ai{background:rgba(255,255,255,.22);border:3px solid rgba(255,255,255,.5)}
+.tree a{display:block;padding:8px;color:#ffe600}
+.side-col{text-align:left}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="badbar"><b>Anti-pattern demo</b> - generated on purpose with spec 9.5 violations
+  &middot; <a href="nova-05-docs.html">See the Nova Vitral version of this page</a>
+  &middot; <a href="index.html">All 10 pages</a></div>
+<div class="badge-float">LIMITED TIME!!</div>
+
+<div class="wrap" style="max-width:1080px;text-align:left">
+  <div class="section">
+    <h1 style="font-size:40px;text-align:center;text-shadow:0 4px 20px rgba(0,0,0,.6)">DOCUMENTATION</h1>
+    <p class="small" style="text-align:center;margin-top:8px">Welcome to the docs!!! Everything you
+      need to know about EVERYTHING &#128218;</p>
+
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div class="card"><h3>Getting Started</h3><p class="small">Click here to begin your journey today</p></div>
+      <div class="card"><h3>Advanced</h3><p class="small">Click here for advanced things</p></div>
+      <div class="card"><h3>API Reference</h3><p class="small">Click here for the API (undocumented)</p></div>
+      <div class="card"><h3>FAQ</h3><p class="small">Click here for questions, no answers included</p></div>
+    </div>
+
+    <h2 style="margin-top:40px">Installation</h2>
+    <p class="small" style="margin-top:10px">To install the thing, first make sure you have installed
+      the other things. You will need Node, and also Python, and Docker, and probably a database. Then
+      run the installer. If it fails, try turning it off and on again. There is no error handling
+      documentation because errors should not happen. For more information about this topic please see
+      the other page which we have not written yet, or contact support during business hours in a
+      timezone you are not in.</p>
+    <p class="small" style="margin-top:10px">Run the following command in your terminal and hope for
+      the best:</p>
+    <p class="card" style="margin-top:10px;text-align:left;font-family:monospace">
+      install-our-thing --yes --please --everything</p>
+    <p class="small" style="margin-top:10px">Warning: do not run this in production. Actually we are
+      not sure. Ask around.</p>
+
+    <h2 style="margin-top:36px">Metrics</h2>
+    <p class="small" style="margin-top:10px">Our metrics are calculated using proprietary industry
+      leading AI-powered algorithms that nobody can explain. Net revenue retention is computed
+      somewhere between the billing system and the dashboard. Values may differ from your previous
+      tool, and from each other, depending on the day.</p>
+
+    <h2 style="margin-top:36px">Troubleshooting</h2>
+    <p class="small" style="margin-top:10px">If something breaks, refresh the page. If that does not
+      work, clear your cache. If that does not work, it is probably your network. If that does not
+      work, we cannot reproduce it.</p>
+
+    <p class="tiny" style="margin-top:36px;text-align:center">
+      No search, no table of contents, no version, no last-updated date, no next or previous links,
+      no code copy button, no syntax highlighting.</p>
+  </div>
+</div>
+<footer>Docs last updated: unknown.</footer>
+
+</body>
+</html>
