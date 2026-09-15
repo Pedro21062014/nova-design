@@ -10,7 +10,7 @@ and, optionally, the fixes.
 ```text
 Read the Nova Vitral specification, sections 9.1 (accessibility), 9.3 (performance),
 9.4 (visual QA), 9.5 (anti-patterns), 9.6 (code review) and 9.7 (critique rubric):
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Also read sections 1.3 (glass rules), 2 (tokens) and 6.12 (reduced motion and performance).
 

@@ -1426,7 +1426,7 @@ def hub() -> str:
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="banner">Showcase for the Nova Vitral specification.
-  <a href="../../nova-design.md">Read the spec</a> &middot; <a href="../00-index.md">100 examples</a></div>
+  <a href="../design.md">Read the spec</a> &middot; <a href="../examples/00-index.md">100 examples</a></div>
 
 <main>
   <section class="tight" style="padding-top:72px">
@@ -1480,7 +1480,7 @@ def hub() -> str:
           pages, and ask for the discipline explicitly:</p>
         <div class="code" style="margin-top:16px">
           <header><span class="mono">prompt</span><span>copy</span></header>
-          <pre><code>Read https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+          <pre><code>Read https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 sections 0.4, 1.2.1, 2, 6.2, 6.12, 9.5.
 
 Build a pricing page for &lt;product&gt;. Follow blueprint 5.4.

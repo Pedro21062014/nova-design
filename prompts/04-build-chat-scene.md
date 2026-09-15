@@ -9,7 +9,7 @@ Use for assistant products, copilots, agent consoles and any conversational surf
 ```text
 Read the Nova Vitral specification, part 4 in full (sections 4.0 to 4.20), plus sections 0.4, 2,
 6.12 and 9.5:
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Read the chat example file (EX-51 to EX-65) for the exact techniques:
 https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/06-chat-scene.md

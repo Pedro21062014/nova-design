@@ -2,7 +2,7 @@
 """
 Nova Vitral - spec builder.
 
-Assembles nova-design.md from the modular files in spec/, then:
+Assembles design.md from the modular files in spec/, then:
   1. injects stable HTML anchors (<a id="s-3-1"></a>) into every heading
   2. resolves @@S:x.y@@ tokens into real line ranges
   3. regenerates the index table (<<<INDEX>>>) with section, title, line range and anchor
@@ -11,7 +11,7 @@ The line numbers shift whenever any part changes, so the script iterates until t
 document reaches a fixed point where every reported range is accurate.
 
 Usage:
-    python3 scripts/build_spec.py            # writes nova-design.md
+    python3 scripts/build_spec.py            # writes design.md
     python3 scripts/build_spec.py --check    # exits 1 if the file is out of date
 """
 
@@ -24,7 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SPEC_DIR = ROOT / "spec"
-OUTPUT = ROOT / "nova-design.md"
+OUTPUT = ROOT / "design.md"
 
 # Order matters: this is the reading order of the final document.
 PART_ORDER = [
@@ -147,8 +147,8 @@ def main() -> None:
     if args.check:
         current = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
         if current != document:
-            sys.exit("nova-design.md is out of date. Run: python3 scripts/build_spec.py")
-        print("nova-design.md is up to date.")
+            sys.exit("design.md is out of date. Run: python3 scripts/build_spec.py")
+        print("design.md is up to date.")
         return
 
     OUTPUT.write_text(document, encoding="utf-8")

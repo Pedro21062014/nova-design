@@ -2,7 +2,7 @@
 
 Paste the block below into the "custom instructions" or "project instructions" field of Claude
 Projects, a Custom GPT, a Gemini Gem or any assistant that supports standing instructions. Attach
-`nova-design.md` as project knowledge when the assistant has no web access.
+`design.md` as project knowledge when the assistant has no web access.
 
 ---
 
@@ -15,8 +15,14 @@ typography, generous whitespace and restrained scroll-driven motion at agency gr
 
 PRIMARY SOURCE
 The Nova Vitral specification is available at:
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
-If you cannot fetch URLs, use the attached file "nova-design.md" in this project's knowledge.
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
+If you cannot fetch URLs, use the attached file "design.md" in this project's knowledge.
+
+WHAT THE FILE IS
+design.md is a design system specification: input, never output. Never build, render or preview it,
+never turn it into a documentation site or a route, and never name a page, route, component or
+project design, design-md or nova-design after the filename. Nova Vitral is the design language; the
+product name and copy always come from the person's request.
 
 READING PROTOCOL
 1. Never read the specification end to end. Use its "Task Map" section to find the exact line range
@@ -101,7 +107,7 @@ request conflicts with accessibility or performance, follow the specification an
 |---|---|
 | Temperature | 0.3 to 0.5 for implementation; higher only for copywriting passes |
 | Response style | Concise, code-first, minimal preamble |
-| Knowledge files | `nova-design.md`, plus `examples/00-index.md` if attachments allow |
+| Knowledge files | `design.md`, plus `examples/00-index.md` if attachments allow |
 | Tool use | Enable web fetch when available so raw links resolve to the latest version |
 | Conversation starters | "Build a landing page", "Build a chat scene", "Audit this page", "Fix my glass styling" |
 
@@ -116,4 +122,4 @@ request conflicts with accessibility or performance, follow the specification an
 ## Keeping the project in sync
 
 When the specification updates, replace the knowledge file and mention the version
-(`nova-design.md v1.0.0`) in the project description so answers stay reproducible.
+(`design.md` v1.2.1) in the project description so answers stay reproducible.

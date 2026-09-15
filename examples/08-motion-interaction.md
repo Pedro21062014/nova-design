@@ -1,7 +1,7 @@
 # Examples 79 to 90 - Motion and Interaction
 
 Part of the Nova Vitral example library. Index: `examples/00-index.md`.
-Every example here is bound by `nova-design.md` section 6, especially 6.12 (reduced motion).
+Every example here is bound by `design.md` section 6, especially 6.12 (reduced motion).
 
 ---
 

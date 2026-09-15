@@ -48,7 +48,7 @@ items your own product accidentally has. The list is short enough to act on.
 **As a prompt.** Point the agent at the specification and demand the discipline explicitly:
 
 ```text
-Read https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+Read https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 sections 0.4, 1.2.1, 2, 6.2, 6.12 and 9.5.
 
 Build a pricing page for <product> following blueprint 5.4.

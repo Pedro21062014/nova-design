@@ -1,7 +1,7 @@
 # Examples 51 to 65 - Chat Scene
 
 The flagship surface. Part of the Nova Vitral example library. Index: `examples/00-index.md`.
-All snippets assume the layout and rules of `nova-design.md` section 4.
+All snippets assume the layout and rules of `design.md` section 4.
 
 ---
 

@@ -1,7 +1,7 @@
 # Examples 01 to 10 - Surfaces and Glass
 
 Part of the Nova Vitral example library (100 examples total). Index: `examples/00-index.md`.
-Every example assumes the tokens of `nova-design.md` section 2 and the surfaces of section 7.2.
+Every example assumes the tokens of `design.md` section 2 and the surfaces of section 7.2.
 
 ---
 

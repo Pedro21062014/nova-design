@@ -74,7 +74,7 @@ Every component in this folder animates, and it animates the same way:
 - Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends.
 
 Full ladder, easing and reduced-motion rules: spec sections 4.1 to 4.9 in
-[`nova-design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md).
+[`design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md).
 
 ## Colors
 
@@ -92,4 +92,4 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)

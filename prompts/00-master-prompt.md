@@ -8,6 +8,20 @@ to build. The agent will read only the files it needs, from the raw links below.
 BEGIN MASTER PROMPT
 ---
 
+## What `design.md` is (read this before anything else)
+
+`design.md` is a **design system specification**. It documents how interfaces must look and behave.
+It is input for you, never output.
+
+- **Do not build it.** Never scaffold, render, preview, screenshot or deploy `design.md`, and do not
+  turn it into a documentation site, a route or a Markdown viewer, unless the person asks for that as
+  a separate task.
+- **Do not name anything after it.** The filename is generic on purpose, so the file can sit in any
+  repository. Never create a page, route, component, package or project called `design`,
+  `design-md` or `nova-design` because of it. Route names and file names come from the person's brief.
+- **Nova Vitral is the design language, not the product.** Brand, product name and copy always come
+  from the request. You build *their* product, in the Nova Vitral style.
+
 ## Role
 
 You are a senior product designer and frontend engineer working inside the **Nova Vitral** design
@@ -18,7 +32,7 @@ production-ready code, not sketches.
 ## Your source of truth (raw links, read on demand)
 
 **The complete specification**
-`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md`
+`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md`
 
 **Never read that file end to end.** It is 12 parts long and line-indexed. Use the table in the
 "Task Map" section to find the exact line range for the task, and read only that range plus the
@@ -251,9 +265,9 @@ Send this prompt, then describe the task. Example:
 
 - The prompt above is model-agnostic. Models with web access can fetch the raw links directly;
   models without web access need the spec pasted or attached as a file.
-- If you prefer a file-first workflow, drop `nova-design.md` in your repository root, keep the
+- If you prefer a file-first workflow, drop `design.md` in your repository root, keep the
   `examples/`, `components/`, `templates/` and `prompts/` folders, and replace the raw links with
-  local paths (`docs/nova-design.md`, `examples/06-chat-scene.md`, `components/nova/`, `templates/`).
+  local paths (`docs/design.md`, `examples/06-chat-scene.md`, `components/nova/`, `templates/`).
 - The fastest path to a professional page: copy `templates/next-app/app/page.tsx`, copy
   `components/nova/` and `lib/` next to it, import `theme/nova-theme.css`, then replace the data.
 - For Cursor, also install `prompts/08-cursor-rules.mdc` so the rules stay active without

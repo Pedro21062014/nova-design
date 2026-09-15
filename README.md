@@ -5,7 +5,13 @@ model to build modern minimal interfaces with glassmorphism, complete profession
 restrained scroll-driven animation - plus a prompt library and 100 named, copy-ready examples built
 on shadcn/ui, Radix primitives and Motion.
 
-- **Main file:** [`nova-design.md`](./nova-design.md) - drop it in your project, point your agent at it
+> **`design.md` is a design system, not a build target.** It is the specification of the Nova Vitral
+> visual language: input for an AI agent, never output. Do not scaffold, render or deploy the file,
+> and do not name a page, route, component or project after it. The name is generic on purpose so it
+> can sit in any repository; Nova Vitral is the language, and the product name always comes from the
+> brief you give the agent. See section 0.2 of the file.
+
+- **Main file:** [`design.md`](./design.md) - drop it in your project and point your agent at it
 - **Master prompt:** [`prompts/00-master-prompt.md`](./prompts/00-master-prompt.md) - names every raw
   URL and tells the agent which file to read for each task
 - **Examples:** [`examples/00-index.md`](./examples/00-index.md) - 100 examples, `EX-01` to `EX-100`
@@ -49,14 +55,14 @@ and follow it. Then: build a landing page for <product> aimed at <audience>.
 
 ```bash
 git clone https://github.com/Pedro21062014/nova-design.git
-cp nova-design/nova-design.md your-project/docs/
+cp nova-design/design.md your-project/docs/
 cp -r nova-design/examples nova-design/prompts your-project/docs/
 ```
 
 Then add one line to your `AGENTS.md` or `CLAUDE.md`:
 
 ```md
-UI work must follow docs/nova-design.md. Read only the line ranges the document's Task Map points
+UI work must follow docs/design.md. Read only the line ranges the document's Task Map points
 to, plus sections 0.4, 2, 6.12 and 9.5 which are always required.
 ```
 
@@ -83,7 +89,7 @@ chat, docs) and replace its sample data.
 `.cursor/rules/nova-vitral.mdc`.
 
 **Option E - chat projects.** Use `prompts/09-claude-project-instructions.md` as the system
-instruction and attach `nova-design.md` as knowledge.
+instruction and attach `design.md` as knowledge.
 
 ## The component library (500 components)
 
@@ -125,7 +131,7 @@ motion contract and its anti-patterns. The hand-authored files (`surface.tsx`, `
 
 All of them are verified against `tsc --noEmit` (strict) together with the 500 components.
 
-## What is inside the spec
+## What is inside the design system
 
 | Part | Contents |
 |---|---|
@@ -163,9 +169,9 @@ and the spec sections it implements.
 ## Repository layout
 
 ```
-nova-design.md              the assembled specification (generated, line-indexed)
+design.md                   the design system specification (generated, line-indexed)
 spec/                       the modular source of the specification
-scripts/build_spec.py       regenerates nova-design.md and its line index
+scripts/build_spec.py       regenerates design.md and its line index
 scripts/build_components.py regenerates components/ and templates/ (500 components, 5 pages)
 prompts/                    master prompt plus twelve task-specific prompts
 examples/                   100 named examples across nine themed files
@@ -182,7 +188,7 @@ README.md  AGENTS.md  LICENSE
 Edit the files in `spec/`, then rebuild so the line index stays accurate:
 
 ```bash
-python3 scripts/build_spec.py           # regenerates nova-design.md
+python3 scripts/build_spec.py           # regenerates design.md
 python3 scripts/build_spec.py --check   # fails if the output is stale (used in CI)
 ```
 
@@ -221,7 +227,7 @@ Como usar:
 1. Copie o prompt mestre em `prompts/00-master-prompt.md`, que lista **todos os links raw** e diz
    qual arquivo o agente deve ler para cada tarefa (tambem disponivel em portugues em
    `prompts/12-prompt-pt-BR.md`).
-2. Deixe o `nova-design.md` na raiz do seu projeto, ou aponte o agente para o raw URL.
+2. Deixe o `design.md` na raiz do seu projeto, ou aponte o agente para o raw URL.
 3. Para um componente especifico, mande o agente ler o exemplo correspondente em `examples/`
    (EX-01 a EX-100), que ja vem com codigo usando shadcn/ui, Tailwind e Motion.
 

@@ -136,7 +136,7 @@ Raw repository root:
 
 ## Rules that apply to every example
 
-1. Tokens only. No hex value, shadow or duration outside `nova-design.md` section 2.
+1. Tokens only. No hex value, shadow or duration outside `design.md` section 2.
 2. Every interactive element ships with hover, focus-visible, active, disabled and loading states.
 3. Every data surface ships with loading, empty and error states.
 4. Reveal once, 12 to 24px, stagger capped so the last sibling starts under 400ms.

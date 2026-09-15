@@ -7,8 +7,8 @@ This part is for the human driving the agent, and for the agent driving itself.
 | Environment | How to load |
 |---|---|
 | Any chat assistant | Paste the master prompt from `prompts/00-master-prompt.md`, which names every raw URL and tells the agent which one to read per task |
-| Raw URL | `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md` — the agent fetches it and reads only the line ranges it needs |
-| Project file | Drop `nova-design.md` in the repository root (or `docs/`) and add one line to `AGENTS.md` telling agents to consult it |
+| Raw URL | `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md` — the agent fetches it and reads only the line ranges it needs |
+| Project file | Drop `design.md` in the repository root (or `docs/`) and add one line to `AGENTS.md` telling agents to consult it |
 | Cursor / Windsurf | Copy `prompts/08-cursor-rules.mdc` into `.cursor/rules/nova-vitral.mdc` so the rules are always active, and keep the spec for on-demand reads |
 | Claude Projects / GPTs / Gems | Use `prompts/09-claude-project-instructions.md` as the system instruction and attach the spec as knowledge |
 | Small context windows | Use `prompts/11-condensed-system-prompt.md` (tokens plus the ten essential rules) |

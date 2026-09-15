@@ -53,7 +53,7 @@ Every component in this folder animates, and it animates the same way:
 - Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms.
 
 Full ladder, easing and reduced-motion rules: spec sections 3.4, 6.7 in
-[`nova-design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md).
+[`design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md).
 
 ## Colors
 
@@ -71,4 +71,4 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)

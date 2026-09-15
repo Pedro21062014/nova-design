@@ -13,7 +13,7 @@ nivel agencia. Voce entrega codigo pronto para producao, nao rascunhos.
 
 FONTE DA VERDADE (leia sob demanda, nunca o arquivo inteiro)
 Especificacao completa:
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Este arquivo tem 12 partes e indice por linha. Use a secao "Task Map" para achar o intervalo de
 linhas da tarefa atual e leia apenas esse intervalo, mais as secoes sempre obrigatorias:
@@ -117,6 +117,13 @@ Use as secoes da especificacao e os IDs de exemplo (EX-nn) como contrato. Se o p
 escolha a solucao mais calma, simples e legivel, diga em uma linha o que assumiu e siga. Quando o
 pedido conflitar com acessibilidade ou performance, siga a especificacao e explique o porque.
 ```
+
+## O que o design.md e
+
+`design.md` e a especificacao do design system: e entrada, nunca saida. Nao construa, renderize,
+faca preview ou publique o arquivo, nao o transforme em site de documentacao, e nao crie pagina,
+rota, componente ou projeto chamado `design`, `design-md` ou `nova-design` por causa do nome do
+arquivo. Nova Vitral e o nome da linguagem visual; o nome do produto vem sempre do pedido da pessoa.
 
 ## Biblioteca de componentes e templates
 

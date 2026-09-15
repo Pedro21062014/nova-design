@@ -67,7 +67,7 @@ Every component in this folder animates, and it animates the same way:
 - Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion.
 
 Full ladder, easing and reduced-motion rules: spec sections 3.9, 6.1 to 6.14 in
-[`nova-design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md).
+[`design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md).
 
 ## Colors
 
@@ -85,4 +85,4 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)

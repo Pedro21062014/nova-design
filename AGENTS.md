@@ -4,8 +4,8 @@ Instructions for any AI agent working in this repository.
 
 ## What this repository is
 
-A design specification, a prompt library, 100 worked examples and a 500-component library for the
-**Nova Vitral** design language: modern minimal UI with glassmorphism, dark aurora grounds, 1px
+A design system specification, a prompt library, 100 worked examples and a 500-component library for
+the **Nova Vitral** design language: modern minimal UI with glassmorphism, dark aurora grounds, 1px
 hairlines, tight typography, generous whitespace and restrained scroll-driven motion.
 
 The deliverables are documents plus a copy-ready component library and five complete page templates.
@@ -15,9 +15,9 @@ Nothing needs to be running: `templates/next-app` is a reference app, not a serv
 
 | Artifact | Path | Notes |
 |---|---|---|
-| Specification | `nova-design.md` | Generated. Never edit directly; edit `spec/` and rebuild. |
+| Design system specification | `design.md` | Generated. Never edit directly; edit `spec/` and rebuild. This is the reference document, not a page to build. |
 | Specification source | `spec/*.md` | Modular parts, assembled in the order defined by `scripts/build_spec.py` |
-| Line index and task map | `nova-design.md` sections 0.5 and 0.7 | Regenerated automatically |
+| Line index and task map | `design.md` sections 0.5 and 0.7 | Regenerated automatically |
 | Examples | `examples/01-*.md` to `examples/09-*.md` | 100 examples, `EX-01` to `EX-100` |
 | Showcase site | `examples-sites/*.html` | Generated before/after demo: 5 pages with the system, 5 with anti-patterns |
 | Example index | `examples/00-index.md` | Maps every example to its file, base component and theme |
@@ -31,7 +31,7 @@ Nothing needs to be running: `templates/next-app` is a reference app, not a serv
 
 ## Rules for editing the specification
 
-1. **Never edit `nova-design.md` by hand.** Edit the matching file in `spec/` and run
+1. **Never edit `design.md` by hand.** Edit the matching file in `spec/` and run
    `python3 scripts/build_spec.py`.
 2. Run `python3 scripts/build_spec.py --check` before committing; CI runs the same check.
 3. Keep tokens synchronized: the quick block in `spec/00-intro.md` (section 0.11) must match the full
@@ -42,13 +42,17 @@ Nothing needs to be running: `templates/next-app` is a reference app, not a serv
    motion behavior, spec references. Update `examples/00-index.md` and the file tables in
    `README.md` and `prompts/00-master-prompt.md`.
 6. Bump the version and add a row to the changelog in `spec/11-appendix.md` (section 11.6).
-7. No emojis anywhere. English only, in every file, including prompts.
-8. **Never hand-edit `components/` or `templates/`.** Edit `scripts/lib_data.py` (which components
+7. `design.md` is a design system specification: input, never output. Never scaffold, render or
+   preview it, never turn it into a documentation site or a route, and never name a page, route,
+   component or project `design`, `design-md` or `nova-design` after the filename. Nova Vitral is the
+   design language; product names come from the brief.
+8. No emojis anywhere. English only, in every file, including prompts.
+9. **Never hand-edit `components/` or `templates/`.** Edit `scripts/lib_data.py` (which components
    exist), `scripts/lib_catalog.py` (per-kind props, motion, preview, anti-patterns),
    `scripts/lib_emit.py` (rendering) or `scripts/lib_templates*.py` (the five pages), then run
    `python3 scripts/build_components.py`. The build fails on a banned color token or a
    zero-animation component.
-9. Adding a category means editing the registry in `scripts/lib_data.py` and the per-category entries
+10. Adding a category means editing the registry in `scripts/lib_data.py` and the per-category entries
    in `scripts/lib_catalog.py` (`USES`, `ANTI_PATTERNS`), then rebuilding.
 
 ## Design rules an agent must never break
@@ -77,12 +81,12 @@ Nothing needs to be running: `templates/next-app` is a reference app, not a serv
 ## Commands
 
 ```bash
-python3 scripts/build_spec.py           # rebuild nova-design.md and refresh the line index
+python3 scripts/build_spec.py           # rebuild design.md and refresh the line index
 python3 scripts/build_spec.py --check   # verify the generated file is current
 python3 scripts/build_showcase.py       # rebuild examples-sites/ (11 self-contained HTML pages)
 python3 scripts/build_components.py     # rebuild components/ and templates/ (500 components)
 python3 scripts/build_components.py --check   # verify components/ and templates/ are current
-wc -l nova-design.md examples/*.md prompts/*.md   # quick size overview
+wc -l design.md examples/*.md prompts/*.md   # quick size overview
 ```
 
 ## Output contract when asked to generate UI from this repository

@@ -24,8 +24,8 @@ PROJECT
 - Test/lint commands: <commands>
 
 DESIGN SOURCE OF TRUTH
-Spec: <local path, e.g. docs/nova-design.md> or
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+Spec: <local path, e.g. docs/design.md> or
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 Examples: <examples/ folder> or the raw links in that repository's examples/ directory.
 Never read the spec end to end; use its Task Map to read only the relevant line ranges, plus
 sections 0.4, 2, 6.12 and 9.5 which are always required.
@@ -66,6 +66,13 @@ WHEN UNSURE
 Ask exactly one clarifying question when the ambiguity changes the structure of the result.
 Otherwise choose the calmer, simpler solution, state the assumption in one line, and proceed.
 ```
+
+## What design.md is
+
+`design.md` is a design system specification: input for the agent, never output. Never scaffold,
+render, preview or deploy it, and never name a page, route, component or project `design`,
+`design-md` or `nova-design` after the filename. Build the user's product in the Nova Vitral style;
+the product name comes from their brief, not from the file.
 
 ## Library and templates
 

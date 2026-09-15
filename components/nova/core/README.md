@@ -60,7 +60,7 @@ Every component in this folder animates, and it animates the same way:
 - Three blobs drift for 30 to 44s on transform only; frozen at 0 opacity change under reduced motion.
 
 Full ladder, easing and reduced-motion rules: spec sections 1.3, 2, 3.2, 6.14 in
-[`nova-design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md).
+[`design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md).
 
 ## Colors
 
@@ -78,4 +78,4 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)

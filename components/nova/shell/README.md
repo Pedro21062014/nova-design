@@ -49,7 +49,7 @@ Every component in this folder animates, and it animates the same way:
 - Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice.
 
 Full ladder, easing and reduced-motion rules: spec sections 5.8, 3.6 in
-[`nova-design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md).
+[`design.md`](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md).
 
 ## Colors
 
@@ -67,4 +67,4 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)

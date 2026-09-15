@@ -134,7 +134,7 @@ def main() -> int:
         "| --- | --- | --- | --- |",
         *index_rows,
         "",
-        f"Machine-readable version: [`index.json`](./index.json). Spec: {RAW}/nova-design.md",
+        f"Machine-readable version: [`index.json`](./index.json). Spec: {RAW}/design.md",
         "",
     ]
     write(ROOT / "components/INDEX.md", "\n".join(flat), check, changed)

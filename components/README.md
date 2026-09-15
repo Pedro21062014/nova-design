@@ -87,7 +87,7 @@ cp    theme/nova-theme.css <your-app>/app/nova-theme.css
 
 ## Related
 
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)
 - [Theme and token mapping](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/README.md)
 - [Five full page templates](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md)
 - [One hundred worked examples](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/00-index.md)

@@ -64,6 +64,9 @@ At most 5 lines of plan, then complete named files. Never truncate. Close with t
 built, omitted, next step.
 ```
 
+`design.md` is the design system specification: input, never output. Do not build it, and do not
+name any page or project after its filename.
+
 ## Library shortcuts (when the context window allows one more line)
 
 - 500 components: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json`, index at `components/INDEX.md`.
@@ -85,7 +88,7 @@ built, omitted, next step.
 When the model can fetch URLs, append:
 
 ```text
-Full specification: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+Full specification: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 Use its Task Map to read only the line ranges you need.
 Examples index: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/00-index.md
 ```

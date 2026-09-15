@@ -1069,7 +1069,7 @@ Every component in this folder animates, and it animates the same way:
 {motion}
 
 Full ladder, easing and reduced-motion rules: spec sections {USES[category]} in
-[`nova-design.md`]({RAW}/nova-design.md).
+[`design.md`]({RAW}/design.md).
 
 ## Colors
 
@@ -1085,7 +1085,7 @@ fifth accent. Never hardcode `violet`, `purple`, `fuchsia`, `indigo-500` or `okl
 
 - [Category index](../README.md)
 - [Frontend templates](../../templates/README.md)
-- [Full spec]({RAW}/nova-design.md)
+- [Full spec]({RAW}/design.md)
 '''
 
 
@@ -1159,7 +1159,7 @@ cp    theme/nova-theme.css <your-app>/app/nova-theme.css
 
 ## Related
 
-- [Full spec]({RAW}/nova-design.md)
+- [Full spec]({RAW}/design.md)
 - [Theme and token mapping]({RAW}/theme/README.md)
 - [Five full page templates]({RAW}/templates/README.md)
 - [One hundred worked examples]({RAW}/examples/00-index.md)

@@ -9,7 +9,7 @@ increment: one component, one file, reviewed before the next one.
 
 ```text
 Read the Nova Vitral specification, sections 0.4, 2, 3, 6.10 (micro-interactions), 6.12 and 9.5:
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Read the matching example for the exact technique, in one of these files:
 https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/01-surfaces-glass.md

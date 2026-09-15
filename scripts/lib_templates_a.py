@@ -87,7 +87,7 @@ Two rules that keep the output consistent:
 
 - [Component library](../components/README.md)
 - [Theme and shadcn variable mapping](../theme/README.md)
-- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md)
+- [Full spec](https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md)
 '''
 
 FILES_A["templates/next-app/README.md"] = '''# Next.js reference app

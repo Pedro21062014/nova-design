@@ -505,4 +505,4 @@
 | `sandbox-banner` | enterprise | `enterprise` | `components/nova/enterprise/sandbox-banner.tsx` |
 | `trust-center-row` | enterprise | `enterprise` | `components/nova/enterprise/trust-center-row.tsx` |
 
-Machine-readable version: [`index.json`](./index.json). Spec: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+Machine-readable version: [`index.json`](./index.json). Spec: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md

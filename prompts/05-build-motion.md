@@ -9,7 +9,7 @@ about animation.
 
 ```text
 Read the Nova Vitral specification, part 6 in full (sections 6.1 to 6.13), plus 1.8, 2.6, 9.5 and 9.7:
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Read the motion example file (EX-79 to EX-90):
 https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/08-motion-interaction.md

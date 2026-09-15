@@ -11,7 +11,7 @@ without a rewrite.
 ```text
 Read the Nova Vitral specification, sections 0.4, 1 (foundations), 2 (tokens), 6.1 to 6.3, 6.12,
 9.5 (anti-patterns) and 9.6 (code review):
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Read the surface and motion examples:
 https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/01-surfaces-glass.md

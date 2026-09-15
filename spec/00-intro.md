@@ -1,25 +1,33 @@
 <!--
-  NOVA VITRAL - DESIGN SPECIFICATION FOR AI AGENTS
-  File: nova-design.md | Version 1.0.0 | License: MIT
+  NOVA VITRAL - DESIGN SYSTEM SPECIFICATION FOR AI AGENTS
+  File: design.md | Version 1.2.1 | License: MIT
   Format: "Vitral Spec" - a line-indexed design document.
+  This file is a reference: input for an agent, never output. Do not build, render or publish it,
+  and never name a page, route, component or project after its filename.
   Rule 1: never read this file end to end. Use the task map and the index.
 -->
 
-# NOVA VITRAL - `nova-design.md`
+# NOVA VITRAL - `design.md`
 
-**A design specification for AI agents.** A single, line-indexed document for generating
-**modern minimal interfaces with glassmorphism**, complete professional pages, and
-**scroll-driven animation** at agency grade.
+**A design system specification for AI agents.** One line-indexed file that defines a visual
+language - **modern minimal interfaces with glassmorphism, complete professional pages, and
+scroll-driven animation** at agency grade - so any model can generate work that belongs to it.
 
-`version 1.0.0` | `license MIT` | `design language: Nova Vitral` | `target: web (React, Next.js, Vite, Astro + Tailwind)`
+`design system` | `version 1.2.1` | `license MIT` | `design language: Nova Vitral` | `target: web (React, Next.js, Vite, Astro + Tailwind)`
 `works with any LLM that can read a raw URL or a local file`
+
+> **This file is not a page and not a project.** It is the specification of a design system: read it,
+> apply it, and build *the user's* product in the Nova Vitral style. Never scaffold, render, preview
+> or deploy `design.md` itself, never turn it into a documentation site or a route, and never name a
+> page, route, component or project `design`, `design-md` or `nova-design` after the filename. See
+> **Section 0.2**.
 
 > **TL;DR for the agent.** This document has 12 top-level parts. Do not read all of it.
 > Go to **Section 0.5 - Task Map**, find the user's task, read **only** the listed line range, then
-> produce code. For concrete implementations, also read the matching example file from the library
-> in **Section 0.7**. The visual vocabulary is: dark ground with aurora light, glass panels built
-> from fill plus hairline plus inner highlight, tight typography, generous whitespace, restrained
-> scroll-triggered motion, no decorative noise.
+> produce code. For concrete implementations, read the matching example file from the library in
+> **Section 0.7**, or copy the ready component from **Section 0.8**. The visual vocabulary is: dark
+> ground with aurora light, glass panels built from fill plus hairline plus inner highlight, tight
+> typography, generous whitespace, restrained scroll-triggered motion, no decorative noise.
 
 ---
 
@@ -39,29 +47,49 @@
 4. **If the request is not covered**, use `9.5` and `8` (MIT references) as the decision rule and
    extend the system inside its own vocabulary. Do not invent a different visual style.
 
-### 0.2 What this document is, and what it is not
+### 0.2 What this file is, and what it is not
+
+**This file is a design system.** It is the specification of a visual language - **Nova Vitral** -
+written so an AI agent can generate interfaces that belong to that language. It is a reference
+document and an input. It is not a product, not a page, and not something to be built.
 
 | It is | It is not |
 |---|---|
-| A complete design language: color, glass, type, motion, components, pages | An installable CSS framework |
-| An output specification: it dictates how the code must be written | A linear document to be read top to bottom |
-| A source of truth for agents: tokens, props, states, checklists | A screenshot gallery |
-| A line-indexed map that saves context tokens | A tutorial on Tailwind or React |
-| A companion to a 100-example library written for shadcn/ui, Radix and Motion | A single ready-made landing page template |
+| A design language: color, glass, type, spacing, motion, components, pages | An installable CSS framework or a UI library |
+| Input for an agent: rules, tokens, states, checklists, ready components | A deliverable to render, preview, deploy or package |
+| A specification of *how* interfaces must be written | An application, a route, a screen or a landing page |
+| A file you drop into a project as `design.md` (or `Design.md`) | A brand name, a product name or a project name |
+| A system whose components live in `components/` and pages in `templates/` | A single ready-made site to publish as-is |
+
+Three consequences an agent must respect:
+
+1. **Never build this file.** Do not scaffold, render, screenshot or preview `design.md`. Do not turn
+   it into a documentation site, a route, or a Markdown viewer unless the person explicitly asks for
+   that as a separate task.
+2. **Never name anything after the file.** The filename is deliberately generic so it can sit in any
+   repository. It is not a hint about the project. Never create a page, route, component, workspace
+   or project called `design`, `design-md` or `nova-design` because of it. The product name always
+   comes from the person's brief.
+3. **Nova Vitral is the language, not the product.** When you generate an interface, the brand,
+   copy and product name come from the request. Read this file, apply it, and build *their* product
+   in the Nova Vitral style.
+
+The file is large on purpose and it indexes itself by line number: read the Task Map (`0.5`), then
+the ranges it points at, never the whole file.
 
 ### 0.3 Loading this spec and its companions (raw URLs)
 
 **This file**
 
 ```text
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 ```
 
 Recommended instruction for any assistant (the same text ships in `prompts/00-master-prompt.md`):
 
 ```text
 Read the design specification at
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Do not read the entire file. Use "Section 0.5 - Task Map", find the task "<USER TASK>", and read
 only the listed line range, plus sections 0.4, 2, 6.12 and 9.5, which are always mandatory.
@@ -71,9 +99,9 @@ Then read the matching example file from "Section 0.7" and implement following t
 Alternative loaders:
 
 - **Cursor / Windsurf / VS Code Copilot**: copy `prompts/08-cursor-rules.mdc` into `.cursor/rules/`
-  so the rules are always active, and keep `nova-design.md` in the project root for on-demand reads.
+  so the rules are always active, and keep `design.md` in the project root for on-demand reads.
 - **Claude Projects / Custom GPT / Gemini Gem**: paste `prompts/09-claude-project-instructions.md`
-  as the system instruction and attach `nova-design.md` as knowledge.
+  as the system instruction and attach `design.md` as knowledge.
 - **Small context windows** (under 32k tokens): use `prompts/11-condensed-system-prompt.md`, which
   inlines the tokens and the ten most important rules.
 - **Portuguese-speaking teams**: `prompts/12-prompt-pt-BR.md`.

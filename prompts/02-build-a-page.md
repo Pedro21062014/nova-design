@@ -9,7 +9,7 @@ other full page.
 
 ```text
 Read the Nova Vitral specification, sections 0.4, 2, 5 (blueprints), 6 (motion), 9.5 (anti-patterns):
-https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
 
 Read the example file that matches this page type:
 - Landing page:     https://raw.githubusercontent.com/Pedro21062014/nova-design/main/examples/04-heroes-marketing.md

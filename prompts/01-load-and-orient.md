@@ -15,7 +15,7 @@ tight typography and restrained scroll-driven motion.
 Read these, in this order, and nothing else:
 
 1. Output contract and vocabulary
-   https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md
+   https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md
    Read section 0 only (0.1 to 0.8). Do not read the rest of the file yet.
 
 2. Tokens

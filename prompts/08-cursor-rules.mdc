@@ -13,8 +13,8 @@ restrained scroll-driven motion.
 ## Specification
 
 Full spec (read only the line ranges you need, never end to end):
-`nova-design.md` in the repository root, or
-`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md`
+`design.md` in the repository root, or
+`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/design.md`
 
 | Need | Read |
 |---|---|
@@ -34,6 +34,11 @@ Component library (500 components, 26 categories): `components/` folder, registr
 Read the registry, then open only the files you need. Copy from the library instead of inventing
 markup. Templates: `templates/` (landing, pricing, dashboard, chat, docs, plus Astro and plain HTML).
 Theme: `theme/nova-theme.css`, imported after Tailwind, which is what removes the default purple.
+
+`design.md` is a design system specification: input for you, never output. Never scaffold, render or
+preview it, never turn it into a documentation site, and never name a page, route, component or
+project `design`, `design-md` or `nova-design` after the filename. Nova Vitral is the design language;
+the product name always comes from the user's brief.
 
 ## Hard rules
 
