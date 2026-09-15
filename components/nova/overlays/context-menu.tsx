@@ -13,7 +13,7 @@
  * -------
  * <ContextMenu title="Delete workspace" subtitle="This cannot be undone" open={{open}} onOpenChange={{setOpen}} />
  */
-import { X } from "lucide-react";
+import { Search, Settings } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,27 +41,32 @@ export function ContextMenu({ title = "Delete workspace", subtitle = "This canno
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           overlays/context-menu
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
-            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
-            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
-          </div>
-          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
-            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
-              <div className="flex items-start justify-between gap-3">
-                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-              </div>
-              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
-            </div>
-          </div>
-        </div>
+        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
+          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
+            <span
+              key={item}
+              aria-current={index === 1 ? "page" : undefined}
+              className={
+                index === 1
+                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
+                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
+              }
+            >
+              {item}
+              {index === 1 ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
+              ) : null}
+            </span>
+          ))}
+          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        </nav>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

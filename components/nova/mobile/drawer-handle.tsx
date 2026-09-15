@@ -13,7 +13,7 @@
  * -------
  * <DrawerHandle title="Notifications" subtitle="3 unread" safeArea />
  */
-import { Bell } from "lucide-react";
+import { X } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,23 +41,25 @@ export function DrawerHandle({ title = "Notifications", subtitle = "3 unread", c
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <X className="size-3.5" aria-hidden="true" />
           mobile/drawer-handle
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="mx-auto w-[220px] rounded-[28px] border border-[var(--hair)] bg-[var(--bg-elevated)] p-2">
-          <div className="rounded-[22px] border border-[var(--hair)] bg-[var(--bg-soft)] p-3">
-            <div className="flex items-center justify-between text-[11px] text-[var(--fg-subtle)]">
-              <span>9:41</span>
-              <Bell className="size-3.5" aria-hidden="true" />
-            </div>
-            <p className="mt-3 text-[14px] font-medium text-[var(--fg)]">{title}</p>
-            <p className="mt-1 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
-            <div className="mt-3 grid gap-2">
-              <span className="block h-10 rounded-[var(--radius-sm)] bg-[var(--glass)]" />
-              <span className="block h-10 rounded-[var(--radius-sm)] bg-[var(--glass)]" />
+        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
+            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
+          </div>
+          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
+            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
+                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              </div>
+              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
             </div>
           </div>
         </div>

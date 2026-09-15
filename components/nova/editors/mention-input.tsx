@@ -13,7 +13,7 @@
  * -------
  * <MentionInput title="README.md" subtitle="Preview" readOnly={{false}} />
  */
-import { Code } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,29 +41,29 @@ export function MentionInput({ title = "README.md", subtitle = "Preview", classN
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Sparkles className="size-3.5" aria-hidden="true" />
           editors/mention-input
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--bg-elevated)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] px-3 py-2">
-            <Code className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <span className="text-[12px] text-[var(--fg-muted)]">{title}</span>
+        <div className="grid gap-3">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)]">
+              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+            </span>
+            <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
+              {title}
+              <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
+            </p>
           </div>
-          <pre className="overflow-x-auto p-3 font-[var(--font-mono)] text-[12.5px] leading-6">
-            <code>
-              <span className="text-[var(--fg-subtle)]">12 </span>
-              <span className="text-[var(--fg-muted)]">export function </span>
-              <span className="text-[var(--fg)]">priceOf</span>(qty) {"{"}
-              {"\n"}
-              <span className="text-[var(--fg-subtle)]">13 </span>
-              {"  "}return qty * UNIT;{"\n"}
-              <span className="text-[var(--fg-subtle)]">14 </span>
-              {"}"}
-            </code>
-          </pre>
+          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[13px] text-[var(--fg-subtle)]">
+            {subtitle}
+            <span className="ml-auto rounded-full bg-[var(--glass-strong)] px-2 py-0.5 text-[11px] text-[var(--fg-muted)]">
+              Enter to send
+            </span>
+          </div>
         </div>
       </div>
 

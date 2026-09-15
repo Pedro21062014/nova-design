@@ -41,37 +41,22 @@ export function Heatmap({ title = "Revenue by month", subtitle = "Last 6 months,
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpRight className="size-3.5" aria-hidden="true" />
           data/heatmap
         </span>
       </header>
 
       <div className="mt-5">
-        <figure className="grid gap-3">
-          <svg viewBox="0 0 240 64" className="h-16 w-full" role="img" aria-label={title}>
-            <defs>
-              <linearGradient id="nv-page-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.28" />
-                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0 48 L48 40 L96 44 L144 26 L192 20 L240 12 L240 64 L0 64 Z"
-              fill="url(#nv-page-fill)"
+        <div className="grid grid-cols-[repeat(14,minmax(0,1fr))] gap-1" role="img" aria-label={title}>
+          {Array.from({ length: 42 }).map((_, index) => (
+            <span
+              key={index}
+              className="aspect-square rounded-[3px] bg-[var(--accent)] transition-opacity duration-200 hover:opacity-90"
+              style={{ opacity: 0.12 + ((index * 7) % 9) * 0.09 }}
             />
-            <polyline
-              points="0,48 48,40 96,44 144,26 192,20 240,12"
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-          <figcaption className="flex items-center gap-2 text-[12px] text-[var(--fg-muted)]">
-            <ArrowUpRight className="size-3.5 text-[var(--accent-2)]" aria-hidden="true" />
-            {subtitle}
-          </figcaption>
-        </figure>
+          ))}
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

@@ -13,7 +13,7 @@
  * -------
  * <EnvSwitcher title="Network" subtitle="Production build" />
  */
-import { Terminal } from "lucide-react";
+import { Mail } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,33 +41,35 @@ export function EnvSwitcher({ title = "Network", subtitle = "Production build", 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Mail className="size-3.5" aria-hidden="true" />
           devtools/env-switcher
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--bg-elevated)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
-            <Terminal className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            {title}
+        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-1.5">
+            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
+              {title}
+            </label>
+            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
+              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              <input
+                id="nv-field"
+                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
+                placeholder={subtitle}
+              />
+            </div>
+            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
           </div>
-          <div className="grid font-[var(--font-mono)] text-[12.5px]">
-            {[
-              { method: "GET", path: "/api/usage", ms: "142ms" },
-              { method: "POST", path: "/api/chat", ms: "1.20s" },
-            ].map((row) => (
-              <div
-                key={row.path}
-                className="flex items-center gap-3 border-t border-[var(--hair-soft)] px-3 py-2 transition-colors duration-150 hover:bg-[var(--glass-dim)]"
-              >
-                <span className="text-[var(--accent)]">{row.method}</span>
-                <span className="text-[var(--fg-muted)]">{row.path}</span>
-                <span className="ml-auto tabular-nums text-[var(--fg-subtle)]">{row.ms}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          <button
+            type="submit"
+            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Continue
+          </button>
+        </form>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

@@ -13,7 +13,7 @@
  * -------
  * <SkeletonTable title="Upload failed" subtitle="Retry, or use a smaller file" tone="info" onRetry={{retry}} />
  */
-import { Info, TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,24 +41,18 @@ export function SkeletonTable({ title = "Upload failed", subtitle = "Retry, or u
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <TriangleAlert className="size-3.5" aria-hidden="true" />
           feedback/skeleton-table
         </span>
       </header>
 
       <div className="mt-5">
-        <div
-          className="flex items-start gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4"
-          role="status"
-        >
-          <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-[var(--radius-sm)] bg-[var(--glass-strong)]">
-            <Info className="size-4 text-[var(--accent)]" aria-hidden="true" />
-          </span>
-          <div className="min-w-0">
-            <p className="text-[13px] font-medium text-[var(--fg)]">{title}</p>
-            <p className="mt-1 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
-          </div>
-          <TriangleAlert className="ml-auto size-4 shrink-0 text-[var(--warn)]" aria-hidden="true" />
+        <div className="grid gap-3" aria-hidden="true">
+          {[100, 82, 64].map((width, index) => (
+            <span key={index} className="nv-shimmer block h-3 rounded-full" style={{ width: `${width}%` }} />
+          ))}
+          <span className="nv-shimmer block h-24 rounded-[var(--radius-md)]" />
         </div>
       </div>
 

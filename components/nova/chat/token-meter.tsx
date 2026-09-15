@@ -41,29 +41,33 @@ export function TokenMeter({ title = "Answer", subtitle = "Model: nova-3, 1.4s",
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Sparkles className="size-3.5" aria-hidden="true" />
           chat/token-meter
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)]">
-              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
-            </span>
-            <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
-              {title}
-              <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
-            </p>
-          </div>
-          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[13px] text-[var(--fg-subtle)]">
+        <figure className="flex items-center gap-5">
+          <svg viewBox="0 0 72 72" className="size-24" role="img" aria-label={title}>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="var(--hair)" strokeWidth="8" />
+            <circle
+              cx="36"
+              cy="36"
+              r="28"
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeDasharray="132 176"
+              transform="rotate(-90 36 36)"
+            />
+          </svg>
+          <figcaption className="text-[12.5px] text-[var(--fg-muted)]">
+            <span className="block text-[20px] font-semibold tabular-nums text-[var(--fg)]">74%</span>
             {subtitle}
-            <span className="ml-auto rounded-full bg-[var(--glass-strong)] px-2 py-0.5 text-[11px] text-[var(--fg-muted)]">
-              Enter to send
-            </span>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

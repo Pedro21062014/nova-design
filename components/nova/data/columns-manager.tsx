@@ -41,43 +41,25 @@ export function ColumnsManager({ title = "Invoices", subtitle = "48 results", cl
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpDown className="size-3.5" aria-hidden="true" />
           data/columns-manager
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <table className="w-full border-collapse text-[13px]">
-            <thead className="bg-[var(--glass-dim)] text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
-              <tr>
-                <th className="px-3 py-2 text-left font-medium">
-                  <span className="inline-flex items-center gap-1.5">
-                    Name
-                    <ArrowUpDown className="size-3 opacity-50" aria-hidden="true" />
-                  </span>
-                </th>
-                <th className="px-3 py-2 text-left font-medium">Status</th>
-                <th className="px-3 py-2 text-right font-medium">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { name: "Acme", status: "Active", amount: "12,400" },
-                { name: "Northwind", status: "Trial", amount: "900" },
-              ].map((row) => (
-                <tr
-                  key={row.name}
-                  className="border-t border-[var(--hair-soft)] transition-colors duration-150 hover:bg-[var(--glass-dim)]"
-                >
-                  <td className="px-3 py-2.5 text-[var(--fg)]">{row.name}</td>
-                  <td className="px-3 py-2.5 text-[var(--fg-muted)]">{row.status}</td>
-                  <td className="px-3 py-2.5 text-right tabular-nums text-[var(--fg-muted)]">{row.amount}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <figure className="grid gap-3">
+          <div className="flex h-28 items-end gap-2" role="img" aria-label={title}>
+            {[42, 58, 51, 67, 74, 63, 81, 88].map((height, index) => (
+              <span
+                key={index}
+                className="flex-1 rounded-t-[3px] bg-[linear-gradient(180deg,var(--accent),color-mix(in_srgb,var(--accent)_30%,transparent))] transition-opacity duration-200 hover:opacity-100"
+                style={{ height: `${height}%`, opacity: 0.55 + index * 0.05 }}
+              />
+            ))}
+          </div>
+          <figcaption className="text-[12px] text-[var(--fg-muted)]">{subtitle}</figcaption>
+        </figure>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

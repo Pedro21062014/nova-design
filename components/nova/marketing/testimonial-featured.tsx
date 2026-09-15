@@ -17,7 +17,7 @@
   action={{<ButtonPrimary>Start free</ButtonPrimary>}}
 />
  */
-import { ArrowRight, Play } from "lucide-react";
+import { Quote } from "lucide-react";
 import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -45,27 +45,26 @@ export function TestimonialFeatured({ title = "Every screen already considered",
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Quote className="size-3.5" aria-hidden="true" />
           marketing/testimonial-featured
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4">
-          <p className="text-[28px] font-semibold leading-tight tracking-[-0.03em] text-[var(--fg)]">
-            {title}
-          </p>
-          <p className="max-w-[52ch] text-[15px] leading-relaxed text-[var(--fg-muted)]">{subtitle}</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] bg-[image:var(--grad-primary)] px-5 text-[13px] font-medium text-[var(--accent-fg)]">
-              Start free
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </span>
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] px-5 text-[13px] text-[var(--fg-muted)]">
-              <Play className="size-3.5" aria-hidden="true" />
-              Watch the tour
-            </span>
-          </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            { quote: "We deleted eleven dashboards and kept four saved queries.", name: "Ilse Brand", role: "Head of Platform" },
+            { quote: "Two regressions caught before customers noticed.", name: "Tomas Erdahl", role: "Staff Engineer" },
+          ].map((item) => (
+            <figure key={item.name} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4">
+              <Quote className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+              <blockquote className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg)]">{item.quote}</blockquote>
+              <figcaption className="mt-3 text-[12px] text-[var(--fg-subtle)]">
+                {item.name}, {item.role}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
 

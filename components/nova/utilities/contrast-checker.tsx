@@ -13,7 +13,7 @@
  * -------
  * <ContrastChecker title="Time zone" subtitle="Stored per account" value={{value}} onValueChange={{setValue}} />
  */
-import { Check, Copy } from "lucide-react";
+import { Eye } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,21 +41,24 @@ export function ContrastChecker({ title = "Time zone", subtitle = "Stored per ac
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Eye className="size-3.5" aria-hidden="true" />
           utilities/contrast-checker
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="flex items-center gap-3">
-          <span className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 text-[12.5px] text-[var(--fg-muted)]">
+        <div className="grid gap-3">
+          <span className="inline-flex h-9 w-fit items-center rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 text-[12.5px] text-[var(--fg)] outline-2 outline-offset-2 outline-[var(--accent)]">
+            <Eye className="mr-2 size-3.5" aria-hidden="true" />
             {title}
-            <Copy className="size-3.5" aria-hidden="true" />
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--accent-2)]">
-            <Check className="size-3.5" aria-hidden="true" />
+          <p aria-live="polite" className="text-[12.5px] text-[var(--fg-muted)]">
             {subtitle}
-          </span>
+          </p>
+          <p className="text-[12px] text-[var(--fg-subtle)]">
+            Focus ring visible, label programmatic, announcement polite.
+          </p>
         </div>
       </div>
 

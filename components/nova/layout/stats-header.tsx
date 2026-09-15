@@ -43,34 +43,25 @@ export function StatsHeader({ title = "Settings", subtitle = "Workspace preferen
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <PanelLeft className="size-3.5" aria-hidden="true" />
           layout/stats-header
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4 rounded-[var(--radius-md)] border border-[var(--hair)] p-4 lg:grid-cols-[200px_1fr]">
-          <div className="grid gap-2">
-            <span className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
-              <PanelLeft className="size-3.5" aria-hidden="true" />
-              On this page
-            </span>
-            {["Overview", "Install", "Theming"].map((row, index) => (
-              <span
-                key={row}
-                className={index === 0 ? "text-[13px] text-[var(--fg)]" : "text-[13px] text-[var(--fg-muted)]"}
-              >
-                {row}
-              </span>
-            ))}
-          </div>
-          <div className="grid gap-2.5">
-            <span className="text-[16px] font-medium text-[var(--fg)]">{title}</span>
-            <span className="block h-2 w-3/4 rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-full rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-5/6 rounded-full bg-[var(--hair-soft)]" />
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</span>
-          </div>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
         </div>
       </div>
 

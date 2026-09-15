@@ -41,22 +41,19 @@ export function LogoTile({ title = "Onboarding clip", subtitle = "0:38, silent",
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Play className="size-3.5" aria-hidden="true" />
           media/logo-tile
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="grid aspect-video place-items-center bg-[var(--bg-elevated)]">
-            <span className="grid size-11 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-strong)] transition-transform duration-200 hover:scale-[1.04]">
-              <Play className="size-4 translate-x-px text-[var(--fg)]" aria-hidden="true" />
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-[var(--hair-soft)] py-4">
+          {["Northwind", "Aperture", "Kestrel Labs", "Solstice", "Ravel", "Trema"].map((logo) => (
+            <span key={logo} className="text-[12.5px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
+              {logo}
             </span>
-          </div>
-          <div className="flex items-center justify-between gap-3 px-3 py-2.5">
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{title}</span>
-            <span className="text-[12px] tabular-nums text-[var(--fg-subtle)]">{subtitle}</span>
-          </div>
+          ))}
         </div>
       </div>
 

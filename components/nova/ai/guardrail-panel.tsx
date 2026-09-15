@@ -13,7 +13,7 @@
  * -------
  * <GuardrailPanel title="Model settings" subtitle="nova-3, temperature 0.2" streaming={{false}} />
  */
-import { ChevronDown, Sparkles } from "lucide-react";
+import { Search, Settings } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,34 +41,32 @@ export function GuardrailPanel({ title = "Model settings", subtitle = "nova-3, t
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           ai/guardrail-panel
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <details className="group rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3">
-            <summary className="flex cursor-pointer items-center gap-2 text-[13px] text-[var(--fg-muted)]">
-              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
-              Reasoning
-              <ChevronDown
-                className="ml-auto size-4 transition-transform duration-200 group-open:rotate-180"
-                aria-hidden="true"
-              />
-            </summary>
-            <ol className="mt-3 grid gap-2 pl-5 text-[12px] text-[var(--fg-muted)]">
-              <li className="list-decimal">Read the request and the attached schema.</li>
-              <li className="list-decimal">Query the index, then rank three candidates.</li>
-              <li className="list-decimal">Answer with one recommendation and one caveat.</li>
-            </ol>
-          </details>
-          <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
-            {title}
-            <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
-          </p>
-          <p className="text-[12px] text-[var(--fg-subtle)]">{subtitle}</p>
-        </div>
+        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
+          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
+            <span
+              key={item}
+              aria-current={index === 1 ? "page" : undefined}
+              className={
+                index === 1
+                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
+                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
+              }
+            >
+              {item}
+              {index === 1 ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
+              ) : null}
+            </span>
+          ))}
+          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        </nav>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

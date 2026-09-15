@@ -41,26 +41,29 @@ export function ProfileCard({ title = "Usage this month", subtitle = "82 percent
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <MoreHorizontal className="size-3.5" aria-hidden="true" />
           cards/profile-card
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] p-4">
-          <div className="flex items-center justify-between">
-            <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-            <MoreHorizontal className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-          </div>
-          <div className="mt-4 grid gap-2">
-            {[0, 1, 2].map((row) => (
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex -space-x-2">
+            {["Ilse Brand", "Tomas Erdahl", "Priya Raman", "Marc Oyelaran"].map((person) => (
               <span
-                key={row}
-                className="block h-2 rounded-full bg-[var(--hair-soft)]"
-                style={{ width: `${86 - row * 18}%` }}
-              />
+                key={person}
+                title={person}
+                className="grid size-8 place-items-center rounded-full border border-[var(--bg)] bg-[var(--glass-strong)] text-[11px] text-[var(--fg)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                {person.split(" ").map((part) => part[0]).join("")}
+              </span>
             ))}
+            <span className="grid size-8 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-dim)] text-[11px] tabular-nums text-[var(--fg-muted)]">
+              +9
+            </span>
           </div>
+          <p className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
       </div>
 

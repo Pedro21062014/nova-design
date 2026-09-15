@@ -41,23 +41,27 @@ export function KeyboardNavList({ title = "Skip to content", subtitle = "Visible
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Eye className="size-3.5" aria-hidden="true" />
           a11y/keyboard-nav-list
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <span className="inline-flex h-9 w-fit items-center rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 text-[12.5px] text-[var(--fg)] outline-2 outline-offset-2 outline-[var(--accent)]">
-            <Eye className="mr-2 size-3.5" aria-hidden="true" />
-            {title}
-          </span>
-          <p aria-live="polite" className="text-[12.5px] text-[var(--fg-muted)]">
-            {subtitle}
-          </p>
-          <p className="text-[12px] text-[var(--fg-subtle)]">
-            Focus ring visible, label programmatic, announcement polite.
-          </p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {["Backlog", "In progress", "Shipped"].map((column, index) => (
+            <div key={column} className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3">
+              <p className="text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
+                {column} {[6, 3, 12][index]}
+              </p>
+              {[0, 1].map((card) => (
+                <span key={card} className="block rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)] p-2.5">
+                  <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+                  <span className="mt-2 block h-2 w-1/3 rounded-full bg-[var(--hair-soft)]" />
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
 

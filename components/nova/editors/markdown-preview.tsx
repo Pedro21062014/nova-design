@@ -13,7 +13,7 @@
  * -------
  * <MarkdownPreview title="invoice.pdf" subtitle="Read only" readOnly={{false}} />
  */
-import { Code } from "lucide-react";
+import { Quote } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,29 +41,26 @@ export function MarkdownPreview({ title = "invoice.pdf", subtitle = "Read only",
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Quote className="size-3.5" aria-hidden="true" />
           editors/markdown-preview
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--bg-elevated)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] px-3 py-2">
-            <Code className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <span className="text-[12px] text-[var(--fg-muted)]">{title}</span>
-          </div>
-          <pre className="overflow-x-auto p-3 font-[var(--font-mono)] text-[12.5px] leading-6">
-            <code>
-              <span className="text-[var(--fg-subtle)]">12 </span>
-              <span className="text-[var(--fg-muted)]">export function </span>
-              <span className="text-[var(--fg)]">priceOf</span>(qty) {"{"}
-              {"\n"}
-              <span className="text-[var(--fg-subtle)]">13 </span>
-              {"  "}return qty * UNIT;{"\n"}
-              <span className="text-[var(--fg-subtle)]">14 </span>
-              {"}"}
-            </code>
-          </pre>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            { quote: "We deleted eleven dashboards and kept four saved queries.", name: "Ilse Brand", role: "Head of Platform" },
+            { quote: "Two regressions caught before customers noticed.", name: "Tomas Erdahl", role: "Staff Engineer" },
+          ].map((item) => (
+            <figure key={item.name} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4">
+              <Quote className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+              <blockquote className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg)]">{item.quote}</blockquote>
+              <figcaption className="mt-3 text-[12px] text-[var(--fg-subtle)]">
+                {item.name}, {item.role}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
 

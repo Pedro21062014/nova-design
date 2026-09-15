@@ -13,7 +13,7 @@
  * -------
  * <Toaster title="Delete workspace" subtitle="This cannot be undone" open={{open}} onOpenChange={{setOpen}} />
  */
-import { X } from "lucide-react";
+import { Upload } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,26 +41,37 @@ export function Toaster({ title = "Delete workspace", subtitle = "This cannot be
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Upload className="size-3.5" aria-hidden="true" />
           overlays/toaster
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
-            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
-            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
-          </div>
-          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
-            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
-              <div className="flex items-start justify-between gap-3">
-                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-              </div>
-              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
+        <div className="grid gap-2">
+          {[
+            { tone: "info", text: "Ingestion paused, resuming in 4 minutes." },
+            { tone: "warn", text: "You have used 82 percent of the included volume." },
+            { tone: "danger", text: "Upload failed. Retry, or use a smaller file." },
+          ].map((item) => (
+            <div
+              key={item.tone}
+              role="status"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3.5 py-2.5"
+            >
+              <span
+                className={
+                  item.tone === "danger"
+                    ? "size-1.5 shrink-0 rounded-full bg-[var(--danger)]"
+                    : item.tone === "warn"
+                      ? "size-1.5 shrink-0 rounded-full bg-[var(--warn)]"
+                      : "size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                }
+                aria-hidden="true"
+              />
+              <p className="text-[12.5px] text-[var(--fg-muted)]">{item.text}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 

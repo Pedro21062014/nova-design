@@ -13,7 +13,7 @@
  * -------
  * <DataResidencySelect title="Access review" subtitle="Owner: Platform, due in 6 days" restricted={{false}} />
  */
-import { Settings, Users } from "lucide-react";
+import { Mail } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,34 +41,35 @@ export function DataResidencySelect({ title = "Access review", subtitle = "Owner
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Mail className="size-3.5" aria-hidden="true" />
           enterprise/data-residency-select
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
-            <Users className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            {title}
-            <Settings className="ml-auto size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
+        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-1.5">
+            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
+              {title}
+            </label>
+            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
+              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              <input
+                id="nv-field"
+                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
+                placeholder={subtitle}
+              />
+            </div>
+            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
           </div>
-          <div className="grid">
-            {[
-              { role: "Owner", members: "2", scope: "Organization" },
-              { role: "Billing admin", members: "1", scope: "Workspace" },
-            ].map((row) => (
-              <div
-                key={row.role}
-                className="flex items-center gap-3 border-t border-[var(--hair-soft)] px-3 py-2.5 text-[12.5px] transition-colors duration-150 hover:bg-[var(--glass-dim)]"
-              >
-                <span className="text-[var(--fg)]">{row.role}</span>
-                <span className="tabular-nums text-[var(--fg-muted)]">{row.members}</span>
-                <span className="ml-auto text-[var(--fg-subtle)]">{row.scope}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          <button
+            type="submit"
+            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Continue
+          </button>
+        </form>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

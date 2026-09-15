@@ -13,7 +13,7 @@
  * -------
  * <CanvasPanel title="Tool call" subtitle="Search, 2 sources" streaming />
  */
-import { Sparkles } from "lucide-react";
+import { X } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,27 +41,26 @@ export function CanvasPanel({ title = "Tool call", subtitle = "Search, 2 sources
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <X className="size-3.5" aria-hidden="true" />
           chat/canvas-panel
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)]">
-              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
-            </span>
-            <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
-              {title}
-              <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
-            </p>
+        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
+            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
           </div>
-          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[13px] text-[var(--fg-subtle)]">
-            {subtitle}
-            <span className="ml-auto rounded-full bg-[var(--glass-strong)] px-2 py-0.5 text-[11px] text-[var(--fg-muted)]">
-              Enter to send
-            </span>
+          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
+            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
+                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              </div>
+              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
+            </div>
           </div>
         </div>
       </div>

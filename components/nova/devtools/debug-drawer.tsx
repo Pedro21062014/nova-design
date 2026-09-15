@@ -13,7 +13,7 @@
  * -------
  * <DebugDrawer title="Console" subtitle="2 warnings" />
  */
-import { Terminal } from "lucide-react";
+import { X } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,31 +41,26 @@ export function DebugDrawer({ title = "Console", subtitle = "2 warnings", classN
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <X className="size-3.5" aria-hidden="true" />
           devtools/debug-drawer
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--bg-elevated)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
-            <Terminal className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            {title}
+        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
+            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
           </div>
-          <div className="grid font-[var(--font-mono)] text-[12.5px]">
-            {[
-              { method: "GET", path: "/api/usage", ms: "142ms" },
-              { method: "POST", path: "/api/chat", ms: "1.20s" },
-            ].map((row) => (
-              <div
-                key={row.path}
-                className="flex items-center gap-3 border-t border-[var(--hair-soft)] px-3 py-2 transition-colors duration-150 hover:bg-[var(--glass-dim)]"
-              >
-                <span className="text-[var(--accent)]">{row.method}</span>
-                <span className="text-[var(--fg-muted)]">{row.path}</span>
-                <span className="ml-auto tabular-nums text-[var(--fg-subtle)]">{row.ms}</span>
+          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
+            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
+                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
               </div>
-            ))}
+              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
+            </div>
           </div>
         </div>
       </div>

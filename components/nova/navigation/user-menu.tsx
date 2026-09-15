@@ -41,31 +41,30 @@ export function UserMenu({ title = "Billing", subtitle = "Settings", className, 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           navigation/user-menu
         </span>
       </header>
 
       <div className="mt-5">
-        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
-          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
-            <span
-              key={item}
-              aria-current={index === 1 ? "page" : undefined}
-              className={
-                index === 1
-                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
-                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
-              }
-            >
-              {item}
-              {index === 1 ? (
-                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
-              ) : null}
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex -space-x-2">
+            {["Ilse Brand", "Tomas Erdahl", "Priya Raman", "Marc Oyelaran"].map((person) => (
+              <span
+                key={person}
+                title={person}
+                className="grid size-8 place-items-center rounded-full border border-[var(--bg)] bg-[var(--glass-strong)] text-[11px] text-[var(--fg)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                {person.split(" ").map((part) => part[0]).join("")}
+              </span>
+            ))}
+            <span className="grid size-8 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-dim)] text-[11px] tabular-nums text-[var(--fg-muted)]">
+              +9
             </span>
-          ))}
-          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-        </nav>
+          </div>
+          <p className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

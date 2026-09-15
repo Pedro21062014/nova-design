@@ -13,7 +13,7 @@
  * -------
  * <AgentStepList title="Reasoning" subtitle="4 steps, 900ms" streaming={{false}} />
  */
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,34 +41,32 @@ export function AgentStepList({ title = "Reasoning", subtitle = "4 steps, 900ms"
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowRight className="size-3.5" aria-hidden="true" />
           ai/agent-step-list
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <details className="group rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3">
-            <summary className="flex cursor-pointer items-center gap-2 text-[13px] text-[var(--fg-muted)]">
-              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
-              Reasoning
-              <ChevronDown
-                className="ml-auto size-4 transition-transform duration-200 group-open:rotate-180"
-                aria-hidden="true"
-              />
-            </summary>
-            <ol className="mt-3 grid gap-2 pl-5 text-[12px] text-[var(--fg-muted)]">
-              <li className="list-decimal">Read the request and the attached schema.</li>
-              <li className="list-decimal">Query the index, then rank three candidates.</li>
-              <li className="list-decimal">Answer with one recommendation and one caveat.</li>
-            </ol>
-          </details>
-          <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
-            {title}
-            <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
-          </p>
-          <p className="text-[12px] text-[var(--fg-subtle)]">{subtitle}</p>
-        </div>
+        <ol className="grid gap-3 sm:grid-cols-4">
+          {["Connect", "Model", "Watch", "Act"].map((step, index) => (
+            <li key={step} className="relative rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <span className="font-[var(--font-mono)] text-[11px] text-[var(--accent)]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-2 text-[13.5px] text-[var(--fg)]">{step}</p>
+              <p className="mt-1 text-[12px] text-[var(--fg-muted)]">
+                {["Send events", "Define metrics", "Detect changes", "Ship the fix"][index]}
+              </p>
+              {index < 3 ? (
+                <ArrowRight
+                  className="absolute -right-2.5 top-1/2 hidden size-3.5 -translate-y-1/2 text-[var(--fg-subtle)] sm:block"
+                  aria-hidden="true"
+                />
+              ) : null}
+            </li>
+          ))}
+        </ol>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

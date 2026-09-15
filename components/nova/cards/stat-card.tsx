@@ -41,26 +41,25 @@ export function StatCard({ title = "Team capacity", subtitle = "6 of 12 seats ac
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <MoreHorizontal className="size-3.5" aria-hidden="true" />
           cards/stat-card
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] p-4">
-          <div className="flex items-center justify-between">
-            <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-            <MoreHorizontal className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-          </div>
-          <div className="mt-4 grid gap-2">
-            {[0, 1, 2].map((row) => (
-              <span
-                key={row}
-                className="block h-2 rounded-full bg-[var(--hair-soft)]"
-                style={{ width: `${86 - row * 18}%` }}
-              />
-            ))}
-          </div>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
         </div>
       </div>
 

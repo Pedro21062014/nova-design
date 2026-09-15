@@ -15,7 +15,7 @@
   {children}
 </BentoGrid>
  */
-import { PanelLeft } from "lucide-react";
+import { ArrowUpDown } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,34 +43,43 @@ export function BentoGrid({ title = "Documentation", subtitle = "Guides, referen
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpDown className="size-3.5" aria-hidden="true" />
           layout/bento-grid
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4 rounded-[var(--radius-md)] border border-[var(--hair)] p-4 lg:grid-cols-[200px_1fr]">
-          <div className="grid gap-2">
-            <span className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
-              <PanelLeft className="size-3.5" aria-hidden="true" />
-              On this page
-            </span>
-            {["Overview", "Install", "Theming"].map((row, index) => (
-              <span
-                key={row}
-                className={index === 0 ? "text-[13px] text-[var(--fg)]" : "text-[13px] text-[var(--fg-muted)]"}
-              >
-                {row}
-              </span>
-            ))}
-          </div>
-          <div className="grid gap-2.5">
-            <span className="text-[16px] font-medium text-[var(--fg)]">{title}</span>
-            <span className="block h-2 w-3/4 rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-full rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-5/6 rounded-full bg-[var(--hair-soft)]" />
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</span>
-          </div>
+        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <table className="w-full border-collapse text-[13px]">
+            <thead className="bg-[var(--glass-dim)] text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
+              <tr>
+                <th className="px-3 py-2 text-left font-medium">
+                  <span className="inline-flex items-center gap-1.5">
+                    Name
+                    <ArrowUpDown className="size-3 opacity-50" aria-hidden="true" />
+                  </span>
+                </th>
+                <th className="px-3 py-2 text-left font-medium">Status</th>
+                <th className="px-3 py-2 text-right font-medium">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { name: "Acme", status: "Active", amount: "12,400" },
+                { name: "Northwind", status: "Trial", amount: "900" },
+              ].map((row) => (
+                <tr
+                  key={row.name}
+                  className="border-t border-[var(--hair-soft)] transition-colors duration-150 hover:bg-[var(--glass-dim)]"
+                >
+                  <td className="px-3 py-2.5 text-[var(--fg)]">{row.name}</td>
+                  <td className="px-3 py-2.5 text-[var(--fg-muted)]">{row.status}</td>
+                  <td className="px-3 py-2.5 text-right tabular-nums text-[var(--fg-muted)]">{row.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 

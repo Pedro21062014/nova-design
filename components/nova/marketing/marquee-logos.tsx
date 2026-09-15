@@ -17,7 +17,7 @@
   action={{<ButtonPrimary>Start free</ButtonPrimary>}}
 />
  */
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -45,27 +45,19 @@ export function MarqueeLogos({ title = "Ship the boring parts faster", subtitle 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowRight className="size-3.5" aria-hidden="true" />
           marketing/marquee-logos
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4">
-          <p className="text-[28px] font-semibold leading-tight tracking-[-0.03em] text-[var(--fg)]">
-            {title}
-          </p>
-          <p className="max-w-[52ch] text-[15px] leading-relaxed text-[var(--fg-muted)]">{subtitle}</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] bg-[image:var(--grad-primary)] px-5 text-[13px] font-medium text-[var(--accent-fg)]">
-              Start free
-              <ArrowRight className="size-4" aria-hidden="true" />
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-[var(--hair-soft)] py-4">
+          {["Northwind", "Aperture", "Kestrel Labs", "Solstice", "Ravel", "Trema"].map((logo) => (
+            <span key={logo} className="text-[12.5px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
+              {logo}
             </span>
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] px-5 text-[13px] text-[var(--fg-muted)]">
-              <Play className="size-3.5" aria-hidden="true" />
-              Watch the tour
-            </span>
-          </div>
+          ))}
         </div>
       </div>
 

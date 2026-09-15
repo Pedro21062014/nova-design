@@ -41,37 +41,26 @@ export function DeltaChip({ title = "Conversion", subtitle = "Visits to trials",
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpRight className="size-3.5" aria-hidden="true" />
           data/delta-chip
         </span>
       </header>
 
       <div className="mt-5">
-        <figure className="grid gap-3">
-          <svg viewBox="0 0 240 64" className="h-16 w-full" role="img" aria-label={title}>
-            <defs>
-              <linearGradient id="nv-page-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.28" />
-                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0 48 L48 40 L96 44 L144 26 L192 20 L240 12 L240 64 L0 64 Z"
-              fill="url(#nv-page-fill)"
-            />
-            <polyline
-              points="0,48 48,40 96,44 144,26 192,20 240,12"
-              fill="none"
-              stroke="var(--accent)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-            />
-          </svg>
-          <figcaption className="flex items-center gap-2 text-[12px] text-[var(--fg-muted)]">
-            <ArrowUpRight className="size-3.5 text-[var(--accent-2)]" aria-hidden="true" />
-            {subtitle}
-          </figcaption>
-        </figure>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

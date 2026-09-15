@@ -6,6 +6,8 @@ hand-authored core layer in scripts/lib_core_files.py. This module only renders 
 
 from __future__ import annotations
 
+import re
+
 from pathlib import Path
 
 from lib_catalog import (
@@ -51,6 +53,315 @@ HANDWRITTEN: dict[tuple[str, str], tuple[str, str]] = {
     ("feedback", "status-pill"): ("components/nova/feedback/status-pill.tsx", "StatusPill"),
     ("data", "data-table"): ("components/nova/data/data-table.tsx", "DataTable"),
 }
+
+# Some names imply a better preview than their kind does: a pricing component shows plans, a
+# skeleton shows shimmer rows. First matching rule wins.
+KEYWORD_VISUALS: list[tuple[str, str]] = [
+    ("pricing|plan|tier|billing|invoice|receipt|refund|coupon|discount|seat|trial|upgrade|checkout|cart|product|price", "pricing"),
+    ("testimonial|quote|review|customer-story|case-study|social-proof", "testimonials"),
+    ("logo|brand|integration|trust|badge-wall", "logos"),
+    ("faq|accordion|disclosure|expand|collaps", "faq"),
+    ("bar-chart|column|stacked|histogram|distribution", "chart-bars"),
+    ("donut|pie|gauge|ring|radial|meter|bullet", "chart-donut"),
+    ("heatmap|activity-grid|contribution", "chart-heat"),
+    ("funnel|conversion-steps|dropoff", "chart-bars"),
+    ("sparkline|area-chart|line-chart|trend|forecast|volume-chart", "data"),
+    ("skeleton|shimmer|placeholder", "skeleton"),
+    ("step|stepper|wizard|progress-steps|roadmap|process", "steps"),
+    ("kanban|board|column-view|swimlane|pipeline-view", "kanban"),
+    ("calendar|schedule|date-picker|month-view|agenda|booking", "calendar"),
+    ("avatar|member|user|profile|team-|people|participant|presence", "avatars"),
+    ("upload|dropzone|file-|attachment|drag|import", "dropzone"),
+    ("stat|kpi|metric|number|count|delta|score|usage|quota|budget|cost|token", "metric"),
+    ("timeline|audit|history|changelog|activity|log|events|release", "timeline"),
+    ("toast|notification|alert|banner|announce|inline-error|offline", "notification"),
+    ("tab|navbar|sidebar|breadcrumb|pagination|menu|dock|rail|nav|toc|command", "nav"),
+    ("table|grid|list-view|row|matrix|scim|columns|records", "table"),
+    ("modal|dialog|drawer|sheet|popover|tooltip|lightbox|inspector|panel|overlay", "overlay"),
+    ("message|chat|thread|composer|conversation|reply|mention|follow-up|citation|artifact", "chat"),
+    ("code|terminal|diff|json|log-viewer|editor|snippet|markdown|formula", "editor"),
+    ("video|image|gallery|media|photo|waveform|audio|frame|before-after|preview", "media"),
+    ("form|field|input|select|radio|checkbox|switch|slider|signature|rating|survey|address|card-form", "form"),
+    ("email|newsletter|digest|invite|verify|reset|signature-block", "email"),
+    ("print|pdf|invoice-sheet|report-sheet|cover", "print"),
+    ("meta|seo|og-|sitemap|robots|canonical|hreflang|structured|social-preview", "seo"),
+    ("skip-link|focus|live-region|aria|landmark|contrast|sr-", "a11y"),
+    ("permission|role|sso|scim|residency|compliance|contract|procurement|sla|audit-row|approval", "enterprise"),
+]
+
+VIZ_EXTRA: dict[str, str] = {
+    "pricing": """<div className="grid gap-3 sm:grid-cols-3">
+          {["Starter", "Pro", "Enterprise"].map((plan, index) => (
+            <div
+              key={plan}
+              className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
+            >
+              <p className="text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{plan}</p>
+              <p className="mt-2 text-[22px] font-semibold tabular-nums text-[var(--fg)]">
+                ${[0, 249, 890][index]}
+                <span className="text-[12px] font-normal text-[var(--fg-subtle)]">/mo</span>
+              </p>
+              <ul className="mt-3 grid gap-1.5 text-[12.5px] text-[var(--fg-muted)]">
+                {["Unlimited seats", index > 0 ? "13 month retention" : "30 day retention"].map((feature) => (
+                  <li key={feature} className="flex items-start gap-2">
+                    <Check className="mt-0.5 size-3.5 shrink-0 text-[var(--accent-2)]" aria-hidden="true" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <span
+                className={
+                  index === 1
+                    ? "mt-4 flex h-9 items-center justify-center rounded-[var(--radius-sm)] bg-[image:var(--grad-primary)] text-[12.5px] font-medium text-[var(--accent-fg)]"
+                    : "mt-4 flex h-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--hair)] text-[12.5px] text-[var(--fg-muted)]"
+                }
+              >
+                {index === 1 ? "Start trial" : "Choose plan"}
+              </span>
+            </div>
+          ))}
+        </div>""",
+    "testimonials": """<div className="grid gap-3 sm:grid-cols-2">
+          {[
+            { quote: "We deleted eleven dashboards and kept four saved queries.", name: "Ilse Brand", role: "Head of Platform" },
+            { quote: "Two regressions caught before customers noticed.", name: "Tomas Erdahl", role: "Staff Engineer" },
+          ].map((item) => (
+            <figure key={item.name} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4">
+              <Quote className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+              <blockquote className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg)]">{item.quote}</blockquote>
+              <figcaption className="mt-3 text-[12px] text-[var(--fg-subtle)]">
+                {item.name}, {item.role}
+              </figcaption>
+            </figure>
+          ))}
+        </div>""",
+    "logos": """<div className="flex flex-wrap items-center gap-x-8 gap-y-3 border-y border-[var(--hair-soft)] py-4">
+          {["Northwind", "Aperture", "Kestrel Labs", "Solstice", "Ravel", "Trema"].map((logo) => (
+            <span key={logo} className="text-[12.5px] uppercase tracking-[0.14em] text-[var(--fg-subtle)]">
+              {logo}
+            </span>
+          ))}
+        </div>""",
+    "faq": """<div className="grid gap-2">
+          {["What counts as an event?", "Do seats cost extra?", "How does the trial end?"].map((question, index) => (
+            <details key={question} className="group rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 text-[13.5px] text-[var(--fg)]">
+                {question}
+                <Plus
+                  className="size-3.5 shrink-0 text-[var(--fg-subtle)] transition-transform duration-200 group-open:rotate-45"
+                  aria-hidden="true"
+                />
+              </summary>
+              <p className="mt-2.5 text-[12.5px] leading-relaxed text-[var(--fg-muted)]">
+                {index === 1
+                  ? "No. Reading is free for everyone; only editors count."
+                  : "One row in your stream, counted once per 24 hour window."}
+              </p>
+            </details>
+          ))}
+        </div>""",
+    "chart-bars": """<figure className="grid gap-3">
+          <div className="flex h-28 items-end gap-2" role="img" aria-label={title}>
+            {[42, 58, 51, 67, 74, 63, 81, 88].map((height, index) => (
+              <span
+                key={index}
+                className="flex-1 rounded-t-[3px] bg-[linear-gradient(180deg,var(--accent),color-mix(in_srgb,var(--accent)_30%,transparent))] transition-opacity duration-200 hover:opacity-100"
+                style={{ height: `${height}%`, opacity: 0.55 + index * 0.05 }}
+              />
+            ))}
+          </div>
+          <figcaption className="text-[12px] text-[var(--fg-muted)]">{subtitle}</figcaption>
+        </figure>""",
+    "chart-donut": """<figure className="flex items-center gap-5">
+          <svg viewBox="0 0 72 72" className="size-24" role="img" aria-label={title}>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="var(--hair)" strokeWidth="8" />
+            <circle
+              cx="36"
+              cy="36"
+              r="28"
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeDasharray="132 176"
+              transform="rotate(-90 36 36)"
+            />
+          </svg>
+          <figcaption className="text-[12.5px] text-[var(--fg-muted)]">
+            <span className="block text-[20px] font-semibold tabular-nums text-[var(--fg)]">74%</span>
+            {subtitle}
+          </figcaption>
+        </figure>""",
+    "chart-heat": """<div className="grid grid-cols-[repeat(14,minmax(0,1fr))] gap-1" role="img" aria-label={title}>
+          {Array.from({ length: 42 }).map((_, index) => (
+            <span
+              key={index}
+              className="aspect-square rounded-[3px] bg-[var(--accent)] transition-opacity duration-200 hover:opacity-90"
+              style={{ opacity: 0.12 + ((index * 7) % 9) * 0.09 }}
+            />
+          ))}
+        </div>""",
+    "skeleton": """<div className="grid gap-3" aria-hidden="true">
+          {[100, 82, 64].map((width, index) => (
+            <span key={index} className="nv-shimmer block h-3 rounded-full" style={{ width: `${width}%` }} />
+          ))}
+          <span className="nv-shimmer block h-24 rounded-[var(--radius-md)]" />
+        </div>""",
+    "steps": """<ol className="grid gap-3 sm:grid-cols-4">
+          {["Connect", "Model", "Watch", "Act"].map((step, index) => (
+            <li key={step} className="relative rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <span className="font-[var(--font-mono)] text-[11px] text-[var(--accent)]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-2 text-[13.5px] text-[var(--fg)]">{step}</p>
+              <p className="mt-1 text-[12px] text-[var(--fg-muted)]">
+                {["Send events", "Define metrics", "Detect changes", "Ship the fix"][index]}
+              </p>
+              {index < 3 ? (
+                <ArrowRight
+                  className="absolute -right-2.5 top-1/2 hidden size-3.5 -translate-y-1/2 text-[var(--fg-subtle)] sm:block"
+                  aria-hidden="true"
+                />
+              ) : null}
+            </li>
+          ))}
+        </ol>""",
+    "kanban": """<div className="grid gap-3 sm:grid-cols-3">
+          {["Backlog", "In progress", "Shipped"].map((column, index) => (
+            <div key={column} className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3">
+              <p className="text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
+                {column} {[6, 3, 12][index]}
+              </p>
+              {[0, 1].map((card) => (
+                <span key={card} className="block rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)] p-2.5">
+                  <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+                  <span className="mt-2 block h-2 w-1/3 rounded-full bg-[var(--hair-soft)]" />
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>""",
+    "calendar": """<div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="flex items-center justify-between border-b border-[var(--hair)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
+            September 2026
+            <span className="flex gap-1">
+              <ChevronLeft className="size-3.5" aria-hidden="true" />
+              <ChevronRight className="size-3.5" aria-hidden="true" />
+            </span>
+          </div>
+          <div className="grid grid-cols-7 gap-px bg-[var(--hair-soft)] p-px">
+            {Array.from({ length: 28 }).map((_, index) => (
+              <span
+                key={index}
+                className="grid aspect-square place-items-center bg-[var(--bg-soft)] text-[11.5px] tabular-nums text-[var(--fg-muted)] transition-colors duration-150 hover:bg-[var(--glass)]"
+              >
+                {index + 1}
+              </span>
+            ))}
+          </div>
+        </div>""",
+    "avatars": """<div className="flex flex-wrap items-center gap-4">
+          <div className="flex -space-x-2">
+            {["Ilse Brand", "Tomas Erdahl", "Priya Raman", "Marc Oyelaran"].map((person) => (
+              <span
+                key={person}
+                title={person}
+                className="grid size-8 place-items-center rounded-full border border-[var(--bg)] bg-[var(--glass-strong)] text-[11px] text-[var(--fg)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                {person.split(" ").map((part) => part[0]).join("")}
+              </span>
+            ))}
+            <span className="grid size-8 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-dim)] text-[11px] tabular-nums text-[var(--fg-muted)]">
+              +9
+            </span>
+          </div>
+          <p className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
+        </div>""",
+    "dropzone": """<div className="grid place-items-center gap-2 rounded-[var(--radius-md)] border border-dashed border-[var(--hair-strong)] bg-[var(--glass-dim)] px-6 py-8 text-center transition-colors duration-200 hover:bg-[var(--glass)]">
+          <Upload className="size-4 text-[var(--accent)]" aria-hidden="true" />
+          <p className="text-[13px] text-[var(--fg)]">{title}</p>
+          <p className="text-[12px] text-[var(--fg-subtle)]">CSV, Parquet or JSON up to 512MB</p>
+        </div>""",
+    "metric": """<div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
+        </div>""",
+    "timeline": """<ol className="grid gap-4 border-l border-[var(--hair-soft)] pl-4">
+          {[
+            { who: "Ilse Brand", what: "created an alert on revenue per account", when: "6 min ago" },
+            { who: "Tomas Erdahl", what: "pinned the release impact query", when: "22 min ago" },
+            { who: "Meridian", what: "detected an anomaly in eu-west ingestion", when: "1 h ago" },
+          ].map((event) => (
+            <li key={event.when} className="relative">
+              <span className="absolute -left-[21px] top-1.5 size-1.5 rounded-full bg-[var(--accent)]" aria-hidden="true" />
+              <p className="text-[13px] text-[var(--fg)]">
+                <span className="font-medium">{event.who}</span> {event.what}
+              </p>
+              <p className="mt-0.5 text-[12px] text-[var(--fg-subtle)]">{event.when}</p>
+            </li>
+          ))}
+        </ol>""",
+    "notification": """<div className="grid gap-2">
+          {[
+            { tone: "info", text: "Ingestion paused, resuming in 4 minutes." },
+            { tone: "warn", text: "You have used 82 percent of the included volume." },
+            { tone: "danger", text: "Upload failed. Retry, or use a smaller file." },
+          ].map((item) => (
+            <div
+              key={item.tone}
+              role="status"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3.5 py-2.5"
+            >
+              <span
+                className={
+                  item.tone === "danger"
+                    ? "size-1.5 shrink-0 rounded-full bg-[var(--danger)]"
+                    : item.tone === "warn"
+                      ? "size-1.5 shrink-0 rounded-full bg-[var(--warn)]"
+                      : "size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                }
+                aria-hidden="true"
+              />
+              <p className="text-[12.5px] text-[var(--fg-muted)]">{item.text}</p>
+            </div>
+          ))}
+        </div>""",
+}
+
+ICONS_BY_VISUAL: dict[str, list[str]] = {
+    "pricing": ["Check"],
+    "testimonials": ["Quote"],
+    "logos": [],
+    "faq": ["Plus"],
+    "chart-bars": [],
+    "chart-donut": [],
+    "chart-heat": [],
+    "skeleton": [],
+    "steps": ["ArrowRight"],
+    "kanban": [],
+    "calendar": ["ChevronLeft", "ChevronRight"],
+    "avatars": [],
+    "dropzone": ["Upload"],
+    "metric": [],
+    "timeline": [],
+    "notification": [],
+}
+
+
+def visual_for(kind: str, name: str) -> str:
+    for pattern, visual in KEYWORD_VISUALS:
+        if re.search(pattern, name):
+            return visual
+    return kind
 
 # Icons each preview imports, always from lucide-react.
 ICONS: dict[str, list[str]] = {
@@ -533,6 +844,17 @@ VIZ: dict[str, str] = {
 }
 
 
+# Every lucide icon name any snippet may reference. The emitter imports only the ones a given
+# preview actually uses, which keeps the import line honest for all five hundred files.
+LUCIDE_WHITELIST: set[str] = set()
+for _names in list(ICONS.values()) + list(ICONS_BY_VISUAL.values()):
+    LUCIDE_WHITELIST.update(_names)
+
+
+def icons_used_in(viz: str) -> list[str]:
+    return sorted({token for token in re.findall(r"\b[A-Z][A-Za-z0-9]*\b", viz) if token in LUCIDE_WHITELIST})
+
+
 def pascal(slug: str) -> str:
     return "".join(part[:1].upper() + part[1:] for part in slug.replace("_", "-").split("-") if part)
 
@@ -594,7 +916,11 @@ def render_component(
     interface = interface_body(kind)
     react_types = react_import(interface)
     title, subtitle = labels_for(kind, index)
-    icons = ", ".join(sorted(ICONS[kind]))
+    visual = visual_for(kind, name)
+    viz = VIZ_EXTRA.get(visual, VIZ.get(visual, VIZ[kind]))
+    used = icons_used_in(viz)
+    badge_icon = used[0] if used else ICONS[kind][0]
+    icons = ", ".join(sorted(set(used) | {badge_icon}))
     url = f"{RAW}/components/nova/{category}/README.md"
     motion = MOTION[kind]
     example = (
@@ -605,7 +931,6 @@ def render_component(
         .replace("{N}", name)
         .replace("{c}", "{children}")
     )
-    viz = VIZ[kind]
     uses = USES[category]
 
     siblings = related or []
@@ -656,7 +981,8 @@ export function {comp}({{ title = "{title}", subtitle = "{subtitle}", className,
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{{title}}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{{subtitle}}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <{badge_icon} className="size-3.5" aria-hidden="true" />
           {category}/{name}
         </span>
       </header>

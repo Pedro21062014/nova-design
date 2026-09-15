@@ -13,7 +13,7 @@
  * -------
  * <DraftBanner title="Shipping details" subtitle="Delivered in 3 days" onSubmit={{submit}} />
  */
-import { Mail } from "lucide-react";
+import { Upload } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,34 +41,38 @@ export function DraftBanner({ title = "Shipping details", subtitle = "Delivered 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Upload className="size-3.5" aria-hidden="true" />
           forms/draft-banner
         </span>
       </header>
 
       <div className="mt-5">
-        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
-          <div className="grid gap-1.5">
-            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
-              {title}
-            </label>
-            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
-              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-              <input
-                id="nv-field"
-                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
-                placeholder={subtitle}
+        <div className="grid gap-2">
+          {[
+            { tone: "info", text: "Ingestion paused, resuming in 4 minutes." },
+            { tone: "warn", text: "You have used 82 percent of the included volume." },
+            { tone: "danger", text: "Upload failed. Retry, or use a smaller file." },
+          ].map((item) => (
+            <div
+              key={item.tone}
+              role="status"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3.5 py-2.5"
+            >
+              <span
+                className={
+                  item.tone === "danger"
+                    ? "size-1.5 shrink-0 rounded-full bg-[var(--danger)]"
+                    : item.tone === "warn"
+                      ? "size-1.5 shrink-0 rounded-full bg-[var(--warn)]"
+                      : "size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                }
+                aria-hidden="true"
               />
+              <p className="text-[12.5px] text-[var(--fg-muted)]">{item.text}</p>
             </div>
-            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
-          </div>
-          <button
-            type="submit"
-            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-          >
-            Continue
-          </button>
-        </form>
+          ))}
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

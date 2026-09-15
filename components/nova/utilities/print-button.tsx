@@ -13,7 +13,7 @@
  * -------
  * <PrintButton title="Currency" subtitle="Display only" value={{value}} onValueChange={{setValue}} />
  */
-import { Check, Copy } from "lucide-react";
+import { Copy } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,21 +41,25 @@ export function PrintButton({ title = "Currency", subtitle = "Display only", cla
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Copy className="size-3.5" aria-hidden="true" />
           utilities/print-button
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="flex items-center gap-3">
-          <span className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 text-[12.5px] text-[var(--fg-muted)]">
-            {title}
-            <Copy className="size-3.5" aria-hidden="true" />
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--accent-2)]">
-            <Check className="size-3.5" aria-hidden="true" />
-            {subtitle}
-          </span>
+        <div className="mx-auto w-full max-w-[420px] rounded-[var(--radius-sm)] border border-[var(--hair)] bg-white p-5 text-black">
+          <div className="flex items-baseline justify-between">
+            <span className="text-[14px] font-semibold">{title}</span>
+            <span className="text-[11px]">page 1 / 4</span>
+          </div>
+          <div className="mt-3 h-px w-full bg-black/20" />
+          <div className="mt-3 grid gap-2 text-[12px]">
+            <span className="block h-2 w-3/4 rounded-full bg-black/10" />
+            <span className="block h-2 w-full rounded-full bg-black/10" />
+            <span className="block h-2 w-2/3 rounded-full bg-black/10" />
+          </div>
+          <p className="mt-3 text-[11px] text-black/60">{subtitle}</p>
         </div>
       </div>
 

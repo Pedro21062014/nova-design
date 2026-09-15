@@ -13,7 +13,7 @@
  * -------
  * <TokenPreview title="Currency" subtitle="Display only" value={{value}} onValueChange={{setValue}} />
  */
-import { Check, Copy } from "lucide-react";
+import { Quote } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,21 +41,26 @@ export function TokenPreview({ title = "Currency", subtitle = "Display only", cl
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Quote className="size-3.5" aria-hidden="true" />
           utilities/token-preview
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="flex items-center gap-3">
-          <span className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 text-[12.5px] text-[var(--fg-muted)]">
-            {title}
-            <Copy className="size-3.5" aria-hidden="true" />
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-[12px] text-[var(--accent-2)]">
-            <Check className="size-3.5" aria-hidden="true" />
-            {subtitle}
-          </span>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            { quote: "We deleted eleven dashboards and kept four saved queries.", name: "Ilse Brand", role: "Head of Platform" },
+            { quote: "Two regressions caught before customers noticed.", name: "Tomas Erdahl", role: "Staff Engineer" },
+          ].map((item) => (
+            <figure key={item.name} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4">
+              <Quote className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+              <blockquote className="mt-2 text-[13.5px] leading-relaxed text-[var(--fg)]">{item.quote}</blockquote>
+              <figcaption className="mt-3 text-[12px] text-[var(--fg-subtle)]">
+                {item.name}, {item.role}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
 

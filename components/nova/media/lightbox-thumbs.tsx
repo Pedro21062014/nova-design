@@ -13,7 +13,7 @@
  * -------
  * <LightboxThumbs title="Onboarding clip" subtitle="0:38, silent" aspect="16/9" />
  */
-import { Play } from "lucide-react";
+import { X } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,21 +41,26 @@ export function LightboxThumbs({ title = "Onboarding clip", subtitle = "0:38, si
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <X className="size-3.5" aria-hidden="true" />
           media/lightbox-thumbs
         </span>
       </header>
 
       <div className="mt-5">
         <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="grid aspect-video place-items-center bg-[var(--bg-elevated)]">
-            <span className="grid size-11 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-strong)] transition-transform duration-200 hover:scale-[1.04]">
-              <Play className="size-4 translate-x-px text-[var(--fg)]" aria-hidden="true" />
-            </span>
+          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
+            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
           </div>
-          <div className="flex items-center justify-between gap-3 px-3 py-2.5">
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{title}</span>
-            <span className="text-[12px] tabular-nums text-[var(--fg-subtle)]">{subtitle}</span>
+          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
+            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
+                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              </div>
+              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
+            </div>
           </div>
         </div>
       </div>

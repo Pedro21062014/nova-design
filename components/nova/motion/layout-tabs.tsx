@@ -15,7 +15,7 @@
   <Surface>Entrance</Surface>
 </LayoutTabs>
  */
-import { ArrowDown } from "lucide-react";
+import { Search, Settings } from "lucide-react";
 import { type ComponentPropsWithoutRef, type ElementType } from "react";
 import { cn } from "@/lib/utils";
 
@@ -47,28 +47,32 @@ export function LayoutTabs({ title = "Entrance", subtitle = "Delay 120ms", class
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           motion/layout-tabs
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <div className="flex items-center gap-3">
-            {[0, 1, 2, 3].map((step, index) => (
-              <span key={step} className="flex items-center gap-3">
-                <span
-                  className="block h-3 w-14 rounded-full bg-[var(--glass-strong)] nv-fade-up"
-                  style={{ animationDelay: `${index * 60}ms` }}
-                />
-                {index < 3 ? <ArrowDown className="size-3.5 -rotate-90 text-[var(--fg-subtle)]" aria-hidden="true" /> : null}
-              </span>
-            ))}
-          </div>
-          <p className="text-[12px] text-[var(--fg-subtle)]">
-            Cascade 60ms per child, capped at 400ms in total, 16px of travel, once.
-          </p>
-        </div>
+        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
+          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
+            <span
+              key={item}
+              aria-current={index === 1 ? "page" : undefined}
+              className={
+                index === 1
+                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
+                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
+              }
+            >
+              {item}
+              {index === 1 ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
+              ) : null}
+            </span>
+          ))}
+          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        </nav>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

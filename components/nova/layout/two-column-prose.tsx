@@ -43,35 +43,25 @@ export function TwoColumnProse({ title = "Documentation", subtitle = "Guides, re
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <PanelLeft className="size-3.5" aria-hidden="true" />
           layout/two-column-prose
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4 rounded-[var(--radius-md)] border border-[var(--hair)] p-4 lg:grid-cols-[200px_1fr]">
-          <div className="grid gap-2">
-            <span className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
-              <PanelLeft className="size-3.5" aria-hidden="true" />
-              On this page
-            </span>
-            {["Overview", "Install", "Theming"].map((row, index) => (
+        <figure className="grid gap-3">
+          <div className="flex h-28 items-end gap-2" role="img" aria-label={title}>
+            {[42, 58, 51, 67, 74, 63, 81, 88].map((height, index) => (
               <span
-                key={row}
-                className={index === 0 ? "text-[13px] text-[var(--fg)]" : "text-[13px] text-[var(--fg-muted)]"}
-              >
-                {row}
-              </span>
+                key={index}
+                className="flex-1 rounded-t-[3px] bg-[linear-gradient(180deg,var(--accent),color-mix(in_srgb,var(--accent)_30%,transparent))] transition-opacity duration-200 hover:opacity-100"
+                style={{ height: `${height}%`, opacity: 0.55 + index * 0.05 }}
+              />
             ))}
           </div>
-          <div className="grid gap-2.5">
-            <span className="text-[16px] font-medium text-[var(--fg)]">{title}</span>
-            <span className="block h-2 w-3/4 rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-full rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-5/6 rounded-full bg-[var(--hair-soft)]" />
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</span>
-          </div>
-        </div>
+          <figcaption className="text-[12px] text-[var(--fg-muted)]">{subtitle}</figcaption>
+        </figure>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

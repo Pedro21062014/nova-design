@@ -13,7 +13,7 @@
  * -------
  * <PrintSignature title="Statement of work" subtitle="Revision 3, 2026-09-15" pageSize="A4" />
  */
-import { Printer } from "lucide-react";
+import { Mail } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,25 +41,35 @@ export function PrintSignature({ title = "Statement of work", subtitle = "Revisi
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Mail className="size-3.5" aria-hidden="true" />
           print/print-signature
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="mx-auto w-full max-w-[420px] rounded-[var(--radius-sm)] border border-[var(--hair)] bg-white p-5 text-black">
-          <div className="flex items-baseline justify-between">
-            <span className="text-[14px] font-semibold">{title}</span>
-            <span className="text-[11px]">page 1 / 4</span>
+        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-1.5">
+            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
+              {title}
+            </label>
+            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
+              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              <input
+                id="nv-field"
+                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
+                placeholder={subtitle}
+              />
+            </div>
+            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
           </div>
-          <div className="mt-3 h-px w-full bg-black/20" />
-          <div className="mt-3 grid gap-2 text-[12px]">
-            <span className="block h-2 w-3/4 rounded-full bg-black/10" />
-            <span className="block h-2 w-full rounded-full bg-black/10" />
-            <span className="block h-2 w-2/3 rounded-full bg-black/10" />
-          </div>
-          <p className="mt-3 text-[11px] text-black/60">{subtitle}</p>
-        </div>
+          <button
+            type="submit"
+            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Continue
+          </button>
+        </form>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

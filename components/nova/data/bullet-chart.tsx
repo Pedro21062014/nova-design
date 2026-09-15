@@ -41,34 +41,30 @@ export function BulletChart({ title = "Conversion", subtitle = "Visits to trials
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpRight className="size-3.5" aria-hidden="true" />
           data/bullet-chart
         </span>
       </header>
 
       <div className="mt-5">
-        <figure className="grid gap-3">
-          <svg viewBox="0 0 240 64" className="h-16 w-full" role="img" aria-label={title}>
-            <defs>
-              <linearGradient id="nv-page-fill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.28" />
-                <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0 48 L48 40 L96 44 L144 26 L192 20 L240 12 L240 64 L0 64 Z"
-              fill="url(#nv-page-fill)"
-            />
-            <polyline
-              points="0,48 48,40 96,44 144,26 192,20 240,12"
+        <figure className="flex items-center gap-5">
+          <svg viewBox="0 0 72 72" className="size-24" role="img" aria-label={title}>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="var(--hair)" strokeWidth="8" />
+            <circle
+              cx="36"
+              cy="36"
+              r="28"
               fill="none"
               stroke="var(--accent)"
-              strokeWidth="1.5"
+              strokeWidth="8"
               strokeLinecap="round"
+              strokeDasharray="132 176"
+              transform="rotate(-90 36 36)"
             />
           </svg>
-          <figcaption className="flex items-center gap-2 text-[12px] text-[var(--fg-muted)]">
-            <ArrowUpRight className="size-3.5 text-[var(--accent-2)]" aria-hidden="true" />
+          <figcaption className="text-[12.5px] text-[var(--fg-muted)]">
+            <span className="block text-[20px] font-semibold tabular-nums text-[var(--fg)]">74%</span>
             {subtitle}
           </figcaption>
         </figure>

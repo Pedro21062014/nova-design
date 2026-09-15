@@ -13,7 +13,7 @@
  * -------
  * <MediaCard title="Team capacity" subtitle="6 of 12 seats active" interactive />
  */
-import { MoreHorizontal } from "lucide-react";
+import { Play } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,25 +41,22 @@ export function MediaCard({ title = "Team capacity", subtitle = "6 of 12 seats a
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Play className="size-3.5" aria-hidden="true" />
           cards/media-card
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] p-4">
-          <div className="flex items-center justify-between">
-            <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-            <MoreHorizontal className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="grid aspect-video place-items-center bg-[var(--bg-elevated)]">
+            <span className="grid size-11 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-strong)] transition-transform duration-200 hover:scale-[1.04]">
+              <Play className="size-4 translate-x-px text-[var(--fg)]" aria-hidden="true" />
+            </span>
           </div>
-          <div className="mt-4 grid gap-2">
-            {[0, 1, 2].map((row) => (
-              <span
-                key={row}
-                className="block h-2 rounded-full bg-[var(--hair-soft)]"
-                style={{ width: `${86 - row * 18}%` }}
-              />
-            ))}
+          <div className="flex items-center justify-between gap-3 px-3 py-2.5">
+            <span className="text-[12.5px] text-[var(--fg-muted)]">{title}</span>
+            <span className="text-[12px] tabular-nums text-[var(--fg-subtle)]">{subtitle}</span>
           </div>
         </div>
       </div>

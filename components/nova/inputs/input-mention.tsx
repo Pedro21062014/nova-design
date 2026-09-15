@@ -13,7 +13,7 @@
  * -------
  * <InputMention title="Workspace URL" subtitle="Lowercase, no spaces" value={{email}} onChange={{setEmail}} />
  */
-import { Mail } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,23 +41,30 @@ export function InputMention({ title = "Workspace URL", subtitle = "Lowercase, n
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Sparkles className="size-3.5" aria-hidden="true" />
           inputs/input-mention
         </span>
       </header>
 
       <div className="mt-5">
-        <label className="block">
-          <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-          <span className="mt-2 flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 focus-within:border-[var(--hair-strong)] focus-within:shadow-[0_0_0_3px_var(--accent-soft)]">
-            <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <input
-              type="email"
-              placeholder={subtitle}
-              className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none placeholder:text-[var(--fg-subtle)]"
-            />
-          </span>
-        </label>
+        <div className="grid gap-3">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass)]">
+              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
+            </span>
+            <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
+              {title}
+              <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
+            </p>
+          </div>
+          <div className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[13px] text-[var(--fg-subtle)]">
+            {subtitle}
+            <span className="ml-auto rounded-full bg-[var(--glass-strong)] px-2 py-0.5 text-[11px] text-[var(--fg-muted)]">
+              Enter to send
+            </span>
+          </div>
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

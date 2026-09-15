@@ -13,7 +13,7 @@
  * -------
  * <AlertDanger title="Search returned no results" subtitle="Try a shorter term" tone="info" onRetry={{retry}} />
  */
-import { Info, TriangleAlert } from "lucide-react";
+import { Upload } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,24 +41,37 @@ export function AlertDanger({ title = "Search returned no results", subtitle = "
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Upload className="size-3.5" aria-hidden="true" />
           feedback/alert-danger
         </span>
       </header>
 
       <div className="mt-5">
-        <div
-          className="flex items-start gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-4"
-          role="status"
-        >
-          <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-[var(--radius-sm)] bg-[var(--glass-strong)]">
-            <Info className="size-4 text-[var(--accent)]" aria-hidden="true" />
-          </span>
-          <div className="min-w-0">
-            <p className="text-[13px] font-medium text-[var(--fg)]">{title}</p>
-            <p className="mt-1 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
-          </div>
-          <TriangleAlert className="ml-auto size-4 shrink-0 text-[var(--warn)]" aria-hidden="true" />
+        <div className="grid gap-2">
+          {[
+            { tone: "info", text: "Ingestion paused, resuming in 4 minutes." },
+            { tone: "warn", text: "You have used 82 percent of the included volume." },
+            { tone: "danger", text: "Upload failed. Retry, or use a smaller file." },
+          ].map((item) => (
+            <div
+              key={item.tone}
+              role="status"
+              className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3.5 py-2.5"
+            >
+              <span
+                className={
+                  item.tone === "danger"
+                    ? "size-1.5 shrink-0 rounded-full bg-[var(--danger)]"
+                    : item.tone === "warn"
+                      ? "size-1.5 shrink-0 rounded-full bg-[var(--warn)]"
+                      : "size-1.5 shrink-0 rounded-full bg-[var(--accent)]"
+                }
+                aria-hidden="true"
+              />
+              <p className="text-[12.5px] text-[var(--fg-muted)]">{item.text}</p>
+            </div>
+          ))}
         </div>
       </div>
 

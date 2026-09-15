@@ -41,7 +41,8 @@ export function FilterBar({ title = "Requests per second", subtitle = "p95, 24 h
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowUpRight className="size-3.5" aria-hidden="true" />
           data/filter-bar
         </span>
       </header>

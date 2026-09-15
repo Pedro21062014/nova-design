@@ -15,7 +15,7 @@
   {children}
 </MembersTable>
  */
-import { PanelLeft, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,33 +43,29 @@ export function MembersTable({ title = "Northwind", subtitle = "Workspace", clas
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           shell/members-table
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2">
-            <PanelLeft className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <span className="text-[12px] text-[var(--fg-muted)]">{title}</span>
-            <Search className="ml-auto size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="flex -space-x-2">
+            {["Ilse Brand", "Tomas Erdahl", "Priya Raman", "Marc Oyelaran"].map((person) => (
+              <span
+                key={person}
+                title={person}
+                className="grid size-8 place-items-center rounded-full border border-[var(--bg)] bg-[var(--glass-strong)] text-[11px] text-[var(--fg)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                {person.split(" ").map((part) => part[0]).join("")}
+              </span>
+            ))}
+            <span className="grid size-8 place-items-center rounded-full border border-[var(--hair)] bg-[var(--glass-dim)] text-[11px] tabular-nums text-[var(--fg-muted)]">
+              +9
+            </span>
           </div>
-          <div className="grid grid-cols-[112px_1fr]">
-            <div className="grid gap-1.5 border-r border-[var(--hair)] p-2.5">
-              {[0, 1, 2, 3].map((row) => (
-                <span
-                  key={row}
-                  className={row === 1 ? "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-strong)]" : "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-dim)]"}
-                />
-              ))}
-            </div>
-            <div className="grid gap-2 p-3">
-              <span className="block h-2 w-1/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
-            </div>
-          </div>
+          <p className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
       </div>
 

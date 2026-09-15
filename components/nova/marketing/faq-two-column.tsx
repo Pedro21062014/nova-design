@@ -17,7 +17,7 @@
   action={{<ButtonPrimary>Start free</ButtonPrimary>}}
 />
  */
-import { ArrowRight, Play } from "lucide-react";
+import { Plus } from "lucide-react";
 import { type ComponentPropsWithoutRef, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -45,27 +45,30 @@ export function FaqTwoColumn({ title = "Ship the boring parts faster", subtitle 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Plus className="size-3.5" aria-hidden="true" />
           marketing/faq-two-column
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4">
-          <p className="text-[28px] font-semibold leading-tight tracking-[-0.03em] text-[var(--fg)]">
-            {title}
-          </p>
-          <p className="max-w-[52ch] text-[15px] leading-relaxed text-[var(--fg-muted)]">{subtitle}</p>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] bg-[image:var(--grad-primary)] px-5 text-[13px] font-medium text-[var(--accent-fg)]">
-              Start free
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </span>
-            <span className="inline-flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] px-5 text-[13px] text-[var(--fg-muted)]">
-              <Play className="size-3.5" aria-hidden="true" />
-              Watch the tour
-            </span>
-          </div>
+        <div className="grid gap-2">
+          {["What counts as an event?", "Do seats cost extra?", "How does the trial end?"].map((question, index) => (
+            <details key={question} className="group rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 text-[13.5px] text-[var(--fg)]">
+                {question}
+                <Plus
+                  className="size-3.5 shrink-0 text-[var(--fg-subtle)] transition-transform duration-200 group-open:rotate-45"
+                  aria-hidden="true"
+                />
+              </summary>
+              <p className="mt-2.5 text-[12.5px] leading-relaxed text-[var(--fg-muted)]">
+                {index === 1
+                  ? "No. Reading is free for everyone; only editors count."
+                  : "One row in your stream, counted once per 24 hour window."}
+              </p>
+            </details>
+          ))}
         </div>
       </div>
 

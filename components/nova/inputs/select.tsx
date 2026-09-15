@@ -41,23 +41,35 @@ export function Select({ title = "Work email", subtitle = "We never share it", c
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Mail className="size-3.5" aria-hidden="true" />
           inputs/select
         </span>
       </header>
 
       <div className="mt-5">
-        <label className="block">
-          <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-          <span className="mt-2 flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 focus-within:border-[var(--hair-strong)] focus-within:shadow-[0_0_0_3px_var(--accent-soft)]">
-            <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <input
-              type="email"
-              placeholder={subtitle}
-              className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none placeholder:text-[var(--fg-subtle)]"
-            />
-          </span>
-        </label>
+        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-1.5">
+            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
+              {title}
+            </label>
+            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
+              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              <input
+                id="nv-field"
+                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
+                placeholder={subtitle}
+              />
+            </div>
+            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
+          </div>
+          <button
+            type="submit"
+            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Continue
+          </button>
+        </form>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

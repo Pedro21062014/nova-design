@@ -13,7 +13,7 @@
  * -------
  * <SubNav title="Billing" subtitle="Settings" current="/sub-nav" />
  */
-import { Search } from "lucide-react";
+import { Search, Settings } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,7 +41,8 @@ export function SubNav({ title = "Billing", subtitle = "Settings", className, ..
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           navigation/sub-nav
         </span>
       </header>

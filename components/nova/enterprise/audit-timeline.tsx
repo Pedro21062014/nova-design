@@ -13,7 +13,7 @@
  * -------
  * <AuditTimeline title="Data residency" subtitle="EU only, pinned" restricted={{false}} />
  */
-import { Settings, Users } from "lucide-react";
+import { Users } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,34 +41,28 @@ export function AuditTimeline({ title = "Data residency", subtitle = "EU only, p
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Users className="size-3.5" aria-hidden="true" />
           enterprise/audit-timeline
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
-            <Users className="size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-            {title}
-            <Settings className="ml-auto size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-          </div>
-          <div className="grid">
-            {[
-              { role: "Owner", members: "2", scope: "Organization" },
-              { role: "Billing admin", members: "1", scope: "Workspace" },
-            ].map((row) => (
-              <div
-                key={row.role}
-                className="flex items-center gap-3 border-t border-[var(--hair-soft)] px-3 py-2.5 text-[12.5px] transition-colors duration-150 hover:bg-[var(--glass-dim)]"
-              >
-                <span className="text-[var(--fg)]">{row.role}</span>
-                <span className="tabular-nums text-[var(--fg-muted)]">{row.members}</span>
-                <span className="ml-auto text-[var(--fg-subtle)]">{row.scope}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ol className="grid gap-4 border-l border-[var(--hair-soft)] pl-4">
+          {[
+            { who: "Ilse Brand", what: "created an alert on revenue per account", when: "6 min ago" },
+            { who: "Tomas Erdahl", what: "pinned the release impact query", when: "22 min ago" },
+            { who: "Meridian", what: "detected an anomaly in eu-west ingestion", when: "1 h ago" },
+          ].map((event) => (
+            <li key={event.when} className="relative">
+              <span className="absolute -left-[21px] top-1.5 size-1.5 rounded-full bg-[var(--accent)]" aria-hidden="true" />
+              <p className="text-[13px] text-[var(--fg)]">
+                <span className="font-medium">{event.who}</span> {event.what}
+              </p>
+              <p className="mt-0.5 text-[12px] text-[var(--fg-subtle)]">{event.when}</p>
+            </li>
+          ))}
+        </ol>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

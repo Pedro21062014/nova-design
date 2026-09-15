@@ -13,7 +13,7 @@
  * -------
  * <CostPanel title="Reasoning" subtitle="4 steps, 900ms" streaming={{false}} />
  */
-import { ChevronDown, Sparkles } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,33 +41,25 @@ export function CostPanel({ title = "Reasoning", subtitle = "4 steps, 900ms", cl
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ChevronDown className="size-3.5" aria-hidden="true" />
           ai/cost-panel
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <details className="group rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3">
-            <summary className="flex cursor-pointer items-center gap-2 text-[13px] text-[var(--fg-muted)]">
-              <Sparkles className="size-3.5 text-[var(--accent)]" aria-hidden="true" />
-              Reasoning
-              <ChevronDown
-                className="ml-auto size-4 transition-transform duration-200 group-open:rotate-180"
-                aria-hidden="true"
-              />
-            </summary>
-            <ol className="mt-3 grid gap-2 pl-5 text-[12px] text-[var(--fg-muted)]">
-              <li className="list-decimal">Read the request and the attached schema.</li>
-              <li className="list-decimal">Query the index, then rank three candidates.</li>
-              <li className="list-decimal">Answer with one recommendation and one caveat.</li>
-            </ol>
-          </details>
-          <p className="text-[15px] leading-[1.7] text-[var(--fg)]">
-            {title}
-            <span className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.15em] rounded-full bg-[var(--accent)] nv-caret-blink" />
-          </p>
-          <p className="text-[12px] text-[var(--fg-subtle)]">{subtitle}</p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
         </div>
       </div>
 

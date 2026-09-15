@@ -15,7 +15,7 @@
   {children}
 </UsageMeter>
  */
-import { PanelLeft, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,34 +43,33 @@ export function UsageMeter({ title = "Acme Console", subtitle = "Production", cl
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           shell/usage-meter
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2">
-            <PanelLeft className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <span className="text-[12px] text-[var(--fg-muted)]">{title}</span>
-            <Search className="ml-auto size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-          </div>
-          <div className="grid grid-cols-[112px_1fr]">
-            <div className="grid gap-1.5 border-r border-[var(--hair)] p-2.5">
-              {[0, 1, 2, 3].map((row) => (
-                <span
-                  key={row}
-                  className={row === 1 ? "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-strong)]" : "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-dim)]"}
-                />
-              ))}
-            </div>
-            <div className="grid gap-2 p-3">
-              <span className="block h-2 w-1/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
-            </div>
-          </div>
-        </div>
+        <figure className="flex items-center gap-5">
+          <svg viewBox="0 0 72 72" className="size-24" role="img" aria-label={title}>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="var(--hair)" strokeWidth="8" />
+            <circle
+              cx="36"
+              cy="36"
+              r="28"
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeDasharray="132 176"
+              transform="rotate(-90 36 36)"
+            />
+          </svg>
+          <figcaption className="text-[12.5px] text-[var(--fg-muted)]">
+            <span className="block text-[20px] font-semibold tabular-nums text-[var(--fg)]">74%</span>
+            {subtitle}
+          </figcaption>
+        </figure>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

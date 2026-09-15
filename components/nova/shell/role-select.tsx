@@ -15,7 +15,7 @@
   {children}
 </RoleSelect>
  */
-import { PanelLeft, Search } from "lucide-react";
+import { Mail } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,34 +43,35 @@ export function RoleSelect({ title = "Acme Console", subtitle = "Production", cl
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Mail className="size-3.5" aria-hidden="true" />
           shell/role-select
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
-          <div className="flex items-center gap-2 border-b border-[var(--hair)] bg-[var(--glass-dim)] px-3 py-2">
-            <PanelLeft className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <span className="text-[12px] text-[var(--fg-muted)]">{title}</span>
-            <Search className="ml-auto size-3.5 text-[var(--fg-subtle)]" aria-hidden="true" />
-          </div>
-          <div className="grid grid-cols-[112px_1fr]">
-            <div className="grid gap-1.5 border-r border-[var(--hair)] p-2.5">
-              {[0, 1, 2, 3].map((row) => (
-                <span
-                  key={row}
-                  className={row === 1 ? "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-strong)]" : "h-6 rounded-[var(--radius-sm)] bg-[var(--glass-dim)]"}
-                />
-              ))}
+        <form className="grid gap-4" onSubmit={(event) => event.preventDefault()}>
+          <div className="grid gap-1.5">
+            <label className="text-[13px] font-medium text-[var(--fg)]" htmlFor="nv-field">
+              {title}
+            </label>
+            <div className="flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3">
+              <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              <input
+                id="nv-field"
+                className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none"
+                placeholder={subtitle}
+              />
             </div>
-            <div className="grid gap-2 p-3">
-              <span className="block h-2 w-1/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
-              <span className="block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
-            </div>
+            <p className="text-[12px] text-[var(--fg-subtle)]">Required. We reply within one business day.</p>
           </div>
-        </div>
+          <button
+            type="submit"
+            className="h-10 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass)] px-5 text-[13px] font-medium text-[var(--fg)] transition-transform duration-150 hover:-translate-y-px active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          >
+            Continue
+          </button>
+        </form>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

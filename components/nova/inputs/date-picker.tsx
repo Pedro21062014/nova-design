@@ -13,7 +13,7 @@
  * -------
  * <DatePicker title="Work email" subtitle="We never share it" value={{email}} onChange={{setEmail}} />
  */
-import { Mail } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,23 +41,32 @@ export function DatePicker({ title = "Work email", subtitle = "We never share it
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ChevronLeft className="size-3.5" aria-hidden="true" />
           inputs/date-picker
         </span>
       </header>
 
       <div className="mt-5">
-        <label className="block">
-          <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
-          <span className="mt-2 flex h-10 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] px-3 focus-within:border-[var(--hair-strong)] focus-within:shadow-[0_0_0_3px_var(--accent-soft)]">
-            <Mail className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
-            <input
-              type="email"
-              placeholder={subtitle}
-              className="h-full w-full bg-transparent text-[14px] text-[var(--fg)] outline-none placeholder:text-[var(--fg-subtle)]"
-            />
-          </span>
-        </label>
+        <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="flex items-center justify-between border-b border-[var(--hair)] px-3 py-2 text-[12px] text-[var(--fg-muted)]">
+            September 2026
+            <span className="flex gap-1">
+              <ChevronLeft className="size-3.5" aria-hidden="true" />
+              <ChevronRight className="size-3.5" aria-hidden="true" />
+            </span>
+          </div>
+          <div className="grid grid-cols-7 gap-px bg-[var(--hair-soft)] p-px">
+            {Array.from({ length: 28 }).map((_, index) => (
+              <span
+                key={index}
+                className="grid aspect-square place-items-center bg-[var(--bg-soft)] text-[11.5px] tabular-nums text-[var(--fg-muted)] transition-colors duration-150 hover:bg-[var(--glass)]"
+              >
+                {index + 1}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

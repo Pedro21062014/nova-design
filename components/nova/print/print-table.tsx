@@ -13,7 +13,7 @@
  * -------
  * <PrintTable title="Usage report" subtitle="Billing period August 2026" pageSize="A4" />
  */
-import { Printer } from "lucide-react";
+import { Search, Settings } from "lucide-react";
 import { type ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,25 +41,32 @@ export function PrintTable({ title = "Usage report", subtitle = "Billing period 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <Search className="size-3.5" aria-hidden="true" />
           print/print-table
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="mx-auto w-full max-w-[420px] rounded-[var(--radius-sm)] border border-[var(--hair)] bg-white p-5 text-black">
-          <div className="flex items-baseline justify-between">
-            <span className="text-[14px] font-semibold">{title}</span>
-            <span className="text-[11px]">page 1 / 4</span>
-          </div>
-          <div className="mt-3 h-px w-full bg-black/20" />
-          <div className="mt-3 grid gap-2 text-[12px]">
-            <span className="block h-2 w-3/4 rounded-full bg-black/10" />
-            <span className="block h-2 w-full rounded-full bg-black/10" />
-            <span className="block h-2 w-2/3 rounded-full bg-black/10" />
-          </div>
-          <p className="mt-3 text-[11px] text-black/60">{subtitle}</p>
-        </div>
+        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
+          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
+            <span
+              key={item}
+              aria-current={index === 1 ? "page" : undefined}
+              className={
+                index === 1
+                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
+                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
+              }
+            >
+              {item}
+              {index === 1 ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
+              ) : null}
+            </span>
+          ))}
+          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        </nav>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">

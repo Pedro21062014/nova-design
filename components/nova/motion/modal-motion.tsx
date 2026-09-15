@@ -15,7 +15,7 @@
   <Surface>Entrance</Surface>
 </ModalMotion>
  */
-import { ArrowDown } from "lucide-react";
+import { X } from "lucide-react";
 import { type ComponentPropsWithoutRef, type ElementType } from "react";
 import { cn } from "@/lib/utils";
 
@@ -47,27 +47,27 @@ export function ModalMotion({ title = "Entrance", subtitle = "Delay 120ms", clas
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <X className="size-3.5" aria-hidden="true" />
           motion/modal-motion
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <div className="flex items-center gap-3">
-            {[0, 1, 2, 3].map((step, index) => (
-              <span key={step} className="flex items-center gap-3">
-                <span
-                  className="block h-3 w-14 rounded-full bg-[var(--glass-strong)] nv-fade-up"
-                  style={{ animationDelay: `${index * 60}ms` }}
-                />
-                {index < 3 ? <ArrowDown className="size-3.5 -rotate-90 text-[var(--fg-subtle)]" aria-hidden="true" /> : null}
-              </span>
-            ))}
+        <div className="relative overflow-hidden rounded-[var(--radius-md)] border border-[var(--hair)]">
+          <div className="min-h-[132px] bg-[var(--bg-elevated)] p-4 opacity-40" aria-hidden="true">
+            <span className="block h-2 w-2/3 rounded-full bg-[var(--hair-soft)]" />
+            <span className="mt-2 block h-2 w-1/2 rounded-full bg-[var(--hair-soft)]" />
           </div>
-          <p className="text-[12px] text-[var(--fg-subtle)]">
-            Cascade 60ms per child, capped at 400ms in total, 16px of travel, once.
-          </p>
+          <div className="absolute inset-0 grid place-items-center bg-[color-mix(in_srgb,var(--bg)_72%,transparent)] backdrop-blur-[8px]">
+            <div className="w-[78%] rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-strong)] p-4 nv-scale-in">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[13px] font-medium text-[var(--fg)]">{title}</span>
+                <X className="size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+              </div>
+              <p className="mt-2 text-[12px] text-[var(--fg-muted)]">{subtitle}</p>
+            </div>
+          </div>
         </div>
       </div>
 

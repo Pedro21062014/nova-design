@@ -47,27 +47,25 @@ export function CountdownDigits({ title = "Entrance", subtitle = "Delay 120ms", 
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <ArrowDown className="size-3.5" aria-hidden="true" />
           motion/countdown-digits
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-3">
-          <div className="flex items-center gap-3">
-            {[0, 1, 2, 3].map((step, index) => (
-              <span key={step} className="flex items-center gap-3">
-                <span
-                  className="block h-3 w-14 rounded-full bg-[var(--glass-strong)] nv-fade-up"
-                  style={{ animationDelay: `${index * 60}ms` }}
-                />
-                {index < 3 ? <ArrowDown className="size-3.5 -rotate-90 text-[var(--fg-subtle)]" aria-hidden="true" /> : null}
-              </span>
-            ))}
-          </div>
-          <p className="text-[12px] text-[var(--fg-subtle)]">
-            Cascade 60ms per child, capped at 400ms in total, 16px of travel, once.
-          </p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { label: "Net MRR", value: "$412.8k", delta: "+5.8%" },
+            { label: "Accounts", value: "8,914", delta: "+2.4%" },
+            { label: "p95 latency", value: "184ms", delta: "-12ms" },
+          ].map((cell) => (
+            <div key={cell.label} className="rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-3.5">
+              <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">{cell.label}</p>
+              <p className="mt-1.5 text-[20px] font-semibold tabular-nums text-[var(--fg)]">{cell.value}</p>
+              <p className="text-[11.5px] text-[var(--accent-2)]">{cell.delta}</p>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -43,35 +43,28 @@ export function BlogLayout({ title = "Settings", subtitle = "Workspace preferenc
           <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
           <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
         </div>
-        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+        <span className="inline-flex shrink-0 items-center gap-1.5 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          <PanelLeft className="size-3.5" aria-hidden="true" />
           layout/blog-layout
         </span>
       </header>
 
       <div className="mt-5">
-        <div className="grid gap-4 rounded-[var(--radius-md)] border border-[var(--hair)] p-4 lg:grid-cols-[200px_1fr]">
-          <div className="grid gap-2">
-            <span className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
-              <PanelLeft className="size-3.5" aria-hidden="true" />
-              On this page
-            </span>
-            {["Overview", "Install", "Theming"].map((row, index) => (
-              <span
-                key={row}
-                className={index === 0 ? "text-[13px] text-[var(--fg)]" : "text-[13px] text-[var(--fg-muted)]"}
-              >
-                {row}
-              </span>
-            ))}
-          </div>
-          <div className="grid gap-2.5">
-            <span className="text-[16px] font-medium text-[var(--fg)]">{title}</span>
-            <span className="block h-2 w-3/4 rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-full rounded-full bg-[var(--hair-soft)]" />
-            <span className="block h-2 w-5/6 rounded-full bg-[var(--hair-soft)]" />
-            <span className="text-[12.5px] text-[var(--fg-muted)]">{subtitle}</span>
-          </div>
-        </div>
+        <ol className="grid gap-4 border-l border-[var(--hair-soft)] pl-4">
+          {[
+            { who: "Ilse Brand", what: "created an alert on revenue per account", when: "6 min ago" },
+            { who: "Tomas Erdahl", what: "pinned the release impact query", when: "22 min ago" },
+            { who: "Meridian", what: "detected an anomaly in eu-west ingestion", when: "1 h ago" },
+          ].map((event) => (
+            <li key={event.when} className="relative">
+              <span className="absolute -left-[21px] top-1.5 size-1.5 rounded-full bg-[var(--accent)]" aria-hidden="true" />
+              <p className="text-[13px] text-[var(--fg)]">
+                <span className="font-medium">{event.who}</span> {event.what}
+              </p>
+              <p className="mt-0.5 text-[12px] text-[var(--fg-subtle)]">{event.when}</p>
+            </li>
+          ))}
+        </ol>
       </div>
 
       <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">
