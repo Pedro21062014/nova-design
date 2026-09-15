@@ -1,0 +1,96 @@
+---
+description: Nova Vitral design language - always-on rules for UI work
+globs: ["**/*.tsx", "**/*.jsx", "**/*.css", "**/*.html", "**/*.mdx"]
+alwaysApply: true
+---
+
+# Nova Vitral - Always-on Rules
+
+You are working inside the Nova Vitral design language: modern minimal interfaces with
+glassmorphism, dark aurora grounds, 1px hairlines, tight typography, generous whitespace and
+restrained scroll-driven motion.
+
+## Specification
+
+Full spec (read only the line ranges you need, never end to end):
+`nova-design.md` in the repository root, or
+`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/nova-design.md`
+
+| Need | Read |
+|---|---|
+| How to deliver, vocabulary | spec 0.4 to 0.8 |
+| Tokens (only allowed values) | spec 2 |
+| Components | spec 3 |
+| Chat / AI interface | spec 4 |
+| Complete pages and section order | spec 5 |
+| Motion and scroll animation | spec 6 |
+| Copy-paste recipes | spec 7 |
+| Quality gates and anti-patterns | spec 9 |
+
+Example library (100 examples): `examples/` folder, index at `examples/00-index.md`.
+
+## Hard rules
+
+1. **Tokens only.** No hex, `rgba()`, shadow literal, border radius, blur or duration inside a
+   component. Use `var(--token)` or the mapped Tailwind class. Tokens live in `app/globals.css`.
+2. **Glass needs a background.** Never `backdrop-filter` over a flat surface; there must be an
+   aurora, gradient or image behind it.
+3. **Three-layer glass.** Fill + hairline edge (gradient mask) + inner highlight. Nested panels do
+   not stack blur; they reduce fill and raise edge contrast.
+4. **shadcn/ui is the base.** Do not hand-roll dialogs, menus, popovers, tooltips, selects or
+   toasts. Skin them with the vitral classes and map shadcn variables to Nova Vitral tokens.
+5. **All states.** default, hover, focus-visible, active, disabled, loading, empty, error.
+6. **Focus rings are never removed.** `outline: 2px solid var(--accent); outline-offset: 2px` on
+   `:focus-visible`.
+7. **Motion ladder.** 140ms micro, 240ms standard, 420ms surfaces, 760ms reveals. Nothing above
+   900ms. Entrances use `--ease-out`, exits are shorter.
+8. **Reveal once.** `once: true`, amount 0.25, margin `0px 0px -12% 0px`, 16px travel (24px for
+   large panels), stagger 60 to 80ms clamped so the last sibling starts under 400ms.
+9. **Animate `transform` and `opacity` only.** No animating height, top, margin, box-shadow or
+   background-position. Height transitions use `grid-template-rows: 0fr → 1fr`.
+10. **Reduced motion.** Every animation has a `prefers-reduced-motion` path that renders the final
+    state. Nothing hidden, nothing moving.
+11. **Responsive.** Verify 320, 768, 1024, 1440, 1920. No horizontal scroll at any width.
+12. **Accessibility.** Semantic HTML, labeled controls, `aria-*` where needed, AA contrast over the
+    worst-case backdrop, targets at least 24px (44px on touch).
+13. **Performance.** At most six simultaneous `backdrop-filter` elements per viewport; no scroll
+    handlers without `{ passive: true }` and rAF; virtualize lists above 60 items; chart and table
+    components must not re-render during scroll.
+14. **Copy.** Specific, benefit-led, sentence case, no placeholders, no "Lorem ipsum", no invented
+    attribution. UI text in the project language; code and identifiers in English.
+15. **No emojis** in production UI, code comments or commit messages.
+
+## Conventions
+
+- Files `kebab-case.tsx`, named exports, one component per file, props typed and exported.
+- Class merging with `cn()` (`clsx` + `tailwind-merge`); variants with `cva`.
+- Client components only where interactivity exists; prefer server components.
+- Hooks in `lib/hooks`, motion helpers in `components/motion`, primitives in `components/ui`.
+- Nothing outside the token layer may define colors, shadows or timings.
+
+## Motion tokens
+
+```ts
+export const t = {
+  micro: { duration: 0.14, ease: [0.16, 1, 0.3, 1] },
+  base: { duration: 0.24, ease: [0.16, 1, 0.3, 1] },
+  surface: { duration: 0.42, ease: [0.16, 1, 0.3, 1] },
+  reveal: { duration: 0.76, ease: [0.16, 1, 0.3, 1] },
+  spring: { type: "spring", stiffness: 260, damping: 26, mass: 0.9 },
+} as const;
+```
+
+## Anti-patterns that must be rejected
+
+Purple gradients on every surface; glass over flat backgrounds; emoji icons; three pulsing badges in
+one viewport; reveal animations that replay on scroll up; cards scaling to 1.05 on hover; "Feature
+one" copy; "John Doe, CEO" testimonials; toasts for copying; spinners instead of streaming in chat;
+auto-approving agent actions that write or spend; disabling focus outlines.
+
+## Before finishing any change
+
+1. Grep your own diff for hex colors and raw durations outside the tokens file.
+2. Confirm hover, focus, disabled and loading states for each new interactive element.
+3. Confirm the reduced-motion path.
+4. Confirm 320px layout with no horizontal scroll.
+5. State in three bullets: built, omitted, next step.
