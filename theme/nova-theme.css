@@ -1,0 +1,304 @@
+/* ============================================================================
+   NOVA VITRAL - drop-in theme
+   ----------------------------------------------------------------------------
+   Fixes the two most common integration failures:
+
+   1. shadcn/ui ships a PURPLE `--primary` in its default theme. Any component that
+      uses `bg-primary`, `text-primary`, `ring-ring`, `bg-accent` or `border-input`
+      will render purple even if the surrounding code follows the spec. This file
+      remaps EVERY shadcn semantic variable to the Nova Vitral neutral palette, so
+      pasted components come out neutral without touching their class names.
+
+   2. Components arrive with no motion at all. The utility classes at the bottom
+      (.nv-lift, .nv-press, .nv-shimmer, .nv-fade-up, .nv-reveal, ...) give every
+      component the minimum animation baseline of spec section 6.14.
+
+   Usage
+   -----
+   Next.js (App Router)      app/globals.css  ->  @import "../theme/nova-theme.css";
+   Tailwind v4               keep the @import "tailwindcss" line BEFORE this file
+   Tailwind v3               import this file after the @tailwind directives
+   Plain HTML                <link rel="stylesheet" href="./theme/nova-theme.css">
+
+   Order matters: tokens first, then the @theme mapping, then shadcn overrides,
+   then base, then the nv-* utilities.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------ 1. tokens */
+:root{
+  /* ground */
+  --bg:#06070c; --bg-soft:#0a0c14; --bg-elevated:#0e1120;
+  /* text */
+  --fg:#f5f7ff; --fg-muted:#a8b0c8; --fg-subtle:#6b7490; --fg-inverse:#06070c;
+  /* glass */
+  --glass:rgba(255,255,255,.055); --glass-strong:rgba(255,255,255,.09);
+  --glass-dim:rgba(255,255,255,.03); --glass-hover:rgba(255,255,255,.085);
+  /* edges */
+  --hair:rgba(255,255,255,.10); --hair-strong:rgba(255,255,255,.18);
+  --hair-soft:rgba(255,255,255,.06); --highlight:rgba(255,255,255,.10);
+  /* accents - one per viewport, never purple by default (spec 1.2.1) */
+  --accent:#7c8cff; --accent-fg:#ffffff; --accent-soft:rgba(124,140,255,.14);
+  --accent-2:#62e9d6; --accent-3:#c084fc;            /* reserved, off by default */
+  --warn:#f5b544; --danger:#ff6b81; --success:#4ade80;
+  /* aurora - calm field, no violet cast */
+  --aurora-1:rgba(124,140,255,.26); --aurora-2:rgba(98,233,214,.18);
+  --aurora-3:rgba(122,162,255,.18); --aurora-4:rgba(255,138,101,.10);
+  /* gradients: primary is SINGLE HUE on purpose */
+  --grad-primary:linear-gradient(135deg,#8a97ff 0%,#6a78f0 100%);
+  --grad-live:linear-gradient(90deg,#62e9d6 0%,#7c8cff 100%);
+  --grad-hairline:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.04));
+  --grad-text:linear-gradient(180deg,rgba(255,255,255,.98),rgba(255,255,255,.62));
+  --grad-veil:linear-gradient(180deg,rgba(6,7,12,0),rgba(6,7,12,.9));
+  /* geometry */
+  --radius-xs:6px; --radius-sm:10px; --radius-md:16px; --radius-lg:24px;
+  --radius-xl:32px; --radius-full:999px;
+  --blur-xs:4px; --blur-sm:8px; --blur-md:18px; --blur-lg:32px;
+  /* elevation */
+  --shadow-1:0 1px 2px rgba(0,0,0,.30);
+  --shadow-2:0 12px 32px -12px rgba(0,0,0,.55);
+  --shadow-3:0 32px 80px -24px rgba(0,0,0,.70);
+  --shadow-inset:inset 0 1px 0 rgba(255,255,255,.10);
+  /* spacing */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px;
+  --s-8:32px; --s-10:40px; --s-12:48px; --s-16:64px; --s-20:80px; --s-24:96px;
+  /* type */
+  --fs-display:clamp(2.75rem,7vw,5.5rem); --fs-h1:clamp(2.25rem,5vw,3.5rem);
+  --fs-h2:clamp(1.75rem,3.5vw,2.5rem); --fs-h3:1.375rem; --fs-h4:1.125rem;
+  --fs-lead:clamp(1.0625rem,1.6vw,1.25rem); --fs-body:1rem; --fs-sm:.875rem;
+  --fs-xs:.8125rem; --fs-2xs:.6875rem;
+  /* motion ladder (spec 6.1) */
+  --ease-out:cubic-bezier(.16,1,.3,1); --ease-in-out:cubic-bezier(.65,.05,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --dur-instant:90ms; --dur-fast:140ms; --dur:240ms; --dur-slow:420ms; --dur-reveal:760ms;
+  /* layers */
+  --z-sticky:30; --z-nav:50; --z-dropdown:60; --z-overlay:70; --z-modal:80;
+  --z-toast:90; --z-cursor:100;
+  /* layout */
+  --container:1200px; --container-wide:1440px; --gutter:20px; --nav-h:64px;
+}
+@media (min-width:768px){:root{--gutter:32px;--nav-h:72px}}
+@media (min-width:1024px){:root{--gutter:40px}}
+
+/* light mode - derived, never a naive inversion (spec 2.9) */
+[data-theme="light"]{
+  --bg:#f6f7fb; --bg-soft:#eef0f7; --bg-elevated:#ffffff;
+  --fg:#0b0d14; --fg-muted:#4a5168; --fg-subtle:#6f778f;
+  --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.78);
+  --glass-dim:rgba(10,12,20,.03); --glass-hover:rgba(255,255,255,.9);
+  --hair:rgba(10,12,20,.10); --hair-strong:rgba(10,12,20,.18); --hair-soft:rgba(10,12,20,.06);
+  --highlight:rgba(255,255,255,.75);
+  --accent:#5a6bf0; --accent-soft:rgba(90,107,240,.12);
+  --aurora-1:rgba(124,140,255,.20); --aurora-2:rgba(98,220,205,.18); --aurora-3:rgba(122,162,255,.16);
+  --grad-text:linear-gradient(180deg,#0b0d14,rgba(11,13,20,.66));
+  --shadow-2:0 12px 32px -12px rgba(16,20,40,.18);
+  --shadow-3:0 32px 80px -24px rgba(16,20,40,.22);
+}
+
+/* ------------------------------------------------- 2. Tailwind v4 theme mapping */
+@theme inline{
+  --color-bg:var(--bg); --color-bg-soft:var(--bg-soft); --color-bg-elevated:var(--bg-elevated);
+  --color-fg:var(--fg); --color-fg-muted:var(--fg-muted); --color-fg-subtle:var(--fg-subtle);
+  --color-glass:var(--glass); --color-glass-strong:var(--glass-strong); --color-glass-dim:var(--glass-dim);
+  --color-hair:var(--hair); --color-hair-strong:var(--hair-strong); --color-hair-soft:var(--hair-soft);
+  --color-accent:var(--accent); --color-accent-2:var(--accent-2); --color-warn:var(--warn);
+  --color-danger:var(--danger); --color-success:var(--success);
+  --radius-sm:var(--radius-sm); --radius-md:var(--radius-md); --radius-lg:var(--radius-lg);
+  --radius-xl:var(--radius-xl);
+  --shadow-1:var(--shadow-1); --shadow-2:var(--shadow-2); --shadow-3:var(--shadow-3);
+}
+
+/* ------------------------------------------- 3. shadcn/ui override (kills purple)
+   shadcn reads these variables. Its default `--primary` is a saturated purple, which
+   is why pasted components arrive purple. Everything below is neutral-first.        */
+@layer base{
+  :root{
+    --background:var(--bg);
+    --foreground:var(--fg);
+
+    --card:var(--glass);
+    --card-foreground:var(--fg);
+
+    --popover:var(--bg-elevated);
+    --popover-foreground:var(--fg);
+
+    /* the button colour: restrained indigo, never purple (spec 1.2.1) */
+    --primary:var(--accent);
+    --primary-foreground:var(--accent-fg);
+
+    --secondary:var(--glass-strong);
+    --secondary-foreground:var(--fg);
+
+    --muted:var(--glass-dim);
+    --muted-foreground:var(--fg-muted);
+
+    --accent-color:var(--accent-soft);
+    --accent-foreground:var(--fg);
+
+    --destructive:var(--danger);
+    --destructive-foreground:#ffffff;
+
+    --border:var(--hair);
+    --input:var(--hair);
+    --ring:var(--accent);
+
+    --radius:16px;
+    /* legacy shadcn colour space tokens (v4 themes) */
+    --color-primary:var(--accent);
+    --color-background:var(--bg);
+    --color-foreground:var(--fg);
+    --color-border:var(--hair);
+    --color-ring:var(--accent);
+    --color-muted-foreground:var(--fg-muted);
+  }
+}
+
+@layer base{
+  *,*::before,*::after{box-sizing:border-box;border-color:var(--hair)}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font:400 16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    letter-spacing:-.005em;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-weight:600;letter-spacing:-.025em;line-height:1.15}
+  h1{font-size:var(--fs-h1);letter-spacing:-.03em}
+  h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)} h4{font-size:var(--fs-h4)}
+  p{margin:0} ul,ol{margin:0;padding:0;list-style:none}
+  a{color:inherit;text-decoration:none}
+  button,input,select,textarea{font:inherit;color:inherit}
+  img,svg{display:block;max-width:100%}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+  ::selection{background:var(--accent-soft);color:var(--fg)}
+  ::placeholder{color:var(--fg-subtle)}
+  *{scrollbar-width:thin;scrollbar-color:var(--hair-strong) transparent}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:var(--hair-strong);border:3px solid transparent;background-clip:content-box;border-radius:999px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.28);background-clip:content-box}
+  /* honour the OS preference for the whole app */
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;
+      transition-duration:.01ms!important;scroll-behavior:auto!important}
+  }
+  @media (prefers-contrast:more){
+    :root{--glass:rgba(255,255,255,.12);--glass-strong:rgba(255,255,255,.16)}
+    .nv-aurora{display:none}
+  }
+}
+
+/* --------------------------------------------------- 4. Nova Vitral components */
+@layer components{
+  /* surface: fill + hairline edge + inner highlight (spec 1.3, three layers) */
+  .nv-surface{
+    position:relative;isolation:isolate;border-radius:var(--radius-lg);
+    background:var(--glass);
+    -webkit-backdrop-filter:blur(var(--blur-md)) saturate(140%);
+            backdrop-filter:blur(var(--blur-md)) saturate(140%);
+    box-shadow:var(--shadow-2),var(--shadow-inset);
+  }
+  .nv-surface-strong{
+    position:relative;isolation:isolate;border-radius:var(--radius-lg);
+    background:var(--glass-strong);
+    -webkit-backdrop-filter:blur(var(--blur-lg)) saturate(150%);
+            backdrop-filter:blur(var(--blur-lg)) saturate(150%);
+    box-shadow:var(--shadow-3),var(--shadow-inset);
+  }
+  .nv-surface::after,.nv-surface-strong::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+    background:var(--grad-hairline);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+  }
+  /* nested surfaces never stack blur (spec 1.3 rule 5) */
+  .nv-surface .nv-surface,.nv-surface .nv-surface-strong,
+  .nv-surface-strong .nv-surface{
+    -webkit-backdrop-filter:none;backdrop-filter:none;
+    background:var(--glass-dim);box-shadow:none;border-radius:var(--radius-md);
+  }
+  .nv-inset{border:1px solid var(--hair-soft);background:var(--glass-dim);border-radius:var(--radius-md)}
+  .nv-hairline{border:1px solid var(--hair)}
+  .nv-grad-text{
+    background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .nv-aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+  .nv-aurora > i{position:absolute;display:block;border-radius:50%;filter:blur(120px)}
+  .nv-aurora > i:nth-child(1){top:-22%;left:-12%;width:70vmax;height:70vmax;
+    background:radial-gradient(circle at 30% 30%,var(--aurora-1),transparent 62%);
+    animation:nv-drift-a 38s var(--ease-in-out) infinite}
+  .nv-aurora > i:nth-child(2){top:6%;right:-16%;width:56vmax;height:56vmax;
+    background:radial-gradient(circle at 60% 40%,var(--aurora-3),transparent 60%);
+    animation:nv-drift-b 44s var(--ease-in-out) infinite}
+  .nv-aurora > i:nth-child(3){bottom:-26%;left:20%;width:60vmax;height:60vmax;
+    background:radial-gradient(circle at 50% 50%,var(--aurora-2),transparent 58%);
+    animation:nv-drift-c 30s var(--ease-in-out) infinite}
+  .nv-grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.035;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")}
+  @media (prefers-reduced-motion:reduce){.nv-aurora > i{animation:none}}
+}
+
+/* ------------------------------------- 5. minimum motion baseline (spec 6.14) --
+   Every component must animate. A component with zero motion fails review.
+   These classes are the cheap, GPU-only default: transform and opacity only.      */
+@layer utilities{
+  /* hover lift: 2px (cards, tiles, list rows) */
+  .nv-lift{transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){.nv-lift:hover{transform:translateY(-2px);box-shadow:var(--shadow-3),var(--shadow-inset)}}
+  /* hover lift, larger (hero visuals, featured cards) */
+  .nv-lift-lg{transition:transform var(--dur) var(--ease-out),box-shadow var(--dur) var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){.nv-lift-lg:hover{transform:translateY(-4px)}}
+  /* press feedback: instant, 0.98 (buttons, icon buttons) */
+  .nv-press{transition:transform var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out),border-color var(--dur-fast) var(--ease-out)}
+  .nv-press:active{transform:scale(.98)}
+  /* arrow nudge on hover (links, CTAs) */
+  .nv-arrow{transition:transform var(--dur-fast) var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){.nv-arrow:hover{transform:translateX(2px)}}
+  /* row hover tint (tables, lists) */
+  .nv-row{transition:background-color var(--dur-fast) var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){.nv-row:hover{background-color:var(--glass-dim)}}
+  /* shimmer (skeletons, streaming labels) */
+  .nv-shimmer{position:relative;overflow:hidden;background:var(--glass-dim)}
+  .nv-shimmer::after{content:"";position:absolute;inset:0;transform:translateX(-100%);
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+    animation:nv-shimmer 1.6s linear infinite}
+  /* scroll reveal: add .nv-in with an IntersectionObserver (see core/reveal.tsx) */
+  .nv-reveal{opacity:0;transform:translateY(16px);
+    transition:opacity var(--dur-reveal) var(--ease-out),transform var(--dur-reveal) var(--ease-out);
+    transition-delay:var(--nv-delay,0ms)}
+  .nv-reveal.nv-in{opacity:1;transform:none}
+  /* fade up on mount (popovers, toasts, tooltips) */
+  .nv-fade-up{animation:nv-fade-up var(--dur-fast) var(--ease-out) both}
+  /* scale in on mount (dialogs, sheets) */
+  .nv-scale-in{animation:nv-scale-in var(--dur) var(--ease-out) both}
+  /* slide in from the right (drawers) */
+  .nv-slide-right{animation:nv-slide-right var(--dur-slow) var(--ease-out) both}
+  .nv-slide-down{animation:nv-slide-down var(--dur) var(--ease-out) both}
+  /* pointer-following specular: set --nv-mx/--nv-my in JS */
+  .nv-specular::before{content:"";position:absolute;inset:0;border-radius:inherit;opacity:0;pointer-events:none;
+    background:radial-gradient(560px circle at var(--nv-mx,50%) var(--nv-my,0%),rgba(255,255,255,.10),transparent 42%);
+    transition:opacity var(--dur) var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){.nv-specular:hover::before{opacity:1}}
+  /* ambient pulse for exactly one live indicator per viewport */
+  .nv-pulse{animation:nv-pulse 2.4s var(--ease-in-out) infinite}
+  /* caret for streaming text */
+  .nv-caret::after{content:"";display:inline-block;width:2px;height:1em;margin-left:2px;
+    vertical-align:-.15em;background:var(--accent);animation:nv-caret 1s steps(2,jump-none) infinite}
+  /* sliding indicator primitives for tabs/segmented controls (CSS only, no JS) */
+  .nv-swap{transition:color var(--dur-fast) var(--ease-out),background-color var(--dur-fast) var(--ease-out)}
+  /* count-up helper: set a CSS var and let the browser interpolate */
+  .nv-count{font-variant-numeric:tabular-nums}
+  @media (prefers-reduced-motion:reduce){
+    .nv-reveal{opacity:1!important;transform:none!important}
+    .nv-shimmer::after,.nv-fade-up,.nv-scale-in,.nv-slide-right,.nv-slide-down,.nv-pulse,.nv-caret::after{animation:none!important}
+    .nv-lift:hover,.nv-lift-lg:hover{transform:none}
+  }
+}
+
+@keyframes nv-shimmer{to{transform:translateX(100%)}}
+@keyframes nv-fade-up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes nv-scale-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+@keyframes nv-slide-right{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes nv-slide-down{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes nv-pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes nv-caret{50%{opacity:0}}
+@keyframes nv-drift-a{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(4%,3%,0) scale(1.08)}}
+@keyframes nv-drift-b{0%,100%{transform:translate3d(0,0,0) scale(1.04)}50%{transform:translate3d(-5%,4%,0) scale(1)}}
+@keyframes nv-drift-c{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-3%,-4%,0) scale(1.06)}}

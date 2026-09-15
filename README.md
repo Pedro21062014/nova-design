@@ -60,11 +60,70 @@ UI work must follow docs/nova-design.md. Read only the line ranges the document'
 to, plus sections 0.4, 2, 6.12 and 9.5 which are always required.
 ```
 
-**Option C - always-on rules for Cursor / Windsurf.** Copy `prompts/08-cursor-rules.mdc` into
+**Option C - start from the library instead of a blank file (fastest route to a professional result).**
+
+```bash
+cp -r nova-design/components/nova your-project/components/nova
+cp -r nova-design/lib your-project/lib
+cp nova-design/theme/nova-theme.css your-project/app/nova-theme.css
+```
+
+```css
+/* app/globals.css */
+@import "tailwindcss";
+@import "./nova-theme.css";
+```
+
+That import order is what removes the default shadcn purple: the theme remaps `--primary`,
+`--ring`, `--accent`, `--card`, `--border` and the legacy `--color-*` aliases to Nova values. Then
+copy one of the five complete pages from `templates/next-app/app/` (landing, pricing, dashboard,
+chat, docs) and replace its sample data.
+
+**Option D - always-on rules for Cursor / Windsurf.** Copy `prompts/08-cursor-rules.mdc` into
 `.cursor/rules/nova-vitral.mdc`.
 
-**Option D - chat projects.** Use `prompts/09-claude-project-instructions.md` as the system
+**Option E - chat projects.** Use `prompts/09-claude-project-instructions.md` as the system
 instruction and attach `nova-design.md` as knowledge.
+
+## The component library (500 components)
+
+`components/nova/<category>/` holds 500 components in 26 categories, plus a guide per category. Every
+file is self-contained React 19 + TypeScript + Tailwind v4, imports nothing but `lucide-react` and
+`@/lib/utils`, animates, and cannot render purple: all color comes from the tokens.
+
+| Category | Count | Category | Count | Category | Count |
+|---|---|---|---|---|---|
+| core | 10 | overlays | 22 | utilities | 18 |
+| motion | 24 | feedback | 20 | mobile | 16 |
+| buttons | 18 | marketing | 40 | email | 12 |
+| inputs | 24 | shell | 18 | print | 8 |
+| cards | 26 | ai | 20 | seo | 10 |
+| navigation | 26 | editors | 14 | a11y | 10 |
+| data | 30 | media | 16 | enterprise | 20 |
+| chat | 30 | commerce | 16 | | |
+| | | forms | 18 | | |
+| | | layout | 20 | | |
+| | | devtools | 14 | | |
+
+Start at `components/index.json` (machine-readable registry: name, category, kind, path, motion note),
+or `components/INDEX.md` for the flat list. Category guides explain the family, its data shape, its
+motion contract and its anti-patterns. The hand-authored files (`surface.tsx`, `composer.tsx`,
+`data-table.tsx`, `navbar.tsx`, `hero-split.tsx` and friends), plus `lib/utils.ts`, `lib/format.ts` and
+`lib/motion.ts`, define the contract the generated files follow.
+
+## Page templates (five complete pages, three stacks)
+
+| Page | Stack | File |
+|---|---|---|
+| Marketing home: hero, proof band, bento, scrollytelling, counters, close | Next.js, server component | `templates/next-app/app/page.tsx` |
+| Pricing: interval toggle, three plans, comparison table, FAQ | Next.js, client | `templates/next-app/app/pricing/page.tsx` |
+| Product dashboard: shell, KPI counters, chart, dense table, activity | Next.js, client | `templates/next-app/app/dashboard/page.tsx` |
+| AI workspace: three-column chat, tool cards, streaming composer | Next.js, client | `templates/next-app/app/chat/page.tsx` |
+| Documentation: tree, prose measure, on-this-page rail, code block, pager | Next.js, server component | `templates/next-app/app/docs/page.tsx` |
+| The same landing page in Astro | Astro | `templates/astro/src/pages/index.astro` |
+| The same landing page with no build step | single HTML file | `templates/static-html/index.html` |
+
+All of them are verified against `tsc --noEmit` (strict) together with the 500 components.
 
 ## What is inside the spec
 
@@ -107,9 +166,14 @@ and the spec sections it implements.
 nova-design.md              the assembled specification (generated, line-indexed)
 spec/                       the modular source of the specification
 scripts/build_spec.py       regenerates nova-design.md and its line index
+scripts/build_components.py regenerates components/ and templates/ (500 components, 5 pages)
 prompts/                    master prompt plus twelve task-specific prompts
 examples/                   100 named examples across nine themed files
 examples-sites/             before/after showcase: 5 pages with the system, 5 with anti-patterns
+components/                 500 components in 26 categories, each with a README and a registry
+templates/                  five complete pages: Next.js routes, Astro route, single-file HTML
+theme/nova-theme.css        tokens, nv-* utilities and the shadcn variable remap
+lib/                        utils, format and motion helpers the components import
 README.md  AGENTS.md  LICENSE
 ```
 

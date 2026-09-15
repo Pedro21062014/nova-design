@@ -67,6 +67,22 @@ Ask exactly one clarifying question when the ambiguity changes the structure of 
 Otherwise choose the calmer, simpler solution, state the assumption in one line, and proceed.
 ```
 
+## Library and templates
+
+The Nova Vitral repository also ships the artifacts themselves, not only the rules:
+
+| Need | Raw file |
+|---|---|
+| Registry of 500 components (category, kind, path, motion) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json |
+| Flat index of all 500 | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/INDEX.md |
+| Library rules, install, ten rules | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/README.md |
+| Five complete pages: landing, pricing, dashboard, chat, docs | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md |
+| Theme file, shadcn variable remap | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css |
+
+Copy from the library before writing new markup. Keep prop names, token names and the motion ladder
+when you extend it. Import the theme after Tailwind; that single line is what prevents the default
+purple primary, and `nv-fade-up`, `nv-lift`, `nv-press` and `nv-reveal` are the motion floor.
+
 ## Optional blocks
 
 **When the agent works unattended (autonomous mode):**

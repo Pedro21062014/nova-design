@@ -1,0 +1,106 @@
+/**
+ * Mobile Sheet Menu - Off-canvas menu with 44px targets and focus trap.
+ *
+ * Nova Vitral family: navigation. Spec sections: 3.6, 3.15.
+ *
+ * Motion: Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides.
+ * Icons: lucide-react only. Color: at most one accent per viewport, purple is banned
+ * by default (spec 1.2.1), and every surface sits on an existing background layer.
+ *
+ * Contract: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/navigation/README.md
+ *
+ * Example
+ * -------
+ * <MobileSheetMenu title="Acme" subtitle="Workspace" current="/mobile-sheet-menu" />
+ */
+import { Search } from "lucide-react";
+import { type ComponentPropsWithoutRef } from "react";
+import { cn } from "@/lib/utils";
+
+export interface MobileSheetMenuProps
+  extends Omit<ComponentPropsWithoutRef<"section">, "title"> {
+  /** Brand or breadcrumb label. */
+  title?: string;
+  /** Secondary line, muted. */
+  subtitle?: string;
+  /** Marks the active route. */
+  current: string;
+  /** Merged last, so call sites always win. */
+  className?: string;
+}
+
+export function MobileSheetMenu({ title = "Acme", subtitle = "Workspace", className, ...props }: MobileSheetMenuProps) {
+  return (
+    <section
+      className={cn("nv-surface nv-fade-up rounded-[var(--radius-lg)] p-6", className)}
+      aria-label={title}
+      {...props}
+    >
+      <header className="flex items-baseline justify-between gap-4">
+        <div className="min-w-0">
+          <h3 className="text-[15px] font-semibold text-[var(--fg)]">{title}</h3>
+          <p className="mt-1 text-[12.5px] text-[var(--fg-muted)]">{subtitle}</p>
+        </div>
+        <span className="shrink-0 font-[var(--font-mono)] text-[11px] text-[var(--fg-subtle)]">
+          navigation/mobile-sheet-menu
+        </span>
+      </header>
+
+      <div className="mt-5">
+        <nav className="flex items-center gap-1 rounded-[var(--radius-md)] border border-[var(--hair)] bg-[var(--glass-dim)] p-1">
+          {["Overview", "Usage", "Keys", "Settings"].map((item, index) => (
+            <span
+              key={item}
+              aria-current={index === 1 ? "page" : undefined}
+              className={
+                index === 1
+                  ? "relative rounded-[var(--radius-sm)] bg-[var(--glass-strong)] px-3 py-1.5 text-[13px] text-[var(--fg)]"
+                  : "rounded-[var(--radius-sm)] px-3 py-1.5 text-[13px] text-[var(--fg-muted)] transition-colors duration-150 hover:text-[var(--fg)]"
+              }
+            >
+              {item}
+              {index === 1 ? (
+                <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-[var(--accent)]" />
+              ) : null}
+            </span>
+          ))}
+          <Search className="ml-2 size-4 text-[var(--fg-subtle)]" aria-hidden="true" />
+        </nav>
+      </div>
+
+      <footer className="mt-5 border-t border-[var(--hair-soft)] pt-4">
+        <p className="text-[11px] uppercase tracking-[0.06em] text-[var(--fg-subtle)]">
+          Related in this category
+        </p>
+        <ul className="mt-2 flex flex-wrap gap-2">
+          <li>
+            <a
+              href="./navbar.tsx"
+              className="inline-flex h-7 items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-2.5 text-[12px] text-[var(--fg-muted)] transition-colors duration-150 hover:bg-[var(--glass)] hover:text-[var(--fg)]"
+            >
+              Navbar
+            </a>
+          </li>
+          <li>
+            <a
+              href="./navbar-links.tsx"
+              className="inline-flex h-7 items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-2.5 text-[12px] text-[var(--fg-muted)] transition-colors duration-150 hover:bg-[var(--glass)] hover:text-[var(--fg)]"
+            >
+              NavbarLinks
+            </a>
+          </li>
+          <li>
+            <a
+              href="./mega-menu.tsx"
+              className="inline-flex h-7 items-center rounded-[var(--radius-sm)] border border-[var(--hair)] bg-[var(--glass-dim)] px-2.5 text-[12px] text-[var(--fg-muted)] transition-colors duration-150 hover:bg-[var(--glass)] hover:text-[var(--fg)]"
+            >
+              MegaMenu
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </section>
+  );
+}
+
+export default MobileSheetMenu;

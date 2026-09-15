@@ -64,6 +64,13 @@ At most 5 lines of plan, then complete named files. Never truncate. Close with t
 built, omitted, next step.
 ```
 
+## Library shortcuts (when the context window allows one more line)
+
+- 500 components: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json`, index at `components/INDEX.md`.
+- Five complete pages: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md`.
+- Theme that removes the shadcn purple: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css` (import after Tailwind).
+- Repairing a pasted component: fix color system, layout, motion, icons, in that order.
+
 ## When to use this variant
 
 | Situation | Use |

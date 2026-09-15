@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meridian - Usage analytics for platform teams</title>
+    <meta
+      name="description"
+      content="Meridian turns raw product events into revenue, retention and reliability signals your platform team can act on the same day."
+    />
+    <style>
+      /* ---------------------------------------------------------------- tokens */
+      :root {
+        --bg: #06070c;
+        --bg-soft: #0a0c14;
+        --bg-elevated: #0e1120;
+        --fg: #f5f7ff;
+        --fg-muted: #a8b0c8;
+        --fg-subtle: #6b7490;
+        --glass: rgba(255, 255, 255, 0.055);
+        --glass-strong: rgba(255, 255, 255, 0.09);
+        --glass-dim: rgba(255, 255, 255, 0.03);
+        --hair: rgba(255, 255, 255, 0.1);
+        --hair-soft: rgba(255, 255, 255, 0.06);
+        --hair-strong: rgba(255, 255, 255, 0.18);
+        --accent: #7c8cff;
+        --accent-2: #62e9d6;
+        --accent-fg: #ffffff;
+        --accent-soft: rgba(124, 140, 255, 0.18);
+        --grad-primary: linear-gradient(135deg, #8a97ff, #6a78f0);
+        --danger: #ff6b81;
+        --warn: #f5b544;
+        --radius-sm: 10px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+        --blur-sm: 8px;
+        --blur-md: 18px;
+        --blur-lg: 32px;
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --fs-2xs: 11px;
+        --fs-xs: 12.5px;
+        --fs-sm: 13.5px;
+        --fs-body: 15px;
+        --fs-lead: 17px;
+        --container: 1200px;
+        --gutter: 24px;
+        --nav-h: 64px;
+        --z-nav: 50;
+        --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* ------------------------------------------------------------ background */
+      .nv-aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+      .nv-aurora i {
+        position: absolute;
+        display: block;
+        border-radius: 999px;
+        filter: blur(90px);
+        opacity: 0.32;
+        will-change: transform;
+      }
+      .nv-aurora i:nth-child(1) { top: -12%; left: -6%; width: 46vw; height: 46vw; background: radial-gradient(circle, rgba(124, 140, 255, 0.55), transparent 62%); animation: drift-a 38s ease-in-out infinite; }
+      .nv-aurora i:nth-child(2) { top: 18%; right: -10%; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(98, 233, 214, 0.32), transparent 64%); animation: drift-b 44s ease-in-out infinite; }
+      .nv-aurora i:nth-child(3) { bottom: -18%; left: 22%; width: 52vw; height: 52vw; background: radial-gradient(circle, rgba(124, 140, 255, 0.28), transparent 66%); animation: drift-a 30s ease-in-out infinite reverse; }
+      .nv-grain { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.035; background-image: radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 0); background-size: 3px 3px; }
+
+      @keyframes drift-a { 50% { transform: translate3d(6%, 4%, 0) scale(1.08); } }
+      @keyframes drift-b { 50% { transform: translate3d(-5%, -6%, 0) scale(1.12); } }
+
+      /* --------------------------------------------------------------- layout */
+      .nv-container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+
+      /* ------------------------------------------------------------- surfaces */
+      .nv-surface {
+        position: relative;
+        border: 1px solid var(--hair);
+        border-radius: var(--radius-lg);
+        background: var(--glass);
+        backdrop-filter: blur(var(--blur-md)) saturate(140%);
+        -webkit-backdrop-filter: blur(var(--blur-md)) saturate(140%);
+        box-shadow: 0 20px 60px -32px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        padding: 24px;
+      }
+      .nv-surface-strong { background: var(--glass-strong); box-shadow: 0 32px 90px -40px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.08); }
+      .nv-inset { border: 1px solid var(--hair-soft); border-radius: var(--radius-md); background: var(--glass-dim); overflow: hidden; }
+
+      /* --------------------------------------------------------------- motion */
+      .nv-reveal { opacity: 0; transform: translate3d(0, 16px, 0); transition: opacity 760ms var(--ease-out), transform 760ms var(--ease-out); transition-delay: var(--nv-delay, 0ms); }
+      .nv-reveal.nv-in { opacity: 1; transform: none; }
+      .nv-lift { transition: transform 240ms var(--ease-out), box-shadow 240ms var(--ease-out), background 240ms var(--ease-out); }
+      .nv-lift:hover { transform: translateY(-2px); background: var(--glass-strong); }
+
+      /* -------------------------------------------------------------- buttons */
+      .nv-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 40px;
+        padding: 0 20px;
+        border-radius: var(--radius-md);
+        font-size: var(--fs-sm);
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 150ms var(--ease-out), background 240ms var(--ease-out), border-color 240ms var(--ease-out);
+      }
+      .nv-btn-lg { height: 48px; padding: 0 28px; font-size: var(--fs-body); }
+      .nv-btn-primary { background: var(--grad-primary); color: var(--accent-fg); border: 1px solid transparent; box-shadow: 0 12px 40px -18px rgba(124, 140, 255, 0.65); }
+      .nv-btn-primary:hover { transform: translateY(-1px); }
+      .nv-btn-glass { background: var(--glass); color: var(--fg); border: 1px solid var(--hair); backdrop-filter: blur(var(--blur-sm)); }
+      .nv-btn-glass:hover { transform: translateY(-1px); background: var(--glass-strong); border-color: var(--hair-strong); }
+      .nv-btn:active { transform: scale(0.98); }
+      .nv-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+      .nv-btn svg { width: 16px; height: 16px; }
+
+      /* ------------------------------------------------------------- gradients */
+      .nv-grad-text { background: var(--grad-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+      .skip { position: absolute; left: -9999px; }
+      .skip:focus { left: 16px; top: 16px; z-index: 100; padding: 8px 12px; border-radius: var(--radius-sm); background: var(--glass-strong); color: var(--fg); }
+
+      /* ------------------------------------------------------------------ nav */
+      .nv-nav { position: fixed; inset: 0 0 auto 0; z-index: var(--z-nav); height: var(--nav-h); border-bottom: 1px solid transparent; transition: height 240ms var(--ease-out), background 240ms var(--ease-out), border-color 240ms var(--ease-out); }
+      .nv-nav.is-scrolled { height: 56px; border-bottom-color: var(--hair); background: rgba(6, 7, 12, 0.74); backdrop-filter: blur(var(--blur-md)); }
+      .nv-nav-inner { display: flex; align-items: center; gap: 16px; height: 100%; }
+      .brand { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 600; color: var(--fg); text-decoration: none; }
+      .brand-mark { display: grid; place-items: center; width: 28px; height: 28px; border-radius: var(--radius-sm); border: 1px solid var(--hair); background: var(--glass); font-size: var(--fs-2xs); }
+      .nv-nav-links { display: none; gap: 4px; margin-left: 16px; }
+      .nv-nav-links a { padding: 8px 12px; border-radius: var(--radius-sm); font-size: var(--fs-sm); color: var(--fg-muted); text-decoration: none; transition: color 150ms var(--ease-out); }
+      .nv-nav-links a:hover, .nv-nav-links a[aria-current="page"] { color: var(--fg); }
+      .nv-nav-actions { margin-left: auto; display: flex; gap: 8px; }
+
+      /* ----------------------------------------------------------------- hero */
+      .nv-hero { padding: calc(var(--nav-h) + 72px) 0 96px; }
+      .nv-hero-grid { display: grid; gap: 48px; align-items: center; }
+      .nv-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--hair); background: var(--glass-dim); font-size: 12px; color: var(--fg-muted); }
+      .nv-pill svg { width: 14px; height: 14px; color: var(--accent); }
+      .nv-display { margin: 20px 0 0; font-size: clamp(38px, 6vw, 68px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; max-width: 19ch; }
+      .nv-lead { margin: 24px 0 0; max-width: 50ch; font-size: var(--fs-lead); line-height: 1.7; color: var(--fg-muted); }
+      .nv-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+      .nv-trust { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 32px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--fg-subtle); }
+      .nv-trust li::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 8px; border-radius: 999px; background: var(--accent-2); vertical-align: middle; }
+
+      /* -------------------------------------------------------------- sections */
+      .nv-band { border-block: 1px solid var(--hair); padding: 32px 0; }
+      .nv-logos { margin: 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-subtle); }
+      .nv-section { padding: 96px 0; }
+      .nv-section-header { max-width: 62ch; margin-bottom: 40px; }
+      .nv-overline { margin: 0 0 12px; font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-subtle); }
+      .nv-h2 { margin: 0; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.025em; font-weight: 600; }
+      .nv-h1 { margin: 0; font-size: clamp(30px, 4vw, 50px); letter-spacing: -0.03em; font-weight: 600; }
+      .nv-h3 { margin: 16px 0 0; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.02em; font-weight: 600; }
+      .nv-kicker { margin: 0; font-size: 13px; color: var(--accent); }
+      .nv-body { font-size: 15px; line-height: 1.75; color: var(--fg-muted); }
+      .nv-section-lead { margin: 16px 0 0; font-size: var(--fs-lead); line-height: 1.7; color: var(--fg-muted); }
+      .nv-grid-2 { display: grid; gap: 16px; }
+      .nv-grid-cards { display: grid; gap: 16px; }
+      .nv-card-title { margin: 0; font-size: 15px; font-weight: 600; }
+      .nv-card-copy { margin: 8px 0 0; font-size: 13.5px; line-height: 1.65; color: var(--fg-muted); }
+      .nv-bars { display: flex; align-items: flex-end; gap: 8px; height: 96px; margin-top: 24px; }
+      .nv-bars span { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, var(--accent), rgba(124, 140, 255, 0.25)); }
+      .nv-metrics { display: grid; gap: 32px; }
+      .nv-metrics strong { display: block; font-size: clamp(30px, 4vw, 46px); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+      .nv-metrics p { margin: 8px 0 0; font-size: 13px; color: var(--fg-muted); }
+      .nv-cta { padding: 56px 32px; text-align: center; }
+
+      /* -------------------------------------------------------------- footer */
+      .nv-footer { margin-top: 96px; border-top: 1px solid var(--hair); padding: 56px 0 24px; }
+      .nv-footer-grid { display: grid; gap: 32px; }
+      .nv-footer a { display: block; margin-top: 10px; font-size: 13.5px; color: var(--fg-muted); text-decoration: none; transition: color 150ms var(--ease-out); }
+      .nv-footer a:hover { color: var(--fg); }
+      .nv-footer-legal { display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--hair-soft); font-size: 12px; color: var(--fg-subtle); }
+
+      /* -------------------------------------------------------------- preview */
+      .preview-top { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--hair); }
+      .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--hair-strong); }
+      .preview-url { margin-left: 8px; font-size: 12px; color: var(--fg-subtle); }
+      .preview-time { margin-left: auto; font-size: 11px; color: var(--fg-subtle); }
+      .preview-metrics { display: grid; gap: 12px; padding: 12px; }
+      .preview-metrics > div { border: 1px solid var(--hair); background: var(--glass-dim); border-radius: var(--radius-sm); padding: 12px; }
+      .preview-metrics p { margin: 0; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-subtle); }
+      .preview-metrics strong { display: block; margin-top: 6px; font-size: 17px; font-variant-numeric: tabular-nums; }
+      .preview-metrics .up { font-size: 11.5px; color: var(--accent-2); }
+      .preview-chart { display: block; width: 100%; height: 96px; padding: 0 12px 12px; }
+      .nv-lift-lg { transition: transform 240ms var(--ease-out), box-shadow 240ms var(--ease-out); }
+      .nv-lift-lg:hover { transform: translateY(-2px); }
+
+      @media (min-width: 768px) {
+        .nv-grid-cards { grid-template-columns: repeat(2, 1fr); }
+        .preview-metrics { grid-template-columns: repeat(3, 1fr); }
+        .nv-metrics { grid-template-columns: repeat(3, 1fr); }
+        .nv-footer-grid { grid-template-columns: 1.4fr repeat(3, 1fr); }
+      }
+
+      @media (min-width: 1024px) {
+        .nv-nav-links { display: flex; }
+        .nv-hero-grid { grid-template-columns: 1.05fr 1fr; }
+        .nv-grid-2 { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .nv-reveal, .nv-lift, .nv-lift-lg { transition: none; animation: none; }
+        .nv-reveal { opacity: 1; transform: none; }
+        .nv-aurora i { animation: none; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nv-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="nv-grain" aria-hidden="true"></div>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nv-nav">
+      <div class="nv-container nv-nav-inner">
+        <a class="brand" href="/"><span class="brand-mark">M</span>Meridian</a>
+        <nav class="nv-nav-links" aria-label="Main">
+          <a href="/product">Product</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/docs">Docs</a>
+          <a href="/changelog">Changelog</a>
+        </nav>
+        <div class="nv-nav-actions">
+          <a class="nv-btn nv-btn-glass" href="/login">Sign in</a>
+          <a class="nv-btn nv-btn-primary" href="/signup">
+            Start free
+            <!-- lucide: arrow-right -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="nv-hero">
+        <div class="nv-container nv-hero-grid">
+          <div>
+            <p class="nv-pill nv-reveal">
+              <!-- lucide: sparkles -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3l1.9 4.6 4.6 1.9-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" />
+              </svg>
+              Event pipeline 2.0 is out
+            </p>
+
+            <h1 class="nv-display nv-grad-text nv-reveal" style="--nv-delay: 80ms">Know what your product actually does</h1>
+
+            <p class="nv-lead nv-reveal" style="--nv-delay: 200ms">
+              Meridian reads one stream of product events and answers three questions the same minute:
+              what changed, who it affects, and what it costs. No instrumentation sprint, no warehouse
+              project.
+            </p>
+
+            <div class="nv-actions nv-reveal" style="--nv-delay: 320ms">
+              <a class="nv-btn nv-btn-primary nv-btn-lg" href="/signup">
+                Start free
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a class="nv-btn nv-btn-glass nv-btn-lg" href="/demo">Book a 20 minute demo</a>
+            </div>
+
+            <ul class="nv-trust nv-reveal" style="--nv-delay: 420ms">
+              <li>No credit card</li>
+              <li>SOC 2 Type II</li>
+              <li>EU data residency</li>
+            </ul>
+          </div>
+
+          <div class="nv-reveal" style="--nv-delay: 480ms">
+            <div class="nv-surface nv-lift-lg" style="padding: 8px">
+              <div class="nv-inset" style="background: var(--bg-soft)">
+                <div class="preview-top">
+                  <span class="dot"></span><span class="dot"></span>
+                  <span class="preview-url">app.meridian/overview</span>
+                  <span class="preview-time">14:02 UTC</span>
+                </div>
+                <div class="preview-metrics">
+                  <div><p>Net revenue</p><strong>$412.8k</strong><span class="up">+6.2%</span></div>
+                  <div><p>Active accounts</p><strong>8,914</strong><span class="up">+1.4%</span></div>
+                  <div><p>p95 latency</p><strong>184ms</strong><span class="up">-12ms</span></div>
+                </div>
+                <svg class="preview-chart" viewBox="0 0 320 84" role="img" aria-label="Revenue over thirty days">
+                  <defs>
+                    <linearGradient id="static-fill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#7c8cff" stop-opacity="0.3" />
+                      <stop offset="100%" stop-color="#7c8cff" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0 62 L32 58 L64 60 L96 44 L128 48 L160 32 L192 36 L224 22 L256 26 L288 14 L320 18 L320 84 L0 84 Z" fill="url(#static-fill)" />
+                  <polyline points="0,62 32,58 64,60 96,44 128,48 160,32 192,36 224,22 256,26 288,14 320,18" fill="none" stroke="#7c8cff" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nv-band">
+        <div class="nv-container">
+          <p class="nv-logos">Northwind &middot; Aperture &middot; Kestrel Labs &middot; Solstice &middot; Ravel &middot; Trema</p>
+        </div>
+      </section>
+
+      <section class="nv-section">
+        <div class="nv-container">
+          <header class="nv-section-header">
+            <p class="nv-overline">Platform</p>
+            <h2 class="nv-h2">One pipeline, three questions answered</h2>
+            <p class="nv-section-lead">
+              Everything below reads the same event stream, so a number in the dashboard and a line in
+              the incident report can never disagree.
+            </p>
+          </header>
+
+          <div class="nv-grid-2">
+            <div class="nv-surface nv-surface-strong nv-reveal" style="padding: 28px">
+              <p class="nv-kicker">Revenue signals</p>
+              <p class="nv-h3">Attribute every change to a cohort, a release or a region</p>
+              <p class="nv-body">
+                Meridian keeps 400 days of raw events and 400 days of aggregates side by side, so a
+                question about last March does not become a backfill job.
+              </p>
+              <div class="nv-bars" aria-hidden="true">
+                <span style="height: 38%"></span>
+                <span style="height: 52%"></span>
+                <span style="height: 44%"></span>
+                <span style="height: 68%"></span>
+                <span style="height: 60%"></span>
+                <span style="height: 78%"></span>
+                <span style="height: 71%"></span>
+                <span style="height: 88%"></span>
+              </div>
+            </div>
+
+            <div class="nv-grid-cards">
+              <article class="nv-surface nv-lift nv-reveal">
+                <p class="nv-card-title">Latency</p>
+                <p class="nv-card-copy">p95 per route, per region, per release.</p>
+              </article>
+              <article class="nv-surface nv-lift nv-reveal" style="--nv-delay: 60ms">
+                <p class="nv-card-title">Cohorts</p>
+                <p class="nv-card-copy">Retention by first action, not by signup date.</p>
+              </article>
+              <article class="nv-surface nv-lift nv-reveal" style="--nv-delay: 120ms">
+                <p class="nv-card-title">Incidents</p>
+                <p class="nv-card-copy">Impact in revenue and users, written during the incident.</p>
+              </article>
+              <article class="nv-surface nv-lift nv-reveal" style="--nv-delay: 180ms">
+                <p class="nv-card-title">Cost</p>
+                <p class="nv-card-copy">Storage and compute per tenant, before the invoice.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nv-section">
+        <div class="nv-container">
+          <div class="nv-surface" style="padding: 32px">
+            <div class="nv-metrics">
+              <div>
+                <strong data-count="4.2" data-decimals="1" data-suffix="B">0</strong>
+                <p>Events processed daily</p>
+              </div>
+              <div>
+                <strong data-count="180" data-suffix="ms">0</strong>
+                <p>Median query time</p>
+              </div>
+              <div>
+                <strong data-count="1240">0</strong>
+                <p>Teams shipping on Meridian</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nv-section">
+        <div class="nv-container">
+          <div class="nv-cta nv-surface nv-surface-strong">
+            <h2 class="nv-h1">Start with one week of events. Keep the rest for free.</h2>
+            <p class="nv-body" style="max-width: 52ch; margin: 16px auto 0">
+              Import a sample or your own stream. The trial does not expire, and the thirty day window
+              becomes permanent on the first paid month.
+            </p>
+            <div class="nv-actions" style="justify-content: center; margin-top: 28px">
+              <a class="nv-btn nv-btn-primary nv-btn-lg" href="/signup">Create a workspace</a>
+              <a class="nv-btn nv-btn-glass nv-btn-lg" href="/docs/quickstart">Read the quickstart</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="nv-footer">
+      <div class="nv-container nv-footer-grid">
+        <div>
+          <p class="brand"><span class="brand-mark">M</span>Meridian</p>
+          <p class="nv-body" style="max-width: 34ch">
+            Usage analytics for platform teams. One event stream, one metric definition, one place to
+            look.
+          </p>
+        </div>
+        <nav aria-label="Product">
+          <p class="nv-overline">Product</p>
+          <a href="/product">Overview</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/changelog">Changelog</a>
+        </nav>
+        <nav aria-label="Developers">
+          <p class="nv-overline">Developers</p>
+          <a href="/docs/quickstart">Quickstart</a>
+          <a href="/docs/api">API reference</a>
+          <a href="/docs/sdks">SDKs</a>
+        </nav>
+        <nav aria-label="Company">
+          <p class="nv-overline">Company</p>
+          <a href="/customers">Customers</a>
+          <a href="/security">Security</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+      <div class="nv-container nv-footer-legal">
+        <p>2026 Meridian. All rights reserved.</p>
+        <p>Designed with the Nova Vitral system</p>
+      </div>
+    </footer>
+
+    <script>
+      // Reveal: one shared observer, fires once, no motion when the visitor asked for none.
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var targets = document.querySelectorAll(".nv-reveal");
+
+      if (reduce) {
+        targets.forEach(function (node) {
+          node.classList.add("nv-in");
+        });
+      } else {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("nv-in");
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: "0px 0px -12% 0px", threshold: 0.25 }
+        );
+        targets.forEach(function (node) {
+          observer.observe(node);
+        });
+      }
+
+      // Counters: count once, at 50 percent visibility, over 1.2 seconds.
+      var countObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var node = entry.target;
+            var target = Number(node.dataset.count);
+            var decimals = Number(node.dataset.decimals || 0);
+            var suffix = node.dataset.suffix || "";
+            if (reduce) {
+              node.textContent = target.toFixed(decimals) + suffix;
+              return;
+            }
+            var start = performance.now();
+            var tick = function (now) {
+              var progress = Math.min((now - start) / 1200, 1);
+              var value = target * (1 - Math.pow(1 - progress, 3));
+              node.textContent = value.toFixed(decimals) + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            countObserver.unobserve(node);
+          });
+        },
+        { threshold: 0.5 }
+      );
+      document.querySelectorAll("[data-count]").forEach(function (node) {
+        countObserver.observe(node);
+      });
+
+      // Navbar: condense after 24px, one passive listener.
+      var header = document.querySelector(".nv-nav");
+      var onScroll = function () {
+        header.classList.toggle("is-scrolled", window.scrollY > 24);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    </script>
+  </body>
+</html>

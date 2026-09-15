@@ -41,6 +41,22 @@ Deliver
 3. A one-line note on which spec sections and which EX-nn examples you followed.
 ```
 
+## Component library and templates (read before writing markup)
+
+The repository ships 500 components and five complete pages. Prefer them over new markup.
+
+| Need | Raw file |
+|---|---|
+| Registry of all 500, by category and kind | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json |
+| Flat index with paths | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/INDEX.md |
+| Library rules and install | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/README.md |
+| Five complete pages (landing, pricing, dashboard, chat, docs) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md |
+| Theme file that removes the shadcn purple | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css |
+
+Flow: read `components/index.json`, open the two or three files that match the request, copy them,
+then adapt the copy. If nothing matches, write the new component in the same shape (same prop names,
+same tokens, same motion ladder: 140 to 760ms, 12 to 24px of travel, once).
+
 ## Component checklist before the agent answers
 
 | Check | Requirement |

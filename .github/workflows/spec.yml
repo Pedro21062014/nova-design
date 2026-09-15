@@ -15,5 +15,9 @@ jobs:
           python-version: "3.12"
       - name: Verify nova-design.md is regenerated
         run: python3 scripts/build_spec.py --check
+      - name: Verify components/ and templates/ are regenerated
+        run: python3 scripts/build_components.py --check
+      - name: Verify raw links resolve and no emoji are present
+        run: python3 scripts/check_links.py
       - name: Report size
         run: wc -l nova-design.md examples/*.md prompts/*.md

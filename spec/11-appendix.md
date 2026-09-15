@@ -179,9 +179,10 @@ export function Section({
 |---|---|---|
 | 1.0.0 | 2026-09-15 | First release: foundations, tokens, 32 components, chat scene, blueprints, motion, recipes, 100 examples, prompt library |
 | 1.1.0 | 2026-09-15 | Color discipline (1.2.1): neutral-first, single-hue primary gradient, purple and neon banned by default, grayscale test; aurora softened; before/after showcase site added |
+| 1.2.0 | 2026-09-15 | Component library (500 components in 26 categories) and five complete page templates added; routing section 0.8; theme file with the shadcn variable remap; lucide-only icon rule; minimum motion baseline (6.14) restated for pasted components |
 
 Maintenance: run `python3 scripts/build_spec.py` after every edit to refresh the line index and the
-task map anchors. Keep the token block in `0.10` synchronized with `2.1`. Bump the minor version when
+task map anchors. Keep the token block in `0.11` synchronized with `2.1`. Bump the minor version when
 adding components or blueprints; bump the patch for wording or line-index-only changes.
 
 ### 11.7 License and reuse

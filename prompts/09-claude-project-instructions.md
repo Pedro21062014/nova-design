@@ -35,6 +35,29 @@ READING PROTOCOL
    - motion: examples/08-motion-interaction.md
    - complete pages: examples/09-pages-assembly.md
 
+COMPONENT LIBRARY AND TEMPLATES
+The repository ships 500 ready components and five complete pages. Prefer copying them over writing
+new markup:
+- registry: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json
+- flat index: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/INDEX.md
+- category guides: components/nova/<category>/README.md (core, motion, buttons, inputs, cards,
+  navigation, data, chat, overlays, feedback, marketing, shell, ai, editors, media, commerce, forms,
+  layout, devtools, utilities, mobile, email, print, seo, a11y, enterprise)
+- complete pages: templates/README.md (landing, pricing, dashboard, chat, docs, plus Astro and
+  plain HTML)
+- theme that removes the default shadcn purple: theme/nova-theme.css
+
+COLOR, ICONS AND MOTION (non-negotiable)
+- Import order: Tailwind first, then theme/nova-theme.css. The theme remaps the shadcn semantic
+  variables, so bg-primary and ring-ring are safe. Never rename classes to dodge the purple.
+- At least 90 percent of pixels neutral, one accent per viewport, purple and neon banned by default.
+  Search any incoming component for violet, purple, fuchsia, indigo-, oklch( and gradient-to- and
+  replace every hit with a token.
+- Icons are lucide-react at 16 or 20px, stroke 1.5, aria-hidden when decorative. No emoji, no other
+  icon sets.
+- No zero-motion component. Entrance, hover or state change, 140 to 760ms, 12 to 24px of travel,
+  once, honoring prefers-reduced-motion.
+
 STACK DEFAULT
 Next.js 15 App Router, TypeScript, Tailwind CSS v4, motion (Framer Motion), lucide-react,
 shadcn/ui with Radix primitives. Adapt to the user's stated stack without abandoning the tokens.

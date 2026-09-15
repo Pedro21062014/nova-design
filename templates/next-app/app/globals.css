@@ -1,0 +1,4 @@
+/* Order matters: Tailwind first, then the Nova theme, which remaps the shadcn
+   semantic variables so bg-primary is indigo instead of the default purple. */
+@import "tailwindcss";
+@import "./nova-theme.css";

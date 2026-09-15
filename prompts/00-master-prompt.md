@@ -25,6 +25,91 @@ production-ready code, not sketches.
 always-mandatory sections: `0.4` (output contract), `2` (tokens), `6.12` (reduced motion and
 performance) and `9.5` (anti-patterns).
 
+## Component library (500 components, copy-ready)
+
+Five hundred components, grouped in twenty-six categories, each file self-contained, animated,
+lucide-based and non-purple. **Read `components/index.json` first**, pick by category and kind,
+then open only the two or three files you need. Never read the folder end to end.
+
+| What you need | Read this raw file |
+|---|---|
+| Machine-readable registry: name, category, kind, path, motion | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json |
+| Flat index of all 500 components with paths | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/INDEX.md |
+| How the library works, install, ten rules | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/README.md |
+| Core primitives: surface, aurora, reveal, section, divider | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/core/README.md |
+| Motion: counter, parallax, sticky scrolly, marquee, tilt, spotlight | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/motion/README.md |
+| Buttons (18) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/buttons/README.md |
+| Inputs and fields (24) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/inputs/README.md |
+| Cards and tiles (26) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/cards/README.md |
+| Navigation, navbar, footer, tabs, breadcrumbs (26) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/navigation/README.md |
+| Data, charts and tables (30) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/data/README.md |
+| Chat and AI conversation (30) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/chat/README.md |
+| Overlays: dialog, sheet, popover, tooltip, command (22) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/overlays/README.md |
+| Feedback: empty, error, skeleton, toasts, status (20) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/feedback/README.md |
+| Marketing sections (40) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/marketing/README.md |
+| App shell and settings (18) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/shell/README.md |
+| AI product surfaces: prompts, evals, agents, cost (20) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/ai/README.md |
+| Editors and code (14) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/editors/README.md |
+| Media: video, gallery, audio, lightbox (16) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/media/README.md |
+| Commerce: product, cart, checkout (16) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/commerce/README.md |
+| Forms: multi-step, validation, upload (18) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/forms/README.md |
+| Layouts: docs, blog, bento, split, sticky (20) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/layout/README.md |
+| Developer tooling: logs, diff, terminal, timeline (14) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/devtools/README.md |
+| Utilities: copy, theme, locale, contrast, tokens (18) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/utilities/README.md |
+| Mobile: bottom nav, sheets, safe areas (16) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/mobile/README.md |
+| Email templates (12, table-based) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/email/README.md |
+| Print and PDF (8) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/print/README.md |
+| SEO, metadata and JSON-LD (10) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/seo/README.md |
+| Accessibility patterns (10) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/a11y/README.md |
+| Enterprise: roles, access review, audit, approvals (20) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/enterprise/README.md |
+
+How to use it:
+
+1. Prefer copying a file from the library over inventing markup. The files carry the tokens, the
+   states, the motion and the accessibility work already.
+2. When the library has nothing that fits, write the new component in the same shape: same prop
+   naming (`title`, `subtitle`, `className` plus specifics), same token names, same motion ladder.
+3. Never rewrite a library file's colors or durations into Tailwind palette classes.
+
+## Page templates (five complete pages, three stacks)
+
+| What you need | Read this raw file |
+|---|---|
+| Marketing home: hero, proof band, bento, scrollytelling, counters, close (Next.js) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/next-app/app/page.tsx |
+| Pricing: interval toggle, three plans, comparison table, FAQ (Next.js, client) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/next-app/app/pricing/page.tsx |
+| Dashboard: shell, KPI counters, chart, dense table, activity (Next.js, client) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/next-app/app/dashboard/page.tsx |
+| AI workspace: three-column chat, tool cards, streaming composer (Next.js, client) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/next-app/app/chat/page.tsx |
+| Documentation: tree, prose measure, on-this-page rail, code block, pager (Next.js) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/next-app/app/docs/page.tsx |
+| Astro route with the same landing page | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/astro/src/pages/index.astro |
+| Single-file HTML landing page, zero build step | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/static-html/index.html |
+| Template index, install steps and what to change first | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md |
+| Theme file: tokens, `nv-*` utilities, shadcn variable remap | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css |
+| Why the default purple happens and how the remap fixes it | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/README.md |
+
+When a request is "build a page", start from the closest template, keep the section order and the
+token names, and replace the sample data. Do not rebuild the visual language from scratch.
+
+## Integrating third-party or shadcn components (the purple and zero-motion fix)
+
+Pasted components (Beautiful-UI style pricing tables, `NumberFlow` counters, `FrequencyToggle`
+switches, anything built on shadcn defaults) fail in four predictable ways. Fix all four, in order:
+
+1. **Load the theme first.** `@import "tailwindcss";` then `@import "theme/nova-theme.css";`. The
+   theme remaps the shadcn semantic variables, so `bg-primary`, `ring-ring`, `bg-accent` and
+   `border-border` resolve to Nova values. Renaming classes by hand is not a fix; the variables are.
+2. **Hunt the hardcoded colors.** Search the pasted file for `violet`, `purple`, `fuchsia`,
+   `indigo-`, `oklch(`, `#8b5cf6`, `#a855f7`, `from-purple`, `to-blue`, `gradient-to-`. Replace each
+   with a token: accent, hairline, glass, or a neutral. Keep one accent per viewport.
+3. **Repair the layout.** Wrap the section in `Container` and `Section`, give every media and chart
+   a reserved aspect box, replace fixed pixel heights with `min-h`, make every multi-column grid
+   collapse at 1024 and 768, and remove negative margins used as spacing.
+4. **Add the motion baseline.** A pasted component with zero animation is incomplete. At minimum:
+   `nv-fade-up` on entry, `nv-lift` on interactive cards, `nv-press` on buttons, a 240ms color
+   transition on hover, and the reveal convention for sections. Never exceed 900ms or 24px of travel.
+
+Then verify: no purple tokens remain, 320px shows no horizontal scroll, `prefers-reduced-motion`
+renders the final state, and the primary action is still obvious in grayscale.
+
 ## Example library (100 named examples, each with code)
 
 Pick the example that matches the component you are building and read that file only.
@@ -100,14 +185,16 @@ The default look is **neutral-first**. Color is a signal, not decoration.
 If a previous draft of the page already uses purple or neon, convert it to this discipline and say
 so in one line; do not keep leftover vivid colors because they are already there.
 
-## Non-negotiable rules (the ten that matter most)
+## Non-negotiable rules (the twelve that matter most)
 
 1. **Tokens only.** No hex, no shadow literal, no arbitrary duration inside a component. Neutral
    first, one accent per viewport, purple and neon banned by default (color discipline above).
 2. **Glass needs a background.** `backdrop-filter` over a flat background is forbidden; there must
    be an aurora, gradient or image behind it.
-3. **Use shadcn/ui as the base** and skin it with Nova Vitral (technique in spec 7.9). Do not
-   hand-roll dialogs, menus, popovers and tooltips.
+3. **Use shadcn/ui as the base and skin it with Nova Vitral** (technique in spec 7.9). Always load
+   `theme/nova-theme.css` after Tailwind: it remaps `--primary`, `--ring`, `--accent`, `--card` and
+   the rest, which is what removes the default purple. Do not hand-roll dialogs, menus, popovers and
+   tooltips.
 4. **All states.** default, hover, focus-visible, active, disabled, loading, empty, error.
 5. **Responsive at 320, 768, 1024, 1440, 1920.** No horizontal scroll at any width.
 6. **Scroll animation fires once**, travels 12 to 24px, staggers 40 to 80ms capped, and never
@@ -118,6 +205,11 @@ so in one line; do not keep leftover vivid colors because they are already there
 9. **Real copy.** No lorem ipsum, no "Feature one", no "John Doe, CEO", no imaginary metrics.
 10. **Performance:** animate `transform` and `opacity` only; at most six `backdrop-filter`
     elements per viewport; keep the main thread free during scroll.
+11. **Icons are lucide.** `lucide-react` at 16 or 20px, stroke 1.5, `aria-hidden="true"` when
+    decorative. No emoji, no other icon libraries, no hand-traced SVG.
+12. **Every component moves.** A component with zero animation is incomplete: an entrance, a hover
+    response or a state change, 140 to 760ms. The `nv-*` utilities in `theme/nova-theme.css` are the
+    floor, and the component library already meets it.
 
 ## Output contract
 
@@ -132,7 +224,8 @@ so in one line; do not keep leftover vivid colors because they are already there
 ## Workflow for every request
 
 1. Restate the request in one line.
-2. Choose the spec sections and the example IDs (EX-nn) you will follow; say them in one line.
+2. Choose the spec sections, the example IDs (EX-nn) and the library files you will follow; say
+   them in one line. Check `components/index.json` before writing any markup by hand.
 3. Write the code.
 4. Self-check before answering: hardcoded colors? missing states? layout at 320px? reduced motion?
    contrast? placeholder copy? Fix silently.
@@ -159,8 +252,10 @@ Send this prompt, then describe the task. Example:
 - The prompt above is model-agnostic. Models with web access can fetch the raw links directly;
   models without web access need the spec pasted or attached as a file.
 - If you prefer a file-first workflow, drop `nova-design.md` in your repository root, keep the
-  `examples/` and `prompts/` folders, and replace the raw links with local paths
-  (`docs/nova-design.md`, `examples/06-chat-scene.md`).
+  `examples/`, `components/`, `templates/` and `prompts/` folders, and replace the raw links with
+  local paths (`docs/nova-design.md`, `examples/06-chat-scene.md`, `components/nova/`, `templates/`).
+- The fastest path to a professional page: copy `templates/next-app/app/page.tsx`, copy
+  `components/nova/` and `lib/` next to it, import `theme/nova-theme.css`, then replace the data.
 - For Cursor, also install `prompts/08-cursor-rules.mdc` so the rules stay active without
   re-pasting the prompt each session.
 - For small context windows, use `prompts/11-condensed-system-prompt.md`.

@@ -118,6 +118,24 @@ escolha a solucao mais calma, simples e legivel, diga em uma linha o que assumiu
 pedido conflitar com acessibilidade ou performance, siga a especificacao e explique o porque.
 ```
 
+## Biblioteca de componentes e templates
+
+O repositorio tambem entrega os artefatos prontos, nao apenas as regras:
+
+| Necessidade | Arquivo bruto |
+|---|---|
+| Registro dos 500 componentes (categoria, tipo, caminho, movimento) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json |
+| Indice plano dos 500 | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/INDEX.md |
+| Regras da biblioteca, instalacao, dez regras | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/README.md |
+| Cinco paginas completas: landing, precos, painel, chat, documentacao | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/templates/README.md |
+| Tema que remove o roxo padrao do shadcn | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css |
+
+Copie da biblioteca antes de escrever marcacao nova. Ao estender, mantenha os nomes de props, os
+tokens e a escada de movimento. Importe o tema depois do Tailwind: e essa linha que elimina o roxo
+padrao, e `nv-fade-up`, `nv-lift`, `nv-press` e `nv-reveal` sao o piso de animacao. Ao receber um
+componente pronto de terceiros, corrija nesta ordem: sistema de cor, layout, movimento, icones
+(Lucide, 16 ou 20px, sem emoji).
+
 ## Dicas de uso em portugues
 
 1. Descreva o produto, o publico e o tom em uma linha antes do pedido: ajuda mais do que qualquer

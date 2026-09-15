@@ -29,6 +29,12 @@ Full spec (read only the line ranges you need, never end to end):
 
 Example library (100 examples): `examples/` folder, index at `examples/00-index.md`.
 
+Component library (500 components, 26 categories): `components/` folder, registry at
+`components/index.json`, flat index at `components/INDEX.md`, rules at `components/README.md`.
+Read the registry, then open only the files you need. Copy from the library instead of inventing
+markup. Templates: `templates/` (landing, pricing, dashboard, chat, docs, plus Astro and plain HTML).
+Theme: `theme/nova-theme.css`, imported after Tailwind, which is what removes the default purple.
+
 ## Hard rules
 
 1. **Tokens only.** No hex, `rgba()`, shadow literal, border radius, blur or duration inside a
@@ -37,28 +43,37 @@ Example library (100 examples): `examples/` folder, index at `examples/00-index.
    aurora, gradient or image behind it.
 3. **Three-layer glass.** Fill + hairline edge (gradient mask) + inner highlight. Nested panels do
    not stack blur; they reduce fill and raise edge contrast.
-4. **shadcn/ui is the base.** Do not hand-roll dialogs, menus, popovers, tooltips, selects or
+4. **Theme import order.** `@import "tailwindcss";` then `@import "theme/nova-theme.css";`. The
+   theme remaps the shadcn semantic variables (`--primary`, `--ring`, `--accent`, `--card`,
+   `--border`), so `bg-primary` and `ring-ring` are safe. Never rename classes to dodge the purple;
+   remap the variables.
+5. **Icons are lucide.** `lucide-react` at 16 or 20px, stroke 1.5, `aria-hidden="true"` when
+   decorative. No emoji, no other icon sets, no hand-traced SVG.
+6. **No zero-motion component.** Every component gets an entrance, a hover response or a state
+   change: 140 to 760ms, 12 to 24px of travel, once, with `prefers-reduced-motion` rendering the
+   final state. `nv-fade-up`, `nv-lift`, `nv-press` and `nv-reveal` are the floor.
+7. **shadcn/ui is the base.** Do not hand-roll dialogs, menus, popovers, tooltips, selects or
    toasts. Skin them with the vitral classes and map shadcn variables to Nova Vitral tokens.
-5. **All states.** default, hover, focus-visible, active, disabled, loading, empty, error.
-6. **Focus rings are never removed.** `outline: 2px solid var(--accent); outline-offset: 2px` on
+8. **All states.** default, hover, focus-visible, active, disabled, loading, empty, error.
+9. **Focus rings are never removed.** `outline: 2px solid var(--accent); outline-offset: 2px` on
    `:focus-visible`.
-7. **Motion ladder.** 140ms micro, 240ms standard, 420ms surfaces, 760ms reveals. Nothing above
+10. **Motion ladder.** 140ms micro, 240ms standard, 420ms surfaces, 760ms reveals. Nothing above
    900ms. Entrances use `--ease-out`, exits are shorter.
-8. **Reveal once.** `once: true`, amount 0.25, margin `0px 0px -12% 0px`, 16px travel (24px for
+11. **Reveal once.** `once: true`, amount 0.25, margin `0px 0px -12% 0px`, 16px travel (24px for
    large panels), stagger 60 to 80ms clamped so the last sibling starts under 400ms.
-9. **Animate `transform` and `opacity` only.** No animating height, top, margin, box-shadow or
+12. **Animate `transform` and `opacity` only.** No animating height, top, margin, box-shadow or
    background-position. Height transitions use `grid-template-rows: 0fr → 1fr`.
-10. **Reduced motion.** Every animation has a `prefers-reduced-motion` path that renders the final
+13. **Reduced motion.** Every animation has a `prefers-reduced-motion` path that renders the final
     state. Nothing hidden, nothing moving.
-11. **Responsive.** Verify 320, 768, 1024, 1440, 1920. No horizontal scroll at any width.
-12. **Accessibility.** Semantic HTML, labeled controls, `aria-*` where needed, AA contrast over the
+14. **Responsive.** Verify 320, 768, 1024, 1440, 1920. No horizontal scroll at any width.
+15. **Accessibility.** Semantic HTML, labeled controls, `aria-*` where needed, AA contrast over the
     worst-case backdrop, targets at least 24px (44px on touch).
-13. **Performance.** At most six simultaneous `backdrop-filter` elements per viewport; no scroll
+16. **Performance.** At most six simultaneous `backdrop-filter` elements per viewport; no scroll
     handlers without `{ passive: true }` and rAF; virtualize lists above 60 items; chart and table
     components must not re-render during scroll.
-14. **Copy.** Specific, benefit-led, sentence case, no placeholders, no "Lorem ipsum", no invented
+17. **Copy.** Specific, benefit-led, sentence case, no placeholders, no "Lorem ipsum", no invented
     attribution. UI text in the project language; code and identifiers in English.
-15. **No emojis** in production UI, code comments or commit messages.
+18. **No emojis** in production UI, code comments or commit messages.
 
 ## Color discipline (mandatory)
 

@@ -1,0 +1,3741 @@
+{
+  "name": "nova-vitral-components",
+  "version": "1.1.0",
+  "total": 500,
+  "categories": [
+    {
+      "name": "core",
+      "scope": "Core primitives: surfaces, aurora, reveal, section and layout atoms.",
+      "path": "components/nova/core/",
+      "count": 10,
+      "spec": "1.3, 2, 3.2, 6.14",
+      "components": [
+        {
+          "name": "surface",
+          "component": "Surface",
+          "kind": "surface",
+          "path": "components/nova/core/surface.tsx",
+          "motion": "Hover lift of 2px over 240ms, or an 8px rise on first paint when it is the last element of a region."
+        },
+        {
+          "name": "surface-strong",
+          "component": "SurfaceStrong",
+          "kind": "surface",
+          "path": "components/nova/core/surface-strong.tsx",
+          "motion": "Hover lift of 2px over 240ms, or an 8px rise on first paint when it is the last element of a region."
+        },
+        {
+          "name": "inset",
+          "component": "Inset",
+          "kind": "surface",
+          "path": "components/nova/core/inset.tsx",
+          "motion": "Hover lift of 2px over 240ms, or an 8px rise on first paint when it is the last element of a region."
+        },
+        {
+          "name": "aurora",
+          "component": "Aurora",
+          "kind": "aurora",
+          "path": "components/nova/core/aurora.tsx",
+          "motion": "Three blobs drift for 30 to 44s on transform only; frozen at 0 opacity change under reduced motion."
+        },
+        {
+          "name": "grain-overlay",
+          "component": "GrainOverlay",
+          "kind": "aurora",
+          "path": "components/nova/core/grain-overlay.tsx",
+          "motion": "Three blobs drift for 30 to 44s on transform only; frozen at 0 opacity change under reduced motion."
+        },
+        {
+          "name": "reveal",
+          "component": "Reveal",
+          "kind": "motion",
+          "path": "components/nova/core/reveal.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "reveal-group",
+          "component": "RevealGroup",
+          "kind": "motion",
+          "path": "components/nova/core/reveal-group.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "section",
+          "component": "Section",
+          "kind": "section",
+          "path": "components/nova/core/section.tsx",
+          "motion": "Header reveals with a 60ms cascade; the body is never staggered more than 400ms in total."
+        },
+        {
+          "name": "container",
+          "component": "Container",
+          "kind": "section",
+          "path": "components/nova/core/container.tsx",
+          "motion": "Header reveals with a 60ms cascade; the body is never staggered more than 400ms in total."
+        },
+        {
+          "name": "divider",
+          "component": "Divider",
+          "kind": "divider",
+          "path": "components/nova/core/divider.tsx",
+          "motion": "Hairline fades from 0 to full opacity over 240ms when it enters the viewport."
+        }
+      ]
+    },
+    {
+      "name": "motion",
+      "scope": "Motion primitives: scroll, parallax, counters, tilt, marquees, transitions.",
+      "path": "components/nova/motion/",
+      "count": 24,
+      "spec": "3.9, 6.1 to 6.14",
+      "components": [
+        {
+          "name": "counter",
+          "component": "Counter",
+          "kind": "motion",
+          "path": "components/nova/motion/counter.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "parallax-visual",
+          "component": "ParallaxVisual",
+          "kind": "motion",
+          "path": "components/nova/motion/parallax-visual.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "parallax-layer",
+          "component": "ParallaxLayer",
+          "kind": "motion",
+          "path": "components/nova/motion/parallax-layer.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "scroll-progress",
+          "component": "ScrollProgress",
+          "kind": "motion",
+          "path": "components/nova/motion/scroll-progress.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "scroll-linked-scale",
+          "component": "ScrollLinkedScale",
+          "kind": "motion",
+          "path": "components/nova/motion/scroll-linked-scale.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "sticky-scrolly",
+          "component": "StickyScrolly",
+          "kind": "motion",
+          "path": "components/nova/motion/sticky-scrolly.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "horizontal-scroll",
+          "component": "HorizontalScroll",
+          "kind": "motion",
+          "path": "components/nova/motion/horizontal-scroll.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "marquee-row",
+          "component": "MarqueeRow",
+          "kind": "motion",
+          "path": "components/nova/motion/marquee-row.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "tilt-card",
+          "component": "TiltCard",
+          "kind": "motion",
+          "path": "components/nova/motion/tilt-card.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "spotlight-card",
+          "component": "SpotlightCard",
+          "kind": "motion",
+          "path": "components/nova/motion/spotlight-card.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "magnetic-button",
+          "component": "MagneticButton",
+          "kind": "motion",
+          "path": "components/nova/motion/magnetic-button.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "text-reveal",
+          "component": "TextReveal",
+          "kind": "motion",
+          "path": "components/nova/motion/text-reveal.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "blur-in",
+          "component": "BlurIn",
+          "kind": "motion",
+          "path": "components/nova/motion/blur-in.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "scale-in",
+          "component": "ScaleIn",
+          "kind": "motion",
+          "path": "components/nova/motion/scale-in.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "fade-in",
+          "component": "FadeIn",
+          "kind": "motion",
+          "path": "components/nova/motion/fade-in.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "slide-in-x",
+          "component": "SlideInX",
+          "kind": "motion",
+          "path": "components/nova/motion/slide-in-x.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "list-reorder",
+          "component": "ListReorder",
+          "kind": "motion",
+          "path": "components/nova/motion/list-reorder.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "layout-tabs",
+          "component": "LayoutTabs",
+          "kind": "motion",
+          "path": "components/nova/motion/layout-tabs.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "accordion-motion",
+          "component": "AccordionMotion",
+          "kind": "motion",
+          "path": "components/nova/motion/accordion-motion.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "modal-motion",
+          "component": "ModalMotion",
+          "kind": "motion",
+          "path": "components/nova/motion/modal-motion.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "toast-motion",
+          "component": "ToastMotion",
+          "kind": "motion",
+          "path": "components/nova/motion/toast-motion.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "page-transition",
+          "component": "PageTransition",
+          "kind": "motion",
+          "path": "components/nova/motion/page-transition.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "typewriter",
+          "component": "Typewriter",
+          "kind": "motion",
+          "path": "components/nova/motion/typewriter.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        },
+        {
+          "name": "countdown-digits",
+          "component": "CountdownDigits",
+          "kind": "motion",
+          "path": "components/nova/motion/countdown-digits.tsx",
+          "motion": "Entrance fires once, 16px of travel, ease-out, and renders the final state instantly under reduced motion."
+        }
+      ]
+    },
+    {
+      "name": "buttons",
+      "scope": "Every action shape, from primary to hold-to-confirm.",
+      "path": "components/nova/buttons/",
+      "count": 18,
+      "spec": "3.1, 6.3",
+      "components": [
+        {
+          "name": "button-primary",
+          "component": "ButtonPrimary",
+          "kind": "button",
+          "path": "components/nova/buttons/button-primary.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-glass",
+          "component": "ButtonGlass",
+          "kind": "button",
+          "path": "components/nova/buttons/button-glass.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-ghost",
+          "component": "ButtonGhost",
+          "kind": "button",
+          "path": "components/nova/buttons/button-ghost.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-outline",
+          "component": "ButtonOutline",
+          "kind": "button",
+          "path": "components/nova/buttons/button-outline.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-danger",
+          "component": "ButtonDanger",
+          "kind": "button",
+          "path": "components/nova/buttons/button-danger.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-link",
+          "component": "ButtonLink",
+          "kind": "button",
+          "path": "components/nova/buttons/button-link.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-icon",
+          "component": "ButtonIcon",
+          "kind": "button",
+          "path": "components/nova/buttons/button-icon.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-split",
+          "component": "ButtonSplit",
+          "kind": "button",
+          "path": "components/nova/buttons/button-split.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-loading",
+          "component": "ButtonLoading",
+          "kind": "button",
+          "path": "components/nova/buttons/button-loading.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-success",
+          "component": "ButtonSuccess",
+          "kind": "button",
+          "path": "components/nova/buttons/button-success.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-group",
+          "component": "ButtonGroup",
+          "kind": "button",
+          "path": "components/nova/buttons/button-group.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-copy",
+          "component": "ButtonCopy",
+          "kind": "button",
+          "path": "components/nova/buttons/button-copy.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-toggle",
+          "component": "ButtonToggle",
+          "kind": "button",
+          "path": "components/nova/buttons/button-toggle.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-pill",
+          "component": "ButtonPill",
+          "kind": "button",
+          "path": "components/nova/buttons/button-pill.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-fab",
+          "component": "ButtonFab",
+          "kind": "button",
+          "path": "components/nova/buttons/button-fab.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-submit-bar",
+          "component": "ButtonSubmitBar",
+          "kind": "button",
+          "path": "components/nova/buttons/button-submit-bar.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-async",
+          "component": "ButtonAsync",
+          "kind": "button",
+          "path": "components/nova/buttons/button-async.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        },
+        {
+          "name": "button-destructive-hold",
+          "component": "ButtonDestructiveHold",
+          "kind": "button",
+          "path": "components/nova/buttons/button-destructive-hold.tsx",
+          "motion": "1px lift and a 0.98 press, 140ms; the icon travels 2px on hover and nothing animates on load."
+        }
+      ]
+    },
+    {
+      "name": "inputs",
+      "scope": "Form controls with labels, hints, errors and keyboard support.",
+      "path": "components/nova/inputs/",
+      "count": 24,
+      "spec": "3.3, 9.3",
+      "components": [
+        {
+          "name": "input-text",
+          "component": "InputText",
+          "kind": "input",
+          "path": "components/nova/inputs/input-text.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-email",
+          "component": "InputEmail",
+          "kind": "input",
+          "path": "components/nova/inputs/input-email.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-password",
+          "component": "InputPassword",
+          "kind": "input",
+          "path": "components/nova/inputs/input-password.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-search",
+          "component": "InputSearch",
+          "kind": "input",
+          "path": "components/nova/inputs/input-search.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-textarea",
+          "component": "InputTextarea",
+          "kind": "input",
+          "path": "components/nova/inputs/input-textarea.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-number",
+          "component": "InputNumber",
+          "kind": "input",
+          "path": "components/nova/inputs/input-number.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-currency",
+          "component": "InputCurrency",
+          "kind": "input",
+          "path": "components/nova/inputs/input-currency.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-phone",
+          "component": "InputPhone",
+          "kind": "input",
+          "path": "components/nova/inputs/input-phone.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-otp",
+          "component": "InputOtp",
+          "kind": "input",
+          "path": "components/nova/inputs/input-otp.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-tags",
+          "component": "InputTags",
+          "kind": "input",
+          "path": "components/nova/inputs/input-tags.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-mention",
+          "component": "InputMention",
+          "kind": "input",
+          "path": "components/nova/inputs/input-mention.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "input-prefix-suffix",
+          "component": "InputPrefixSuffix",
+          "kind": "input",
+          "path": "components/nova/inputs/input-prefix-suffix.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "switch",
+          "component": "Switch",
+          "kind": "input",
+          "path": "components/nova/inputs/switch.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "checkbox",
+          "component": "Checkbox",
+          "kind": "input",
+          "path": "components/nova/inputs/checkbox.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "radio-card",
+          "component": "RadioCard",
+          "kind": "input",
+          "path": "components/nova/inputs/radio-card.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "select",
+          "component": "Select",
+          "kind": "input",
+          "path": "components/nova/inputs/select.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "combobox",
+          "component": "Combobox",
+          "kind": "input",
+          "path": "components/nova/inputs/combobox.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "multiselect",
+          "component": "Multiselect",
+          "kind": "input",
+          "path": "components/nova/inputs/multiselect.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "date-picker",
+          "component": "DatePicker",
+          "kind": "input",
+          "path": "components/nova/inputs/date-picker.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "date-range",
+          "component": "DateRange",
+          "kind": "input",
+          "path": "components/nova/inputs/date-range.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "slider",
+          "component": "Slider",
+          "kind": "input",
+          "path": "components/nova/inputs/slider.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "file-drop",
+          "component": "FileDrop",
+          "kind": "input",
+          "path": "components/nova/inputs/file-drop.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "form-field",
+          "component": "FormField",
+          "kind": "input",
+          "path": "components/nova/inputs/form-field.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        },
+        {
+          "name": "rating-input",
+          "component": "RatingInput",
+          "kind": "input",
+          "path": "components/nova/inputs/rating-input.tsx",
+          "motion": "Focus ring appears in 140ms, the label rises to the top border, and the error line slides in 8px."
+        }
+      ]
+    },
+    {
+      "name": "cards",
+      "scope": "Surfaces for metrics, people, media, tasks and money.",
+      "path": "components/nova/cards/",
+      "count": 26,
+      "spec": "3.2, 3.13",
+      "components": [
+        {
+          "name": "glass-card",
+          "component": "GlassCard",
+          "kind": "card",
+          "path": "components/nova/cards/glass-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "interactive-card",
+          "component": "InteractiveCard",
+          "kind": "card",
+          "path": "components/nova/cards/interactive-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "media-card",
+          "component": "MediaCard",
+          "kind": "card",
+          "path": "components/nova/cards/media-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "profile-card",
+          "component": "ProfileCard",
+          "kind": "card",
+          "path": "components/nova/cards/profile-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "product-card",
+          "component": "ProductCard",
+          "kind": "card",
+          "path": "components/nova/cards/product-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "stat-card",
+          "component": "StatCard",
+          "kind": "card",
+          "path": "components/nova/cards/stat-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "metric-spark",
+          "component": "MetricSpark",
+          "kind": "card",
+          "path": "components/nova/cards/metric-spark.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "pricing-card",
+          "component": "PricingCard",
+          "kind": "card",
+          "path": "components/nova/cards/pricing-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "plan-compare-card",
+          "component": "PlanCompareCard",
+          "kind": "card",
+          "path": "components/nova/cards/plan-compare-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "testimonial-card",
+          "component": "TestimonialCard",
+          "kind": "card",
+          "path": "components/nova/cards/testimonial-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "blog-card",
+          "component": "BlogCard",
+          "kind": "card",
+          "path": "components/nova/cards/blog-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "changelog-card",
+          "component": "ChangelogCard",
+          "kind": "card",
+          "path": "components/nova/cards/changelog-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "repo-card",
+          "component": "RepoCard",
+          "kind": "card",
+          "path": "components/nova/cards/repo-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "integration-card",
+          "component": "IntegrationCard",
+          "kind": "card",
+          "path": "components/nova/cards/integration-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "team-card",
+          "component": "TeamCard",
+          "kind": "card",
+          "path": "components/nova/cards/team-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "notification-card",
+          "component": "NotificationCard",
+          "kind": "card",
+          "path": "components/nova/cards/notification-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "task-card",
+          "component": "TaskCard",
+          "kind": "card",
+          "path": "components/nova/cards/task-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "invoice-card",
+          "component": "InvoiceCard",
+          "kind": "card",
+          "path": "components/nova/cards/invoice-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "usage-card",
+          "component": "UsageCard",
+          "kind": "card",
+          "path": "components/nova/cards/usage-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "seat-card",
+          "component": "SeatCard",
+          "kind": "card",
+          "path": "components/nova/cards/seat-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "empty-card",
+          "component": "EmptyCard",
+          "kind": "card",
+          "path": "components/nova/cards/empty-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "error-card",
+          "component": "ErrorCard",
+          "kind": "card",
+          "path": "components/nova/cards/error-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "skeleton-card",
+          "component": "SkeletonCard",
+          "kind": "card",
+          "path": "components/nova/cards/skeleton-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "action-card",
+          "component": "ActionCard",
+          "kind": "card",
+          "path": "components/nova/cards/action-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "feature-card",
+          "component": "FeatureCard",
+          "kind": "card",
+          "path": "components/nova/cards/feature-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        },
+        {
+          "name": "resource-card",
+          "component": "ResourceCard",
+          "kind": "card",
+          "path": "components/nova/cards/resource-card.tsx",
+          "motion": "4px rise and a one-step fill increase on hover, 240ms; the entrance is a 16px rise with 60ms cascade."
+        }
+      ]
+    },
+    {
+      "name": "navigation",
+      "scope": "Navbars, sidebars, tabs, palettes, pagination and footers.",
+      "path": "components/nova/navigation/",
+      "count": 26,
+      "spec": "3.6, 3.15",
+      "components": [
+        {
+          "name": "navbar",
+          "component": "Navbar",
+          "kind": "nav",
+          "path": "components/nova/navigation/navbar.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "navbar-links",
+          "component": "NavbarLinks",
+          "kind": "nav",
+          "path": "components/nova/navigation/navbar-links.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "mega-menu",
+          "component": "MegaMenu",
+          "kind": "nav",
+          "path": "components/nova/navigation/mega-menu.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "mobile-sheet-menu",
+          "component": "MobileSheetMenu",
+          "kind": "nav",
+          "path": "components/nova/navigation/mobile-sheet-menu.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "sidebar",
+          "component": "Sidebar",
+          "kind": "nav",
+          "path": "components/nova/navigation/sidebar.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "sidebar-rail",
+          "component": "SidebarRail",
+          "kind": "nav",
+          "path": "components/nova/navigation/sidebar-rail.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "sidebar-item",
+          "component": "SidebarItem",
+          "kind": "nav",
+          "path": "components/nova/navigation/sidebar-item.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "breadcrumbs",
+          "component": "Breadcrumbs",
+          "kind": "nav",
+          "path": "components/nova/navigation/breadcrumbs.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "tabs",
+          "component": "Tabs",
+          "kind": "nav",
+          "path": "components/nova/navigation/tabs.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "tabs-underline",
+          "component": "TabsUnderline",
+          "kind": "nav",
+          "path": "components/nova/navigation/tabs-underline.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "tabs-segmented",
+          "component": "TabsSegmented",
+          "kind": "nav",
+          "path": "components/nova/navigation/tabs-segmented.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "pagination",
+          "component": "Pagination",
+          "kind": "nav",
+          "path": "components/nova/navigation/pagination.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "stepper",
+          "component": "Stepper",
+          "kind": "nav",
+          "path": "components/nova/navigation/stepper.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "wizard-progress",
+          "component": "WizardProgress",
+          "kind": "nav",
+          "path": "components/nova/navigation/wizard-progress.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "command-palette",
+          "component": "CommandPalette",
+          "kind": "nav",
+          "path": "components/nova/navigation/command-palette.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "dock",
+          "component": "Dock",
+          "kind": "nav",
+          "path": "components/nova/navigation/dock.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "floating-nav",
+          "component": "FloatingNav",
+          "kind": "nav",
+          "path": "components/nova/navigation/floating-nav.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "anchors-toc",
+          "component": "AnchorsToc",
+          "kind": "nav",
+          "path": "components/nova/navigation/anchors-toc.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "back-to-top",
+          "component": "BackToTop",
+          "kind": "nav",
+          "path": "components/nova/navigation/back-to-top.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "scroll-spy-nav",
+          "component": "ScrollSpyNav",
+          "kind": "nav",
+          "path": "components/nova/navigation/scroll-spy-nav.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "footer",
+          "component": "Footer",
+          "kind": "nav",
+          "path": "components/nova/navigation/footer.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "footer-oversized",
+          "component": "FooterOversized",
+          "kind": "nav",
+          "path": "components/nova/navigation/footer-oversized.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "user-menu",
+          "component": "UserMenu",
+          "kind": "nav",
+          "path": "components/nova/navigation/user-menu.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "org-switcher",
+          "component": "OrgSwitcher",
+          "kind": "nav",
+          "path": "components/nova/navigation/org-switcher.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "keyboard-hints",
+          "component": "KeyboardHints",
+          "kind": "nav",
+          "path": "components/nova/navigation/keyboard-hints.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        },
+        {
+          "name": "sub-nav",
+          "component": "SubNav",
+          "kind": "nav",
+          "path": "components/nova/navigation/sub-nav.tsx",
+          "motion": "Interpolates to a condensed glass bar after 24px of scroll, 240ms; the active indicator slides."
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "scope": "Tables, filters, charts and progress indicators.",
+      "path": "components/nova/data/",
+      "count": 30,
+      "spec": "3.5, 3.13, 7.5",
+      "components": [
+        {
+          "name": "data-table",
+          "component": "DataTable",
+          "kind": "table",
+          "path": "components/nova/data/data-table.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-selectable",
+          "component": "TableSelectable",
+          "kind": "table",
+          "path": "components/nova/data/table-selectable.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-virtualized",
+          "component": "TableVirtualized",
+          "kind": "table",
+          "path": "components/nova/data/table-virtualized.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-expandable",
+          "component": "TableExpandable",
+          "kind": "table",
+          "path": "components/nova/data/table-expandable.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-sortable",
+          "component": "TableSortable",
+          "kind": "table",
+          "path": "components/nova/data/table-sortable.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-pinned",
+          "component": "TablePinned",
+          "kind": "table",
+          "path": "components/nova/data/table-pinned.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-pagination",
+          "component": "TablePagination",
+          "kind": "table",
+          "path": "components/nova/data/table-pagination.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-toolbar",
+          "component": "TableToolbar",
+          "kind": "table",
+          "path": "components/nova/data/table-toolbar.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "table-bulk-bar",
+          "component": "TableBulkBar",
+          "kind": "table",
+          "path": "components/nova/data/table-bulk-bar.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "columns-manager",
+          "component": "ColumnsManager",
+          "kind": "table",
+          "path": "components/nova/data/columns-manager.tsx",
+          "motion": "Rows tint over 120ms on hover; tables never stagger on entry, and bulk actions slide up 8px."
+        },
+        {
+          "name": "filter-bar",
+          "component": "FilterBar",
+          "kind": "data",
+          "path": "components/nova/data/filter-bar.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "filter-panel",
+          "component": "FilterPanel",
+          "kind": "data",
+          "path": "components/nova/data/filter-panel.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "saved-views",
+          "component": "SavedViews",
+          "kind": "data",
+          "path": "components/nova/data/saved-views.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "sparkline",
+          "component": "Sparkline",
+          "kind": "data",
+          "path": "components/nova/data/sparkline.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "area-chart",
+          "component": "AreaChart",
+          "kind": "data",
+          "path": "components/nova/data/area-chart.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "bar-chart",
+          "component": "BarChart",
+          "kind": "data",
+          "path": "components/nova/data/bar-chart.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "stacked-bar",
+          "component": "StackedBar",
+          "kind": "data",
+          "path": "components/nova/data/stacked-bar.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "donut-chart",
+          "component": "DonutChart",
+          "kind": "data",
+          "path": "components/nova/data/donut-chart.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "heatmap",
+          "component": "Heatmap",
+          "kind": "data",
+          "path": "components/nova/data/heatmap.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "funnel-chart",
+          "component": "FunnelChart",
+          "kind": "data",
+          "path": "components/nova/data/funnel-chart.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "bullet-chart",
+          "component": "BulletChart",
+          "kind": "data",
+          "path": "components/nova/data/bullet-chart.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "scatter-plot",
+          "component": "ScatterPlot",
+          "kind": "data",
+          "path": "components/nova/data/scatter-plot.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "gauge",
+          "component": "Gauge",
+          "kind": "data",
+          "path": "components/nova/data/gauge.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "progress-bar",
+          "component": "ProgressBar",
+          "kind": "data",
+          "path": "components/nova/data/progress-bar.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "progress-ring",
+          "component": "ProgressRing",
+          "kind": "data",
+          "path": "components/nova/data/progress-ring.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "stat-compare",
+          "component": "StatCompare",
+          "kind": "data",
+          "path": "components/nova/data/stat-compare.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "delta-chip",
+          "component": "DeltaChip",
+          "kind": "data",
+          "path": "components/nova/data/delta-chip.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "chart-legend",
+          "component": "ChartLegend",
+          "kind": "data",
+          "path": "components/nova/data/chart-legend.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "chart-tooltip",
+          "component": "ChartTooltip",
+          "kind": "data",
+          "path": "components/nova/data/chart-tooltip.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        },
+        {
+          "name": "chart-empty",
+          "component": "ChartEmpty",
+          "kind": "data",
+          "path": "components/nova/data/chart-empty.tsx",
+          "motion": "Bars and lines draw once at 760ms when 40 percent visible; hover raises opacity, never position."
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "scope": "The complete conversational surface: thread, streaming, tools, composer.",
+      "path": "components/nova/chat/",
+      "count": 30,
+      "spec": "4.1 to 4.9",
+      "components": [
+        {
+          "name": "chat-shell",
+          "component": "ChatShell",
+          "kind": "chat",
+          "path": "components/nova/chat/chat-shell.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "thread",
+          "component": "Thread",
+          "kind": "chat",
+          "path": "components/nova/chat/thread.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "message-user",
+          "component": "MessageUser",
+          "kind": "chat",
+          "path": "components/nova/chat/message-user.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "message-assistant",
+          "component": "MessageAssistant",
+          "kind": "chat",
+          "path": "components/nova/chat/message-assistant.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "message-system",
+          "component": "MessageSystem",
+          "kind": "chat",
+          "path": "components/nova/chat/message-system.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "reasoning-drawer",
+          "component": "ReasoningDrawer",
+          "kind": "chat",
+          "path": "components/nova/chat/reasoning-drawer.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "thinking-row",
+          "component": "ThinkingRow",
+          "kind": "chat",
+          "path": "components/nova/chat/thinking-row.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "tool-card",
+          "component": "ToolCard",
+          "kind": "chat",
+          "path": "components/nova/chat/tool-card.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "tool-approval",
+          "component": "ToolApproval",
+          "kind": "chat",
+          "path": "components/nova/chat/tool-approval.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "artifact-card",
+          "component": "ArtifactCard",
+          "kind": "chat",
+          "path": "components/nova/chat/artifact-card.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "canvas-panel",
+          "component": "CanvasPanel",
+          "kind": "chat",
+          "path": "components/nova/chat/canvas-panel.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "composer",
+          "component": "Composer",
+          "kind": "chat",
+          "path": "components/nova/chat/composer.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "composer-tools",
+          "component": "ComposerTools",
+          "kind": "chat",
+          "path": "components/nova/chat/composer-tools.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "slash-menu",
+          "component": "SlashMenu",
+          "kind": "chat",
+          "path": "components/nova/chat/slash-menu.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "mention-menu",
+          "component": "MentionMenu",
+          "kind": "chat",
+          "path": "components/nova/chat/mention-menu.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "attachment-chip",
+          "component": "AttachmentChip",
+          "kind": "chat",
+          "path": "components/nova/chat/attachment-chip.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "attachment-grid",
+          "component": "AttachmentGrid",
+          "kind": "chat",
+          "path": "components/nova/chat/attachment-grid.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "streaming-caret",
+          "component": "StreamingCaret",
+          "kind": "chat",
+          "path": "components/nova/chat/streaming-caret.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "message-actions",
+          "component": "MessageActions",
+          "kind": "chat",
+          "path": "components/nova/chat/message-actions.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "message-rating",
+          "component": "MessageRating",
+          "kind": "chat",
+          "path": "components/nova/chat/message-rating.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "citation",
+          "component": "Citation",
+          "kind": "chat",
+          "path": "components/nova/chat/citation.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "sources-row",
+          "component": "SourcesRow",
+          "kind": "chat",
+          "path": "components/nova/chat/sources-row.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "follow-ups",
+          "component": "FollowUps",
+          "kind": "chat",
+          "path": "components/nova/chat/follow-ups.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "suggestion-grid",
+          "component": "SuggestionGrid",
+          "kind": "chat",
+          "path": "components/nova/chat/suggestion-grid.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "session-rail",
+          "component": "SessionRail",
+          "kind": "chat",
+          "path": "components/nova/chat/session-rail.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "session-item",
+          "component": "SessionItem",
+          "kind": "chat",
+          "path": "components/nova/chat/session-item.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "context-panel",
+          "component": "ContextPanel",
+          "kind": "chat",
+          "path": "components/nova/chat/context-panel.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "token-meter",
+          "component": "TokenMeter",
+          "kind": "chat",
+          "path": "components/nova/chat/token-meter.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "model-picker",
+          "component": "ModelPicker",
+          "kind": "chat",
+          "path": "components/nova/chat/model-picker.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        },
+        {
+          "name": "typing-presence",
+          "component": "TypingPresence",
+          "kind": "chat",
+          "path": "components/nova/chat/typing-presence.tsx",
+          "motion": "Tokens appear as they stream, the caret blinks for 1s and stops 120ms after the stream ends."
+        }
+      ]
+    },
+    {
+      "name": "overlays",
+      "scope": "Dialogs, drawers, popovers, menus, tours and toasts.",
+      "path": "components/nova/overlays/",
+      "count": 22,
+      "spec": "3.4, 6.7",
+      "components": [
+        {
+          "name": "modal",
+          "component": "Modal",
+          "kind": "overlay",
+          "path": "components/nova/overlays/modal.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "confirm-dialog",
+          "component": "ConfirmDialog",
+          "kind": "overlay",
+          "path": "components/nova/overlays/confirm-dialog.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "drawer-right",
+          "component": "DrawerRight",
+          "kind": "overlay",
+          "path": "components/nova/overlays/drawer-right.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "sheet-bottom",
+          "component": "SheetBottom",
+          "kind": "overlay",
+          "path": "components/nova/overlays/sheet-bottom.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "popover",
+          "component": "Popover",
+          "kind": "overlay",
+          "path": "components/nova/overlays/popover.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "tooltip",
+          "component": "Tooltip",
+          "kind": "overlay",
+          "path": "components/nova/overlays/tooltip.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "dropdown-menu",
+          "component": "DropdownMenu",
+          "kind": "overlay",
+          "path": "components/nova/overlays/dropdown-menu.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "context-menu",
+          "component": "ContextMenu",
+          "kind": "overlay",
+          "path": "components/nova/overlays/context-menu.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "hover-card",
+          "component": "HoverCard",
+          "kind": "overlay",
+          "path": "components/nova/overlays/hover-card.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "lightbox",
+          "component": "Lightbox",
+          "kind": "overlay",
+          "path": "components/nova/overlays/lightbox.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "side-panel",
+          "component": "SidePanel",
+          "kind": "overlay",
+          "path": "components/nova/overlays/side-panel.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "inspector",
+          "component": "Inspector",
+          "kind": "overlay",
+          "path": "components/nova/overlays/inspector.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "quick-edit",
+          "component": "QuickEdit",
+          "kind": "overlay",
+          "path": "components/nova/overlays/quick-edit.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "onboarding-tour",
+          "component": "OnboardingTour",
+          "kind": "overlay",
+          "path": "components/nova/overlays/onboarding-tour.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "announce-bar",
+          "component": "AnnounceBar",
+          "kind": "overlay",
+          "path": "components/nova/overlays/announce-bar.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "cookie-bar",
+          "component": "CookieBar",
+          "kind": "overlay",
+          "path": "components/nova/overlays/cookie-bar.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "toaster",
+          "component": "Toaster",
+          "kind": "overlay",
+          "path": "components/nova/overlays/toaster.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "toast-item",
+          "component": "ToastItem",
+          "kind": "overlay",
+          "path": "components/nova/overlays/toast-item.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "banner-inline",
+          "component": "BannerInline",
+          "kind": "overlay",
+          "path": "components/nova/overlays/banner-inline.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "slide-over-form",
+          "component": "SlideOverForm",
+          "kind": "overlay",
+          "path": "components/nova/overlays/slide-over-form.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "command-sheet",
+          "component": "CommandSheet",
+          "kind": "overlay",
+          "path": "components/nova/overlays/command-sheet.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        },
+        {
+          "name": "preview-modal",
+          "component": "PreviewModal",
+          "kind": "overlay",
+          "path": "components/nova/overlays/preview-modal.tsx",
+          "motion": "Backdrop fades 180ms, surface rises 8px and scales from 0.98 over 240ms; exit is 160ms."
+        }
+      ]
+    },
+    {
+      "name": "feedback",
+      "scope": "Skeletons, empty states, errors, alerts and status.",
+      "path": "components/nova/feedback/",
+      "count": 20,
+      "spec": "3.12, 6.11",
+      "components": [
+        {
+          "name": "skeleton-text",
+          "component": "SkeletonText",
+          "kind": "feedback",
+          "path": "components/nova/feedback/skeleton-text.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "skeleton-card",
+          "component": "SkeletonCard",
+          "kind": "feedback",
+          "path": "components/nova/feedback/skeleton-card.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "skeleton-table",
+          "component": "SkeletonTable",
+          "kind": "feedback",
+          "path": "components/nova/feedback/skeleton-table.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "skeleton-chart",
+          "component": "SkeletonChart",
+          "kind": "feedback",
+          "path": "components/nova/feedback/skeleton-chart.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "empty-state",
+          "component": "EmptyState",
+          "kind": "feedback",
+          "path": "components/nova/feedback/empty-state.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "empty-search",
+          "component": "EmptySearch",
+          "kind": "feedback",
+          "path": "components/nova/feedback/empty-search.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "error-state",
+          "component": "ErrorState",
+          "kind": "feedback",
+          "path": "components/nova/feedback/error-state.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "error-boundary-card",
+          "component": "ErrorBoundaryCard",
+          "kind": "feedback",
+          "path": "components/nova/feedback/error-boundary-card.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "offline-banner",
+          "component": "OfflineBanner",
+          "kind": "feedback",
+          "path": "components/nova/feedback/offline-banner.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "rate-limit-notice",
+          "component": "RateLimitNotice",
+          "kind": "feedback",
+          "path": "components/nova/feedback/rate-limit-notice.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "loading-dots",
+          "component": "LoadingDots",
+          "kind": "feedback",
+          "path": "components/nova/feedback/loading-dots.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "loading-bar",
+          "component": "LoadingBar",
+          "kind": "feedback",
+          "path": "components/nova/feedback/loading-bar.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "spinner",
+          "component": "Spinner",
+          "kind": "feedback",
+          "path": "components/nova/feedback/spinner.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "progress-ring",
+          "component": "ProgressRing",
+          "kind": "feedback",
+          "path": "components/nova/feedback/progress-ring.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "pulse-dot",
+          "component": "PulseDot",
+          "kind": "feedback",
+          "path": "components/nova/feedback/pulse-dot.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "status-pill",
+          "component": "StatusPill",
+          "kind": "feedback",
+          "path": "components/nova/feedback/status-pill.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "badge-status",
+          "component": "BadgeStatus",
+          "kind": "feedback",
+          "path": "components/nova/feedback/badge-status.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "alert-info",
+          "component": "AlertInfo",
+          "kind": "feedback",
+          "path": "components/nova/feedback/alert-info.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "alert-warning",
+          "component": "AlertWarning",
+          "kind": "feedback",
+          "path": "components/nova/feedback/alert-warning.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        },
+        {
+          "name": "alert-danger",
+          "component": "AlertDanger",
+          "kind": "feedback",
+          "path": "components/nova/feedback/alert-danger.tsx",
+          "motion": "Shimmer travels at 1.4s linear; states cross-fade in 240ms and never flash."
+        }
+      ]
+    },
+    {
+      "name": "marketing",
+      "scope": "Page sections: heroes, features, pricing, proof, FAQ and CTAs.",
+      "path": "components/nova/marketing/",
+      "count": 40,
+      "spec": "3.7, 5.1 to 5.9",
+      "components": [
+        {
+          "name": "hero-centered",
+          "component": "HeroCentered",
+          "kind": "marketing",
+          "path": "components/nova/marketing/hero-centered.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "hero-split",
+          "component": "HeroSplit",
+          "kind": "marketing",
+          "path": "components/nova/marketing/hero-split.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "hero-chat",
+          "component": "HeroChat",
+          "kind": "marketing",
+          "path": "components/nova/marketing/hero-chat.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "hero-minimal",
+          "component": "HeroMinimal",
+          "kind": "marketing",
+          "path": "components/nova/marketing/hero-minimal.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "announcement-pill",
+          "component": "AnnouncementPill",
+          "kind": "marketing",
+          "path": "components/nova/marketing/announcement-pill.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "logo-cloud",
+          "component": "LogoCloud",
+          "kind": "marketing",
+          "path": "components/nova/marketing/logo-cloud.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "marquee-logos",
+          "component": "MarqueeLogos",
+          "kind": "marketing",
+          "path": "components/nova/marketing/marquee-logos.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "features-bento",
+          "component": "FeaturesBento",
+          "kind": "marketing",
+          "path": "components/nova/marketing/features-bento.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "features-grid",
+          "component": "FeaturesGrid",
+          "kind": "marketing",
+          "path": "components/nova/marketing/features-grid.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "features-alternating",
+          "component": "FeaturesAlternating",
+          "kind": "marketing",
+          "path": "components/nova/marketing/features-alternating.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "feature-list-icons",
+          "component": "FeatureListIcons",
+          "kind": "marketing",
+          "path": "components/nova/marketing/feature-list-icons.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "stats-band",
+          "component": "StatsBand",
+          "kind": "marketing",
+          "path": "components/nova/marketing/stats-band.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "process-steps",
+          "component": "ProcessSteps",
+          "kind": "marketing",
+          "path": "components/nova/marketing/process-steps.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "how-it-works",
+          "component": "HowItWorks",
+          "kind": "marketing",
+          "path": "components/nova/marketing/how-it-works.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "testimonials-grid",
+          "component": "TestimonialsGrid",
+          "kind": "marketing",
+          "path": "components/nova/marketing/testimonials-grid.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "testimonial-wall",
+          "component": "TestimonialWall",
+          "kind": "marketing",
+          "path": "components/nova/marketing/testimonial-wall.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "testimonial-featured",
+          "component": "TestimonialFeatured",
+          "kind": "marketing",
+          "path": "components/nova/marketing/testimonial-featured.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "integrations-grid",
+          "component": "IntegrationsGrid",
+          "kind": "marketing",
+          "path": "components/nova/marketing/integrations-grid.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "comparison-table",
+          "component": "ComparisonTable",
+          "kind": "marketing",
+          "path": "components/nova/marketing/comparison-table.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "pricing-three",
+          "component": "PricingThree",
+          "kind": "marketing",
+          "path": "components/nova/marketing/pricing-three.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "pricing-toggle",
+          "component": "PricingToggle",
+          "kind": "marketing",
+          "path": "components/nova/marketing/pricing-toggle.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "pricing-comparison",
+          "component": "PricingComparison",
+          "kind": "marketing",
+          "path": "components/nova/marketing/pricing-comparison.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "pricing-calculator",
+          "component": "PricingCalculator",
+          "kind": "marketing",
+          "path": "components/nova/marketing/pricing-calculator.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "faq-accordion",
+          "component": "FaqAccordion",
+          "kind": "marketing",
+          "path": "components/nova/marketing/faq-accordion.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "faq-two-column",
+          "component": "FaqTwoColumn",
+          "kind": "marketing",
+          "path": "components/nova/marketing/faq-two-column.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "cta-band",
+          "component": "CtaBand",
+          "kind": "marketing",
+          "path": "components/nova/marketing/cta-band.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "cta-split",
+          "component": "CtaSplit",
+          "kind": "marketing",
+          "path": "components/nova/marketing/cta-split.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "newsletter-inline",
+          "component": "NewsletterInline",
+          "kind": "marketing",
+          "path": "components/nova/marketing/newsletter-inline.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "waitlist",
+          "component": "Waitlist",
+          "kind": "marketing",
+          "path": "components/nova/marketing/waitlist.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "roadmap",
+          "component": "Roadmap",
+          "kind": "marketing",
+          "path": "components/nova/marketing/roadmap.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "changelog-list",
+          "component": "ChangelogList",
+          "kind": "marketing",
+          "path": "components/nova/marketing/changelog-list.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "security-badges",
+          "component": "SecurityBadges",
+          "kind": "marketing",
+          "path": "components/nova/marketing/security-badges.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "team-grid",
+          "component": "TeamGrid",
+          "kind": "marketing",
+          "path": "components/nova/marketing/team-grid.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "careers-list",
+          "component": "CareersList",
+          "kind": "marketing",
+          "path": "components/nova/marketing/careers-list.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "customers-grid",
+          "component": "CustomersGrid",
+          "kind": "marketing",
+          "path": "components/nova/marketing/customers-grid.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "case-study-band",
+          "component": "CaseStudyBand",
+          "kind": "marketing",
+          "path": "components/nova/marketing/case-study-band.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "metrics-row",
+          "component": "MetricsRow",
+          "kind": "marketing",
+          "path": "components/nova/marketing/metrics-row.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "trust-row",
+          "component": "TrustRow",
+          "kind": "marketing",
+          "path": "components/nova/marketing/trust-row.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "closing-cta",
+          "component": "ClosingCta",
+          "kind": "marketing",
+          "path": "components/nova/marketing/closing-cta.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        },
+        {
+          "name": "product-tour",
+          "component": "ProductTour",
+          "kind": "marketing",
+          "path": "components/nova/marketing/product-tour.tsx",
+          "motion": "Headline, lead and action stagger at 120ms intervals; one scroll-linked scene per page, maximum."
+        }
+      ]
+    },
+    {
+      "name": "shell",
+      "scope": "Application shell and settings surfaces.",
+      "path": "components/nova/shell/",
+      "count": 18,
+      "spec": "5.8, 3.6",
+      "components": [
+        {
+          "name": "app-layout",
+          "component": "AppLayout",
+          "kind": "shell",
+          "path": "components/nova/shell/app-layout.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "topbar",
+          "component": "Topbar",
+          "kind": "shell",
+          "path": "components/nova/shell/topbar.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "workspace-switcher",
+          "component": "WorkspaceSwitcher",
+          "kind": "shell",
+          "path": "components/nova/shell/workspace-switcher.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "notification-bell",
+          "component": "NotificationBell",
+          "kind": "shell",
+          "path": "components/nova/shell/notification-bell.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "activity-drawer",
+          "component": "ActivityDrawer",
+          "kind": "shell",
+          "path": "components/nova/shell/activity-drawer.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "settings-layout",
+          "component": "SettingsLayout",
+          "kind": "shell",
+          "path": "components/nova/shell/settings-layout.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "settings-section",
+          "component": "SettingsSection",
+          "kind": "shell",
+          "path": "components/nova/shell/settings-section.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "settings-rail",
+          "component": "SettingsRail",
+          "kind": "shell",
+          "path": "components/nova/shell/settings-rail.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "danger-zone",
+          "component": "DangerZone",
+          "kind": "shell",
+          "path": "components/nova/shell/danger-zone.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "api-keys-table",
+          "component": "ApiKeysTable",
+          "kind": "shell",
+          "path": "components/nova/shell/api-keys-table.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "sessions-table",
+          "component": "SessionsTable",
+          "kind": "shell",
+          "path": "components/nova/shell/sessions-table.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "billing-panel",
+          "component": "BillingPanel",
+          "kind": "shell",
+          "path": "components/nova/shell/billing-panel.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "usage-meter",
+          "component": "UsageMeter",
+          "kind": "shell",
+          "path": "components/nova/shell/usage-meter.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "members-table",
+          "component": "MembersTable",
+          "kind": "shell",
+          "path": "components/nova/shell/members-table.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "invite-dialog",
+          "component": "InviteDialog",
+          "kind": "shell",
+          "path": "components/nova/shell/invite-dialog.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "role-select",
+          "component": "RoleSelect",
+          "kind": "shell",
+          "path": "components/nova/shell/role-select.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "audit-log",
+          "component": "AuditLog",
+          "kind": "shell",
+          "path": "components/nova/shell/audit-log.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        },
+        {
+          "name": "profile-form",
+          "component": "ProfileForm",
+          "kind": "shell",
+          "path": "components/nova/shell/profile-form.tsx",
+          "motion": "Sidebar collapses over 240ms with a width and opacity pair; the content region never re-layouts twice."
+        }
+      ]
+    },
+    {
+      "name": "ai",
+      "scope": "Agent tooling: prompts, models, runs, evaluations, cost and guardrails.",
+      "path": "components/nova/ai/",
+      "count": 20,
+      "spec": "4.1 to 4.9, 6.14",
+      "components": [
+        {
+          "name": "prompt-library",
+          "component": "PromptLibrary",
+          "kind": "ai",
+          "path": "components/nova/ai/prompt-library.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "persona-card",
+          "component": "PersonaCard",
+          "kind": "ai",
+          "path": "components/nova/ai/persona-card.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "prompt-variable-form",
+          "component": "PromptVariableForm",
+          "kind": "ai",
+          "path": "components/nova/ai/prompt-variable-form.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "model-select",
+          "component": "ModelSelect",
+          "kind": "ai",
+          "path": "components/nova/ai/model-select.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "temperature-control",
+          "component": "TemperatureControl",
+          "kind": "ai",
+          "path": "components/nova/ai/temperature-control.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "tool-toggle-list",
+          "component": "ToolToggleList",
+          "kind": "ai",
+          "path": "components/nova/ai/tool-toggle-list.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "agent-step-list",
+          "component": "AgentStepList",
+          "kind": "ai",
+          "path": "components/nova/ai/agent-step-list.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "agent-run-card",
+          "component": "AgentRunCard",
+          "kind": "ai",
+          "path": "components/nova/ai/agent-run-card.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "agent-log-stream",
+          "component": "AgentLogStream",
+          "kind": "ai",
+          "path": "components/nova/ai/agent-log-stream.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "eval-table",
+          "component": "EvalTable",
+          "kind": "ai",
+          "path": "components/nova/ai/eval-table.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "dataset-card",
+          "component": "DatasetCard",
+          "kind": "ai",
+          "path": "components/nova/ai/dataset-card.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "embed-badge",
+          "component": "EmbedBadge",
+          "kind": "ai",
+          "path": "components/nova/ai/embed-badge.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "rag-source-list",
+          "component": "RagSourceList",
+          "kind": "ai",
+          "path": "components/nova/ai/rag-source-list.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "memory-card",
+          "component": "MemoryCard",
+          "kind": "ai",
+          "path": "components/nova/ai/memory-card.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "guardrail-panel",
+          "component": "GuardrailPanel",
+          "kind": "ai",
+          "path": "components/nova/ai/guardrail-panel.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "cost-panel",
+          "component": "CostPanel",
+          "kind": "ai",
+          "path": "components/nova/ai/cost-panel.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "token-budget",
+          "component": "TokenBudget",
+          "kind": "ai",
+          "path": "components/nova/ai/token-budget.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "latency-badge",
+          "component": "LatencyBadge",
+          "kind": "ai",
+          "path": "components/nova/ai/latency-badge.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "streaming-status",
+          "component": "StreamingStatus",
+          "kind": "ai",
+          "path": "components/nova/ai/streaming-status.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        },
+        {
+          "name": "insight-card",
+          "component": "InsightCard",
+          "kind": "ai",
+          "path": "components/nova/ai/insight-card.tsx",
+          "motion": "Reasoning drawer expands over 420ms via grid-template-rows; the caret signals waiting after 3s of stall."
+        }
+      ]
+    },
+    {
+      "name": "editors",
+      "scope": "Code, diff, JSON, markdown and authoring surfaces.",
+      "path": "components/nova/editors/",
+      "count": 14,
+      "spec": "3.3, 6.6",
+      "components": [
+        {
+          "name": "code-block",
+          "component": "CodeBlock",
+          "kind": "editor",
+          "path": "components/nova/editors/code-block.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "code-tabs",
+          "component": "CodeTabs",
+          "kind": "editor",
+          "path": "components/nova/editors/code-tabs.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "terminal",
+          "component": "Terminal",
+          "kind": "editor",
+          "path": "components/nova/editors/terminal.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "diff-viewer",
+          "component": "DiffViewer",
+          "kind": "editor",
+          "path": "components/nova/editors/diff-viewer.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "json-tree",
+          "component": "JsonTree",
+          "kind": "editor",
+          "path": "components/nova/editors/json-tree.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "markdown-preview",
+          "component": "MarkdownPreview",
+          "kind": "editor",
+          "path": "components/nova/editors/markdown-preview.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "rich-text-toolbar",
+          "component": "RichTextToolbar",
+          "kind": "editor",
+          "path": "components/nova/editors/rich-text-toolbar.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "slash-editor",
+          "component": "SlashEditor",
+          "kind": "editor",
+          "path": "components/nova/editors/slash-editor.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "cell-editor",
+          "component": "CellEditor",
+          "kind": "editor",
+          "path": "components/nova/editors/cell-editor.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "formula-input",
+          "component": "FormulaInput",
+          "kind": "editor",
+          "path": "components/nova/editors/formula-input.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "canvas-board",
+          "component": "CanvasBoard",
+          "kind": "editor",
+          "path": "components/nova/editors/canvas-board.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "sticky-note",
+          "component": "StickyNote",
+          "kind": "editor",
+          "path": "components/nova/editors/sticky-note.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "comment-thread",
+          "component": "CommentThread",
+          "kind": "editor",
+          "path": "components/nova/editors/comment-thread.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        },
+        {
+          "name": "mention-input",
+          "component": "MentionInput",
+          "kind": "editor",
+          "path": "components/nova/editors/mention-input.tsx",
+          "motion": "The find bar drops 8px over 240ms; comment threads expand with the same height technique as drawers."
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "scope": "Images, video, audio, avatars, logos and frames.",
+      "path": "components/nova/media/",
+      "count": 16,
+      "spec": "3.11, 6.10",
+      "components": [
+        {
+          "name": "image-card",
+          "component": "ImageCard",
+          "kind": "media",
+          "path": "components/nova/media/image-card.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "gallery-grid",
+          "component": "GalleryGrid",
+          "kind": "media",
+          "path": "components/nova/media/gallery-grid.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "lightbox-thumbs",
+          "component": "LightboxThumbs",
+          "kind": "media",
+          "path": "components/nova/media/lightbox-thumbs.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "video-player",
+          "component": "VideoPlayer",
+          "kind": "media",
+          "path": "components/nova/media/video-player.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "audio-waveform",
+          "component": "AudioWaveform",
+          "kind": "media",
+          "path": "components/nova/media/audio-waveform.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "avatar",
+          "component": "Avatar",
+          "kind": "media",
+          "path": "components/nova/media/avatar.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "avatar-group",
+          "component": "AvatarGroup",
+          "kind": "media",
+          "path": "components/nova/media/avatar-group.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "avatar-upload",
+          "component": "AvatarUpload",
+          "kind": "media",
+          "path": "components/nova/media/avatar-upload.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "logo-tile",
+          "component": "LogoTile",
+          "kind": "media",
+          "path": "components/nova/media/logo-tile.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "favicon-chip",
+          "component": "FaviconChip",
+          "kind": "media",
+          "path": "components/nova/media/favicon-chip.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "icon-tile",
+          "component": "IconTile",
+          "kind": "media",
+          "path": "components/nova/media/icon-tile.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "illustration-frame",
+          "component": "IllustrationFrame",
+          "kind": "media",
+          "path": "components/nova/media/illustration-frame.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "device-frame",
+          "component": "DeviceFrame",
+          "kind": "media",
+          "path": "components/nova/media/device-frame.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "screenshot-frame",
+          "component": "ScreenshotFrame",
+          "kind": "media",
+          "path": "components/nova/media/screenshot-frame.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "before-after",
+          "component": "BeforeAfter",
+          "kind": "media",
+          "path": "components/nova/media/before-after.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        },
+        {
+          "name": "file-preview",
+          "component": "FilePreview",
+          "kind": "media",
+          "path": "components/nova/media/file-preview.tsx",
+          "motion": "Poster fades to video over 240ms after metadata; hover raises the controls without moving the frame."
+        }
+      ]
+    },
+    {
+      "name": "commerce",
+      "scope": "Product, cart, checkout, invoices and billing meters.",
+      "path": "components/nova/commerce/",
+      "count": 16,
+      "spec": "5.2, 3.1",
+      "components": [
+        {
+          "name": "product-tile",
+          "component": "ProductTile",
+          "kind": "commerce",
+          "path": "components/nova/commerce/product-tile.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "cart-line",
+          "component": "CartLine",
+          "kind": "commerce",
+          "path": "components/nova/commerce/cart-line.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "checkout-summary",
+          "component": "CheckoutSummary",
+          "kind": "commerce",
+          "path": "components/nova/commerce/checkout-summary.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "coupon-input",
+          "component": "CouponInput",
+          "kind": "commerce",
+          "path": "components/nova/commerce/coupon-input.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "invoice-row",
+          "component": "InvoiceRow",
+          "kind": "commerce",
+          "path": "components/nova/commerce/invoice-row.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "seat-picker",
+          "component": "SeatPicker",
+          "kind": "commerce",
+          "path": "components/nova/commerce/seat-picker.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "plan-switcher",
+          "component": "PlanSwitcher",
+          "kind": "commerce",
+          "path": "components/nova/commerce/plan-switcher.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "usage-based-meter",
+          "component": "UsageBasedMeter",
+          "kind": "commerce",
+          "path": "components/nova/commerce/usage-based-meter.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "trial-banner",
+          "component": "TrialBanner",
+          "kind": "commerce",
+          "path": "components/nova/commerce/trial-banner.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "upgrade-prompt",
+          "component": "UpgradePrompt",
+          "kind": "commerce",
+          "path": "components/nova/commerce/upgrade-prompt.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "discount-chip",
+          "component": "DiscountChip",
+          "kind": "commerce",
+          "path": "components/nova/commerce/discount-chip.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "price-display",
+          "component": "PriceDisplay",
+          "kind": "commerce",
+          "path": "components/nova/commerce/price-display.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "payment-method-card",
+          "component": "PaymentMethodCard",
+          "kind": "commerce",
+          "path": "components/nova/commerce/payment-method-card.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "receipt-card",
+          "component": "ReceiptCard",
+          "kind": "commerce",
+          "path": "components/nova/commerce/receipt-card.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "refund-panel",
+          "component": "RefundPanel",
+          "kind": "commerce",
+          "path": "components/nova/commerce/refund-panel.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        },
+        {
+          "name": "billing-toggle",
+          "component": "BillingToggle",
+          "kind": "commerce",
+          "path": "components/nova/commerce/billing-toggle.tsx",
+          "motion": "Gallery cross-fades in 240ms; quantity steps use a 0.98 press; nothing bounces."
+        }
+      ]
+    },
+    {
+      "name": "forms",
+      "scope": "Multi-step and advanced form patterns.",
+      "path": "components/nova/forms/",
+      "count": 18,
+      "spec": "3.3, 5.3",
+      "components": [
+        {
+          "name": "multi-step-form",
+          "component": "MultiStepForm",
+          "kind": "form",
+          "path": "components/nova/forms/multi-step-form.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "form-section",
+          "component": "FormSection",
+          "kind": "form",
+          "path": "components/nova/forms/form-section.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "form-summary",
+          "component": "FormSummary",
+          "kind": "form",
+          "path": "components/nova/forms/form-summary.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "field-group",
+          "component": "FieldGroup",
+          "kind": "form",
+          "path": "components/nova/forms/field-group.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "address-form",
+          "component": "AddressForm",
+          "kind": "form",
+          "path": "components/nova/forms/address-form.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "card-form",
+          "component": "CardForm",
+          "kind": "form",
+          "path": "components/nova/forms/card-form.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "credit-card-input",
+          "component": "CreditCardInput",
+          "kind": "form",
+          "path": "components/nova/forms/credit-card-input.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "signature-pad",
+          "component": "SignaturePad",
+          "kind": "form",
+          "path": "components/nova/forms/signature-pad.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "survey-scale",
+          "component": "SurveyScale",
+          "kind": "form",
+          "path": "components/nova/forms/survey-scale.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "upload-list",
+          "component": "UploadList",
+          "kind": "form",
+          "path": "components/nova/forms/upload-list.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "dynamic-list-form",
+          "component": "DynamicListForm",
+          "kind": "form",
+          "path": "components/nova/forms/dynamic-list-form.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "validation-summary",
+          "component": "ValidationSummary",
+          "kind": "form",
+          "path": "components/nova/forms/validation-summary.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "async-validation",
+          "component": "AsyncValidation",
+          "kind": "form",
+          "path": "components/nova/forms/async-validation.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "draft-banner",
+          "component": "DraftBanner",
+          "kind": "form",
+          "path": "components/nova/forms/draft-banner.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "unsaved-guard",
+          "component": "UnsavedGuard",
+          "kind": "form",
+          "path": "components/nova/forms/unsaved-guard.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "submit-bar",
+          "component": "SubmitBar",
+          "kind": "form",
+          "path": "components/nova/forms/submit-bar.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "conditional-fields",
+          "component": "ConditionalFields",
+          "kind": "form",
+          "path": "components/nova/forms/conditional-fields.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        },
+        {
+          "name": "autosave-indicator",
+          "component": "AutosaveIndicator",
+          "kind": "form",
+          "path": "components/nova/forms/autosave-indicator.tsx",
+          "motion": "Step transitions slide 16px and fade in 240ms; validation messages appear at 8px with no shake."
+        }
+      ]
+    },
+    {
+      "name": "layout",
+      "scope": "Structural layouts and page-level compositions.",
+      "path": "components/nova/layout/",
+      "count": 20,
+      "spec": "3.7, 3.8, 5.6",
+      "components": [
+        {
+          "name": "bento-grid",
+          "component": "BentoGrid",
+          "kind": "layout",
+          "path": "components/nova/layout/bento-grid.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "split-layout",
+          "component": "SplitLayout",
+          "kind": "layout",
+          "path": "components/nova/layout/split-layout.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "sticky-aside",
+          "component": "StickyAside",
+          "kind": "layout",
+          "path": "components/nova/layout/sticky-aside.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "two-column-prose",
+          "component": "TwoColumnProse",
+          "kind": "layout",
+          "path": "components/nova/layout/two-column-prose.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "docs-layout",
+          "component": "DocsLayout",
+          "kind": "layout",
+          "path": "components/nova/layout/docs-layout.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "blog-layout",
+          "component": "BlogLayout",
+          "kind": "layout",
+          "path": "components/nova/layout/blog-layout.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "portfolio-grid",
+          "component": "PortfolioGrid",
+          "kind": "layout",
+          "path": "components/nova/layout/portfolio-grid.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "masonry",
+          "component": "Masonry",
+          "kind": "layout",
+          "path": "components/nova/layout/masonry.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "gallery-mosaic",
+          "component": "GalleryMosaic",
+          "kind": "layout",
+          "path": "components/nova/layout/gallery-mosaic.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "sidebar-content",
+          "component": "SidebarContent",
+          "kind": "layout",
+          "path": "components/nova/layout/sidebar-content.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "full-bleed",
+          "component": "FullBleed",
+          "kind": "layout",
+          "path": "components/nova/layout/full-bleed.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "section-header",
+          "component": "SectionHeader",
+          "kind": "layout",
+          "path": "components/nova/layout/section-header.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "page-header",
+          "component": "PageHeader",
+          "kind": "layout",
+          "path": "components/nova/layout/page-header.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "content-header",
+          "component": "ContentHeader",
+          "kind": "layout",
+          "path": "components/nova/layout/content-header.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "article-header",
+          "component": "ArticleHeader",
+          "kind": "layout",
+          "path": "components/nova/layout/article-header.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "sticky-toolbar",
+          "component": "StickyToolbar",
+          "kind": "layout",
+          "path": "components/nova/layout/sticky-toolbar.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "action-bar",
+          "component": "ActionBar",
+          "kind": "layout",
+          "path": "components/nova/layout/action-bar.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "stats-header",
+          "component": "StatsHeader",
+          "kind": "layout",
+          "path": "components/nova/layout/stats-header.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "hero-content",
+          "component": "HeroContent",
+          "kind": "layout",
+          "path": "components/nova/layout/hero-content.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        },
+        {
+          "name": "empty-layout",
+          "component": "EmptyLayout",
+          "kind": "layout",
+          "path": "components/nova/layout/empty-layout.tsx",
+          "motion": "Sticky elements pin with a hairline that fades in over 240ms; regions do not animate on load."
+        }
+      ]
+    },
+    {
+      "name": "devtools",
+      "scope": "Developer surfaces: logs, network, schema and debugging.",
+      "path": "components/nova/devtools/",
+      "count": 14,
+      "spec": "3.10, 6.7",
+      "components": [
+        {
+          "name": "command-bar",
+          "component": "CommandBar",
+          "kind": "devtool",
+          "path": "components/nova/devtools/command-bar.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "hotkey-list",
+          "component": "HotkeyList",
+          "kind": "devtool",
+          "path": "components/nova/devtools/hotkey-list.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "feature-flag-panel",
+          "component": "FeatureFlagPanel",
+          "kind": "devtool",
+          "path": "components/nova/devtools/feature-flag-panel.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "env-switcher",
+          "component": "EnvSwitcher",
+          "kind": "devtool",
+          "path": "components/nova/devtools/env-switcher.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "log-viewer",
+          "component": "LogViewer",
+          "kind": "devtool",
+          "path": "components/nova/devtools/log-viewer.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "json-inspector",
+          "component": "JsonInspector",
+          "kind": "devtool",
+          "path": "components/nova/devtools/json-inspector.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "request-timeline",
+          "component": "RequestTimeline",
+          "kind": "devtool",
+          "path": "components/nova/devtools/request-timeline.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "network-table",
+          "component": "NetworkTable",
+          "kind": "devtool",
+          "path": "components/nova/devtools/network-table.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "perf-meter",
+          "component": "PerfMeter",
+          "kind": "devtool",
+          "path": "components/nova/devtools/perf-meter.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "error-report",
+          "component": "ErrorReport",
+          "kind": "devtool",
+          "path": "components/nova/devtools/error-report.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "debug-drawer",
+          "component": "DebugDrawer",
+          "kind": "devtool",
+          "path": "components/nova/devtools/debug-drawer.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "api-playground",
+          "component": "ApiPlayground",
+          "kind": "devtool",
+          "path": "components/nova/devtools/api-playground.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "webhook-tester",
+          "component": "WebhookTester",
+          "kind": "devtool",
+          "path": "components/nova/devtools/webhook-tester.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        },
+        {
+          "name": "schema-viewer",
+          "component": "SchemaViewer",
+          "kind": "devtool",
+          "path": "components/nova/devtools/schema-viewer.tsx",
+          "motion": "Panels toggle in 240ms; the timeline scrubs with a 0.06s spring and never snaps past the cursor."
+        }
+      ]
+    },
+    {
+      "name": "utilities",
+      "scope": "Micro utilities: copy, time, numbers, theme and locale.",
+      "path": "components/nova/utilities/",
+      "count": 18,
+      "spec": "3.14, 6.3",
+      "components": [
+        {
+          "name": "copy-button",
+          "component": "CopyButton",
+          "kind": "utility",
+          "path": "components/nova/utilities/copy-button.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "tooltip-label",
+          "component": "TooltipLabel",
+          "kind": "utility",
+          "path": "components/nova/utilities/tooltip-label.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "keyboard-chip",
+          "component": "KeyboardChip",
+          "kind": "utility",
+          "path": "components/nova/utilities/keyboard-chip.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "relative-time",
+          "component": "RelativeTime",
+          "kind": "utility",
+          "path": "components/nova/utilities/relative-time.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "number-format",
+          "component": "NumberFormat",
+          "kind": "utility",
+          "path": "components/nova/utilities/number-format.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "currency-text",
+          "component": "CurrencyText",
+          "kind": "utility",
+          "path": "components/nova/utilities/currency-text.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "truncate-text",
+          "component": "TruncateText",
+          "kind": "utility",
+          "path": "components/nova/utilities/truncate-text.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "middle-truncate",
+          "component": "MiddleTruncate",
+          "kind": "utility",
+          "path": "components/nova/utilities/middle-truncate.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "password-strength",
+          "component": "PasswordStrength",
+          "kind": "utility",
+          "path": "components/nova/utilities/password-strength.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "qr-card",
+          "component": "QrCard",
+          "kind": "utility",
+          "path": "components/nova/utilities/qr-card.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "share-row",
+          "component": "ShareRow",
+          "kind": "utility",
+          "path": "components/nova/utilities/share-row.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "print-button",
+          "component": "PrintButton",
+          "kind": "utility",
+          "path": "components/nova/utilities/print-button.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "theme-toggle",
+          "component": "ThemeToggle",
+          "kind": "utility",
+          "path": "components/nova/utilities/theme-toggle.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "locale-switcher",
+          "component": "LocaleSwitcher",
+          "kind": "utility",
+          "path": "components/nova/utilities/locale-switcher.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "timezone-select",
+          "component": "TimezoneSelect",
+          "kind": "utility",
+          "path": "components/nova/utilities/timezone-select.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "currency-select",
+          "component": "CurrencySelect",
+          "kind": "utility",
+          "path": "components/nova/utilities/currency-select.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "contrast-checker",
+          "component": "ContrastChecker",
+          "kind": "utility",
+          "path": "components/nova/utilities/contrast-checker.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        },
+        {
+          "name": "token-preview",
+          "component": "TokenPreview",
+          "kind": "utility",
+          "path": "components/nova/utilities/token-preview.tsx",
+          "motion": "Copy confirms with an inline icon swap in 140ms; tooltips delay 400ms and fade in 120ms."
+        }
+      ]
+    },
+    {
+      "name": "mobile",
+      "scope": "Mobile-native patterns with safe areas and gestures.",
+      "path": "components/nova/mobile/",
+      "count": 16,
+      "spec": "8.3, 6.12",
+      "components": [
+        {
+          "name": "bottom-nav",
+          "component": "BottomNav",
+          "kind": "mobile",
+          "path": "components/nova/mobile/bottom-nav.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "tab-bar",
+          "component": "TabBar",
+          "kind": "mobile",
+          "path": "components/nova/mobile/tab-bar.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "swipe-card",
+          "component": "SwipeCard",
+          "kind": "mobile",
+          "path": "components/nova/mobile/swipe-card.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "pull-to-refresh",
+          "component": "PullToRefresh",
+          "kind": "mobile",
+          "path": "components/nova/mobile/pull-to-refresh.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "action-sheet",
+          "component": "ActionSheet",
+          "kind": "mobile",
+          "path": "components/nova/mobile/action-sheet.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "mobile-nav-header",
+          "component": "MobileNavHeader",
+          "kind": "mobile",
+          "path": "components/nova/mobile/mobile-nav-header.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "sticky-cta",
+          "component": "StickyCta",
+          "kind": "mobile",
+          "path": "components/nova/mobile/sticky-cta.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "list-row",
+          "component": "ListRow",
+          "kind": "mobile",
+          "path": "components/nova/mobile/list-row.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "list-group",
+          "component": "ListGroup",
+          "kind": "mobile",
+          "path": "components/nova/mobile/list-group.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "swipe-actions",
+          "component": "SwipeActions",
+          "kind": "mobile",
+          "path": "components/nova/mobile/swipe-actions.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "mobile-search",
+          "component": "MobileSearch",
+          "kind": "mobile",
+          "path": "components/nova/mobile/mobile-search.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "bottom-sheet-form",
+          "component": "BottomSheetForm",
+          "kind": "mobile",
+          "path": "components/nova/mobile/bottom-sheet-form.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "segmented-mobile",
+          "component": "SegmentedMobile",
+          "kind": "mobile",
+          "path": "components/nova/mobile/segmented-mobile.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "floating-action",
+          "component": "FloatingAction",
+          "kind": "mobile",
+          "path": "components/nova/mobile/floating-action.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "drawer-handle",
+          "component": "DrawerHandle",
+          "kind": "mobile",
+          "path": "components/nova/mobile/drawer-handle.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        },
+        {
+          "name": "safe-area-spacer",
+          "component": "SafeAreaSpacer",
+          "kind": "mobile",
+          "path": "components/nova/mobile/safe-area-spacer.tsx",
+          "motion": "Sheets rise 24px over 320ms with a soft spring; rows dim to 0.9 on press instead of scaling."
+        }
+      ]
+    },
+    {
+      "name": "email",
+      "scope": "Email-safe components without backdrop blur.",
+      "path": "components/nova/email/",
+      "count": 12,
+      "spec": "8.4, 9.6",
+      "components": [
+        {
+          "name": "email-layout",
+          "component": "EmailLayout",
+          "kind": "email",
+          "path": "components/nova/email/email-layout.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-hero",
+          "component": "EmailHero",
+          "kind": "email",
+          "path": "components/nova/email/email-hero.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-cta",
+          "component": "EmailCta",
+          "kind": "email",
+          "path": "components/nova/email/email-cta.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-receipt",
+          "component": "EmailReceipt",
+          "kind": "email",
+          "path": "components/nova/email/email-receipt.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-digest",
+          "component": "EmailDigest",
+          "kind": "email",
+          "path": "components/nova/email/email-digest.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-invite",
+          "component": "EmailInvite",
+          "kind": "email",
+          "path": "components/nova/email/email-invite.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-verify",
+          "component": "EmailVerify",
+          "kind": "email",
+          "path": "components/nova/email/email-verify.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-reset",
+          "component": "EmailReset",
+          "kind": "email",
+          "path": "components/nova/email/email-reset.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-changelog",
+          "component": "EmailChangelog",
+          "kind": "email",
+          "path": "components/nova/email/email-changelog.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-footer",
+          "component": "EmailFooter",
+          "kind": "email",
+          "path": "components/nova/email/email-footer.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-quote",
+          "component": "EmailQuote",
+          "kind": "email",
+          "path": "components/nova/email/email-quote.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        },
+        {
+          "name": "email-signature",
+          "component": "EmailSignature",
+          "kind": "email",
+          "path": "components/nova/email/email-signature.tsx",
+          "motion": "No motion is possible, so hierarchy carries the rhythm; the same layout is used in the web preview."
+        }
+      ]
+    },
+    {
+      "name": "print",
+      "scope": "Print and PDF components.",
+      "path": "components/nova/print/",
+      "count": 8,
+      "spec": "8.5, 9.6",
+      "components": [
+        {
+          "name": "print-header",
+          "component": "PrintHeader",
+          "kind": "print",
+          "path": "components/nova/print/print-header.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-invoice",
+          "component": "PrintInvoice",
+          "kind": "print",
+          "path": "components/nova/print/print-invoice.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-report",
+          "component": "PrintReport",
+          "kind": "print",
+          "path": "components/nova/print/print-report.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-cover",
+          "component": "PrintCover",
+          "kind": "print",
+          "path": "components/nova/print/print-cover.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-table",
+          "component": "PrintTable",
+          "kind": "print",
+          "path": "components/nova/print/print-table.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-chart",
+          "component": "PrintChart",
+          "kind": "print",
+          "path": "components/nova/print/print-chart.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-signature",
+          "component": "PrintSignature",
+          "kind": "print",
+          "path": "components/nova/print/print-signature.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        },
+        {
+          "name": "print-footer",
+          "component": "PrintFooter",
+          "kind": "print",
+          "path": "components/nova/print/print-footer.tsx",
+          "motion": "Transitions are suppressed; the reveal classes resolve to their final state before printing."
+        }
+      ]
+    },
+    {
+      "name": "seo",
+      "scope": "Technical SEO and sharing previews.",
+      "path": "components/nova/seo/",
+      "count": 10,
+      "spec": "8.6, 9.4",
+      "components": [
+        {
+          "name": "metadata-card",
+          "component": "MetadataCard",
+          "kind": "seo",
+          "path": "components/nova/seo/metadata-card.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "og-preview",
+          "component": "OgPreview",
+          "kind": "seo",
+          "path": "components/nova/seo/og-preview.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "twitter-preview",
+          "component": "TwitterPreview",
+          "kind": "seo",
+          "path": "components/nova/seo/twitter-preview.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "structured-data-card",
+          "component": "StructuredDataCard",
+          "kind": "seo",
+          "path": "components/nova/seo/structured-data-card.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "sitemap-row",
+          "component": "SitemapRow",
+          "kind": "seo",
+          "path": "components/nova/seo/sitemap-row.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "robots-panel",
+          "component": "RobotsPanel",
+          "kind": "seo",
+          "path": "components/nova/seo/robots-panel.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "canonical-chip",
+          "component": "CanonicalChip",
+          "kind": "seo",
+          "path": "components/nova/seo/canonical-chip.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "hreflang-list",
+          "component": "HreflangList",
+          "kind": "seo",
+          "path": "components/nova/seo/hreflang-list.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "reading-progress",
+          "component": "ReadingProgress",
+          "kind": "seo",
+          "path": "components/nova/seo/reading-progress.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        },
+        {
+          "name": "share-preview",
+          "component": "SharePreview",
+          "kind": "seo",
+          "path": "components/nova/seo/share-preview.tsx",
+          "motion": "No visible motion: the structured data must stay identical to the rendered content."
+        }
+      ]
+    },
+    {
+      "name": "a11y",
+      "scope": "Accessibility primitives that ship with every page.",
+      "path": "components/nova/a11y/",
+      "count": 10,
+      "spec": "9.1, 9.2, 9.3",
+      "components": [
+        {
+          "name": "skip-link",
+          "component": "SkipLink",
+          "kind": "a11y",
+          "path": "components/nova/a11y/skip-link.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "live-region",
+          "component": "LiveRegion",
+          "kind": "a11y",
+          "path": "components/nova/a11y/live-region.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "focus-trap-wrapper",
+          "component": "FocusTrapWrapper",
+          "kind": "a11y",
+          "path": "components/nova/a11y/focus-trap-wrapper.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "keyboard-nav-list",
+          "component": "KeyboardNavList",
+          "kind": "a11y",
+          "path": "components/nova/a11y/keyboard-nav-list.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "described-by-hint",
+          "component": "DescribedByHint",
+          "kind": "a11y",
+          "path": "components/nova/a11y/described-by-hint.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "reduced-motion-guard",
+          "component": "ReducedMotionGuard",
+          "kind": "a11y",
+          "path": "components/nova/a11y/reduced-motion-guard.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "landmark-region",
+          "component": "LandmarkRegion",
+          "kind": "a11y",
+          "path": "components/nova/a11y/landmark-region.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "accessible-icon-button",
+          "component": "AccessibleIconButton",
+          "kind": "a11y",
+          "path": "components/nova/a11y/accessible-icon-button.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "sr-summary",
+          "component": "SrSummary",
+          "kind": "a11y",
+          "path": "components/nova/a11y/sr-summary.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        },
+        {
+          "name": "contrast-safe-badge",
+          "component": "ContrastSafeBadge",
+          "kind": "a11y",
+          "path": "components/nova/a11y/contrast-safe-badge.tsx",
+          "motion": "Announcements do not animate; the visible focus ring appears in 140ms and is never removed."
+        }
+      ]
+    },
+    {
+      "name": "enterprise",
+      "scope": "Enterprise administration, trust and procurement.",
+      "path": "components/nova/enterprise/",
+      "count": 20,
+      "spec": "5.8, 3.5, 9.2",
+      "components": [
+        {
+          "name": "sso-config",
+          "component": "SsoConfig",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/sso-config.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "scim-table",
+          "component": "ScimTable",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/scim-table.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "rbac-matrix",
+          "component": "RbacMatrix",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/rbac-matrix.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "permission-chip",
+          "component": "PermissionChip",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/permission-chip.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "role-card",
+          "component": "RoleCard",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/role-card.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "team-switcher",
+          "component": "TeamSwitcher",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/team-switcher.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "org-card",
+          "component": "OrgCard",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/org-card.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "audit-timeline",
+          "component": "AuditTimeline",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/audit-timeline.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "compliance-badge",
+          "component": "ComplianceBadge",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/compliance-badge.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "data-residency-select",
+          "component": "DataResidencySelect",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/data-residency-select.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "sla-card",
+          "component": "SlaCard",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/sla-card.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "security-review-card",
+          "component": "SecurityReviewCard",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/security-review-card.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "contract-card",
+          "component": "ContractCard",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/contract-card.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "procurement-checklist",
+          "component": "ProcurementChecklist",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/procurement-checklist.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "enterprise-cta",
+          "component": "EnterpriseCta",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/enterprise-cta.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "sales-contact",
+          "component": "SalesContact",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/sales-contact.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "onboarding-checklist",
+          "component": "OnboardingChecklist",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/onboarding-checklist.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "migration-panel",
+          "component": "MigrationPanel",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/migration-panel.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "sandbox-banner",
+          "component": "SandboxBanner",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/sandbox-banner.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        },
+        {
+          "name": "trust-center-row",
+          "component": "TrustCenterRow",
+          "kind": "enterprise",
+          "path": "components/nova/enterprise/trust-center-row.tsx",
+          "motion": "Permission changes cross-fade in 240ms; audit rows enter with a 60ms cascade, capped at 400ms."
+        }
+      ]
+    }
+  ]
+}

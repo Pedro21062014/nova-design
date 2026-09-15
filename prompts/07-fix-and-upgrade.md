@@ -62,6 +62,38 @@ Deliver for each phase:
 - A short list of what you deliberately did not change and why.
 ```
 
+## The four failures of pasted components (fix in this order)
+
+Third-party and AI-generated components (Beautiful-UI pricing tables, `NumberFlow` counters,
+`FrequencyToggle` switches, shadcn defaults) fail in the same four ways every time. Do not redesign
+the component; repair these four layers.
+
+1. **Color system.** Load `theme/nova-theme.css` after Tailwind so `bg-primary`, `ring-ring`,
+   `bg-accent`, `border-border` and `bg-card` resolve to Nova tokens. Then grep the file for
+   `violet`, `purple`, `fuchsia`, `indigo-`, `oklch(`, `#8b5cf6`, `#a855f7`, `to-blue`, `to-purple`
+   and replace every hit with `var(--accent)`, `var(--hair)`, `var(--glass)` or a neutral. At least
+   90 percent of the pixels must be neutral, and one accent per viewport.
+2. **Layout.** Wrap the block in `Container` and `Section`. Give every media, chart and skeleton a
+   reserved aspect box so nothing shifts. Replace fixed `h-[420px]` with `min-h`. Make each grid
+   collapse at 1024px and 768px, and confirm there is no horizontal scroll at 320px.
+3. **Motion.** A pasted component with no animation is incomplete. Add `nv-fade-up` on entry,
+   `nv-lift` to interactive cards, `nv-press` to buttons and a 240ms color transition on hover.
+   Keep entrances under 900ms with at most 24px of travel, once, and honor reduced motion.
+4. **Icons and copy.** Replace emoji and mixed icon sets with `lucide-react` at 16 or 20px, stroke
+   1.5, `aria-hidden="true"` when decorative. Replace placeholder copy with real sentences.
+
+Then prove it: no purple token left, no layout shift, every interactive element has a hover and a
+focus state, and the grayscale test still shows the primary action.
+
+## Reference files for these repairs
+
+| Failure | Read this raw file |
+|---|---|
+| Purple primary, wrong surfaces | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/README.md |
+| Layout and rhythm | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/core/README.md |
+| Motion baseline and utilities | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/motion/README.md |
+| Icons and states on controls | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/nova/buttons/README.md |
+
 ## Triage table (what to fix first)
 
 | Symptom in the current code | Root cause | Phase |
