@@ -170,6 +170,21 @@ Read `prompts/13-scroll-motion-recipes.md` for the copy-paste implementations, i
 veil, the parallax frame and the sticky gallery. Every image reserves its aspect box, uses
 `object-cover` with real `sizes`, and animates once.
 
+### Three ways to read a file (use them when a fetch fails)
+
+The canonical URL is `raw.githubusercontent.com`. If it fails, that is a fetch problem, not a missing
+file: the same content is served by two mirrors. Try them in order before you declare a failure.
+
+| Route | Form | When |
+|---|---|---|
+| Canonical | `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/<path>` | Always try first |
+| Mirror | `https://cdn.jsdelivr.net/gh/Pedro21062014/nova-design@main/<path>` | The canonical raw URL 404s or times out (the raw CDN caches 404s briefly after a push) |
+| Pinned | `https://raw.githubusercontent.com/Pedro21062014/nova-design/<commit-sha>/<path>` | You need a reproducible version, or a file was added in the last few minutes |
+
+`https://github.com/Pedro21062014/nova-design/blob/main/<path>` also renders the file in a browser, and
+the repository tree at `https://github.com/Pedro21062014/nova-design` lists everything, including the
+paths that exist. If all three routes fail, only then use the offline prompt (`prompts/14-offline-prompt.md`).
+
 ## Your source of truth (raw links, read on demand)
 
 **The complete specification**

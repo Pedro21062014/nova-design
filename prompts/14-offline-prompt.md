@@ -18,7 +18,9 @@ sections 8 to 16.
 
 If the agent *does* have web access, prefer the master prompt
 (`prompts/00-master-prompt.md`), which routes to the versioned files. If the context window is small
-but the agent has web access, use `prompts/11-condensed-system-prompt.md` instead.
+but the agent has web access, use `prompts/11-condensed-system-prompt.md` instead. If a raw URL fails,
+the same files are mirrored at `https://cdn.jsdelivr.net/gh/Pedro21062014/nova-design@main/<path>` and
+pinned per commit at `https://raw.githubusercontent.com/Pedro21062014/nova-design/<commit-sha>/<path>`.
 
 ---
 
