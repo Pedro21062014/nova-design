@@ -1,6 +1,6 @@
 <!--
   NOVA VITRAL - DESIGN SYSTEM SPECIFICATION FOR AI AGENTS
-  File: design.md | Version 1.2.1 | License: MIT
+  File: design.md | Version 1.2.3 | License: MIT
   Format: "Vitral Spec" - a line-indexed design document.
   This file is a reference: input for an agent, never output. Do not build, render or publish it,
   and never name a page, route, component or project after its filename.
@@ -13,7 +13,7 @@
 language - **modern minimal interfaces with glassmorphism, complete professional pages, and
 scroll-driven animation** at agency grade - so any model can generate work that belongs to it.
 
-`design system` | `version 1.2.1` | `license MIT` | `design language: Nova Vitral` | `target: web (React, Next.js, Vite, Astro + Tailwind)`
+`design system` | `version 1.2.3` | `license MIT` | `design language: Nova Vitral` | `target: web (React, Next.js, Vite, Astro + Tailwind)`
 `works with any LLM that can read a raw URL or a local file`
 
 > **This file is not a page and not a project.** It is the specification of a design system: read it,
@@ -301,6 +301,7 @@ Two rules that make pasted components fail, and the fix for both:
 | Condensed prompt for small context windows | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/11-condensed-system-prompt.md |
 | Prompt mestre em portugues | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/12-prompt-pt-BR.md |
 | Scroll motion and image animation recipes (veil, parallax, sticky gallery) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md |
+| Offline conformance prompt (agent with no web access, everything inline) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/14-offline-prompt.md |
 
 ### 0.10 Index
 

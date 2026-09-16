@@ -80,6 +80,8 @@ reserved aspect box.
 - Theme that removes the shadcn purple: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/theme/nova-theme.css` (import after Tailwind).
 - Repairing a pasted component: fix color system, layout, motion, icons, in that order.
 
+**No web access?** Use `prompts/14-offline-prompt.md` instead: it is self-contained, with no URLs to fetch. This file assumes the agent can open the raw links.
+
 ## When to use this variant
 
 | Situation | Use |

@@ -8,6 +8,52 @@ to build. The agent will read only the files it needs, from the raw links below.
 BEGIN MASTER PROMPT
 ---
 
+## Mandatory: fetch the sources before you write a single line
+
+You have web access in this task. Using it is not optional, and guessing the system from memory is a
+failed answer. Before you produce any code:
+
+1. **Fetch every URL in this prompt that matches the task.** The routing tables below name the exact
+   file for each kind of work; the Task Map inside `design.md` names the exact line range. Fetch the
+   file, read the range, then write the code.
+2. **Never reconstruct the tokens, rules or components from memory.** The closed color set, the motion
+   ladder, the component contracts and the anti-patterns are versioned files. If you did not read
+   them in this session, you do not have them.
+3. **Prove that you read them.** Your first line of output must be a single line listing the URLs you
+   fetched, in the form: `Sources read: design.md 0.5, 2, 6.14 to 6.15; prompts/02; components/index.json`.
+   Then the plan, then the code.
+4. **Minimum reading per task, no exceptions:**
+
+| Task | Must fetch |
+|---|---|
+| Any page | `design.md` sections 0.4, 2, 5 (blueprint), 6.14, 6.15, 9.5 + `prompts/02-build-a-page.md` + one template from `templates/` |
+| Any component | `components/index.json` (registry) + the category README + `prompts/03-build-a-component.md` |
+| Chat or AI surface | `design.md` section 4 + `prompts/04-build-chat-scene.md` + `components/nova/chat/README.md` |
+| Scroll or image animation | `design.md` sections 6.2 to 6.15 + `prompts/13-scroll-motion-recipes.md` |
+| Repairing a pasted or vibrant component | `prompts/07-fix-and-upgrade.md` + `theme/README.md` + `prompts/13-scroll-motion-recipes.md` |
+| Color, purple, vibrancy complaint | `design.md` section 1.2.1 + `theme/README.md` |
+
+5. **If a fetch fails, stop and say so.** Do not continue with a guessed version of the system. Answer
+   with this exact structure, in one short message:
+
+   ```text
+   I could not read <url> (reason). I will not guess the Nova Vitral rules from memory.
+   Either paste the offline conformance prompt, or attach design.md to the conversation.
+   Offline prompt: prompts/14-offline-prompt.md. Then I will continue with the task.
+   ```
+
+6. **If you have no web access at all**, say that in the first line, do not attempt the task from
+   memory, and ask the person to paste `prompts/14-offline-prompt.md` (the offline conformance set,
+   everything inline, no URLs required) or to attach `design.md`. See section "When the agent cannot
+   fetch" below.
+
+7. **Never invent a URL, a section number, a component name or a token value.** If it is not in what
+   you fetched, it does not exist. Say `not specified in the sources I read` instead of filling the gap.
+
+8. **Re-fetch before answering** if the task shifted mid-conversation to a different file family (a
+   page became a chat surface, a component became a motion task). The routing tables are per task, not
+   per session.
+
 ## What `design.md` is (read this before anything else)
 
 `design.md` is a **design system specification**. It documents how interfaces must look and behave.
@@ -253,47 +299,41 @@ Pick the example that matches the component you are building and read that file 
 | Condensed version for small context windows (under 1200 tokens) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/11-condensed-system-prompt.md |
 | Prompts in Portuguese for Brazilian teams | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/12-prompt-pt-BR.md |
 | Scroll motion and image animation, with copy-paste recipes | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md |
+| Offline conformance prompt: send to an agent with no web access (everything inline, no URLs) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/14-offline-prompt.md |
 
-## Quick reference: tokens (use these even if you cannot fetch the spec)
+## Quick reference: tokens (cross-check only, never a substitute for reading)
+
+Fetched files are authoritative. This block is what you compare your output against after reading; if it
+ever disagrees with `theme/nova-theme.css` or section 2, the file wins.
 
 ```css
 --bg:#06070c; --bg-soft:#0a0c14; --bg-elevated:#0e1120;
 --fg:#f5f7ff; --fg-muted:#a8b0c8; --fg-subtle:#6b7490;
 --glass:rgba(255,255,255,.055); --glass-strong:rgba(255,255,255,.09); --glass-dim:rgba(255,255,255,.03);
---hair:rgba(255,255,255,.10); --hair-strong:rgba(255,255,255,.18);
---accent:#7c8cff; --accent-2:#62e9d6; --warn:#f5b544; --danger:#ff6b81;
-/* --accent-3:#c084fc exists but is reserved and off by default. Do not use it unless the brand
-   demands purple. See color discipline below. */
---aurora-1:rgba(124,140,255,.28); --aurora-2:rgba(98,233,214,.20); --aurora-3:rgba(192,132,252,.22);
---radius-sm:10px; --radius:16px; --radius-lg:24px; --radius-xl:32px;
---blur-sm:8px; --blur:18px; --blur-lg:32px;
+--glass-hover:rgba(255,255,255,.085); --hair:rgba(255,255,255,.10);
+--hair-strong:rgba(255,255,255,.18); --hair-soft:rgba(255,255,255,.06);
+--accent:#7c8cff; --accent-fg:#ffffff; --accent-soft:rgba(124,140,255,.14);
+--accent-2:#62e9d6; --warn:#f5b544; --danger:#ff6b81; --success:#4ade80;
+/* --accent-3 (#c084fc) exists in the theme but is reserved and off by default. Do not use it. */
+--grad-primary:linear-gradient(135deg,#8a97ff,#6a78f0);
+--grad-live:linear-gradient(90deg,#62e9d6,#7c8cff);
+--grad-hairline:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.04));
+--radius-sm:10px; --radius-md:16px; --radius-lg:24px; --radius-xl:32px;
+--blur-sm:8px; --blur-md:18px; --blur-lg:32px;
 --ease-out:cubic-bezier(.16,1,.3,1); --dur:240ms; --dur-reveal:760ms;
 ```
 
-## Color discipline (read before choosing any color)
+## Boundary cases (the only color questions left open)
 
-The default look is **neutral-first**. Color is a signal, not decoration.
+The closed set in the Color gate above answers everything except three situations:
 
-1. At least 90 percent of the pixels on any screen are neutral: ground, glass white, text grays.
-   Color lives in small elements: icons, dots, hairlines, chips, data marks, one primary action.
-2. **One accent per viewport** (two only when a comparison truly needs it). An accent may cover a
-   large area once per page, and only when it marks the primary action.
-3. **Banned by default:** purple, violet, magenta, neon, cyan-on-purple, rainbow and multi-hue
-   gradients, saturated background fills, glow on more than one element, gradient text outside the
-   hero H1, and the classic purple-to-blue gradient on every card and button.
-4. Allowed: the restrained indigo `--accent`, mint `--accent-2` for live and success states,
-   `--warn` and `--danger` for semantics. Primary buttons use `--grad-primary`, which is a
-   **single-hue** indigo gradient on purpose; never build an interactive surface from two hues.
-5. If the user explicitly asks for purple or a vivid brand color: keep the ground neutral, use it
-   as the single accent, desaturate it (roughly 55 to 70 percent lightness), and never let it cover
-   more than a few percent of the surface.
-6. Saturation ceiling: about 85 percent saturation. Vibrant reads as cheap on a dark ground;
-   restraint reads as expensive.
-7. **Grayscale test:** convert the page to grayscale. Hierarchy, rhythm and the primary action must
-   still be obvious. If the page collapses without color, remove color until it passes.
-
-If a previous draft of the page already uses purple or neon, convert it to this discipline and say
-so in one line; do not keep leftover vivid colors because they are already there.
+1. **The brand genuinely is purple.** Keep the ground neutral, use the brand hue as the single accent,
+   desaturate it toward 60 to 78 percent lightness, keep it under a few percent of the surface, never
+   use it for a large fill, and say in one line that you did this. Never turn `--accent-3` on.
+2. **A pasted component already uses vivid colors.** Convert it to the closed set and say so in one
+   line. Do not preserve leftover vivid colors because they were already there.
+3. **The person asks for a color that is not in the set.** Use the closest token, name the substitution
+   in one line, and offer the brand-color escape hatch above instead of inventing a hex value.
 
 ## Non-negotiable rules (the fourteen that matter most)
 
@@ -361,6 +401,34 @@ Send this prompt, then describe the task. Example:
 > English, tone precise and confident. Keep the navy-to-indigo accent.
 
 --- END MASTER PROMPT ---
+
+## When the agent cannot fetch (fallback protocol)
+
+Some models cannot open URLs: chats with web access switched off, local models, sandboxed tools, or an
+assistant that answers from training data only. In that case the rules in this prompt are useless on
+their own, because they reference files. Use one of these two routes instead.
+
+**Route 1 - the offline conformance prompt (recommended).** Send
+`prompts/14-offline-prompt.md` from
+`https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/14-offline-prompt.md`
+as the first message. It contains the entire discipline inline: the closed color set with every value,
+the rejection table, glass physics, the type and spacing scale, the motion ladder, the scroll and image
+baseline with code, the component contract, the page blueprints, the accessibility and performance
+budgets, the copy rules and the self-check audit. No fetch required. Then describe the task.
+
+**Route 2 - attach the file.** Attach `design.md` to the conversation (or paste the line range the
+Task Map points at) plus this prompt. Then say: "the specification is attached; follow sections 0.4,
+2, 6.14, 6.15 and 9.5, and the blueprint in part 5."
+
+What the agent must do in both routes:
+
+1. Confirm in one line which of the two routes is in use.
+2. Apply the closed color set exactly; do not substitute a Tailwind palette for it.
+3. Run the four audit checks (banned tokens, accent count, grayscale, contrast) before answering.
+4. State which sections it applied. If it cannot name them, it did not read them.
+
+What the agent must never do: invent the tokens, invent component names, claim to have read a file it
+did not read, or skip the motion layer because the motion file was out of reach.
 
 ## Notes for the human
 

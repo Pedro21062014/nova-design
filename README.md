@@ -17,6 +17,9 @@ on shadcn/ui, Radix primitives and Motion.
 - **Examples:** [`examples/00-index.md`](./examples/00-index.md) - 100 examples, `EX-01` to `EX-100`
 - **Scroll motion recipes:** [`prompts/13-scroll-motion-recipes.md`](./prompts/13-scroll-motion-recipes.md) -
   image veils, parallax frames, sticky galleries, counters, with the budgets and the anti-patterns
+- **No web access:** [`prompts/14-offline-prompt.md`](./prompts/14-offline-prompt.md) - the whole
+  conformance set inline (closed color set, glass, type, motion, images, blueprints, budgets), for agents
+  that cannot fetch URLs
 - **Showcase:** [`examples-sites/index.html`](./examples-sites/index.html) - 5 pages with the design
   system and 5 pages with the anti-patterns, side by side
 - **License:** MIT

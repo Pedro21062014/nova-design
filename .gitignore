@@ -5,3 +5,5 @@ dist/
 *.log
 .cache/
 .npm/
+__pycache__/
+.config/
