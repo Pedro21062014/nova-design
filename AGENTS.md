@@ -65,7 +65,14 @@ Nothing needs to be running: `templates/next-app` is a reference app, not a serv
     variables is the fix, not renaming classes.
 1c. Icons are `lucide-react` at 16 or 20px, stroke 1.5, `aria-hidden="true"` when decorative. No
     emoji, no other icon sets, no hand-traced SVG.
-1d. No zero-animation component. Entrance, hover or state change between 140 and 760ms, 12 to 24px of
+1d. Color is a closed set (spec 1.2.1): only the tokens listed there. Purple, violet, fuchsia,
+    Tailwind palette fills, colored glow shadows, multi-hue gradients and a second accent per viewport
+    are defects to be replaced, not preferences to be discussed.
+1e. Every page ships the scroll layer (spec 6.14, 6.15): section reveals once (16px, 760ms), image
+    veils with a reserved aspect box, staggered grids capped under 400ms, one scroll-linked element
+    per viewport, counters at 50 percent visibility, navbar condensation at 24px. Recipes in
+    `prompts/13-scroll-motion-recipes.md`.
+1f. No zero-animation component. Entrance, hover or state change between 140 and 760ms, 12 to 24px of
     travel, once, honoring `prefers-reduced-motion`. `nv-fade-up`, `nv-lift`, `nv-press`,
     `nv-reveal` are the floor.
 2. Glass requires a background behind it (aurora, gradient or image).

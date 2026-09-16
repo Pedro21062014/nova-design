@@ -67,6 +67,12 @@ built, omitted, next step.
 `design.md` is the design system specification: input, never output. Do not build it, and do not
 name any page or project after its filename.
 
+Color is a closed set: tokens only, no purple, violet, fuchsia, palette fills, colored glows or
+multi-hue gradients, one accent per viewport, gradient text only on a hero H1. Motion floor: reveal
+sections and images once (16px, 760ms, transform and opacity only), stagger grids, one scroll-linked
+element per viewport, counters at 50 percent visibility, sticky navbar at 24px, images always with a
+reserved aspect box.
+
 ## Library shortcuts (when the context window allows one more line)
 
 - 500 components: `https://raw.githubusercontent.com/Pedro21062014/nova-design/main/components/index.json`, index at `components/INDEX.md`.

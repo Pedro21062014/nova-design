@@ -80,6 +80,38 @@ gradients on every surface, neon accents, saturated fills and glow everywhere. N
 8. **Dark-ground check.** On `--bg`, accents must reach 3:1 against the ground for large areas and
    4.5:1 for text. Neon colors often fail this while looking "bright" — measure, do not trust the eye.
 
+9. **The closed set.** Color is not a taste question inside a component. These are the only values an
+   implementation may contain:
+
+   ```css
+   --bg: #06070c;  --bg-soft: #0a0c14;  --bg-elevated: #0e1120;
+   --fg: #f5f7ff;  --fg-muted: #a8b0c8;  --fg-subtle: #6b7490;
+   --glass: rgba(255,255,255,.055);  --glass-strong: rgba(255,255,255,.09);  --glass-dim: rgba(255,255,255,.03);
+   --hair: rgba(255,255,255,.10);    --hair-strong: rgba(255,255,255,.18);
+   --accent: #7c8cff;  --accent-2: #62e9d6;  --warn: #f5b544;  --danger: #ff6b81;
+   --grad-primary: linear-gradient(135deg, #8a97ff, #6a78f0);
+   --grad-live: linear-gradient(90deg, #62e9d6, #7c8cff);
+   --grad-hairline: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04));
+   ```
+
+   Everything else is a defect. Rejected on sight: `purple`, `violet`, `fuchsia`, `magenta`,
+   `indigo-400/500/600` used as fills, `#8b5cf6`, `#a855f7`, `#7c3aed`, high-chroma `oklch()`,
+   colored glow shadows, multi-hue gradients, gradient text outside a hero H1, and a second accent in
+   one viewport.
+
+   | Instead of | Write |
+   |---|---|
+   | `bg-purple-500`, `bg-violet-500` | `bg-[var(--glass)]` plus a `border border-[var(--hair)]` |
+   | a colored glow shadow | nothing, or a 1px `--hair-strong` ring on hover |
+   | `from-purple-500 to-blue-500` | `[image:var(--grad-primary)]`, primary action only |
+   | `bg-emerald-500`, `bg-rose-500` as blocks | a dot, an icon or a 12 percent chip in `--accent-2`, `--warn` or `--danger` |
+   | `backdrop-blur-2xl` over a flat ground | glass over an aurora, gradient or image |
+
+10. **The five tells of machine-generated UI.** Remove all five before delivering: a purple or violet
+    primary, usually on a gradient button; colored glow shadows under cards and buttons; three or more
+    accents competing in one viewport; emoji standing in for icons, or a mixed icon set; every element
+    animating at once, for 1.5s, with a bounce.
+
 **Aurora hues** (background light only, always blurred)
 
 ```css

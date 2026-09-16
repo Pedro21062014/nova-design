@@ -179,6 +179,7 @@ export function Section({
 |---|---|---|
 | 1.0.0 | 2026-09-15 | First release: foundations, tokens, 32 components, chat scene, blueprints, motion, recipes, 100 examples, prompt library |
 | 1.1.0 | 2026-09-15 | Color discipline (1.2.1): neutral-first, single-hue primary gradient, purple and neon banned by default, grayscale test; aurora softened; before/after showcase site added |
+| 1.2.2 | 2026-09-15 | Color gate: section 1.2.1 gains the closed set of allowed values, the rejection table and the five tells of machine-generated UI; section 6.14 (minimum motion baseline) added, which resolves the dangling 6.14 references in the prompts and components; section 6.15 (images and media on scroll) added; prompt 13 (scroll motion and image recipes) routed from the master prompt, the task prompts and the rule sets |
 | 1.2.1 | 2026-09-15 | Specification file renamed from `nova-design.md` to `design.md`; section 0.2 rewritten to state that the file is a design system specification (input, never output), that it must not be built or rendered, and that nothing may be named after its filename |
 | 1.2.0 | 2026-09-15 | Component library (500 components in 26 categories) and five complete page templates added; routing section 0.8; theme file with the shadcn variable remap; lucide-only icon rule; minimum motion baseline (6.14) restated for pasted components |
 

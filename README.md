@@ -15,6 +15,8 @@ on shadcn/ui, Radix primitives and Motion.
 - **Master prompt:** [`prompts/00-master-prompt.md`](./prompts/00-master-prompt.md) - names every raw
   URL and tells the agent which file to read for each task
 - **Examples:** [`examples/00-index.md`](./examples/00-index.md) - 100 examples, `EX-01` to `EX-100`
+- **Scroll motion recipes:** [`prompts/13-scroll-motion-recipes.md`](./prompts/13-scroll-motion-recipes.md) -
+  image veils, parallax frames, sticky galleries, counters, with the budgets and the anti-patterns
 - **Showcase:** [`examples-sites/index.html`](./examples-sites/index.html) - 5 pages with the design
   system and 5 pages with the anti-patterns, side by side
 - **License:** MIT
@@ -22,6 +24,13 @@ on shadcn/ui, Radix primitives and Motion.
 ---
 
 ## Color discipline (the short version)
+
+Color is a **closed set**. The only values an implementation may contain are the tokens: `--bg`,
+`--bg-soft`, `--bg-elevated`, `--fg`, `--fg-muted`, `--fg-subtle`, `--glass`, `--glass-strong`,
+`--glass-dim`, `--hair`, `--hair-strong`, `--accent` (#7c8cff), `--accent-2` (#62e9d6), `--warn`,
+`--danger`, `--grad-primary`, `--grad-live`, `--grad-hairline`. Purple, violet, fuchsia, Tailwind
+palette fills, colored glow shadows, multi-hue gradients and a second accent in one viewport are
+rejected on sight, with a replacement table in section 1.2.1.
 
 The system is **neutral-first**. At least 90 percent of the pixels on a screen are ground, glass
 white or text grays; color lives in icons, dots, hairlines, chips, data marks and the single primary

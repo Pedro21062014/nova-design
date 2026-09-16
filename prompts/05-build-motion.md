@@ -47,6 +47,26 @@ Deliver
 4. Three closing bullets: built, omitted, next step.
 ```
 
+## Color gate and motion floor (apply before anything else)
+
+Closed set: `--bg`, `--bg-soft`, `--bg-elevated`, `--fg`, `--fg-muted`, `--fg-subtle`, `--glass`,
+`--glass-strong`, `--glass-dim`, `--hair`, `--hair-strong`, `--accent` (#7c8cff), `--accent-2`
+(#62e9d6), `--warn`, `--danger`, `--grad-primary`, `--grad-live`, `--grad-hairline`. Nothing else.
+Rejected without discussion: `purple`, `violet`, `fuchsia`, `magenta`, `indigo-400/500/600` as fills,
+`#8b5cf6`, `#a855f7`, `#7c3aed`, `oklch(` with high chroma, colored glows, multi-hue gradients,
+gradient text outside a hero H1, more than one accent per viewport.
+
+Replace: a purple or vivid fill becomes `var(--glass)` plus a `var(--hair)` border; a colored glow
+becomes nothing, or a 1px `--hair-strong` ring on hover; a saturated status block becomes a dot, an
+icon or a 12 percent chip in `--accent-2`, `--warn` or `--danger`; a multi-hue gradient becomes
+`--grad-primary` on the single primary action, or a neutral surface.
+
+Motion floor (a component with none is incomplete): an entrance (`nv-fade-up`, 16px, 760ms, once), a
+hover response (2px lift or a fill step, 240ms), a press (0.98, 140ms), and a visible focus ring.
+Scroll effects for sections and images: reveal, image veil uncover, staggered grid, one scroll-linked
+element (parallax 0.04 to 0.12 or sticky scrollytelling), counters at 50 percent visibility. Recipes:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Motion inventory template (the agent should fill this before coding)
 
 | Element | Trigger | Property | From → To | Duration | Easing | Reduced motion |
@@ -58,6 +78,27 @@ Deliver
 | Card hover | pointer hover | translateY | 0 → -4px | 240ms | `--ease-out` | none (no hover on touch) |
 | Scroll progress | scroll | scaleX | 0 → 1 | continuous | linear | instant |
 | Aurora | ambient | transform | drift 3 to 8% | 30 to 44s | ease-in-out | static |
+
+## Images and media on scroll
+
+Images are the element that most often betrays amateur work: they fade in over 1.5s, they jump because
+nobody reserved the box, or they sit still while everything around them moves.
+
+Rules
+
+1. Reserve the box. `aspect-ratio` on the frame, `object-cover` on the media, real `sizes`, blur
+   placeholder. No layout shift, ever.
+2. One entrance per image: the veil uncover (a `scaleY` panel over the frame) plus a settle from
+   1.06 scale, 760ms, once. Do not stack a veil, a scale, a blur and a parallax on the same frame.
+3. Parallax only for one or two images per page, factor 0.04 to 0.12, inside an `overflow-hidden`
+   frame with an 8 percent oversize so no edge is exposed.
+4. Clip-path wipes are allowed for one or two hero images; they are not composited, so never on a
+   grid of tiles.
+5. Never animate a filter, a grain layer or a vignette.
+6. Under `prefers-reduced-motion: reduce`, the image is present, at its final scale, with no veil.
+
+Copy-paste implementations: https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md (image veil, parallax frame,
+sticky scrollytelling, horizontal gallery, marquee, counters, progress).
 
 ## Follow-up prompts
 

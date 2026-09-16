@@ -137,65 +137,66 @@ Alternative loaders:
 
 | Task or user intent | Lines to read | Section | Examples |
 |---|---|---|---|
-| Find a ready component instead of writing one | `lines 238-284` | Component library | - |
-| Imitate a whole page before building one | `lines 238-284` | Page templates | - |
-| Remove purple from a pasted shadcn component | `lines 238-284` + `lines 372-462` + `lines 3602-3679` | Library and color discipline | EX-41 |
-| Add motion to a component that has none | `lines 238-284` + `lines 2964-2978` + `@@S:6.14@@` | Motion baseline | EX-79 |
+| Find a ready component instead of writing one | `lines 239-285` | Component library | - |
+| Imitate a whole page before building one | `lines 239-285` | Page templates | - |
+| Remove purple from a pasted shadcn component | `lines 239-285` + `lines 374-496` + `lines 3715-3792` | Library and color discipline | EX-41 |
+| Add motion to a component that has none | `lines 239-285` + `lines 2998-3012` + `lines 3322-3350` | Motion baseline | EX-79 |
+| Animate images on scroll (veil, parallax, gallery) | `lines 3351-3401` | Images and media on scroll | EX-80, EX-84 |
 | Understand the system, vocabulary and delivery rules | `lines 50-79` | How to use this file | - |
-| Build the visual foundation: color, glass, type, spacing | `lines 354-644` | Design foundations | EX-01, EX-07, EX-08 |
-| Choose colors, avoid purple and neon, apply the accent budget | `lines 372-462` | Color discipline | - |
-| Copy and paste tokens: CSS, Tailwind, motion | `lines 645-1015` | Design tokens | - |
-| Buttons and form controls | `lines 1023-1143` | Buttons | EX-11, EX-12 |
-| Glass cards, bento grids, spotlight surfaces | `lines 1144-1260` | Surfaces | EX-01 to EX-06 |
-| Badges, chips, status pills | `lines 1261-1299` | Badges | EX-09, EX-33 |
-| Inputs, selects, switches, sliders, dropzones, forms | `lines 1300-1375` | Form controls | EX-14 to EX-20 |
-| Tables, lists, key-value, stats | `lines 1376-1428` | Data display | EX-06, EX-69 |
-| Navbar, mobile menu, sidebar, command palette, footer | `lines 1429-1510` | Navigation | EX-21 to EX-30 |
-| Hero sections | `lines 1511-1531` | Hero | EX-31, EX-32, EX-33 |
-| Bento grids | `lines 1532-1556` | Bento | EX-03 |
-| Spotlight and pointer-reactive surfaces | `lines 1557-1570` | Pointer effects | EX-04, EX-86 |
-| Marquee, logo cloud, testimonials | `lines 1571-1590` | Social proof | EX-10, EX-34, EX-43, EX-44 |
-| Accordion and FAQ | `lines 1591-1619` | Accordion | EX-37, EX-88 |
-| Pricing tables and plan comparison | `lines 1620-1644` | Pricing | EX-41, EX-42 |
-| Metrics, counters and KPI tiles | `lines 1645-1654` | Metrics | EX-45, EX-66, EX-85 |
-| Timeline, steps and roadmap | `lines 1655-1666` | Timeline | EX-36, EX-77, EX-93 |
-| Footer | `lines 1667-1680` | Footer | EX-30 |
-| Modals, drawers, sheets, confirms | `lines 1681-1701` | Overlays | EX-23, EX-76, EX-90 |
-| Toasts and notifications | `lines 1702-1715` | Toasts | EX-89 |
-| Tooltips, popovers, dropdown menus | `lines 1716-1728` | Floating UI | EX-13, EX-28 |
-| Avatars, user menu, presence | `lines 1729-1741` | Identity | EX-34, EX-43 |
-| Skeletons, loading, empty and error states | `lines 1742-1777` | States | EX-72, EX-73, EX-74 |
-| Charts, tables and dashboards | `lines 1778-1819` | Charts | EX-66 to EX-71 |
-| Calendar, date picker, scheduling | `lines 1820-1834` | Calendar | - |
-| File upload, media, lightbox | `lines 1835-1854` | Media | EX-19, EX-90 |
-| Code blocks, terminal, diff viewer | `lines 1855-1879` | Code UI | EX-58, EX-64 |
-| Feature sections, comparison, integrations | `lines 1880-1896` | Feature sections | EX-35, EX-42 |
-| CTA, newsletter, waitlist | `lines 1897-1910` | Conversion | EX-38, EX-39, EX-49 |
-| Scroll utilities: progress, back to top, scroll spy | `lines 1911-1922` | Scroll utilities | EX-84, EX-22 |
-| Onboarding, stepper, product tour | `lines 1923-1936` | Onboarding | EX-99 |
-| Settings and preferences UI | `lines 1937-1950` | Settings | EX-75, EX-76, EX-100 |
-| Search results and filters | `lines 1951-1965` | Search and filters | EX-71 |
-| Quality micro-patterns and component index | `lines 1966-2018` | Polish | - |
-| Chat interface, conversational AI, assistant UI | `lines 2019-2731` | Chat scene, complete part | EX-51 to EX-65 |
-| Composer, streaming, reasoning, tool calls | `lines 2329-2530` | Chat internals | EX-55 to EX-61 |
-| Artifacts, citations, feedback, shortcuts | `lines 2531-2669` | Chat advanced | EX-62 to EX-65 |
-| Complete SaaS landing page | `lines 2738-2762` | Blueprint 5.1 | EX-31 to EX-40 |
-| Portfolio and personal site | `lines 2778-2796` | Blueprint 5.3 | EX-95 |
-| Pricing page | `lines 2797-2808` | Blueprint 5.4 | EX-96 |
-| Documentation site, blog and changelog | `lines 2809-2847` | Blueprints 5.5, 5.6 | EX-91, EX-92, EX-93 |
-| Dashboard and admin | `lines 2848-2872` | Blueprint 5.7 | EX-94 |
-| Auth, 404, waitlist, error pages | `lines 2873-2926` | Blueprint 5.8 | EX-46 to EX-50, EX-98 |
-| SEO, metadata and social surface | `lines 2927-2941` | SEO | - |
-| Scroll animations, reveals, transitions | `lines 2959-3288` | Motion system | EX-79 to EX-90 |
-| Scrollytelling, parallax, horizontal scroll | `lines 3116-3184` | Advanced motion | EX-81, EX-82, EX-83 |
-| Reduced motion and performance | `lines 3240-3273` | Motion safety | - |
-| Ready-made CSS and JS recipes | `lines 3289-3698` | Recipes | - |
-| shadcn bridge (skinning primitives) | `lines 3602-3679` | shadcn bridge | EX-06, EX-11 |
-| MIT open-source inspiration and attribution | `lines 3699-3858` | Open-source references | - |
-| Review quality, accessibility, performance, SEO | `lines 3859-4038` | Quality gates | - |
-| Anti-patterns to avoid | `lines 3938-3986` | Anti-patterns | - |
-| Prompt templates, workflows, definition of done | `lines 4039-4194` | AI workflow | - |
-| Glossary, utilities, project structure, naming | `lines 4195-4404` | Appendix | - |
+| Build the visual foundation: color, glass, type, spacing | `lines 356-678` | Design foundations | EX-01, EX-07, EX-08 |
+| Choose colors, avoid purple and neon, apply the accent budget | `lines 374-496` | Color discipline | - |
+| Copy and paste tokens: CSS, Tailwind, motion | `lines 679-1049` | Design tokens | - |
+| Buttons and form controls | `lines 1057-1177` | Buttons | EX-11, EX-12 |
+| Glass cards, bento grids, spotlight surfaces | `lines 1178-1294` | Surfaces | EX-01 to EX-06 |
+| Badges, chips, status pills | `lines 1295-1333` | Badges | EX-09, EX-33 |
+| Inputs, selects, switches, sliders, dropzones, forms | `lines 1334-1409` | Form controls | EX-14 to EX-20 |
+| Tables, lists, key-value, stats | `lines 1410-1462` | Data display | EX-06, EX-69 |
+| Navbar, mobile menu, sidebar, command palette, footer | `lines 1463-1544` | Navigation | EX-21 to EX-30 |
+| Hero sections | `lines 1545-1565` | Hero | EX-31, EX-32, EX-33 |
+| Bento grids | `lines 1566-1590` | Bento | EX-03 |
+| Spotlight and pointer-reactive surfaces | `lines 1591-1604` | Pointer effects | EX-04, EX-86 |
+| Marquee, logo cloud, testimonials | `lines 1605-1624` | Social proof | EX-10, EX-34, EX-43, EX-44 |
+| Accordion and FAQ | `lines 1625-1653` | Accordion | EX-37, EX-88 |
+| Pricing tables and plan comparison | `lines 1654-1678` | Pricing | EX-41, EX-42 |
+| Metrics, counters and KPI tiles | `lines 1679-1688` | Metrics | EX-45, EX-66, EX-85 |
+| Timeline, steps and roadmap | `lines 1689-1700` | Timeline | EX-36, EX-77, EX-93 |
+| Footer | `lines 1701-1714` | Footer | EX-30 |
+| Modals, drawers, sheets, confirms | `lines 1715-1735` | Overlays | EX-23, EX-76, EX-90 |
+| Toasts and notifications | `lines 1736-1749` | Toasts | EX-89 |
+| Tooltips, popovers, dropdown menus | `lines 1750-1762` | Floating UI | EX-13, EX-28 |
+| Avatars, user menu, presence | `lines 1763-1775` | Identity | EX-34, EX-43 |
+| Skeletons, loading, empty and error states | `lines 1776-1811` | States | EX-72, EX-73, EX-74 |
+| Charts, tables and dashboards | `lines 1812-1853` | Charts | EX-66 to EX-71 |
+| Calendar, date picker, scheduling | `lines 1854-1868` | Calendar | - |
+| File upload, media, lightbox | `lines 1869-1888` | Media | EX-19, EX-90 |
+| Code blocks, terminal, diff viewer | `lines 1889-1913` | Code UI | EX-58, EX-64 |
+| Feature sections, comparison, integrations | `lines 1914-1930` | Feature sections | EX-35, EX-42 |
+| CTA, newsletter, waitlist | `lines 1931-1944` | Conversion | EX-38, EX-39, EX-49 |
+| Scroll utilities: progress, back to top, scroll spy | `lines 1945-1956` | Scroll utilities | EX-84, EX-22 |
+| Onboarding, stepper, product tour | `lines 1957-1970` | Onboarding | EX-99 |
+| Settings and preferences UI | `lines 1971-1984` | Settings | EX-75, EX-76, EX-100 |
+| Search results and filters | `lines 1985-1999` | Search and filters | EX-71 |
+| Quality micro-patterns and component index | `lines 2000-2052` | Polish | - |
+| Chat interface, conversational AI, assistant UI | `lines 2053-2765` | Chat scene, complete part | EX-51 to EX-65 |
+| Composer, streaming, reasoning, tool calls | `lines 2363-2564` | Chat internals | EX-55 to EX-61 |
+| Artifacts, citations, feedback, shortcuts | `lines 2565-2703` | Chat advanced | EX-62 to EX-65 |
+| Complete SaaS landing page | `lines 2772-2796` | Blueprint 5.1 | EX-31 to EX-40 |
+| Portfolio and personal site | `lines 2812-2830` | Blueprint 5.3 | EX-95 |
+| Pricing page | `lines 2831-2842` | Blueprint 5.4 | EX-96 |
+| Documentation site, blog and changelog | `lines 2843-2881` | Blueprints 5.5, 5.6 | EX-91, EX-92, EX-93 |
+| Dashboard and admin | `lines 2882-2906` | Blueprint 5.7 | EX-94 |
+| Auth, 404, waitlist, error pages | `lines 2907-2960` | Blueprint 5.8 | EX-46 to EX-50, EX-98 |
+| SEO, metadata and social surface | `lines 2961-2975` | SEO | - |
+| Scroll animations, reveals, transitions | `lines 2993-3401` | Motion system | EX-79 to EX-90 |
+| Scrollytelling, parallax, horizontal scroll | `lines 3150-3218` | Advanced motion | EX-81, EX-82, EX-83 |
+| Reduced motion and performance | `lines 3274-3307` | Motion safety | - |
+| Ready-made CSS and JS recipes | `lines 3402-3811` | Recipes | - |
+| shadcn bridge (skinning primitives) | `lines 3715-3792` | shadcn bridge | EX-06, EX-11 |
+| MIT open-source inspiration and attribution | `lines 3812-3971` | Open-source references | - |
+| Review quality, accessibility, performance, SEO | `lines 3972-4151` | Quality gates | - |
+| Anti-patterns to avoid | `lines 4051-4099` | Anti-patterns | - |
+| Prompt templates, workflows, definition of done | `lines 4152-4307` | AI workflow | - |
+| Glossary, utilities, project structure, naming | `lines 4308-4518` | Appendix | - |
 
 ### 0.6 Vocabulary of the system <a id="s-0-6"></a>
 
@@ -299,6 +300,7 @@ Two rules that make pasted components fail, and the fix for both:
 | System prompt shell for any agent | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/10-system-prompt-shell.md |
 | Condensed prompt for small context windows | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/11-condensed-system-prompt.md |
 | Prompt mestre em portugues | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/12-prompt-pt-BR.md |
+| Scroll motion and image animation recipes (veil, parallax, sticky gallery) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md |
 
 ### 0.10 Index <a id="s-0-10"></a>
 
@@ -307,173 +309,175 @@ Two rules that make pasted components fail, and the fix for both:
 
 | Section | Title | Lines | Anchor |
 |---|---|---|---|
-| 0 | How to Use This File | `34-353` | [jump](#s-0) |
+| 0 | How to Use This File | `34-355` | [jump](#s-0) |
 | &nbsp;&nbsp;0.1 | &nbsp;&nbsp;Reading protocol for agents (three steps, about fifteen seconds) | `36-49` | [jump](#s-0-1) |
 | &nbsp;&nbsp;0.2 | &nbsp;&nbsp;What this file is, and what it is not | `50-79` | [jump](#s-0-2) |
 | &nbsp;&nbsp;0.3 | &nbsp;&nbsp;Loading this spec and its companions (raw URLs) | `80-108` | [jump](#s-0-3) |
 | &nbsp;&nbsp;0.4 | &nbsp;&nbsp;Output contract (how the agent must deliver) | `109-131` | [jump](#s-0-4) |
-| &nbsp;&nbsp;0.5 | &nbsp;&nbsp;Task Map | `132-199` | [jump](#s-0-5) |
-| &nbsp;&nbsp;0.6 | &nbsp;&nbsp;Vocabulary of the system | `200-214` | [jump](#s-0-6) |
-| &nbsp;&nbsp;0.7 | &nbsp;&nbsp;Example library - 100 examples (raw links) | `215-237` | [jump](#s-0-7) |
-| &nbsp;&nbsp;0.8 | &nbsp;&nbsp;Component library and page templates (raw links) | `238-284` | [jump](#s-0-8) |
-| &nbsp;&nbsp;0.9 | &nbsp;&nbsp;Prompt library (raw links) | `285-302` | [jump](#s-0-9) |
-| &nbsp;&nbsp;0.10 | &nbsp;&nbsp;Index | `303-309` | [jump](#s-0-10) |
-| &nbsp;&nbsp;0.11 | &nbsp;&nbsp;Tokens in twenty lines (quick reference) | `310-353` | [jump](#s-0-11) |
-| 1 | Design Foundations | `354-644` | [jump](#s-1) |
-| &nbsp;&nbsp;1.1 | &nbsp;&nbsp;Design philosophy | `356-371` | [jump](#s-1-1) |
-| &nbsp;&nbsp;1.2 | &nbsp;&nbsp;Color system | `372-462` | [jump](#s-1-2) |
-| &nbsp;&nbsp;1.3 | &nbsp;&nbsp;Glass physics | `463-485` | [jump](#s-1-3) |
-| &nbsp;&nbsp;1.4 | &nbsp;&nbsp;Typography | `486-523` | [jump](#s-1-4) |
-| &nbsp;&nbsp;1.5 | &nbsp;&nbsp;Spacing and layout | `524-555` | [jump](#s-1-5) |
-| &nbsp;&nbsp;1.6 | &nbsp;&nbsp;Radius, elevation and borders | `556-583` | [jump](#s-1-6) |
-| &nbsp;&nbsp;1.7 | &nbsp;&nbsp;Iconography | `584-593` | [jump](#s-1-7) |
-| &nbsp;&nbsp;1.8 | &nbsp;&nbsp;Motion principles | `594-607` | [jump](#s-1-8) |
-| &nbsp;&nbsp;1.9 | &nbsp;&nbsp;Density modes | `608-618` | [jump](#s-1-9) |
-| &nbsp;&nbsp;1.10 | &nbsp;&nbsp;Imagery, gradients and illustration | `619-628` | [jump](#s-1-10) |
-| &nbsp;&nbsp;1.11 | &nbsp;&nbsp;Sound and haptics | `629-633` | [jump](#s-1-11) |
-| &nbsp;&nbsp;1.12 | &nbsp;&nbsp;Brand application | `634-644` | [jump](#s-1-12) |
-| 2 | Design Tokens | `645-1015` | [jump](#s-2) |
-| &nbsp;&nbsp;2.1 | &nbsp;&nbsp;Complete CSS variable set | `650-772` | [jump](#s-2-1) |
-| &nbsp;&nbsp;2.2 | &nbsp;&nbsp;Tailwind v4 theme mapping | `773-816` | [jump](#s-2-2) |
-| &nbsp;&nbsp;2.3 | &nbsp;&nbsp;Tailwind v3 configuration (legacy projects) | `817-848` | [jump](#s-2-3) |
-| &nbsp;&nbsp;2.4 | &nbsp;&nbsp;Primitive and semantic layers | `849-870` | [jump](#s-2-4) |
-| &nbsp;&nbsp;2.5 | &nbsp;&nbsp;TypeScript token types | `871-899` | [jump](#s-2-5) |
-| &nbsp;&nbsp;2.6 | &nbsp;&nbsp;Motion tokens for Framer Motion | `900-936` | [jump](#s-2-6) |
-| &nbsp;&nbsp;2.7 | &nbsp;&nbsp;Z-index policy | `937-952` | [jump](#s-2-7) |
-| &nbsp;&nbsp;2.8 | &nbsp;&nbsp;Breakpoints and container queries | `953-971` | [jump](#s-2-8) |
-| &nbsp;&nbsp;2.9 | &nbsp;&nbsp;Light mode | `972-998` | [jump](#s-2-9) |
-| &nbsp;&nbsp;2.10 | &nbsp;&nbsp;Token rules for agents | `999-1015` | [jump](#s-2-10) |
-| 3 | Component Library | `1016-2018` | [jump](#s-3) |
-| &nbsp;&nbsp;3.1 | &nbsp;&nbsp;Buttons | `1023-1143` | [jump](#s-3-1) |
-| &nbsp;&nbsp;3.2 | &nbsp;&nbsp;Surfaces: glass panel, card, tile, sheet | `1144-1260` | [jump](#s-3-2) |
-| &nbsp;&nbsp;3.3 | &nbsp;&nbsp;Badges, chips and pills | `1261-1299` | [jump](#s-3-3) |
-| &nbsp;&nbsp;3.4 | &nbsp;&nbsp;Form controls | `1300-1375` | [jump](#s-3-4) |
-| &nbsp;&nbsp;3.5 | &nbsp;&nbsp;Data display: tables, lists, key-value, stats | `1376-1428` | [jump](#s-3-5) |
-| &nbsp;&nbsp;3.6 | &nbsp;&nbsp;Navigation: navbar, menu, sidebar, tabs, command palette | `1429-1510` | [jump](#s-3-6) |
-| &nbsp;&nbsp;3.7 | &nbsp;&nbsp;Hero | `1511-1531` | [jump](#s-3-7) |
-| &nbsp;&nbsp;3.8 | &nbsp;&nbsp;Bento grid | `1532-1556` | [jump](#s-3-8) |
-| &nbsp;&nbsp;3.9 | &nbsp;&nbsp;Spotlight and pointer-reactive surfaces | `1557-1570` | [jump](#s-3-9) |
-| &nbsp;&nbsp;3.10 | &nbsp;&nbsp;Marquee, logo cloud and testimonials | `1571-1590` | [jump](#s-3-10) |
-| &nbsp;&nbsp;3.11 | &nbsp;&nbsp;Accordion, FAQ and tabbed showcases | `1591-1619` | [jump](#s-3-11) |
-| &nbsp;&nbsp;3.12 | &nbsp;&nbsp;Pricing | `1620-1644` | [jump](#s-3-12) |
-| &nbsp;&nbsp;3.13 | &nbsp;&nbsp;Metrics, counters and KPI tiles | `1645-1654` | [jump](#s-3-13) |
-| &nbsp;&nbsp;3.14 | &nbsp;&nbsp;Timeline, steps and roadmap | `1655-1666` | [jump](#s-3-14) |
-| &nbsp;&nbsp;3.15 | &nbsp;&nbsp;Footer | `1667-1680` | [jump](#s-3-15) |
-| &nbsp;&nbsp;3.16 | &nbsp;&nbsp;Overlays: modal, drawer, sheet, confirm | `1681-1701` | [jump](#s-3-16) |
-| &nbsp;&nbsp;3.17 | &nbsp;&nbsp;Toasts and notifications | `1702-1715` | [jump](#s-3-17) |
-| &nbsp;&nbsp;3.18 | &nbsp;&nbsp;Tooltip, popover and dropdown menu | `1716-1728` | [jump](#s-3-18) |
-| &nbsp;&nbsp;3.19 | &nbsp;&nbsp;Avatars, user menu and presence | `1729-1741` | [jump](#s-3-19) |
-| &nbsp;&nbsp;3.20 | &nbsp;&nbsp;Skeleton, loading, empty and error states | `1742-1777` | [jump](#s-3-20) |
-| &nbsp;&nbsp;3.21 | &nbsp;&nbsp;Charts and data visualization | `1778-1819` | [jump](#s-3-21) |
-| &nbsp;&nbsp;3.22 | &nbsp;&nbsp;Calendar, date picker and scheduling | `1820-1834` | [jump](#s-3-22) |
-| &nbsp;&nbsp;3.23 | &nbsp;&nbsp;File upload, media and lightbox | `1835-1854` | [jump](#s-3-23) |
-| &nbsp;&nbsp;3.24 | &nbsp;&nbsp;Code blocks, terminal and diff viewer | `1855-1879` | [jump](#s-3-24) |
-| &nbsp;&nbsp;3.25 | &nbsp;&nbsp;Feature sections, comparison and integrations | `1880-1896` | [jump](#s-3-25) |
-| &nbsp;&nbsp;3.26 | &nbsp;&nbsp;Call to action, newsletter and waitlist | `1897-1910` | [jump](#s-3-26) |
-| &nbsp;&nbsp;3.27 | &nbsp;&nbsp;Scroll utilities | `1911-1922` | [jump](#s-3-27) |
-| &nbsp;&nbsp;3.28 | &nbsp;&nbsp;Onboarding, stepper and product tour | `1923-1936` | [jump](#s-3-28) |
-| &nbsp;&nbsp;3.29 | &nbsp;&nbsp;Settings and preferences UI | `1937-1950` | [jump](#s-3-29) |
-| &nbsp;&nbsp;3.30 | &nbsp;&nbsp;Search results and filters | `1951-1965` | [jump](#s-3-30) |
-| &nbsp;&nbsp;3.31 | &nbsp;&nbsp;Copy, empty and loading micro-patterns (quality details) | `1966-1986` | [jump](#s-3-31) |
-| &nbsp;&nbsp;3.32 | &nbsp;&nbsp;Component index (quick lookup) | `1987-2018` | [jump](#s-3-32) |
-| 4 | Chat Scene | `2019-2731` | [jump](#s-4) |
-| &nbsp;&nbsp;4.0 | &nbsp;&nbsp;Chat scene blueprint | `2030-2075` | [jump](#s-4-0) |
-| &nbsp;&nbsp;4.1 | &nbsp;&nbsp;Principles for AI interfaces | `2076-2091` | [jump](#s-4-1) |
-| &nbsp;&nbsp;4.2 | &nbsp;&nbsp;Message list and thread behavior | `2092-2161` | [jump](#s-4-2) |
-| &nbsp;&nbsp;4.3 | &nbsp;&nbsp;Message anatomy | `2162-2236` | [jump](#s-4-3) |
-| &nbsp;&nbsp;4.4 | &nbsp;&nbsp;Message types (rendering matrix) | `2237-2258` | [jump](#s-4-4) |
-| &nbsp;&nbsp;4.5 | &nbsp;&nbsp;Markdown, typography and rich rendering | `2259-2286` | [jump](#s-4-5) |
-| &nbsp;&nbsp;4.6 | &nbsp;&nbsp;Streaming, stop, retry and regeneration | `2287-2328` | [jump](#s-4-6) |
-| &nbsp;&nbsp;4.7 | &nbsp;&nbsp;Composer (the input surface) | `2329-2453` | [jump](#s-4-7) |
-| &nbsp;&nbsp;4.8 | &nbsp;&nbsp;Reasoning and thinking display | `2454-2501` | [jump](#s-4-8) |
-| &nbsp;&nbsp;4.9 | &nbsp;&nbsp;Tool calls, function results and approvals | `2502-2530` | [jump](#s-4-9) |
-| &nbsp;&nbsp;4.10 | &nbsp;&nbsp;Artifacts and the canvas panel | `2531-2559` | [jump](#s-4-10) |
-| &nbsp;&nbsp;4.11 | &nbsp;&nbsp;Citations, sources and retrieval | `2560-2571` | [jump](#s-4-11) |
-| &nbsp;&nbsp;4.12 | &nbsp;&nbsp;Empty state, prompt suggestions and follow-ups | `2572-2594` | [jump](#s-4-12) |
-| &nbsp;&nbsp;4.13 | &nbsp;&nbsp;Sidebar, sessions and history | `2595-2611` | [jump](#s-4-13) |
-| &nbsp;&nbsp;4.14 | &nbsp;&nbsp;Multi-user presence and collaboration | `2612-2623` | [jump](#s-4-14) |
-| &nbsp;&nbsp;4.15 | &nbsp;&nbsp;Chat settings and model selection | `2624-2639` | [jump](#s-4-15) |
-| &nbsp;&nbsp;4.16 | &nbsp;&nbsp;Chat keyboard map and accessibility | `2640-2669` | [jump](#s-4-16) |
-| &nbsp;&nbsp;4.17 | &nbsp;&nbsp;Chat hero (marketing variant) | `2670-2681` | [jump](#s-4-17) |
-| &nbsp;&nbsp;4.18 | &nbsp;&nbsp;Feedback, ratings and sharing | `2682-2696` | [jump](#s-4-18) |
-| &nbsp;&nbsp;4.19 | &nbsp;&nbsp;Selection toolbar inside the thread | `2697-2713` | [jump](#s-4-19) |
-| &nbsp;&nbsp;4.20 | &nbsp;&nbsp;Chat scene anti-patterns | `2714-2731` | [jump](#s-4-20) |
-| 5 | Page Blueprints | `2732-2958` | [jump](#s-5) |
-| &nbsp;&nbsp;5.1 | &nbsp;&nbsp;SaaS landing page (golden path) | `2738-2762` | [jump](#s-5-1) |
-| &nbsp;&nbsp;5.2 | &nbsp;&nbsp;Additional marketing sections | `2763-2777` | [jump](#s-5-2) |
-| &nbsp;&nbsp;5.3 | &nbsp;&nbsp;Portfolio and personal site | `2778-2796` | [jump](#s-5-3) |
-| &nbsp;&nbsp;5.4 | &nbsp;&nbsp;Pricing page | `2797-2808` | [jump](#s-5-4) |
-| &nbsp;&nbsp;5.5 | &nbsp;&nbsp;Documentation site | `2809-2827` | [jump](#s-5-5) |
-| &nbsp;&nbsp;5.6 | &nbsp;&nbsp;Blog, changelog and content pages | `2828-2847` | [jump](#s-5-6) |
-| &nbsp;&nbsp;5.7 | &nbsp;&nbsp;Dashboard and admin | `2848-2872` | [jump](#s-5-7) |
-| &nbsp;&nbsp;5.8 | &nbsp;&nbsp;Authentication and utility pages | `2873-2903` | [jump](#s-5-8) |
-| &nbsp;&nbsp;5.9 | &nbsp;&nbsp;Waitlist and coming soon | `2904-2913` | [jump](#s-5-9) |
-| &nbsp;&nbsp;5.10 | &nbsp;&nbsp;Error, empty and edge-case pages | `2914-2926` | [jump](#s-5-10) |
-| &nbsp;&nbsp;5.11 | &nbsp;&nbsp;SEO, metadata and social surface | `2927-2941` | [jump](#s-5-11) |
-| &nbsp;&nbsp;5.12 | &nbsp;&nbsp;Page composition checklist | `2942-2958` | [jump](#s-5-12) |
-| 6 | Motion System | `2959-3288` | [jump](#s-6) |
-| &nbsp;&nbsp;6.1 | &nbsp;&nbsp;Motion vocabulary | `2964-2978` | [jump](#s-6-1) |
-| &nbsp;&nbsp;6.2 | &nbsp;&nbsp;Scroll reveal (the default) | `2979-3064` | [jump](#s-6-2) |
-| &nbsp;&nbsp;6.3 | &nbsp;&nbsp;Orchestration and sequences | `3065-3084` | [jump](#s-6-3) |
-| &nbsp;&nbsp;6.4 | &nbsp;&nbsp;Scroll-linked animation | `3085-3115` | [jump](#s-6-4) |
-| &nbsp;&nbsp;6.5 | &nbsp;&nbsp;Sticky scrollytelling | `3116-3148` | [jump](#s-6-5) |
-| &nbsp;&nbsp;6.6 | &nbsp;&nbsp;Parallax layers | `3149-3157` | [jump](#s-6-6) |
-| &nbsp;&nbsp;6.7 | &nbsp;&nbsp;Horizontal scroll gallery | `3158-3184` | [jump](#s-6-7) |
-| &nbsp;&nbsp;6.8 | &nbsp;&nbsp;Pinning, progress and sticky headers | `3185-3194` | [jump](#s-6-8) |
-| &nbsp;&nbsp;6.9 | &nbsp;&nbsp;Page and route transitions | `3195-3205` | [jump](#s-6-9) |
-| &nbsp;&nbsp;6.10 | &nbsp;&nbsp;Micro-interaction catalog | `3206-3224` | [jump](#s-6-10) |
-| &nbsp;&nbsp;6.11 | &nbsp;&nbsp;Ambient motion | `3225-3239` | [jump](#s-6-11) |
-| &nbsp;&nbsp;6.12 | &nbsp;&nbsp;Reduced motion and performance (mandatory) | `3240-3273` | [jump](#s-6-12) |
-| &nbsp;&nbsp;6.13 | &nbsp;&nbsp;Motion QA checklist | `3274-3288` | [jump](#s-6-13) |
-| 7 | Recipes (copy and paste) | `3289-3698` | [jump](#s-7) |
-| &nbsp;&nbsp;7.1 | &nbsp;&nbsp;Project setup | `3294-3319` | [jump](#s-7-1) |
-| &nbsp;&nbsp;7.2 | &nbsp;&nbsp;The Vitral surface CSS (canonical) | `3320-3399` | [jump](#s-7-2) |
-| &nbsp;&nbsp;7.3 | &nbsp;&nbsp;Aurora background | `3400-3437` | [jump](#s-7-3) |
-| &nbsp;&nbsp;7.4 | &nbsp;&nbsp;Hero section (complete) | `3438-3487` | [jump](#s-7-4) |
-| &nbsp;&nbsp;7.5 | &nbsp;&nbsp;Scroll progress and back to top | `3488-3527` | [jump](#s-7-5) |
-| &nbsp;&nbsp;7.6 | &nbsp;&nbsp;Animated counter | `3528-3565` | [jump](#s-7-6) |
-| &nbsp;&nbsp;7.7 | &nbsp;&nbsp;Marquee | `3566-3579` | [jump](#s-7-7) |
-| &nbsp;&nbsp;7.8 | &nbsp;&nbsp;Theme toggle without flash | `3580-3601` | [jump](#s-7-8) |
-| &nbsp;&nbsp;7.9 | &nbsp;&nbsp;shadcn bridge (skinning shadcn components to Nova Vitral) | `3602-3679` | [jump](#s-7-9) |
-| &nbsp;&nbsp;7.10 | &nbsp;&nbsp;Test and audit snippets | `3680-3698` | [jump](#s-7-10) |
-| 8 | Open-Source References (MIT and permissive) | `3699-3858` | [jump](#s-8) |
-| &nbsp;&nbsp;8.1 | &nbsp;&nbsp;Primary component foundation | `3710-3721` | [jump](#s-8-1) |
-| &nbsp;&nbsp;8.2 | &nbsp;&nbsp;Motion and animation | `3722-3735` | [jump](#s-8-2) |
-| &nbsp;&nbsp;8.3 | &nbsp;&nbsp;Visual inspiration (pattern libraries, MIT unless noted) | `3736-3761` | [jump](#s-8-3) |
-| &nbsp;&nbsp;8.4 | &nbsp;&nbsp;Data, charts and tables | `3762-3776` | [jump](#s-8-4) |
-| &nbsp;&nbsp;8.5 | &nbsp;&nbsp;Content, editors and AI interface pieces | `3777-3796` | [jump](#s-8-5) |
-| &nbsp;&nbsp;8.6 | &nbsp;&nbsp;Typography, icons and assets | `3797-3812` | [jump](#s-8-6) |
-| &nbsp;&nbsp;8.7 | &nbsp;&nbsp;Engineering references (structure and quality, not visuals) | `3813-3827` | [jump](#s-8-7) |
-| &nbsp;&nbsp;8.8 | &nbsp;&nbsp;How to cite references in generated code | `3828-3842` | [jump](#s-8-8) |
-| &nbsp;&nbsp;8.9 | &nbsp;&nbsp;Credits block for the README | `3843-3858` | [jump](#s-8-9) |
-| 9 | Quality Gates | `3859-4038` | [jump](#s-9) |
-| &nbsp;&nbsp;9.1 | &nbsp;&nbsp;Accessibility (WCAG 2.2 AA, non-negotiable) | `3861-3885` | [jump](#s-9-1) |
-| &nbsp;&nbsp;9.2 | &nbsp;&nbsp;Accessibility audit recipe for glass interfaces | `3886-3900` | [jump](#s-9-2) |
-| &nbsp;&nbsp;9.3 | &nbsp;&nbsp;Performance budget | `3901-3920` | [jump](#s-9-3) |
-| &nbsp;&nbsp;9.4 | &nbsp;&nbsp;Visual QA checklist | `3921-3937` | [jump](#s-9-4) |
-| &nbsp;&nbsp;9.5 | &nbsp;&nbsp;Anti-patterns (what makes a page look machine-generated) | `3938-3986` | [jump](#s-9-5) |
-| &nbsp;&nbsp;9.6 | &nbsp;&nbsp;Code review checklist for generated UI | `3987-4004` | [jump](#s-9-6) |
-| &nbsp;&nbsp;9.7 | &nbsp;&nbsp;Design critique rubric (score each 0 to 5) | `4005-4022` | [jump](#s-9-7) |
-| &nbsp;&nbsp;9.8 | &nbsp;&nbsp;Definition of done | `4023-4038` | [jump](#s-9-8) |
-| 10 | Working With AI Agents | `4039-4194` | [jump](#s-10) |
-| &nbsp;&nbsp;10.1 | &nbsp;&nbsp;Loading the specification | `4043-4054` | [jump](#s-10-1) |
-| &nbsp;&nbsp;10.2 | &nbsp;&nbsp;The master prompt pattern | `4055-4095` | [jump](#s-10-2) |
-| &nbsp;&nbsp;10.3 | &nbsp;&nbsp;Task decomposition for large builds | `4096-4111` | [jump](#s-10-3) |
-| &nbsp;&nbsp;10.4 | &nbsp;&nbsp;Token economy (keeping the agent cheap and accurate) | `4112-4121` | [jump](#s-10-4) |
-| &nbsp;&nbsp;10.5 | &nbsp;&nbsp;Self-review loop (the agent must run this before answering) | `4122-4137` | [jump](#s-10-5) |
-| &nbsp;&nbsp;10.6 | &nbsp;&nbsp;Common agent failure modes and their fixes | `4138-4153` | [jump](#s-10-6) |
-| &nbsp;&nbsp;10.7 | &nbsp;&nbsp;Multi-agent and multi-session work | `4154-4164` | [jump](#s-10-7) |
-| &nbsp;&nbsp;10.8 | &nbsp;&nbsp;Prompt library (external files in this repository) | `4165-4183` | [jump](#s-10-8) |
-| &nbsp;&nbsp;10.9 | &nbsp;&nbsp;Definition of done for an agent session | `4184-4194` | [jump](#s-10-9) |
-| 11 | Appendix | `4195-4404` | [jump](#s-11) |
-| &nbsp;&nbsp;11.1 | &nbsp;&nbsp;Glossary | `4197-4221` | [jump](#s-11-1) |
-| &nbsp;&nbsp;11.2 | &nbsp;&nbsp;Utility functions | `4222-4283` | [jump](#s-11-2) |
-| &nbsp;&nbsp;11.3 | &nbsp;&nbsp;Recommended project structure | `4284-4325` | [jump](#s-11-3) |
-| &nbsp;&nbsp;11.4 | &nbsp;&nbsp;Section wrapper (layout primitive) | `4326-4354` | [jump](#s-11-4) |
-| &nbsp;&nbsp;11.5 | &nbsp;&nbsp;Copy guidelines | `4355-4369` | [jump](#s-11-5) |
-| &nbsp;&nbsp;11.6 | &nbsp;&nbsp;Spec changelog and maintenance | `4370-4382` | [jump](#s-11-6) |
-| &nbsp;&nbsp;11.7 | &nbsp;&nbsp;License and reuse | `4383-4398` | [jump](#s-11-7) |
-| &nbsp;&nbsp;11.8 | &nbsp;&nbsp;Final note to the agent | `4399-4404` | [jump](#s-11-8) |
+| &nbsp;&nbsp;0.5 | &nbsp;&nbsp;Task Map | `132-200` | [jump](#s-0-5) |
+| &nbsp;&nbsp;0.6 | &nbsp;&nbsp;Vocabulary of the system | `201-215` | [jump](#s-0-6) |
+| &nbsp;&nbsp;0.7 | &nbsp;&nbsp;Example library - 100 examples (raw links) | `216-238` | [jump](#s-0-7) |
+| &nbsp;&nbsp;0.8 | &nbsp;&nbsp;Component library and page templates (raw links) | `239-285` | [jump](#s-0-8) |
+| &nbsp;&nbsp;0.9 | &nbsp;&nbsp;Prompt library (raw links) | `286-304` | [jump](#s-0-9) |
+| &nbsp;&nbsp;0.10 | &nbsp;&nbsp;Index | `305-311` | [jump](#s-0-10) |
+| &nbsp;&nbsp;0.11 | &nbsp;&nbsp;Tokens in twenty lines (quick reference) | `312-355` | [jump](#s-0-11) |
+| 1 | Design Foundations | `356-678` | [jump](#s-1) |
+| &nbsp;&nbsp;1.1 | &nbsp;&nbsp;Design philosophy | `358-373` | [jump](#s-1-1) |
+| &nbsp;&nbsp;1.2 | &nbsp;&nbsp;Color system | `374-496` | [jump](#s-1-2) |
+| &nbsp;&nbsp;1.3 | &nbsp;&nbsp;Glass physics | `497-519` | [jump](#s-1-3) |
+| &nbsp;&nbsp;1.4 | &nbsp;&nbsp;Typography | `520-557` | [jump](#s-1-4) |
+| &nbsp;&nbsp;1.5 | &nbsp;&nbsp;Spacing and layout | `558-589` | [jump](#s-1-5) |
+| &nbsp;&nbsp;1.6 | &nbsp;&nbsp;Radius, elevation and borders | `590-617` | [jump](#s-1-6) |
+| &nbsp;&nbsp;1.7 | &nbsp;&nbsp;Iconography | `618-627` | [jump](#s-1-7) |
+| &nbsp;&nbsp;1.8 | &nbsp;&nbsp;Motion principles | `628-641` | [jump](#s-1-8) |
+| &nbsp;&nbsp;1.9 | &nbsp;&nbsp;Density modes | `642-652` | [jump](#s-1-9) |
+| &nbsp;&nbsp;1.10 | &nbsp;&nbsp;Imagery, gradients and illustration | `653-662` | [jump](#s-1-10) |
+| &nbsp;&nbsp;1.11 | &nbsp;&nbsp;Sound and haptics | `663-667` | [jump](#s-1-11) |
+| &nbsp;&nbsp;1.12 | &nbsp;&nbsp;Brand application | `668-678` | [jump](#s-1-12) |
+| 2 | Design Tokens | `679-1049` | [jump](#s-2) |
+| &nbsp;&nbsp;2.1 | &nbsp;&nbsp;Complete CSS variable set | `684-806` | [jump](#s-2-1) |
+| &nbsp;&nbsp;2.2 | &nbsp;&nbsp;Tailwind v4 theme mapping | `807-850` | [jump](#s-2-2) |
+| &nbsp;&nbsp;2.3 | &nbsp;&nbsp;Tailwind v3 configuration (legacy projects) | `851-882` | [jump](#s-2-3) |
+| &nbsp;&nbsp;2.4 | &nbsp;&nbsp;Primitive and semantic layers | `883-904` | [jump](#s-2-4) |
+| &nbsp;&nbsp;2.5 | &nbsp;&nbsp;TypeScript token types | `905-933` | [jump](#s-2-5) |
+| &nbsp;&nbsp;2.6 | &nbsp;&nbsp;Motion tokens for Framer Motion | `934-970` | [jump](#s-2-6) |
+| &nbsp;&nbsp;2.7 | &nbsp;&nbsp;Z-index policy | `971-986` | [jump](#s-2-7) |
+| &nbsp;&nbsp;2.8 | &nbsp;&nbsp;Breakpoints and container queries | `987-1005` | [jump](#s-2-8) |
+| &nbsp;&nbsp;2.9 | &nbsp;&nbsp;Light mode | `1006-1032` | [jump](#s-2-9) |
+| &nbsp;&nbsp;2.10 | &nbsp;&nbsp;Token rules for agents | `1033-1049` | [jump](#s-2-10) |
+| 3 | Component Library | `1050-2052` | [jump](#s-3) |
+| &nbsp;&nbsp;3.1 | &nbsp;&nbsp;Buttons | `1057-1177` | [jump](#s-3-1) |
+| &nbsp;&nbsp;3.2 | &nbsp;&nbsp;Surfaces: glass panel, card, tile, sheet | `1178-1294` | [jump](#s-3-2) |
+| &nbsp;&nbsp;3.3 | &nbsp;&nbsp;Badges, chips and pills | `1295-1333` | [jump](#s-3-3) |
+| &nbsp;&nbsp;3.4 | &nbsp;&nbsp;Form controls | `1334-1409` | [jump](#s-3-4) |
+| &nbsp;&nbsp;3.5 | &nbsp;&nbsp;Data display: tables, lists, key-value, stats | `1410-1462` | [jump](#s-3-5) |
+| &nbsp;&nbsp;3.6 | &nbsp;&nbsp;Navigation: navbar, menu, sidebar, tabs, command palette | `1463-1544` | [jump](#s-3-6) |
+| &nbsp;&nbsp;3.7 | &nbsp;&nbsp;Hero | `1545-1565` | [jump](#s-3-7) |
+| &nbsp;&nbsp;3.8 | &nbsp;&nbsp;Bento grid | `1566-1590` | [jump](#s-3-8) |
+| &nbsp;&nbsp;3.9 | &nbsp;&nbsp;Spotlight and pointer-reactive surfaces | `1591-1604` | [jump](#s-3-9) |
+| &nbsp;&nbsp;3.10 | &nbsp;&nbsp;Marquee, logo cloud and testimonials | `1605-1624` | [jump](#s-3-10) |
+| &nbsp;&nbsp;3.11 | &nbsp;&nbsp;Accordion, FAQ and tabbed showcases | `1625-1653` | [jump](#s-3-11) |
+| &nbsp;&nbsp;3.12 | &nbsp;&nbsp;Pricing | `1654-1678` | [jump](#s-3-12) |
+| &nbsp;&nbsp;3.13 | &nbsp;&nbsp;Metrics, counters and KPI tiles | `1679-1688` | [jump](#s-3-13) |
+| &nbsp;&nbsp;3.14 | &nbsp;&nbsp;Timeline, steps and roadmap | `1689-1700` | [jump](#s-3-14) |
+| &nbsp;&nbsp;3.15 | &nbsp;&nbsp;Footer | `1701-1714` | [jump](#s-3-15) |
+| &nbsp;&nbsp;3.16 | &nbsp;&nbsp;Overlays: modal, drawer, sheet, confirm | `1715-1735` | [jump](#s-3-16) |
+| &nbsp;&nbsp;3.17 | &nbsp;&nbsp;Toasts and notifications | `1736-1749` | [jump](#s-3-17) |
+| &nbsp;&nbsp;3.18 | &nbsp;&nbsp;Tooltip, popover and dropdown menu | `1750-1762` | [jump](#s-3-18) |
+| &nbsp;&nbsp;3.19 | &nbsp;&nbsp;Avatars, user menu and presence | `1763-1775` | [jump](#s-3-19) |
+| &nbsp;&nbsp;3.20 | &nbsp;&nbsp;Skeleton, loading, empty and error states | `1776-1811` | [jump](#s-3-20) |
+| &nbsp;&nbsp;3.21 | &nbsp;&nbsp;Charts and data visualization | `1812-1853` | [jump](#s-3-21) |
+| &nbsp;&nbsp;3.22 | &nbsp;&nbsp;Calendar, date picker and scheduling | `1854-1868` | [jump](#s-3-22) |
+| &nbsp;&nbsp;3.23 | &nbsp;&nbsp;File upload, media and lightbox | `1869-1888` | [jump](#s-3-23) |
+| &nbsp;&nbsp;3.24 | &nbsp;&nbsp;Code blocks, terminal and diff viewer | `1889-1913` | [jump](#s-3-24) |
+| &nbsp;&nbsp;3.25 | &nbsp;&nbsp;Feature sections, comparison and integrations | `1914-1930` | [jump](#s-3-25) |
+| &nbsp;&nbsp;3.26 | &nbsp;&nbsp;Call to action, newsletter and waitlist | `1931-1944` | [jump](#s-3-26) |
+| &nbsp;&nbsp;3.27 | &nbsp;&nbsp;Scroll utilities | `1945-1956` | [jump](#s-3-27) |
+| &nbsp;&nbsp;3.28 | &nbsp;&nbsp;Onboarding, stepper and product tour | `1957-1970` | [jump](#s-3-28) |
+| &nbsp;&nbsp;3.29 | &nbsp;&nbsp;Settings and preferences UI | `1971-1984` | [jump](#s-3-29) |
+| &nbsp;&nbsp;3.30 | &nbsp;&nbsp;Search results and filters | `1985-1999` | [jump](#s-3-30) |
+| &nbsp;&nbsp;3.31 | &nbsp;&nbsp;Copy, empty and loading micro-patterns (quality details) | `2000-2020` | [jump](#s-3-31) |
+| &nbsp;&nbsp;3.32 | &nbsp;&nbsp;Component index (quick lookup) | `2021-2052` | [jump](#s-3-32) |
+| 4 | Chat Scene | `2053-2765` | [jump](#s-4) |
+| &nbsp;&nbsp;4.0 | &nbsp;&nbsp;Chat scene blueprint | `2064-2109` | [jump](#s-4-0) |
+| &nbsp;&nbsp;4.1 | &nbsp;&nbsp;Principles for AI interfaces | `2110-2125` | [jump](#s-4-1) |
+| &nbsp;&nbsp;4.2 | &nbsp;&nbsp;Message list and thread behavior | `2126-2195` | [jump](#s-4-2) |
+| &nbsp;&nbsp;4.3 | &nbsp;&nbsp;Message anatomy | `2196-2270` | [jump](#s-4-3) |
+| &nbsp;&nbsp;4.4 | &nbsp;&nbsp;Message types (rendering matrix) | `2271-2292` | [jump](#s-4-4) |
+| &nbsp;&nbsp;4.5 | &nbsp;&nbsp;Markdown, typography and rich rendering | `2293-2320` | [jump](#s-4-5) |
+| &nbsp;&nbsp;4.6 | &nbsp;&nbsp;Streaming, stop, retry and regeneration | `2321-2362` | [jump](#s-4-6) |
+| &nbsp;&nbsp;4.7 | &nbsp;&nbsp;Composer (the input surface) | `2363-2487` | [jump](#s-4-7) |
+| &nbsp;&nbsp;4.8 | &nbsp;&nbsp;Reasoning and thinking display | `2488-2535` | [jump](#s-4-8) |
+| &nbsp;&nbsp;4.9 | &nbsp;&nbsp;Tool calls, function results and approvals | `2536-2564` | [jump](#s-4-9) |
+| &nbsp;&nbsp;4.10 | &nbsp;&nbsp;Artifacts and the canvas panel | `2565-2593` | [jump](#s-4-10) |
+| &nbsp;&nbsp;4.11 | &nbsp;&nbsp;Citations, sources and retrieval | `2594-2605` | [jump](#s-4-11) |
+| &nbsp;&nbsp;4.12 | &nbsp;&nbsp;Empty state, prompt suggestions and follow-ups | `2606-2628` | [jump](#s-4-12) |
+| &nbsp;&nbsp;4.13 | &nbsp;&nbsp;Sidebar, sessions and history | `2629-2645` | [jump](#s-4-13) |
+| &nbsp;&nbsp;4.14 | &nbsp;&nbsp;Multi-user presence and collaboration | `2646-2657` | [jump](#s-4-14) |
+| &nbsp;&nbsp;4.15 | &nbsp;&nbsp;Chat settings and model selection | `2658-2673` | [jump](#s-4-15) |
+| &nbsp;&nbsp;4.16 | &nbsp;&nbsp;Chat keyboard map and accessibility | `2674-2703` | [jump](#s-4-16) |
+| &nbsp;&nbsp;4.17 | &nbsp;&nbsp;Chat hero (marketing variant) | `2704-2715` | [jump](#s-4-17) |
+| &nbsp;&nbsp;4.18 | &nbsp;&nbsp;Feedback, ratings and sharing | `2716-2730` | [jump](#s-4-18) |
+| &nbsp;&nbsp;4.19 | &nbsp;&nbsp;Selection toolbar inside the thread | `2731-2747` | [jump](#s-4-19) |
+| &nbsp;&nbsp;4.20 | &nbsp;&nbsp;Chat scene anti-patterns | `2748-2765` | [jump](#s-4-20) |
+| 5 | Page Blueprints | `2766-2992` | [jump](#s-5) |
+| &nbsp;&nbsp;5.1 | &nbsp;&nbsp;SaaS landing page (golden path) | `2772-2796` | [jump](#s-5-1) |
+| &nbsp;&nbsp;5.2 | &nbsp;&nbsp;Additional marketing sections | `2797-2811` | [jump](#s-5-2) |
+| &nbsp;&nbsp;5.3 | &nbsp;&nbsp;Portfolio and personal site | `2812-2830` | [jump](#s-5-3) |
+| &nbsp;&nbsp;5.4 | &nbsp;&nbsp;Pricing page | `2831-2842` | [jump](#s-5-4) |
+| &nbsp;&nbsp;5.5 | &nbsp;&nbsp;Documentation site | `2843-2861` | [jump](#s-5-5) |
+| &nbsp;&nbsp;5.6 | &nbsp;&nbsp;Blog, changelog and content pages | `2862-2881` | [jump](#s-5-6) |
+| &nbsp;&nbsp;5.7 | &nbsp;&nbsp;Dashboard and admin | `2882-2906` | [jump](#s-5-7) |
+| &nbsp;&nbsp;5.8 | &nbsp;&nbsp;Authentication and utility pages | `2907-2937` | [jump](#s-5-8) |
+| &nbsp;&nbsp;5.9 | &nbsp;&nbsp;Waitlist and coming soon | `2938-2947` | [jump](#s-5-9) |
+| &nbsp;&nbsp;5.10 | &nbsp;&nbsp;Error, empty and edge-case pages | `2948-2960` | [jump](#s-5-10) |
+| &nbsp;&nbsp;5.11 | &nbsp;&nbsp;SEO, metadata and social surface | `2961-2975` | [jump](#s-5-11) |
+| &nbsp;&nbsp;5.12 | &nbsp;&nbsp;Page composition checklist | `2976-2992` | [jump](#s-5-12) |
+| 6 | Motion System | `2993-3401` | [jump](#s-6) |
+| &nbsp;&nbsp;6.1 | &nbsp;&nbsp;Motion vocabulary | `2998-3012` | [jump](#s-6-1) |
+| &nbsp;&nbsp;6.2 | &nbsp;&nbsp;Scroll reveal (the default) | `3013-3098` | [jump](#s-6-2) |
+| &nbsp;&nbsp;6.3 | &nbsp;&nbsp;Orchestration and sequences | `3099-3118` | [jump](#s-6-3) |
+| &nbsp;&nbsp;6.4 | &nbsp;&nbsp;Scroll-linked animation | `3119-3149` | [jump](#s-6-4) |
+| &nbsp;&nbsp;6.5 | &nbsp;&nbsp;Sticky scrollytelling | `3150-3182` | [jump](#s-6-5) |
+| &nbsp;&nbsp;6.6 | &nbsp;&nbsp;Parallax layers | `3183-3191` | [jump](#s-6-6) |
+| &nbsp;&nbsp;6.7 | &nbsp;&nbsp;Horizontal scroll gallery | `3192-3218` | [jump](#s-6-7) |
+| &nbsp;&nbsp;6.8 | &nbsp;&nbsp;Pinning, progress and sticky headers | `3219-3228` | [jump](#s-6-8) |
+| &nbsp;&nbsp;6.9 | &nbsp;&nbsp;Page and route transitions | `3229-3239` | [jump](#s-6-9) |
+| &nbsp;&nbsp;6.10 | &nbsp;&nbsp;Micro-interaction catalog | `3240-3258` | [jump](#s-6-10) |
+| &nbsp;&nbsp;6.11 | &nbsp;&nbsp;Ambient motion | `3259-3273` | [jump](#s-6-11) |
+| &nbsp;&nbsp;6.12 | &nbsp;&nbsp;Reduced motion and performance (mandatory) | `3274-3307` | [jump](#s-6-12) |
+| &nbsp;&nbsp;6.13 | &nbsp;&nbsp;Motion QA checklist | `3308-3321` | [jump](#s-6-13) |
+| &nbsp;&nbsp;6.14 | &nbsp;&nbsp;Minimum motion baseline (mandatory for every component) | `3322-3350` | [jump](#s-6-14) |
+| &nbsp;&nbsp;6.15 | &nbsp;&nbsp;Images and media on scroll | `3351-3401` | [jump](#s-6-15) |
+| 7 | Recipes (copy and paste) | `3402-3811` | [jump](#s-7) |
+| &nbsp;&nbsp;7.1 | &nbsp;&nbsp;Project setup | `3407-3432` | [jump](#s-7-1) |
+| &nbsp;&nbsp;7.2 | &nbsp;&nbsp;The Vitral surface CSS (canonical) | `3433-3512` | [jump](#s-7-2) |
+| &nbsp;&nbsp;7.3 | &nbsp;&nbsp;Aurora background | `3513-3550` | [jump](#s-7-3) |
+| &nbsp;&nbsp;7.4 | &nbsp;&nbsp;Hero section (complete) | `3551-3600` | [jump](#s-7-4) |
+| &nbsp;&nbsp;7.5 | &nbsp;&nbsp;Scroll progress and back to top | `3601-3640` | [jump](#s-7-5) |
+| &nbsp;&nbsp;7.6 | &nbsp;&nbsp;Animated counter | `3641-3678` | [jump](#s-7-6) |
+| &nbsp;&nbsp;7.7 | &nbsp;&nbsp;Marquee | `3679-3692` | [jump](#s-7-7) |
+| &nbsp;&nbsp;7.8 | &nbsp;&nbsp;Theme toggle without flash | `3693-3714` | [jump](#s-7-8) |
+| &nbsp;&nbsp;7.9 | &nbsp;&nbsp;shadcn bridge (skinning shadcn components to Nova Vitral) | `3715-3792` | [jump](#s-7-9) |
+| &nbsp;&nbsp;7.10 | &nbsp;&nbsp;Test and audit snippets | `3793-3811` | [jump](#s-7-10) |
+| 8 | Open-Source References (MIT and permissive) | `3812-3971` | [jump](#s-8) |
+| &nbsp;&nbsp;8.1 | &nbsp;&nbsp;Primary component foundation | `3823-3834` | [jump](#s-8-1) |
+| &nbsp;&nbsp;8.2 | &nbsp;&nbsp;Motion and animation | `3835-3848` | [jump](#s-8-2) |
+| &nbsp;&nbsp;8.3 | &nbsp;&nbsp;Visual inspiration (pattern libraries, MIT unless noted) | `3849-3874` | [jump](#s-8-3) |
+| &nbsp;&nbsp;8.4 | &nbsp;&nbsp;Data, charts and tables | `3875-3889` | [jump](#s-8-4) |
+| &nbsp;&nbsp;8.5 | &nbsp;&nbsp;Content, editors and AI interface pieces | `3890-3909` | [jump](#s-8-5) |
+| &nbsp;&nbsp;8.6 | &nbsp;&nbsp;Typography, icons and assets | `3910-3925` | [jump](#s-8-6) |
+| &nbsp;&nbsp;8.7 | &nbsp;&nbsp;Engineering references (structure and quality, not visuals) | `3926-3940` | [jump](#s-8-7) |
+| &nbsp;&nbsp;8.8 | &nbsp;&nbsp;How to cite references in generated code | `3941-3955` | [jump](#s-8-8) |
+| &nbsp;&nbsp;8.9 | &nbsp;&nbsp;Credits block for the README | `3956-3971` | [jump](#s-8-9) |
+| 9 | Quality Gates | `3972-4151` | [jump](#s-9) |
+| &nbsp;&nbsp;9.1 | &nbsp;&nbsp;Accessibility (WCAG 2.2 AA, non-negotiable) | `3974-3998` | [jump](#s-9-1) |
+| &nbsp;&nbsp;9.2 | &nbsp;&nbsp;Accessibility audit recipe for glass interfaces | `3999-4013` | [jump](#s-9-2) |
+| &nbsp;&nbsp;9.3 | &nbsp;&nbsp;Performance budget | `4014-4033` | [jump](#s-9-3) |
+| &nbsp;&nbsp;9.4 | &nbsp;&nbsp;Visual QA checklist | `4034-4050` | [jump](#s-9-4) |
+| &nbsp;&nbsp;9.5 | &nbsp;&nbsp;Anti-patterns (what makes a page look machine-generated) | `4051-4099` | [jump](#s-9-5) |
+| &nbsp;&nbsp;9.6 | &nbsp;&nbsp;Code review checklist for generated UI | `4100-4117` | [jump](#s-9-6) |
+| &nbsp;&nbsp;9.7 | &nbsp;&nbsp;Design critique rubric (score each 0 to 5) | `4118-4135` | [jump](#s-9-7) |
+| &nbsp;&nbsp;9.8 | &nbsp;&nbsp;Definition of done | `4136-4151` | [jump](#s-9-8) |
+| 10 | Working With AI Agents | `4152-4307` | [jump](#s-10) |
+| &nbsp;&nbsp;10.1 | &nbsp;&nbsp;Loading the specification | `4156-4167` | [jump](#s-10-1) |
+| &nbsp;&nbsp;10.2 | &nbsp;&nbsp;The master prompt pattern | `4168-4208` | [jump](#s-10-2) |
+| &nbsp;&nbsp;10.3 | &nbsp;&nbsp;Task decomposition for large builds | `4209-4224` | [jump](#s-10-3) |
+| &nbsp;&nbsp;10.4 | &nbsp;&nbsp;Token economy (keeping the agent cheap and accurate) | `4225-4234` | [jump](#s-10-4) |
+| &nbsp;&nbsp;10.5 | &nbsp;&nbsp;Self-review loop (the agent must run this before answering) | `4235-4250` | [jump](#s-10-5) |
+| &nbsp;&nbsp;10.6 | &nbsp;&nbsp;Common agent failure modes and their fixes | `4251-4266` | [jump](#s-10-6) |
+| &nbsp;&nbsp;10.7 | &nbsp;&nbsp;Multi-agent and multi-session work | `4267-4277` | [jump](#s-10-7) |
+| &nbsp;&nbsp;10.8 | &nbsp;&nbsp;Prompt library (external files in this repository) | `4278-4296` | [jump](#s-10-8) |
+| &nbsp;&nbsp;10.9 | &nbsp;&nbsp;Definition of done for an agent session | `4297-4307` | [jump](#s-10-9) |
+| 11 | Appendix | `4308-4518` | [jump](#s-11) |
+| &nbsp;&nbsp;11.1 | &nbsp;&nbsp;Glossary | `4310-4334` | [jump](#s-11-1) |
+| &nbsp;&nbsp;11.2 | &nbsp;&nbsp;Utility functions | `4335-4396` | [jump](#s-11-2) |
+| &nbsp;&nbsp;11.3 | &nbsp;&nbsp;Recommended project structure | `4397-4438` | [jump](#s-11-3) |
+| &nbsp;&nbsp;11.4 | &nbsp;&nbsp;Section wrapper (layout primitive) | `4439-4467` | [jump](#s-11-4) |
+| &nbsp;&nbsp;11.5 | &nbsp;&nbsp;Copy guidelines | `4468-4482` | [jump](#s-11-5) |
+| &nbsp;&nbsp;11.6 | &nbsp;&nbsp;Spec changelog and maintenance | `4483-4496` | [jump](#s-11-6) |
+| &nbsp;&nbsp;11.7 | &nbsp;&nbsp;License and reuse | `4497-4512` | [jump](#s-11-7) |
+| &nbsp;&nbsp;11.8 | &nbsp;&nbsp;Final note to the agent | `4513-4518` | [jump](#s-11-8) |
 
 ### 0.11 Tokens in twenty lines (quick reference) <a id="s-0-11"></a>
 
@@ -600,6 +604,38 @@ gradients on every surface, neon accents, saturated fills and glow everywhere. N
    the layout's job: remove color until it passes.
 8. **Dark-ground check.** On `--bg`, accents must reach 3:1 against the ground for large areas and
    4.5:1 for text. Neon colors often fail this while looking "bright" — measure, do not trust the eye.
+
+9. **The closed set.** Color is not a taste question inside a component. These are the only values an
+   implementation may contain:
+
+   ```css
+   --bg: #06070c;  --bg-soft: #0a0c14;  --bg-elevated: #0e1120;
+   --fg: #f5f7ff;  --fg-muted: #a8b0c8;  --fg-subtle: #6b7490;
+   --glass: rgba(255,255,255,.055);  --glass-strong: rgba(255,255,255,.09);  --glass-dim: rgba(255,255,255,.03);
+   --hair: rgba(255,255,255,.10);    --hair-strong: rgba(255,255,255,.18);
+   --accent: #7c8cff;  --accent-2: #62e9d6;  --warn: #f5b544;  --danger: #ff6b81;
+   --grad-primary: linear-gradient(135deg, #8a97ff, #6a78f0);
+   --grad-live: linear-gradient(90deg, #62e9d6, #7c8cff);
+   --grad-hairline: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04));
+   ```
+
+   Everything else is a defect. Rejected on sight: `purple`, `violet`, `fuchsia`, `magenta`,
+   `indigo-400/500/600` used as fills, `#8b5cf6`, `#a855f7`, `#7c3aed`, high-chroma `oklch()`,
+   colored glow shadows, multi-hue gradients, gradient text outside a hero H1, and a second accent in
+   one viewport.
+
+   | Instead of | Write |
+   |---|---|
+   | `bg-purple-500`, `bg-violet-500` | `bg-[var(--glass)]` plus a `border border-[var(--hair)]` |
+   | a colored glow shadow | nothing, or a 1px `--hair-strong` ring on hover |
+   | `from-purple-500 to-blue-500` | `[image:var(--grad-primary)]`, primary action only |
+   | `bg-emerald-500`, `bg-rose-500` as blocks | a dot, an icon or a 12 percent chip in `--accent-2`, `--warn` or `--danger` |
+   | `backdrop-blur-2xl` over a flat ground | glass over an aurora, gradient or image |
+
+10. **The five tells of machine-generated UI.** Remove all five before delivering: a purple or violet
+    primary, usually on a gradient button; colored glow shadows under cards and buttons; three or more
+    accents competing in one viewport; emoji standing in for icons, or a mixed icon set; every element
+    animating at once, for 1.5s, with a bounce.
 
 **Aurora hues** (background light only, always blurred)
 
@@ -3452,6 +3488,85 @@ Performance rules:
 9. The page holds 60fps on a mid-range device with the aurora enabled.
 10. No animation runs on hover in a coarse-pointer context.
 
+
+### 6.14 Minimum motion baseline (mandatory for every component) <a id="s-6-14"></a>
+
+A component with no animation is incomplete work. Spec 6.13 covers what must not happen; this section
+covers what must. Every interactive or structural component ships **at least two** of the following,
+and every page ships all five groups.
+
+| Group | Minimum | Token | Duration |
+|---|---|---|---|
+| Entrance | opacity 0 to 1, 16px rise, fires once at 25 percent visibility | `nv-fade-up`, `nv-reveal` | 760ms |
+| Hover | 2px lift, or one step up in fill, or a hairline brightening | `nv-lift`, `nv-lift-lg` | 240ms |
+| Press | scale 0.98, no color change | `nv-press` | 140ms |
+| State change | fill, border or text color interpolates between states | color transition | 240ms |
+| Attention | one pulsing dot, one caret, or one shimmer per viewport, never more | `nv-pulse`, `nv-caret-blink`, `nv-shimmer` | 1s to 1.4s |
+
+Rules:
+
+1. **Nothing animates on load except the hero.** The hero sequence completes within 900ms; everything
+   else waits for visibility.
+2. **Zero-motion components are rejected.** In particular, a pasted third-party component that
+   renders flat must be given the baseline before it is delivered: `nv-fade-up` on entry, `nv-lift` on
+   interactive surfaces, `nv-press` on buttons, a 240ms color transition, and a visible focus ring.
+3. **Discrete states cross-fade.** Hover, active and focus must never snap: 140 to 240ms, easing
+   `--ease-out`.
+4. **Data surfaces animate once.** Charts draw at 760ms on first view, then never again on scroll.
+5. **Reduced motion keeps the meaning.** Under `prefers-reduced-motion: reduce` the final state
+   renders immediately and the focus ring still appears. Nothing is hidden and nothing loops.
+6. **The baseline is a floor, not a target.** Add scroll-linked and orchestrated motion per 6.4 to
+   6.8 when the page earns it; never add a second effect to an element that already moves.
+
+### 6.15 Images and media on scroll <a id="s-6-15"></a>
+
+Images are where amateur work shows: they fade in over 1.5 seconds, they push the page because nobody
+reserved the box, or they sit dead still while everything around them moves. The professional pattern
+is a reserved box, a single entrance, and at most one damped parallax per page.
+
+**The default: veil uncover plus settle**
+
+```tsx
+// Transform-only, so it stays on the compositor. One entrance per image, never two stacked.
+<motion.div
+  className="absolute inset-0"
+  initial={{ scale: 1.06, opacity: 0.6 }}
+  whileInView={{ scale: 1, opacity: 1 }}
+  viewport={{ once: true, amount: 0.35, margin: "0px 0px -12% 0px" }}
+  transition={{ duration: 0.76, ease: [0.16, 1, 0.3, 1] }}
+>
+  <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+</motion.div>
+
+<motion.span
+  aria-hidden="true"
+  className="absolute inset-0 origin-bottom bg-[var(--bg)]"
+  initial={{ scaleY: 1, opacity: 1 }}
+  whileInView={{ scaleY: 0, opacity: 0 }}
+  viewport={{ once: true, amount: 0.35, margin: "0px 0px -12% 0px" }}
+  transition={{ duration: 0.76, ease: [0.16, 1, 0.3, 1] }}
+/>
+```
+
+| Rule | Value |
+|---|---|
+| Reserved box | `aspect-ratio` on the frame, decided before the image loads; CLS stays at 0 |
+| Over-scale | 1.02 to 1.08; anything larger reads as a slideshow transition |
+| Entrance | 760ms, `--ease-out`, fires once at 35 percent visibility, 12 to 24px of travel if it moves |
+| Parallax | factor 0.04 to 0.12 (6 percent default), one or two frames per page, spring damping 24 or higher |
+| Parallax frame | `overflow: hidden` with an 8 percent oversized inner box, so no edge is exposed over the travel |
+| Gallery | vertical scroll may drive one horizontal track per page, 66 percent of the track width, with a progress affordance and a wrapping fallback below 768px |
+| Caption | static; it may sit on a veil gradient but never animates independently |
+| Clip-path wipes | allowed for one or two hero images per page; they are not composited, so never on a grid of tiles |
+| Forbidden | animating `filter`, grain, vignette, `object-position`, or `backdrop-filter`; a veil plus a scale plus a blur on one frame |
+| Reduced motion | image present at final scale, no veil, no parallax; the caption stays readable |
+
+Sticky scrollytelling with images follows 6.5: steps are 70 to 78vh, activate on a -45% root margin,
+cross-fade scenes over 420ms with a 12px rise, show a progress rail, and drop stickiness below 1024px.
+
+Copy-paste recipes, including the veil, the parallax frame, the sticky gallery and the counters, live
+in `prompts/13-scroll-motion-recipes.md`.
+
 ---
 
 ## 7 . Recipes (copy and paste) <a id="s-7"></a>
@@ -4541,6 +4656,7 @@ export function Section({
 |---|---|---|
 | 1.0.0 | 2026-09-15 | First release: foundations, tokens, 32 components, chat scene, blueprints, motion, recipes, 100 examples, prompt library |
 | 1.1.0 | 2026-09-15 | Color discipline (1.2.1): neutral-first, single-hue primary gradient, purple and neon banned by default, grayscale test; aurora softened; before/after showcase site added |
+| 1.2.2 | 2026-09-15 | Color gate: section 1.2.1 gains the closed set of allowed values, the rejection table and the five tells of machine-generated UI; section 6.14 (minimum motion baseline) added, which resolves the dangling 6.14 references in the prompts and components; section 6.15 (images and media on scroll) added; prompt 13 (scroll motion and image recipes) routed from the master prompt, the task prompts and the rule sets |
 | 1.2.1 | 2026-09-15 | Specification file renamed from `nova-design.md` to `design.md`; section 0.2 rewritten to state that the file is a design system specification (input, never output), that it must not be built or rendered, and that nothing may be named after its filename |
 | 1.2.0 | 2026-09-15 | Component library (500 components in 26 categories) and five complete page templates added; routing section 0.8; theme file with the shadcn variable remap; lucide-only icon rule; minimum motion baseline (6.14) restated for pasted components |
 

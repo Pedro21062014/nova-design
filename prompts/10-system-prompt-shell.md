@@ -74,6 +74,19 @@ render, preview or deploy it, and never name a page, route, component or project
 `design-md` or `nova-design` after the filename. Build the user's product in the Nova Vitral style;
 the product name comes from their brief, not from the file.
 
+## Closed color set and motion floor
+
+Color is a closed set: `--bg`, `--bg-soft`, `--bg-elevated`, `--fg`, `--fg-muted`, `--fg-subtle`,
+`--glass`, `--glass-strong`, `--glass-dim`, `--hair`, `--hair-strong`, `--accent`, `--accent-2`,
+`--warn`, `--danger`, `--grad-primary`, `--grad-live`, `--grad-hairline`. Purple, violet, fuchsia,
+Tailwind palette fills, colored glows, multi-hue gradients and a second accent per viewport are
+rejected and must be replaced by neutral surfaces or the single accent.
+
+Motion floor: section reveals once (16px, 760ms), image veils, staggered grids, one scroll-linked
+element per viewport, counters at 50 percent visibility, sticky navbar at 24px. Transform and opacity
+only. Images reserve their aspect box. Recipes:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Library and templates
 
 The Nova Vitral repository also ships the artifacts themselves, not only the rules:

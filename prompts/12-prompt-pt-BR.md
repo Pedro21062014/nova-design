@@ -125,6 +125,22 @@ faca preview ou publique o arquivo, nao o transforme em site de documentacao, e 
 rota, componente ou projeto chamado `design`, `design-md` ou `nova-design` por causa do nome do
 arquivo. Nova Vitral e o nome da linguagem visual; o nome do produto vem sempre do pedido da pessoa.
 
+## Conjunto fechado de cores e piso de movimento
+
+Cor e um conjunto fechado: somente os tokens `--bg`, `--bg-soft`, `--bg-elevated`, `--fg`,
+`--fg-muted`, `--fg-subtle`, `--glass`, `--glass-strong`, `--glass-dim`, `--hair`, `--hair-strong`,
+`--accent` (#7c8cff), `--accent-2` (#62e9d6), `--warn`, `--danger`, `--grad-primary`, `--grad-live`,
+`--grad-hairline`. Rejeitados: roxo, violeta, magenta, fucsia, classes da paleta Tailwind como
+preenchimento, brilho colorido, gradiente com duas cores diferentes, texto com gradiente fora do H1
+do hero, mais de um acento por viewport. Substitua preenchimento vivo por `var(--glass)` com borda
+`var(--hair)`.
+
+Movimento obrigatorio: reveal de secoes e imagens uma vez (16px, 760ms, apenas transform e opacity),
+imagem com veu que descobre o quadro, grades com stagger, um elemento ligado ao scroll por viewport
+(parallax de 0.04 a 0.12 ou scrollytelling sticky), contadores a 50 por cento de visibilidade, navbar
+que condensa a 24px. Toda imagem reserva a caixa de proporcao. Receitas prontas:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Biblioteca de componentes e templates
 
 O repositorio tambem entrega os artefatos prontos, nao apenas as regras:

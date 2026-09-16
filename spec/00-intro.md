@@ -141,6 +141,7 @@ Alternative loaders:
 | Imitate a whole page before building one | `@@S:0.8@@` | Page templates | - |
 | Remove purple from a pasted shadcn component | `@@S:0.8@@` + `@@S:1.2@@` + `@@S:7.9@@` | Library and color discipline | EX-41 |
 | Add motion to a component that has none | `@@S:0.8@@` + `@@S:6.1@@` + `@@S:6.14@@` | Motion baseline | EX-79 |
+| Animate images on scroll (veil, parallax, gallery) | `@@S:6.15@@` | Images and media on scroll | EX-80, EX-84 |
 | Understand the system, vocabulary and delivery rules | `@@S:0.2@@` | How to use this file | - |
 | Build the visual foundation: color, glass, type, spacing | `@@S:1@@` | Design foundations | EX-01, EX-07, EX-08 |
 | Choose colors, avoid purple and neon, apply the accent budget | `@@S:1.2@@` | Color discipline | - |
@@ -299,6 +300,7 @@ Two rules that make pasted components fail, and the fix for both:
 | System prompt shell for any agent | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/10-system-prompt-shell.md |
 | Condensed prompt for small context windows | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/11-condensed-system-prompt.md |
 | Prompt mestre em portugues | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/12-prompt-pt-BR.md |
+| Scroll motion and image animation recipes (veil, parallax, sticky gallery) | https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md |
 
 ### 0.10 Index
 

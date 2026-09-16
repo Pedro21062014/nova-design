@@ -326,4 +326,83 @@ Performance rules:
 9. The page holds 60fps on a mid-range device with the aurora enabled.
 10. No animation runs on hover in a coarse-pointer context.
 
+
+### 6.14 Minimum motion baseline (mandatory for every component)
+
+A component with no animation is incomplete work. Spec 6.13 covers what must not happen; this section
+covers what must. Every interactive or structural component ships **at least two** of the following,
+and every page ships all five groups.
+
+| Group | Minimum | Token | Duration |
+|---|---|---|---|
+| Entrance | opacity 0 to 1, 16px rise, fires once at 25 percent visibility | `nv-fade-up`, `nv-reveal` | 760ms |
+| Hover | 2px lift, or one step up in fill, or a hairline brightening | `nv-lift`, `nv-lift-lg` | 240ms |
+| Press | scale 0.98, no color change | `nv-press` | 140ms |
+| State change | fill, border or text color interpolates between states | color transition | 240ms |
+| Attention | one pulsing dot, one caret, or one shimmer per viewport, never more | `nv-pulse`, `nv-caret-blink`, `nv-shimmer` | 1s to 1.4s |
+
+Rules:
+
+1. **Nothing animates on load except the hero.** The hero sequence completes within 900ms; everything
+   else waits for visibility.
+2. **Zero-motion components are rejected.** In particular, a pasted third-party component that
+   renders flat must be given the baseline before it is delivered: `nv-fade-up` on entry, `nv-lift` on
+   interactive surfaces, `nv-press` on buttons, a 240ms color transition, and a visible focus ring.
+3. **Discrete states cross-fade.** Hover, active and focus must never snap: 140 to 240ms, easing
+   `--ease-out`.
+4. **Data surfaces animate once.** Charts draw at 760ms on first view, then never again on scroll.
+5. **Reduced motion keeps the meaning.** Under `prefers-reduced-motion: reduce` the final state
+   renders immediately and the focus ring still appears. Nothing is hidden and nothing loops.
+6. **The baseline is a floor, not a target.** Add scroll-linked and orchestrated motion per 6.4 to
+   6.8 when the page earns it; never add a second effect to an element that already moves.
+
+### 6.15 Images and media on scroll
+
+Images are where amateur work shows: they fade in over 1.5 seconds, they push the page because nobody
+reserved the box, or they sit dead still while everything around them moves. The professional pattern
+is a reserved box, a single entrance, and at most one damped parallax per page.
+
+**The default: veil uncover plus settle**
+
+```tsx
+// Transform-only, so it stays on the compositor. One entrance per image, never two stacked.
+<motion.div
+  className="absolute inset-0"
+  initial={{ scale: 1.06, opacity: 0.6 }}
+  whileInView={{ scale: 1, opacity: 1 }}
+  viewport={{ once: true, amount: 0.35, margin: "0px 0px -12% 0px" }}
+  transition={{ duration: 0.76, ease: [0.16, 1, 0.3, 1] }}
+>
+  <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+</motion.div>
+
+<motion.span
+  aria-hidden="true"
+  className="absolute inset-0 origin-bottom bg-[var(--bg)]"
+  initial={{ scaleY: 1, opacity: 1 }}
+  whileInView={{ scaleY: 0, opacity: 0 }}
+  viewport={{ once: true, amount: 0.35, margin: "0px 0px -12% 0px" }}
+  transition={{ duration: 0.76, ease: [0.16, 1, 0.3, 1] }}
+/>
+```
+
+| Rule | Value |
+|---|---|
+| Reserved box | `aspect-ratio` on the frame, decided before the image loads; CLS stays at 0 |
+| Over-scale | 1.02 to 1.08; anything larger reads as a slideshow transition |
+| Entrance | 760ms, `--ease-out`, fires once at 35 percent visibility, 12 to 24px of travel if it moves |
+| Parallax | factor 0.04 to 0.12 (6 percent default), one or two frames per page, spring damping 24 or higher |
+| Parallax frame | `overflow: hidden` with an 8 percent oversized inner box, so no edge is exposed over the travel |
+| Gallery | vertical scroll may drive one horizontal track per page, 66 percent of the track width, with a progress affordance and a wrapping fallback below 768px |
+| Caption | static; it may sit on a veil gradient but never animates independently |
+| Clip-path wipes | allowed for one or two hero images per page; they are not composited, so never on a grid of tiles |
+| Forbidden | animating `filter`, grain, vignette, `object-position`, or `backdrop-filter`; a veil plus a scale plus a blur on one frame |
+| Reduced motion | image present at final scale, no veil, no parallax; the caption stays readable |
+
+Sticky scrollytelling with images follows 6.5: steps are 70 to 78vh, activate on a -45% root margin,
+cross-fade scenes over 420ms with a 12px rise, show a progress rail, and drop stickiness below 1024px.
+
+Copy-paste recipes, including the veil, the parallax frame, the sticky gallery and the counters, live
+in `prompts/13-scroll-motion-recipes.md`.
+
 ---

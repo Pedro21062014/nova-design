@@ -57,6 +57,26 @@ Flow: read `components/index.json`, open the two or three files that match the r
 then adapt the copy. If nothing matches, write the new component in the same shape (same prop names,
 same tokens, same motion ladder: 140 to 760ms, 12 to 24px of travel, once).
 
+## Color gate and motion floor (apply before anything else)
+
+Closed set: `--bg`, `--bg-soft`, `--bg-elevated`, `--fg`, `--fg-muted`, `--fg-subtle`, `--glass`,
+`--glass-strong`, `--glass-dim`, `--hair`, `--hair-strong`, `--accent` (#7c8cff), `--accent-2`
+(#62e9d6), `--warn`, `--danger`, `--grad-primary`, `--grad-live`, `--grad-hairline`. Nothing else.
+Rejected without discussion: `purple`, `violet`, `fuchsia`, `magenta`, `indigo-400/500/600` as fills,
+`#8b5cf6`, `#a855f7`, `#7c3aed`, `oklch(` with high chroma, colored glows, multi-hue gradients,
+gradient text outside a hero H1, more than one accent per viewport.
+
+Replace: a purple or vivid fill becomes `var(--glass)` plus a `var(--hair)` border; a colored glow
+becomes nothing, or a 1px `--hair-strong` ring on hover; a saturated status block becomes a dot, an
+icon or a 12 percent chip in `--accent-2`, `--warn` or `--danger`; a multi-hue gradient becomes
+`--grad-primary` on the single primary action, or a neutral surface.
+
+Motion floor (a component with none is incomplete): an entrance (`nv-fade-up`, 16px, 760ms, once), a
+hover response (2px lift or a fill step, 240ms), a press (0.98, 140ms), and a visible focus ring.
+Scroll effects for sections and images: reveal, image veil uncover, staggered grid, one scroll-linked
+element (parallax 0.04 to 0.12 or sticky scrollytelling), counters at 50 percent visibility. Recipes:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Component checklist before the agent answers
 
 | Check | Requirement |

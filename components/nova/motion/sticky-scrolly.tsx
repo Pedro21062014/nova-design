@@ -80,8 +80,9 @@ function Step({
     const node = ref.current;
     if (!node) return;
     const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) onActive();
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) onActive();
       },
       { rootMargin: "-45% 0px -45% 0px", threshold: 0 },
     );

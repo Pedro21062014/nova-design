@@ -85,6 +85,27 @@ the component; repair these four layers.
 Then prove it: no purple token left, no layout shift, every interactive element has a hover and a
 focus state, and the grayscale test still shows the primary action.
 
+## When the complaint is "too vibrant" or "not professional"
+
+Vibrancy is usually five specific defects. Fix them in this order and show the diff for each:
+
+1. **Accent count.** Count the colors above 20 percent saturation per viewport. If it is more than one,
+   neutralize all but the primary action: `--glass`, `--hair`, `--fg-muted`.
+2. **Palette fills.** Replace every `bg-<hue>-<n>`, `text-<hue>-<n>` and `border-<hue>-<n>` with the
+   token set. Status colors become a dot, an icon or a 12 percent chip, never a filled block.
+3. **Glows and shadows.** Delete colored `box-shadow`. Depth comes from a hairline plus one neutral
+   shadow token; hover adds a 1px `--hair-strong` ring or a 2px lift, not light.
+4. **Gradients.** Keep exactly one: `--grad-primary` on the single primary action. Gradient text is
+   allowed only on a hero H1. Multi-hue gradients are deleted, not softened.
+5. **Motion restraint.** If everything animates, nothing reads as animated. Keep reveals on sections
+   and images, one scroll-linked element, and micro-states on interactive elements; remove the rest.
+
+Then state the four audit results (banned-token search, accent count, grayscale test, contrast) in one
+line each.
+
+Motion recipes for the scroll layer, including images:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Reference files for these repairs
 
 | Failure | Read this raw file |

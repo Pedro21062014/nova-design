@@ -80,6 +80,28 @@ the product name always comes from the user's brief.
     attribution. UI text in the project language; code and identifiers in English.
 18. **No emojis** in production UI, code comments or commit messages.
 
+## Closed color set (hard)
+
+The only color values allowed in this project: `--bg`, `--bg-soft`, `--bg-elevated`, `--fg`,
+`--fg-muted`, `--fg-subtle`, `--glass`, `--glass-strong`, `--glass-dim`, `--hair`, `--hair-strong`,
+`--accent`, `--accent-2`, `--warn`, `--danger`, `--grad-primary`, `--grad-live`, `--grad-hairline`.
+
+Rejected on sight: `purple`, `violet`, `fuchsia`, `magenta`, `indigo-400/500/600` as fills,
+`#8b5cf6`, `#a855f7`, `#7c3aed`, `oklch(` with high chroma, colored glow shadows, multi-hue
+gradients, gradient text outside a hero H1, two accents in one viewport. Replace a vivid fill with
+`var(--glass)` plus a `var(--hair)` border; replace a glow with nothing, or a 1px `--hair-strong`
+ring on hover; replace a saturated status block with a dot, icon or 12 percent chip.
+
+## Scroll and image motion (hard)
+
+Every page ships the motion layer: section reveals (16px rise, 760ms, once), image veils (uncover plus
+a settle from 1.06 scale), staggered grids (60 to 80ms per sibling, capped under 400ms), one
+scroll-linked element per viewport (parallax factor 0.04 to 0.12, or sticky scrollytelling), counters
+at 50 percent visibility, and a navbar that condenses at 24px. Animate `transform` and `opacity` only.
+Images reserve their aspect box and use `object-cover` with real `sizes`. Nothing above 900ms, no
+travel above 24px, never `once: false`, no bounce easing. Recipes:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 ## Color discipline (mandatory)
 
 - Neutral-first: at least 90 percent of the pixels are ground, glass white or text grays. Color is

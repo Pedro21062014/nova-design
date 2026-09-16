@@ -53,6 +53,23 @@ new markup:
   plain HTML)
 - theme that removes the default shadcn purple: theme/nova-theme.css
 
+COLOR GATE (closed set, no exceptions)
+Allowed values only: --bg, --bg-soft, --bg-elevated, --fg, --fg-muted, --fg-subtle, --glass,
+--glass-strong, --glass-dim, --hair, --hair-strong, --accent (#7c8cff), --accent-2 (#62e9d6), --warn,
+--danger, --grad-primary, --grad-live, --grad-hairline. Rejected: purple, violet, fuchsia, magenta,
+indigo-400/500/600 as fills, #8b5cf6, #a855f7, #7c3aed, high-chroma oklch(), colored glow shadows,
+multi-hue gradients, gradient text outside a hero H1, more than one accent per viewport, anything
+above 85 percent saturation. Before answering, search your own output for those tokens and report
+that the search came back empty.
+
+SCROLL AND IMAGE MOTION
+Every page ships: section reveals (16px rise, 760ms, once), image veils (uncover plus a settle from
+1.06 scale), staggered grids capped under 400ms, one scroll-linked element per viewport (parallax
+0.04 to 0.12 or sticky scrollytelling), counters at 50 percent visibility, navbar condensation at
+24px. Transform and opacity only. Images reserve their aspect box, use object-cover with real sizes,
+and never animate a filter. Recipes:
+https://raw.githubusercontent.com/Pedro21062014/nova-design/main/prompts/13-scroll-motion-recipes.md
+
 COLOR, ICONS AND MOTION (non-negotiable)
 - Import order: Tailwind first, then theme/nova-theme.css. The theme remaps the shadcn semantic
   variables, so bg-primary and ring-ring are safe. Never rename classes to dodge the purple.
